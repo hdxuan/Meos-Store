@@ -1,0 +1,124 @@
+
+/* Edit profile */
+.separation{
+    width: 90%;
+    height: 1px;
+    margin: 30px auto;
+    background-color: rgba(192, 190, 190, 0.678);
+}
+.profile {
+    display: flex;
+    /* align-items: center; */
+    margin-top: 40px;
+}
+
+/* Edit avatar */
+
+.edit--avatar {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.edit--avatar img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 10px 50px;
+}
+
+.edit-user {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 23%;
+    right: 20%;
+    border-radius: 50%;
+    border: 2px solid rgb(240, 237, 237);
+    box-shadow: 0 0 0 2px rgb(216, 52, 107);
+    color:var(--color-primary);
+    cursor: pointer;
+}
+
+.user-name {
+    font-size: 1.9rem;
+    line-height: 2.5rem;
+    font-weight: 500;
+    
+}
+
+/* Edit avatar */
+
+/* Edit info */
+
+.edit--profile {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10rem;
+}
+
+.profile__item {
+    margin-bottom: 30px;
+}
+
+.profile__item h3 {
+    font-size: 25px;
+    line-height: 5.5rem;
+    font-weight: 500;
+    color:var(--color-primary);
+    
+    border: none;
+    border-radius: 5px;
+    
+
+}
+
+.profile__item--informations {
+    padding: 30px 30px; 
+
+    border-radius: 20px;
+    box-shadow:0 0 5px rgb(44 44 44 / 50%) ;
+    
+}
+
+.profile__item--informations form{
+    display: grid;
+    grid-template-columns: 0.8fr 1fr;
+    grid-gap: 15px 11px;
+    align-items: center;
+    
+}
+.profile__item--informations label{
+    font-weight: bold;
+    
+}
+.profile__item--informations input{
+    border-radius: 15px;
+    border: 2px solid #fff;
+    outline: none;
+
+    width: 100%;
+    padding: 10px 20px;
+
+    background-color: rgba(197, 195, 195, 0.849);
+    
+}
+.profile__item--informations button{
+    padding: 7px 50px;
+    justify-self: center;
+    grid-column: 1 / span 2;
+}
+
+/* End edit info */
+/* Edit purchase history */
+
+.edit-profile--purchase-history {}
+
+.purchase-history {}
+
+/* End edit purchase history */
+
+/* End edit profile */
+
