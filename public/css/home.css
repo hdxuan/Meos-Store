@@ -42,6 +42,11 @@
   font-family: var(--font-poppins);
 }
 
+.category__item:hover{
+    opacity: 0.8;
+    transition: all 1s ease-out;
+
+}
 .dog__category{
   background-color: #f09e33d8;
 }
@@ -49,12 +54,9 @@
   box-shadow: 0 0 16px  #fd5d702d;
   box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.164);
   border: 2px solid #f09e33d8;
-  transition: all 0.2s ease-out;
-  opacity: 0.9;
-
 }
 .dog__category:hover{
-  border: 2px solid #f09e33d8;
+
 }
 .dog__category:hover .category__item-image{
   transform: scale(1.2);
@@ -68,8 +70,6 @@
   box-shadow: 0 0 16px  #fd5d702d;
   box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.164);
   border: 2px solid #ee7a7e;
-  transition: all 0.2s ease-out;
-  opacity: 0.9;
 }
 .cat__category:hover .category__item-image{
   transform: scale(1.2);
@@ -83,8 +83,6 @@
   box-shadow: 0 0 16px  #fd5d702d;
   box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.164);
   border: 2px solid #7FC8A9;
-  transition: all 0.2s ease-out;
-  opacity: 0.9;
 }
 .services:hover .category__item-image{
   transform: scale(1.2);
