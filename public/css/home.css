@@ -13,7 +13,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 120px;
+  margin-bottom: 50px;
   margin-top: 50px;
 
 }
@@ -77,12 +77,12 @@
 }
 
 .services{
-  background-color: #7FC8A9;
+  background-color: #78c9e3;
 }
 .services:hover{
   box-shadow: 0 0 16px  #fd5d702d;
   box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.164);
-  border: 2px solid #7FC8A9;
+  border: 2px solid #78c9e3;
 }
 .services:hover .category__item-image{
   transform: scale(1.2);
@@ -115,8 +115,6 @@ color: var(--color-primary);
 .best-seller-background{
   margin: 20px 0;
   background: var(--color-background);
-  /* background: url(/img/product.jpg);
-  background-repeat: no-repeat; */
 }
 .best-seller{
   position: relative;
@@ -124,24 +122,7 @@ color: var(--color-primary);
   flex-direction: column;
   align-items: center;
 }
-.best-seller__left-arrow{
-  position: absolute;
-  width: 35px;
-  height: 35px;
-  left: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 999;
-}
-.best-seller__right-arrow{
-  position: absolute;
-width: 35px;
-height: 35px;
-right: 0;
-top: 50%;
-transform: translateY(-50%);
-z-index: 999;
-}
+
 .best-seller__item{
   width: 100%;
   padding: 0 50px;
@@ -153,24 +134,25 @@ z-index: 999;
 .best-seller__item-image{
   width: 33%;
   border-radius: 20px;
-  filter: drop-shadow(2px 4px 24px rgba(0, 0, 0, 0.14));
+  filter: drop-shadow(2px 4px 3px rgba(0, 0, 0, 0.14));
 }
 .best-seller__item-info{
-  width: 45%;
+  width: 70%;
 height: auto;
 
 display: flex;
 flex-direction: column;
-align-items: flex-start;
-justify-content: space-between;
-  
+/* align-items: flex-start; */
+justify-content: center;
+align-items: center;
 }
 .best-seller__item-info__name{
-  font-size: 3rem;
+  font-size: 1.7rem;
   font-weight: 600;
-  line-height: 4.5rem;
+  line-height: 3rem;
   color: var(--color-title);
   margin: 10px 0;
+  text-align: center;
 
 }
 .best-seller__item-info__description{
@@ -184,7 +166,7 @@ font-weight: normal;
 .best-seller__item-info__price{
   margin: 5px 0;
 
-  font-size: 3.5rem;
+  font-size: 2rem;
   font-weight: bold;
   line-height: 121.5%;
 
@@ -201,27 +183,6 @@ font-weight: normal;
   opacity: 0.8;
 }
 
-.best-seller__previous-arrow{
-  position: absolute;
-    width: 35px;
-    height: 35px;
-    left: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 5;
-}
-.best-seller__next-arrow {
-  position: absolute;
-  width: 35px;
-  height: 35px;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 5;
-}
-.paging-arrow{
-  transition: all 0.2s ease-in;
-}
 
 @-webkit-keyframes fade {
   from {

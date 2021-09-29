@@ -1,6 +1,7 @@
 <!-- wrapper banner -->
 <div class="container-fluid banner">
-    <img src="<?= IMAGES_URL ?>/14.jpg" alt="banner">
+    <img src="<?= IMAGES_URL ?>/banner.jpg" alt="banner">
+
 </div>
 <!-- end wrapper banner -->
 
@@ -13,72 +14,82 @@
                 <img src="<?= IMAGES_URL ?>/21.png" alt="category image" class="category__item-image">
             </li>
             <div class="category__item-name">Shop cho cún</div>
-            <!-- <button class="">Khám phá ngay</button> -->
         </a>
         <a href="#\">
             <li class="category__item cat__category">
                 <img src="<?= IMAGES_URL ?>/16.png" alt="category image" class="category__item-image">
-
             </li>
             <div class="category__item-name">Shop cho mèo</div>
-            <!-- <button class="">Khám phá ngay</button> -->
         </a>
         <a href="#\">
             <li class="category__item services">
                 <img src="<?= IMAGES_URL ?>/22.png" alt="category image" class="category__item-image">
-
             </li>
             <div class="category__item-name">Dịch vụ</div>
-            <!-- <button class="btn btn--primary">Khám phá ngay</button> -->
         </a>
     </ul>
 </section>
 <!-- end wrapper products -->
 
-<!--  wrapper best seller -->
 <section class="container-fluid best-seller-background">
     <section class="container best-seller noselect">
-        <!-- left arrow svg -->
-        <svg class="best-seller__previous-arrow paging-arrow" width="34" height="35" viewBox="0 0 34 35" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="17" cy="17.9402" r="16.5" transform="rotate(-180 17 17.9402)" stroke="#848484" />
-            <path d="M12.2387 16.935L18.8388 11.1495C19.1571 10.8704 19.6732 10.8704 19.9915 11.1495L20.7613 11.8242C21.079 12.1028 21.0797 12.5543 20.7626 12.8335L15.5319 17.4402L20.7626 22.0469C21.0797 22.3261 21.079 22.7776 20.7613 23.0561L19.9915 23.7309C19.6732 24.0099 19.1571 24.0099 18.8388 23.7309L12.2387 17.9454C11.9204 17.6664 11.9204 17.214 12.2387 16.935Z" fill="#848484" />
-        </svg>
-        <!-- end left arrow svg -->
-        <!-- right arrow svg -->
-        <svg class="best-seller__next-arrow paging-arrow" width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="17" cy="17" r="16.5" stroke="#848484" />
-            <path d="M21.7613 18.0052L15.1612 23.7907C14.8429 24.0698 14.3268 24.0698 14.0085 23.7907L13.2387 23.1159C12.921 22.8374 12.9203 22.3859 13.2374 22.1067L18.4681 17.5L13.2374 12.8933C12.9203 12.6141 12.921 12.1626 13.2387 11.8841L14.0085 11.2093C14.3268 10.9302 14.8429 10.9302 15.1612 11.2093L21.7613 16.9948C22.0796 17.2738 22.0796 17.7262 21.7613 18.0052Z" fill="#848484" />
-        </svg>
-        <!-- end right arrow svg -->
-
         <h3 class="title">Sản phẩm bán chạy</h3>
-        <div class="slider">
-            <div class="best-seller__item slider__item">
-                <img src="<?= IMAGES_PRODUCT_URL ?>/3.jpg" alt="cake image" class="best-seller__item-image">
+        <div class="owl-carousel owl-theme">
+            <div class="item">
+
+                <img src="<?= IMAGES_PRODUCT_URL ?>/10.jpg" alt="cake image" class="best-seller__item-image">
                 <div class="best-seller__item-info " id="content">
-                    <div>
-                        <h6 class="best-seller__item-info__name">Snicker Fuse Chocolate Cake</h6>
-                        <p class="best-seller__item-info__description line-clamp-5">
-                            Award yourself with this rich chocolate cake wonderfully
-                            crammed with Cadbury Fuse and white chocolate chunks and
-                            draped lusciously with molten chocolate. This perfect work of
-                            art hides in every bite of chocolate that is a little nutty
-                            and a lot of tasty!
-                        </p>
-                    </div>
-                    <div>
-                        <div class="best-seller__item-info__price">350.000đ</div>
-                        <div class="best-seller__item-info__original-price">
-                            400.000đ
-                        </div>
-                    </div>
+                    <h6 class="best-seller__item-info__name">YÚ Camellia Nourish Formula 400ml</h6>
+                    <div class="best-seller__item-info__price">350.000đ</div>
+                    <button class="btn btn--primary">Add to cart +</button>
+                </div>
+            </div>
+
+            <div class="item">
+                <img src="<?= IMAGES_PRODUCT_URL ?>/10.jpg" alt="cake image" class="best-seller__item-image">
+                <div class="best-seller__item-info " id="content">
+                    <h6 class="best-seller__item-info__name">YÚ Camellia Nourish Formula 400ml</h6>
+                    <div class="best-seller__item-info__price">350.000đ</div>
+                    <button class="btn btn--primary">Add to cart +</button>
+                </div>
+            </div>
+            <div class="item">
+                <img src="<?= IMAGES_PRODUCT_URL ?>/10.jpg" alt="cake image" class="best-seller__item-image">
+                <div class="best-seller__item-info " id="content">
+                    <h6 class="best-seller__item-info__name">YÚ Camellia Nourish Formula 400ml</h6>
+                    <div class="best-seller__item-info__price">350.000đ</div>
+                    <button class="btn btn--primary">Add to cart +</button>
+                </div>
+            </div>
+            <div class="item">
+                <img src="<?= IMAGES_PRODUCT_URL ?>/10.jpg" alt="cake image" class="best-seller__item-image">
+                <div class="best-seller__item-info " id="content">
+                    <h6 class="best-seller__item-info__name">YÚ Camellia Nourish Formula 400ml</h6>
+                    <div class="best-seller__item-info__price">350.000đ</div>
+                    <button class="btn btn--primary">Add to cart +</button>
+                </div>
+            </div>
+            <div class="item">
+                <img src="<?= IMAGES_PRODUCT_URL ?>/10.jpg" alt="cake image" class="best-seller__item-image">
+                <div class="best-seller__item-info " id="content">
+                    <h6 class="best-seller__item-info__name">YÚ Camellia Nourish Formula 400ml</h6>
+                    <div class="best-seller__item-info__price">350.000đ</div>
+                    <button class="btn btn--primary">Add to cart +</button>
+                </div>
+            </div>
+            <div class="item">
+                <img src="<?= IMAGES_PRODUCT_URL ?>/10.jpg" alt="cake image" class="best-seller__item-image">
+                <div class="best-seller__item-info " id="content">
+                    <h6 class="best-seller__item-info__name">YÚ Camellia Nourish Formula 400ml</h6>
+                    <div class="best-seller__item-info__price">350.000đ</div>
                     <button class="btn btn--primary">Add to cart +</button>
                 </div>
             </div>
 
         </div>
 
-        <ul class="paging"></ul>
+
+
     </section>
 </section>
 

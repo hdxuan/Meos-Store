@@ -4,7 +4,7 @@
   --color-active: #b62f3f;
   --color-title: #333333;
   --color-content: #848484;
-  --color-background: #edf2f4;
+  --color-background: #fffff;
   --font-nunito: "Nunito", sans-serif;
   --font-poppins: "Poppins", sans-serif;
 }
@@ -63,7 +63,7 @@ body {
   font-weight: 700;
   font-size: 4rem;
 
-  margin: 50px 0 60px 0;
+  margin: 60px 0 80px 0;
   position: relative;
   -webkit-touch-callout: none; /* iOS Safari */
   -webkit-user-select: none; /* Safari */
@@ -89,7 +89,7 @@ body {
 }
 
 .btn {
-  padding: 5px 30px;
+  padding: 2px 15px;
   border-radius: 10px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.171);
   transition: all 0.2s;

@@ -2,7 +2,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin: 18px 0 ;
+  margin: 10px 0 ;
   
 }
 .header__logo img {
@@ -105,7 +105,7 @@
   outline: none;
 
   /* background-color: #e7e5e5e1; */
-  background-color: #f2ad52;
+  background-color: #efefef;
   color: #0a0a0a;
 
   line-height: 1.8rem;
@@ -186,7 +186,7 @@
   object-fit: cover;
   border: 1.5px solid #fff;
   border-radius: 50%;
-  box-shadow: 0 0 0 2.5px var(--color-primary);
+  box-shadow: 0 0 0 2px var(--color-primary);
 }
 
 .header__user__avatar:hover .header__user__dropdown {
