@@ -1,4 +1,7 @@
   <!--  wrapper footer -->
+  <!-- <div class="container-flui">
+      <img src="/footer.jpg" alt="">
+  </div> -->
   <footer class="footer container background__footer">
       <div class="footer__logo">
           <img src="<?= IMAGES_URL ?>/logo.svg" alt="footer logo" />

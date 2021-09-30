@@ -35,61 +35,18 @@
     <section class="container best-seller noselect">
         <h3 class="title">Sản phẩm bán chạy</h3>
         <div class="owl-carousel owl-theme">
-            <div class="item">
+            <?php foreach ($data['bestSellers'] as $key => $bestSellers) : ?>
+                <div class="item">
 
-                <img src="<?= IMAGES_PRODUCT_URL ?>/10.jpg" alt="cake image" class="best-seller__item-image">
-                <div class="best-seller__item-info " id="content">
-                    <h6 class="best-seller__item-info__name">YÚ Camellia Nourish Formula 400ml</h6>
-                    <div class="best-seller__item-info__price">350.000đ</div>
-                    <button class="btn btn--primary">Add to cart +</button>
+                    <img src="<?= IMAGES_PRODUCT_URL . DS . $bestSellers["image"] ?>" alt="cake image" class="best-seller__item-image">
+                    <div class="best-seller__item-info " id="content">
+                        <h6 class="best-seller__item-info__name"><?= $bestSellers["name"] ?></h6>
+                        <div class="best-seller__item-info__price"><?= number_format($bestSellers["price"], 0, '', '.') ?>đ</div>
+                        <button class="btn btn--primary">Add to cart +</button>
+                    </div>
                 </div>
-            </div>
-
-            <div class="item">
-                <img src="<?= IMAGES_PRODUCT_URL ?>/10.jpg" alt="cake image" class="best-seller__item-image">
-                <div class="best-seller__item-info " id="content">
-                    <h6 class="best-seller__item-info__name">YÚ Camellia Nourish Formula 400ml</h6>
-                    <div class="best-seller__item-info__price">350.000đ</div>
-                    <button class="btn btn--primary">Add to cart +</button>
-                </div>
-            </div>
-            <div class="item">
-                <img src="<?= IMAGES_PRODUCT_URL ?>/10.jpg" alt="cake image" class="best-seller__item-image">
-                <div class="best-seller__item-info " id="content">
-                    <h6 class="best-seller__item-info__name">YÚ Camellia Nourish Formula 400ml</h6>
-                    <div class="best-seller__item-info__price">350.000đ</div>
-                    <button class="btn btn--primary">Add to cart +</button>
-                </div>
-            </div>
-            <div class="item">
-                <img src="<?= IMAGES_PRODUCT_URL ?>/10.jpg" alt="cake image" class="best-seller__item-image">
-                <div class="best-seller__item-info " id="content">
-                    <h6 class="best-seller__item-info__name">YÚ Camellia Nourish Formula 400ml</h6>
-                    <div class="best-seller__item-info__price">350.000đ</div>
-                    <button class="btn btn--primary">Add to cart +</button>
-                </div>
-            </div>
-            <div class="item">
-                <img src="<?= IMAGES_PRODUCT_URL ?>/10.jpg" alt="cake image" class="best-seller__item-image">
-                <div class="best-seller__item-info " id="content">
-                    <h6 class="best-seller__item-info__name">YÚ Camellia Nourish Formula 400ml</h6>
-                    <div class="best-seller__item-info__price">350.000đ</div>
-                    <button class="btn btn--primary">Add to cart +</button>
-                </div>
-            </div>
-            <div class="item">
-                <img src="<?= IMAGES_PRODUCT_URL ?>/10.jpg" alt="cake image" class="best-seller__item-image">
-                <div class="best-seller__item-info " id="content">
-                    <h6 class="best-seller__item-info__name">YÚ Camellia Nourish Formula 400ml</h6>
-                    <div class="best-seller__item-info__price">350.000đ</div>
-                    <button class="btn btn--primary">Add to cart +</button>
-                </div>
-            </div>
-
+            <?php endforeach; ?>
         </div>
-
-
-
     </section>
 </section>
 
@@ -109,8 +66,9 @@
                         <a href="#\"><?= $productOnlyPage['name'] ?></a>
                     </div>
                     <div class="sweeties__item-prices">
-                        <div class="sweeties__item__price"><?= $productOnlyPage['price'] ?></div>
-                        <div class="sweeties__item__original-price">300.000đ</div>
+                        <div class="sweeties__item__price"><?= number_format($productOnlyPage['price'], 0, '', '.') ?>đ</div>
+
+                        <div class="sweeties__item__original-price">Lượt mua</div>
                     </div>
                     <button class="btn btn--secondary">Add to cart +</button>
 

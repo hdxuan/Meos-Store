@@ -15,25 +15,29 @@ class HomeController extends Controller
 
     function Index()
     {
-        $product = $this->productModel->all();
-        if (!$product) {
-            $product = [];
+        $products = $this->productModel->all();
+        if (!$products) {
+            $products = [];
         }
 
-        $data['product'] = $product;
-        $data['bestSellers'][] = $product[2];
-        $data['bestSellers'][] = $product[5];
-        $data['bestSellers'][] = $product[9];
-        $data['bestSellers'][] = $product[1];
-        $data['bestSellers'][] = $product[2];
+        $data['products'] = $products;
+        $data['bestSellers'][] = $products[0]; // mảng chạy từ 0
+        $data['bestSellers'][] = $products[4];
+        $data['bestSellers'][] = $products[8];
+        $data['bestSellers'][] = $products[1];
+        $data['bestSellers'][] = $products[33];
+        $data['bestSellers'][] = $products[39];
+        // $data['bestSellers'][] = $product[45];
+        // $data['bestSellers'][] = $product[44];
+        // $data['bestSellers'][] = $product[31];
 
         $data['categories'] = $this->categoryModel->all();
 
         // paging
         $definePage = 8;
-        $numPage = $this->productModel->numProduct();
+        $numProduct = $this->productModel->numProduct();
 
-        $pages = ceil($numPage / $definePage);
+        $pages = ceil($numProduct / $definePage);
         $data['pages'] = $pages; // so trang
 
         $currentPage = 1;

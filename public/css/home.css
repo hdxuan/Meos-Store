@@ -43,7 +43,7 @@
 }
 
 .category__item:hover{
-    opacity: 0.8;
+    opacity: 0.9;
     transition: all 1s ease-out;
 
 }
@@ -77,7 +77,7 @@
 }
 
 .services{
-  background-color: #78c9e3;
+  background-color: #6ac5e3;
 }
 .services:hover{
   box-shadow: 0 0 16px  #fd5d702d;
@@ -236,7 +236,7 @@ transition: all 0.3s ease-in;
 }
 .sweeties__item-image{
   border-radius: 15px;
-  width: 66%;
+  width: 58%;
 }
 .sweeties__item-name{
   font-style: normal;
