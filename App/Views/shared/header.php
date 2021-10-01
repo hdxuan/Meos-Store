@@ -5,13 +5,13 @@
               <img src="<?= IMAGES_URL ?>/logo.png" alt="logo">
           </a>
           <nav class="header__menu noselect">
-              <a href="#" class="header__menu__item">Trang chủ</a>
+              <a href="" class="header__menu__item">Trang chủ</a>
 
               <div class="header__menu--dropdown">
                   <a href="#" class="header__menu__item header__menu__item--hover">Sản phẩm </a>
                   <div class="dropdown">
                       <ul>
-                          <li><a href="#">Sản phẩm cho chó</a></li>
+                          <li><a href="<?= DOCUMENT_ROOT ?>/Products">Sản phẩm cho chó</a></li>
                           <li><a href="#">Sản phẩm cho mèo</a></li>
                       </ul>
                   </div>

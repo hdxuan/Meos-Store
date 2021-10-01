@@ -8,7 +8,13 @@ class ProductsController extends Controller
     private $categoryModel;
     function __construct()
     {
-        $this->productsModel = $this->model('ProductsModel');
+        $this->productsModel = $this->model('ProductModel');
         $this->categoryModel = $this->model('CategoryModel');
+    }
+
+    function index()
+    {
+
+        $this->view("/product/index");
     }
 }

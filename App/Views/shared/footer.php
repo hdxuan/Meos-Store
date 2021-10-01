@@ -4,7 +4,7 @@
   </div> -->
   <footer class="footer container background__footer">
       <div class="footer__logo">
-          <img src="<?= IMAGES_URL ?>/logo.svg" alt="footer logo" />
+          <img src="<?= IMAGES_URL ?>/logo.png" alt="footer logo" />
       </div>
       <div class="footer__lists">
           <ul class="footer__list">

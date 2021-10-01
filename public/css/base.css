@@ -1,10 +1,12 @@
 :root {
   /* --color-primary: #f3455a; */
   --color-primary: #fd4848;
+  --color-second: #f6ab4a;
   --color-active: #b62f3f;
   --color-title: #333333;
   --color-content: #848484;
-  --color-background: #fffff;
+  --color-background: #ffffff;
+  --color-nav : #bdbaba;
   --font-nunito: "Nunito", sans-serif;
   --font-poppins: "Poppins", sans-serif;
 }
