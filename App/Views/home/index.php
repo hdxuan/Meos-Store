@@ -37,14 +37,19 @@
         <div class="owl-carousel owl-theme">
             <?php foreach ($data['bestSellers'] as $key => $bestSellers) : ?>
                 <div class="item">
+                    <div class="best-seller__items">
 
-                    <img src="<?= IMAGES_PRODUCT_URL . DS . $bestSellers["image"] ?>" alt="cake image" class="best-seller__item-image">
-                    <div class="best-seller__item-info " id="content">
-                        <h6 class="best-seller__item-info__name"><?= $bestSellers["name"] ?></h6>
-                        <div class="best-seller__item-info__price"><?= number_format($bestSellers["price"], 0, '', '.') ?>đ</div>
-                        <button class="btn btn--primary">Add to cart +</button>
+                        <div class="best-seller_image">
+                            <img src="<?= IMAGES_PRODUCT_URL . DS . $bestSellers["image"] ?>" alt="cake image" class="best-seller__item-image">
+                        </div>
+                        <div class="best-seller__item-info " id="content">
+                            <h6 class="best-seller__item-info__name"><?= $bestSellers["name"] ?></h6>
+                            <div class="best-seller__item-info__price"><?= number_format($bestSellers["price"], 0, '', '.') ?>đ</div>
+                            <button class="btn btn--primary">Add to cart +</button>
+                        </div>
                     </div>
                 </div>
+
             <?php endforeach; ?>
         </div>
     </section>

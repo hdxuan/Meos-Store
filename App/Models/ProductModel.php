@@ -11,7 +11,8 @@ class ProductModel extends Database
         $result = $this->db->query($sql);
 
         if ($result->num_rows > 0) {
-            return $result->fetch_all(MYSQLI_ASSOC);
+            // return $result->fetch_all(MYSQLI_ASSOC);
+            return mysqli_fetch_all($result, MYSQLI_ASSOC);
         } else {
             return false;
         }
