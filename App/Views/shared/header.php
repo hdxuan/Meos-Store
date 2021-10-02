@@ -2,30 +2,29 @@
   <div class="container">
       <header class="header ">
           <a href="<?= DOCUMENT_ROOT ?>" class="header__logo">
-              <img src="<?= IMAGES_URL ?>/logo.png" alt="logo">
+              <img src="<?= IMAGES_URL ?>/4.svg" alt="logo">
           </a>
           <nav class="header__menu noselect">
-              <a href="" class="header__menu__item">Trang chủ</a>
+              <a href="<?= DOCUMENT_ROOT ?>" class="header__menu__item">Trang chủ</a>
 
-              <div class="header__menu--dropdown">
-                  <a href="#" class="header__menu__item header__menu__item--hover">Sản phẩm </a>
-                  <div class="dropdown">
+              <!-- <div class="header__menu--dropdown"> -->
+              <a href="<?= DOCUMENT_ROOT ?>/Products" class="header__menu__item">Sản phẩm </a>
+              <!-- <div class="dropdown">
                       <ul>
-                          <li><a href="<?= DOCUMENT_ROOT ?>/Products">Sản phẩm cho chó</a></li>
+                          <li><a href="">Sản phẩm cho chó</a></li>
                           <li><a href="#">Sản phẩm cho mèo</a></li>
                       </ul>
-                  </div>
-              </div>
+                  </div> -->
+              <!-- </div> -->
               <a href="#" class="header__menu__item">Blogs</a>
               <a href="#" class="header__menu__item">Dịch vụ</a>
-              <a href="#" class="header__menu__item">Liên hệ</a>
           </nav>
 
           <div class="header__search">
               <button class="header__search__button noselect">
                   <img src="<?= ICONS_URL ?>/search.png" alt="icon search">
               </button>
-              <input type="text" placeholder="Search..." name="search" id="search">
+              <input type="text" placeholder="Tìm kiếm..." name="search" id="search">
           </div>
 
           <div class="header__info">

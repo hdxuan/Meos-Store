@@ -46,4 +46,9 @@ class ProductModel extends Database
             return false;
         }
     }
+
+    function getIdPet()
+    {
+        $sql = "SELECT name FROM products_type ";
+    }
 }

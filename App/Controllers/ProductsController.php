@@ -12,8 +12,10 @@ class ProductsController extends Controller
         $this->categoryModel = $this->model('CategoryModel');
     }
 
-    function index()
+    function index($id)
     {
+        echo "$id";
+        die();
 
         $this->view("/product/index");
     }

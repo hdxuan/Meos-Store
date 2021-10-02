@@ -1,6 +1,6 @@
 <!-- wrapper banner -->
 <div class="container-fluid banner">
-    <img src="<?= IMAGES_URL ?>/banner.jpg" alt="banner">
+    <img src="<?= IMAGES_URL ?>/1.jpg" alt="banner">
 
 </div>
 <!-- end wrapper banner -->
@@ -9,13 +9,13 @@
 <section class="container category">
     <h3 class="title">Shop cho thú cưng</h3>
     <ul class="category__items noselect">
-        <a href="#\">
+        <a href="<?= DOCUMENT_ROOT ?>/Products/1">
             <li class="category__item dog__category">
                 <img src="<?= IMAGES_URL ?>/21.png" alt="category image" class="category__item-image">
             </li>
             <div class="category__item-name">Shop cho cún</div>
         </a>
-        <a href="#\">
+        <a href="<?= DOCUMENT_ROOT ?>/Products/2">
             <li class="category__item cat__category">
                 <img src="<?= IMAGES_URL ?>/16.png" alt="category image" class="category__item-image">
             </li>
@@ -32,6 +32,7 @@
 <!-- end wrapper products -->
 
 <section class="container-fluid best-seller-background">
+    <img src="<?= IMAGES_URL ?>/slider.png" alt="" class="best-seller-background--slider">
     <section class="container best-seller noselect">
         <h3 class="title">Sản phẩm bán chạy</h3>
         <div class="owl-carousel owl-theme">
@@ -65,7 +66,7 @@
         <div class="sweeties__items">
             <?php foreach ($data["productOnlyPage"] as $key => $productOnlyPage) : ?>
                 <div class="sweeties__item">
-
+                    <div class="sweeties__item--over-image"></div>
                     <img src="<?= IMAGES_PRODUCT_URL . DS . $productOnlyPage['image'] ?>" alt="sweeties image" class="sweeties__item-image">
                     <div class="sweeties__item-name">
                         <a href="#\"><?= $productOnlyPage['name'] ?></a>

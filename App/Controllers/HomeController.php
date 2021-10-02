@@ -27,9 +27,6 @@ class HomeController extends Controller
         $data['bestSellers'][] = $products[1];
         $data['bestSellers'][] = $products[33];
         $data['bestSellers'][] = $products[43];
-        // $data['bestSellers'][] = $product[45];
-        // $data['bestSellers'][] = $product[44];
-        // $data['bestSellers'][] = $product[31];
 
         $data['categories'] = $this->categoryModel->all();
 
