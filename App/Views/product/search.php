@@ -17,7 +17,7 @@
                             <div class="sweeties__item__price"><?= number_format($products['price'], 0, '', ',') ?>đ</div>
                             <div class="sweeties__item__original-price"><?= number_format($products['price'], 0, '', ',') ?>đ</div>
                         </div>
-                        <button class="btn btn--secondary">Add to cart +</button>
+                        <button class="btn btn--secondary">Mua ngay</button>
                     </div>
                 <?php endforeach; ?>
             <?php else : ?>

@@ -46,7 +46,7 @@
                         <div class="best-seller__item-info " id="content">
                             <h6 class="best-seller__item-info__name"><?= $bestSellers["name"] ?></h6>
                             <div class="best-seller__item-info__price"><?= number_format($bestSellers["price"], 0, '', '.') ?>đ</div>
-                            <button class="btn btn--primary">Add to cart +</button>
+                            <button class="btn btn--primary">Mua ngay</button>
                         </div>
                     </div>
                 </div>
@@ -76,7 +76,7 @@
 
                         <div class="sweeties__item__original-price">Lượt mua</div>
                     </div>
-                    <button class="btn btn--secondary">Add to cart +</button>
+                    <button class="btn btn--secondary">Mua ngay</button>
 
                 </div>
             <?php endforeach; ?>

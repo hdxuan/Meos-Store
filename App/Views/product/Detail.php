@@ -22,7 +22,7 @@
                                     <?= number_format($detail['price'], 0, '', '.') ?>đ
                                 </div>
                             </div>
-                            <button onclick="addToCart(<?= isset($_SESSION['user']) ? $_SESSION['user']['id'] : 0 ?>,<?= $detail['id'] ?> )" class="btn btn--primary">Add to cart +</button>
+                            <button onclick="addToCart(<?= isset($_SESSION['user']) ? $_SESSION['user']['id'] : 0 ?>,<?= $detail['id'] ?> )" class="btn btn--primary">Mua ngay</button>
                         </div>
                     </div>
                 <?php endforeach; ?>
