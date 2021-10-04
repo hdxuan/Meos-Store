@@ -11,8 +11,8 @@ class ProductModel extends Database
         $result = $this->db->query($sql);
 
         if ($result->num_rows > 0) {
-            // return $result->fetch_all(MYSQLI_ASSOC);
-            return mysqli_fetch_all($result, MYSQLI_ASSOC);
+            return $result->fetch_all(MYSQLI_ASSOC);
+            // return mysqli_fetch_all($result, MYSQLI_ASSOC);
         } else {
             return false;
         }
@@ -24,7 +24,8 @@ class ProductModel extends Database
         $result = $this->db->query($sql);
 
         if ($result->num_rows > 0) {
-            $numProduct = mysqli_fetch_assoc($result);
+            // $numProduct = mysqli_fetch_assoc($result);
+            $numProduct = $result->fetch_assoc();
             // dl trả về có dạng
             // arr(
             //     'field1' => gtri 1,
@@ -46,9 +47,18 @@ class ProductModel extends Database
             return false;
         }
     }
-
-    function getIdPet()
+    function getByProductType($productTypeId)
     {
-        $sql = "SELECT name FROM products_type ";
+        $stmt = $this->db->prepare("SELECT * FROM products where id_products_type = ?");
+        $stmt->bind_param("i", $productTypeId);
+
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        if ($result->num_rows > 0) {
+            return $result->fetch_all(MYSQLI_ASSOC);
+        } else {
+            return false;
+        }
     }
 }

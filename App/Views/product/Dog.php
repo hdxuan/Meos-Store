@@ -2,22 +2,22 @@
     <img src="<?= IMAGES_URL ?>/banner_detail.jpg" alt="" class="banner">
     <div class="title__product">
         <h2 class="title__category__product"> Các sản phẩm</h2>
-        <a href="<?= DOCUMENT_ROOT ?>" class="address__product">
+        <!-- <a href="" class="address__product">
             <p class="address__home">Home</p>
             <span> > </span>
-            <p class="address__category__product"><?= $data["namePetProduct"]['name'] ?></p>
-        </a>
+            <p class="address__category__product"></p>
+        </a> -->
     </div>
 </div>
 
 <div class="container ">
     <div class="products__type ">
         <div class="menu__products">
-            <h2 class="menu__products__title">Danh mục sản phẩm</h2>
+            <h2 class="menu__products__title" id="top">Danh mục sản phẩm</h2>
             <div class="menu__products__items">
-                <?php foreach ($data["productsType"] as $index => $productsType) : ?>
-                    <a href="<?= DOCUMENT_ROOT . DS . "Products/Dog/1?" ?>id=<?= $productsType['id'] ?>" class="">
-                        <p class="menu__products__item "> <?= $productsType['name'] ?> </p>
+                <?php foreach ($data["productType"] as $index => $productType) : ?>
+                    <a href="<?= DOCUMENT_ROOT . DS . "Products/Dog?productTypeId=" . $productType['id'] ?>#top" class="">
+                        <p class="menu__products__item "> <?= $productType['name'] ?> </p>
                     </a>
                 <?php endforeach; ?>
             </div>

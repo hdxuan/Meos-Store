@@ -1,7 +1,7 @@
 <!-- wrapper sweeties -->
 <div class="wrapper">
     <section class="container sweeties">
-        <h3 class="title">Cakes</h3>
+        <h3 class="title">Các sản phẩm</h3>
 
         <p style="margin-bottom: 20px;">Search for keyword: <b><?= $data['search'] ?></b></p>
 

@@ -4,19 +4,41 @@ use App\Core\Controller;
 
 class ProductsController extends Controller
 {
-    private $productsModel;
-    private $categoryModel;
+    private $productModel;
+    private $productTypeModel;
     function __construct()
     {
-        $this->productsModel = $this->model('ProductModel');
-        $this->categoryModel = $this->model('CategoryModel');
+        $this->productModel = $this->model('ProductModel');
+        $this->productTypeModel = $this->model('ProductTypeModel');
     }
 
-    function index($id)
+    function Dog()
     {
-        echo "$id";
-        die();
 
-        $this->view("/product/index");
+        $productType = $this->productTypeModel->allDog();
+        $data["productType"] = $productType;
+
+        $productTypeId = 1;
+        if (isset($_GET['productTypeId'])) {
+            $productTypeId = $_GET['productTypeId'];
+        }
+        $products = $this->productModel->getByProductType($productTypeId);
+        $data["products"] = $products;
+
+        // die(var_dump($data["products"]));
+        $this->view("/product/Dog", $data);
+    }
+
+    function Cat()
+    {
+        $productTypeId = 1;
+        if (isset($_GET['productTypeId'])) {
+            $productTypeId = $_GET['productTypeId'];
+        }
+        $products = $this->productModel->getByProductType($productTypeId);
+        $productType = $this->productTypeModel->allCat();
+        $data["productType"] = $productType;
+        $data["products"] = $products;
+        $this->view("/product/Cat", $data);
     }
 }

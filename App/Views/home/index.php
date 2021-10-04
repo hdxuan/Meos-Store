@@ -9,13 +9,13 @@
 <section class="container category">
     <h3 class="title">Shop cho thú cưng</h3>
     <ul class="category__items noselect">
-        <a href="<?= DOCUMENT_ROOT ?>/Products/1">
+        <a href="<?= DOCUMENT_ROOT ?>">
             <li class="category__item dog__category">
                 <img src="<?= IMAGES_URL ?>/21.png" alt="category image" class="category__item-image">
             </li>
             <div class="category__item-name">Shop cho cún</div>
         </a>
-        <a href="<?= DOCUMENT_ROOT ?>/Products/2">
+        <a href="<?= DOCUMENT_ROOT ?>">
             <li class="category__item cat__category">
                 <img src="<?= IMAGES_URL ?>/16.png" alt="category image" class="category__item-image">
             </li>

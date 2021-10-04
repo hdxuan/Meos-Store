@@ -2,7 +2,7 @@
 
 use App\Core\Database;
 
-class CategoryModel extends Database
+class ProductTypeModel extends Database
 {
     function all()
     {
@@ -16,15 +16,10 @@ class CategoryModel extends Database
         }
     }
 
-    function showCategory($id)
+    function allDog()
     {
-
-        $sttm = $this->db->prepare("SELECT *  FROM products_type WHERE id = ?");
-        $sttm->bind_param("i", $id);
-
-        $sttm->execute();
-
-        $result =  $sttm->get_result();
+        $sql = 'SELECT * FROM products_type where id_pet_products_type = 1';
+        $result = $this->db->query($sql);
 
         if ($result->num_rows > 0) {
             return $result->fetch_all(MYSQLI_ASSOC);
@@ -33,15 +28,10 @@ class CategoryModel extends Database
         }
     }
 
-    function eachTypeCategory($id)
+    function allCat()
     {
-
-        $sttm = $this->db->prepare("SELECT * FROM products WHERE id_products_type = ?");
-        $sttm->bind_param("i", $id);
-
-        $sttm->execute();
-
-        $result =  $sttm->get_result();
+        $sql = 'SELECT * FROM products_type where id_pet_products_type = 2';
+        $result = $this->db->query($sql);
 
         if ($result->num_rows > 0) {
             return $result->fetch_all(MYSQLI_ASSOC);
@@ -49,6 +39,7 @@ class CategoryModel extends Database
             return false;
         }
     }
+
     function store($data)
     {
     }

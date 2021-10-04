@@ -8,7 +8,8 @@
               <a href="<?= DOCUMENT_ROOT ?>" class="header__menu__item">Trang chủ</a>
 
               <!-- <div class="header__menu--dropdown"> -->
-              <a href="<?= DOCUMENT_ROOT ?>/Products" class="header__menu__item">Sản phẩm </a>
+              <a href="<?= DOCUMENT_ROOT ?>/Products/Dog" class="header__menu__item">Chó</a>
+              <a href="<?= DOCUMENT_ROOT ?>/Products/Cat" class="header__menu__item">Mèo</a>
               <!-- <div class="dropdown">
                       <ul>
                           <li><a href="">Sản phẩm cho chó</a></li>
@@ -24,7 +25,9 @@
               <button class="header__search__button noselect">
                   <img src="<?= ICONS_URL ?>/search.png" alt="icon search">
               </button>
-              <input type="text" placeholder="Tìm kiếm..." name="search" id="search">
+              <form action="<?= DOCUMENT_ROOT ?>/Cakes/searchKey" method="GET">
+                  <input type="text" placeholder="Tìm kiếm..." name="search" id="search">
+              </form>
           </div>
 
           <div class="header__info">

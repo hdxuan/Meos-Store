@@ -5,12 +5,12 @@ use App\Core\Controller;
 class HomeController extends Controller
 {
     private $productModel;
-    private $categoryModel;
+    private $productTypeModel;
 
     function __construct()
     {
         $this->productModel = $this->model('ProductModel');
-        $this->categoryModel = $this->model('CategoryModel');
+        $this->productTypeModel = $this->model('ProductTypeModel');
     }
 
     function Index()
@@ -28,7 +28,7 @@ class HomeController extends Controller
         $data['bestSellers'][] = $products[33];
         $data['bestSellers'][] = $products[43];
 
-        $data['categories'] = $this->categoryModel->all();
+        $data['categories'] = $this->productTypeModel->all();
 
         // paging
         $definePage = 8;
