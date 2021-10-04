@@ -38,7 +38,7 @@
 
                             <!-- <div class="products__display--original-price">Lượt mua</div> -->
                         </div>
-                        <button class="btn btn--secondary">Mua ngay</button>
+                        <button class="btn btn--secondary">Vào giỏ hàng +</button>
 
                     </div>
                 <?php endforeach; ?>

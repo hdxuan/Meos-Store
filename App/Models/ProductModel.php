@@ -77,4 +77,19 @@ class ProductModel extends Database
             return false;
         }
     }
+
+    function detail($id)
+    {
+        $stmt = $this->db->prepare("SELECT * FROM products where id = ?");
+        $stmt->bind_param("i", $id);
+
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        if ($result->num_rows > 0) {
+            return $result->fetch_all(MYSQLI_ASSOC);
+        } else {
+            return false;
+        }
+    }
 }

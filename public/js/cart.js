@@ -18,7 +18,7 @@ function addToCart(userId, cakeId) {
                 launch_toast("Added to cart suceess!");
             }
             else {
-                launch_toast("Can't Mua ngay!");
+                launch_toast("Can't Vào giỏ hàng +!");
 
                 console.error(response.error);
 

@@ -11,6 +11,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@200;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Francois+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam:wght@400;500&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="<?= PUBLIC_URL ?>/bootstrap-5.0.2-dist/css/bootstrap.css">
     <link rel="stylesheet" href="<?= PUBLIC_URL ?>/owlcarousel/assets/owl.carousel.min.css">
@@ -22,6 +25,7 @@
 
     <link rel="stylesheet" href="<?= PUBLIC_URL ?>/css/home.css" />
     <link rel="stylesheet" href="<?= PUBLIC_URL ?>/css/product.css" />
+    <link rel="stylesheet" href="<?= PUBLIC_URL ?>/css/detail.css" />
 
 </head>
 

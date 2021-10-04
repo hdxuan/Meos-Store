@@ -1,0 +1,36 @@
+.detail__items{
+}
+.detail__item-image{
+ display: flex;
+ justify-content: center;
+
+}
+.detail__item-image img{
+    width: 60%;
+
+}
+
+.detail__item-info{}
+.detail__item-info__name{
+    color: #7e4c4f;
+    font-weight: 600;
+    font-family: var(--font-be);
+    font-size: 3rem;
+    line-height: 5rem;
+}
+.detail__item-stars__items{
+display: flex;
+width: 50px;
+
+}
+.detail__item-stars__items img{
+    width: 20px;
+    color: yellow;
+}
+.stars__item{
+    color: yellow;
+}
+
+
+.detail__item-info__description{}
+.detail__item-info__price{}

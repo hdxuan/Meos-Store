@@ -52,4 +52,14 @@ class ProductsController extends Controller
 
         $this->view("/product/search", $data);
     }
+
+    function detail()
+    {
+        $productId = $_GET['productId'];
+        $detailProduct = $this->productModel->detail($productId);
+        $data['detailProduct'] = $detailProduct;
+
+
+        $this->view("/product/Detail", $data);
+    }
 }

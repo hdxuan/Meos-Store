@@ -10,7 +10,11 @@
   --color-background: #ffffff;
   --color-nav : #bdbaba;
   --font-nunito: "Nunito", sans-serif;
-  --font-poppins: "Poppins", sans-serif;
+  /* --font-poppins: "Poppins", sans-serif; */
+  --font-roboto: 'Roboto Slab',sans-serif;
+  --font-francois: 'Francois One', sans-serif;
+  --font-be: 'Be Vietnam', sans-serif;
+
 }
 
 * {
@@ -42,7 +46,7 @@ html {
   font-size: 62.5%;
   line-height: 1.8rem;
   box-sizing: border-box;
-  font-family: var(--font-poppins);
+  font-family: var(--font-nunito);
   color: var(--color-title);
 }
 

@@ -31,14 +31,14 @@
                     <div class="products__display--item">
                         <img src="<?= IMAGES_PRODUCT_URL . DS .  $products['image'] ?>" alt="sweeties image" class="products__display--image">
                         <div class="products__display--name">
-                            <a href="#"> <?= $products['name'] ?> </a>
+                            <a href=" <?= DOCUMENT_ROOT . DS . "Products/Detail?productId=" . $products['id'] ?> "> <?= $products['name'] ?> </a>
                         </div>
                         <div class="products__display--prices">
                             <div class="products__display--price"><?= $products['price'] ?></div>
 
                             <!-- <div class="products__display--original-price">Lượt mua</div> -->
                         </div>
-                        <button class="btn btn--secondary">Mua ngay</button>
+                        <button class="btn btn--secondary">Vào giỏ hàng +</button>
 
                     </div>
                 <?php endforeach; ?>
