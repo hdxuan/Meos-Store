@@ -41,4 +41,15 @@ class ProductsController extends Controller
         $data["products"] = $products;
         $this->view("/product/Cat", $data);
     }
+
+    function search()
+    {
+        $key = $_GET['key'];
+        $data['key'] = $key;
+
+        $products = $this->productModel->search($key);
+        $data['products'] = $products;
+
+        $this->view("/product/search", $data);
+    }
 }

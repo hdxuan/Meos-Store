@@ -3,19 +3,19 @@
     <section class="container sweeties">
         <h3 class="title">Các sản phẩm</h3>
 
-        <p style="margin-bottom: 20px;">Search for keyword: <b><?= $data['search'] ?></b></p>
+        <p style="margin-bottom: 20px;">Search for keyword: <b><?= $data['key'] ?></b></p>
 
         <div class="sweeties__items">
-            <?php if (!empty($data['cakes'])) : ?>
-                <?php foreach ($data['cakes'] as $index => $cake) : ?>
+            <?php if (!empty($data['products'])) : ?>
+                <?php foreach ($data['products'] as $index => $products) : ?>
                     <div class="sweeties__item">
-                        <img src="<?= IMAGES_CAKES_URL ?>/<?= $cake['image'] ?>" alt="sweeties image" class="sweeties__item__img" />
+                        <img src="<?= IMAGES_PRODUCT_URL ?>/<?= $products['image'] ?>" alt="sweeties image" class="sweeties__item__img" />
                         <div class="sweeties__item__name line-clamp-2">
-                            <a href="#/"><?= $cake['name'] ?></a>
+                            <a href="#/"><?= $products['name'] ?></a>
                         </div>
                         <div class="sweeties__item__prices">
-                            <div class="sweeties__item__price"><?= number_format($cake['price'], 0, '', ',') ?>đ</div>
-                            <div class="sweeties__item__original-price"><?= number_format($cake['price'], 0, '', ',') ?>đ</div>
+                            <div class="sweeties__item__price"><?= number_format($products['price'], 0, '', ',') ?>đ</div>
+                            <div class="sweeties__item__original-price"><?= number_format($products['price'], 0, '', ',') ?>đ</div>
                         </div>
                         <button class="btn btn--secondary">Add to cart +</button>
                     </div>

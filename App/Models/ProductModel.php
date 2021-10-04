@@ -61,4 +61,20 @@ class ProductModel extends Database
             return false;
         }
     }
+
+    function search($key)
+    {
+        $key = '%' . $key . '%';
+        $stmt = $this->db->prepare("SELECT * FROM products where name like ?");
+        $stmt->bind_param("s", $key);
+
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        if ($result->num_rows > 0) {
+            return $result->fetch_all(MYSQLI_ASSOC);
+        } else {
+            return false;
+        }
+    }
 }

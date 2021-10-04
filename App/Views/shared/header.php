@@ -25,8 +25,8 @@
               <button class="header__search__button noselect">
                   <img src="<?= ICONS_URL ?>/search.png" alt="icon search">
               </button>
-              <form action="<?= DOCUMENT_ROOT ?>/Cakes/searchKey" method="GET">
-                  <input type="text" placeholder="Tìm kiếm..." name="search" id="search">
+              <form action="<?= DOCUMENT_ROOT ?>/Products/search" method="GET">
+                  <input type="text" placeholder="Tìm kiếm..." name="key" id="search">
               </form>
           </div>
 
