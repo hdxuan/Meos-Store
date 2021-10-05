@@ -1,7 +1,7 @@
 <div class="page-content">
     <div class="form-v7-content">
         <div class="form-left">
-            <img src="	https://colorlib.com/etc/regform/colorlib-regform-2/images/bg-heading-02.jpg" alt="form">
+            <img src="<?= IMAGES_URL . DS ?>/form-background.jpg" alt="form">
             <p class="text-1">Sign in</p>
 
         </div>
