@@ -1,12 +1,14 @@
 <div class="banner__product">
-    <img src="<?= IMAGES_URL ?>/banner_detail.jpg" alt="" class="banner">
+    <img src="<?= IMAGES_URL ?>/product.jpg" alt="">
     <div class="title__product">
         <h2 class="title__category__product"> Các sản phẩm</h2>
-        <!-- <a href="" class="address__product">
-            <p class="address__home">Home</p>
+        <div class="address__product">
+            <a href="<?= DOCUMENT_ROOT ?>">
+                <p class="address__home">Home</p>
+            </a>
             <span> > </span>
-            <p class="address__category__product"></p>
-        </a> -->
+            <p class="address__category__product">Chi tiết sản phẩm</p>
+        </div>
     </div>
 </div>
 

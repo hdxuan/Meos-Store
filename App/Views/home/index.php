@@ -43,11 +43,14 @@
                         <div class="best-seller_image">
                             <img src="<?= IMAGES_PRODUCT_URL . DS . $bestSellers["image"] ?>" alt="cake image" class="best-seller__item-image">
                         </div>
-                        <div class="best-seller__item-info " id="content">
+                        <!-- <div class="best-seller__item-info " id="content"> -->
+                        <div>
                             <h6 class="best-seller__item-info__name"><?= $bestSellers["name"] ?></h6>
-                            <div class="best-seller__item-info__price"><?= number_format($bestSellers["price"], 0, '', '.') ?>đ</div>
-                            <button class="btn btn--primary">Vào giỏ hàng +</button>
+
                         </div>
+                        <div class="best-seller__item-info__price"><?= number_format($bestSellers["price"], 0, '', '.') ?>đ</div>
+                        <button class="btn btn--primary">Vào giỏ hàng +</button>
+                        <!-- </div> -->
                     </div>
                 </div>
 
@@ -61,7 +64,7 @@
 <!-- wrapper product -->
 <div class="noselect">
     <div class="container sweeties">
-        <h3 class="title">Các sản phẩm</h3>
+        <h3 class="title" id="SP">Các sản phẩm</h3>
 
         <div class="sweeties__items">
             <?php foreach ($data["productOnlyPage"] as $key => $productOnlyPage) : ?>
@@ -93,7 +96,7 @@
             <!-- end left arrow svg -->
             <?php for ($i = 1; $i <= $data['pages']; $i++) : ?>
 
-                <a <?= $i == $data['currentPage'] ? 'onclick="event.preventDefault()"' : "" ?> href="<?= DOCUMENT_ROOT . "/Home" ?>?page=<?= $i ?>">
+                <a <?= $i == $data['currentPage'] ? 'onclick="event.preventDefault()"' : "" ?> href="<?= DOCUMENT_ROOT . "/Home" ?>?page=<?= $i ?>#SP">
                     <div class="paging-number <?= $i == $data['currentPage'] ? "paging-number--active" : "" ?>">
                         <?= $i ?>
                     </div>

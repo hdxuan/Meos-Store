@@ -131,10 +131,15 @@ color: var(--color-primary);
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-between;
+  text-align: center;
+
   border-radius: 15px;
   overflow: hidden;
-  padding: 10px 0;
+  padding: 10px;
   margin: 7px 0;
+  transition: all 0.3s ease-in;
+
 }
 .best-seller__items:hover{
   /* box-shadow: 0 0 22px rgba(37, 37, 37, 0.267); */
@@ -247,7 +252,7 @@ font-weight: normal;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   text-align: center;
 
 }

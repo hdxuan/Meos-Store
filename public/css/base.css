@@ -5,14 +5,11 @@
   /* --color-second: #c97027; */
   --color-second: #ff865e;
   --color-active: #b62f3f;
-  --color-title: #333333;
+  --color-title: #534d6c;
   --color-content: #848484;
   --color-background: #ffffff;
   --color-nav : #bdbaba;
   --font-nunito: "Nunito", sans-serif;
-  /* --font-poppins: "Poppins", sans-serif; */
-  --font-roboto: 'Roboto Slab',sans-serif;
-  --font-francois: 'Francois One', sans-serif;
   --font-be: 'Be Vietnam', sans-serif;
 
 }

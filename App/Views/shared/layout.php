@@ -14,36 +14,56 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@200;400;600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Francois+One&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam:wght@400;500&display=swap" rel="stylesheet">
+    <?php if (strpos($view, 'login') !== false || strpos($view, 'register') !== false) : ?>
 
-    <link rel="stylesheet" href="<?= PUBLIC_URL ?>/bootstrap-5.0.2-dist/css/bootstrap.css">
-    <link rel="stylesheet" href="<?= PUBLIC_URL ?>/owlcarousel/assets/owl.carousel.min.css">
-    <link rel="stylesheet" href="<?= PUBLIC_URL ?>/owlcarousel/assets/owl.theme.default.min.css">
-    <link rel="stylesheet" href="<?= PUBLIC_URL ?>/css/reset.css" />
-    <link rel="stylesheet" href="<?= PUBLIC_URL ?>/css/base.css" />
-    <link rel="stylesheet" href="<?= PUBLIC_URL ?>/css/header.css" />
-    <link rel="stylesheet" href="<?= PUBLIC_URL ?>/css/footer.css" />
+        <link rel="stylesheet" href="<?= PUBLIC_URL ?>/css/login.css" />
 
-    <link rel="stylesheet" href="<?= PUBLIC_URL ?>/css/home.css" />
-    <link rel="stylesheet" href="<?= PUBLIC_URL ?>/css/product.css" />
-    <link rel="stylesheet" href="<?= PUBLIC_URL ?>/css/detail.css" />
+    <?php else : ?>
+        <link rel="stylesheet" href="<?= PUBLIC_URL ?>/bootstrap-5.0.2-dist/css/bootstrap.css">
+        <link rel="stylesheet" href="<?= PUBLIC_URL ?>/owlcarousel/assets/owl.carousel.min.css">
+        <link rel="stylesheet" href="<?= PUBLIC_URL ?>/owlcarousel/assets/owl.theme.default.min.css">
+        <link rel="stylesheet" href="<?= PUBLIC_URL ?>/css/reset.css" />
+        <link rel="stylesheet" href="<?= PUBLIC_URL ?>/css/base.css" />
+        <link rel="stylesheet" href="<?= PUBLIC_URL ?>/css/header.css" />
+        <link rel="stylesheet" href="<?= PUBLIC_URL ?>/css/footer.css" />
 
+        <link rel="stylesheet" href="<?= PUBLIC_URL ?>/css/home.css" />
+        <link rel="stylesheet" href="<?= PUBLIC_URL ?>/css/product.css" />
+        <link rel="stylesheet" href="<?= PUBLIC_URL ?>/css/detail.css" />
+    <?php endif; ?>
 </head>
 
-<body>
-    <?php require_once(VIEW . '/shared/header.php') ?>
-    <?php require_once(VIEW . $view . ".php") ?>
-    <?php require_once(VIEW . '/shared/footer.php') ?>
+<?php if (strpos($view, 'login') !== false || strpos($view, 'register') !== false) : ?>
+
+    <body class="form-v7">
+        <?php require_once(VIEW . $view . ".php") ?>
+
+        <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
+        <script type="text/javascript" src="<?= PUBLIC_URL ?>/js/register-validate.js"></script>
+    </body>
+
+<?php else : ?>
+
+    <body>
 
 
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="<?= PUBLIC_URL ?>/owlcarousel/owl.carousel.min.js"></script>
-    <script src="<?= PUBLIC_URL ?>/js/slider.js"></script>
+        <?php require_once(VIEW . '/shared/header.php') ?>
+        <?php require_once(VIEW . $view . ".php") ?>
+        <?php require_once(VIEW . '/shared/footer.php') ?>
 
-    <!-- <script type="text/javascript" src="/js/app.js"></script> -->
-    <!-- <script type="text/javascript" src="/js/cart.js"></script> -->
 
-</body>
+        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="<?= PUBLIC_URL ?>/owlcarousel/owl.carousel.min.js"></script>
+        <script src="<?= PUBLIC_URL ?>/js/slider.js"></script>
+        <script src="<?= PUBLIC_URL ?>/js/amount.js"></script>
 
+        <!-- <script type="text/javascript" src="/js/app.js"></script> -->
+        <!-- <script type="text/javascript" src="/js/cart.js"></script> -->
+
+    </body>
+<?php endif; ?>
 
 </html>
