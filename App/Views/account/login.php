@@ -2,7 +2,7 @@
     <div class="form-v7-content">
         <div class="form-left">
             <img src="<?= IMAGES_URL . DS ?>/form-background.jpg" alt="form">
-            <p class="text-1">Sign in</p>
+            <p class="text-1">Đăng nhập</p>
 
         </div>
         <form action="<?= DOCUMENT_ROOT ?>/Account/login" method="post" id="myform" class="form-detail">
@@ -24,13 +24,13 @@
             </div>
 
             <div class="form-row">
-                <label for="password">PASSWORD</label>
+                <label for="password">MẬT KHẨU</label>
                 <input type="password" name="password" id="password" class="input-text">
             </div>
 
             <div class="form-row-last">
-                <input type="submit" name="signin" class="register" value="Sign in">
-                <p>Or<a href="<?= DOCUMENT_ROOT ?>/Account/register">Register</a></p>
+                <input type="submit" name="signin" class="register" value="Đăng nhập">
+                <p>hoặc<a href="<?= DOCUMENT_ROOT ?>/Account/register">Đăng ký</a></p>
             </div>
         </form>
     </div>

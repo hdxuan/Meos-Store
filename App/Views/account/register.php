@@ -1,16 +1,16 @@
 <div class="page-content">
     <div class="form-v7-content">
         <div class="form-left">
-            <img src="	https://colorlib.com/etc/regform/colorlib-regform-2/images/bg-heading-02.jpg" alt="form">
-            <p class="text-1">Register</p>
+            <img src="<?= IMAGES_URL . DS ?>/form-background.jpg" alt="form">
+            <p class="text-1">Đăng ký</p>
 
         </div>
 
-        <form action="<?= DOCUMENT_ROOT ?>/Account/signup" method="post" id="myform" class="form-detail">
+        <form action="<?= DOCUMENT_ROOT ?>/Account/signUp" method="post" id="myform" class="form-detail">
 
             <div class="form-row">
 
-                <label for="username">USERNAME</label>
+                <label for="username">TÊN ĐĂNG KÝ</label>
                 <input type="text" name="username" id="username" class="input-text">
             </div>
             <div class="form-row">
@@ -18,16 +18,16 @@
                 <input type="text" name="your_email" id="your_email" class="input-text">
             </div>
             <div class="form-row">
-                <label for="password">PASSWORD</label>
+                <label for="password">MẬT KHẨU</label>
                 <input type="password" name="password" id="password" class="input-text">
             </div>
             <div class="form-row">
-                <label for="confirm_password">CONFIRM PASSWORD</label>
+                <label for="confirm_password">XÁC NHẬN MẬT KHẨU</label>
                 <input type="password" name="confirm_password" id="confirm_password" class="input-text">
             </div>
             <div class="form-row-last">
-                <input type="submit" name="register" class="register" value="Register">
-                <p>Or<a href="<?= DOCUMENT_ROOT ?>/Account">Sign in</a></p>
+                <input type="submit" name="register" class="register" value="Đăng ký">
+                <p>hoặc<a href="<?= DOCUMENT_ROOT ?>/Account">Đăng nhập</a></p>
             </div>
         </form>
     </div>

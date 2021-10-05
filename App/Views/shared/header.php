@@ -36,18 +36,24 @@
                   <span class="header__cart__amount">2</span>
               </div>
 
-              <div class="header__user noselect">
-                  <div class="header__user__avatar ">
-                      <img src="<?= IMAGES_URL ?>/user.jpg" alt="user avatar">
-                      <div class="header__user__dropdown ">
-                          <ul>
-                              <li><a href="#">Trang cá nhân</a></li>
-                              <li><a href="#">Giỏ hàng</a></li>
-                              <li><a href="#">Đăng xuất</a></li>
-                          </ul>
+              <?php if (isset($_SESSION['user'])) : ?>
+                  <div class="header__user noselect">
+                      <div class="header__user__avatar ">
+                          <img src="<?= IMAGES_URL ?>/user.jpg" alt="user avatar">
+                          <div class="header__user__dropdown ">
+                              <ul>
+                                  <li><a href="#">Trang cá nhân</a></li>
+                                  <li><a href="#">Giỏ hàng</a></li>
+                                  <li><a href="<?= DOCUMENT_ROOT . "/Account/logOut" ?>">Đăng xuất</a></li>
+                              </ul>
+                          </div>
                       </div>
                   </div>
-              </div>
+              <?php else : ?>
+                  <a href="<?= DOCUMENT_ROOT ?>/account"><button class="btn btn--primary">Login</button></a>
+
+              <?php endif; ?>
+
 
               <label for="nav-mobile__button">
                   <img class="nav-mobile__icon" src="<?= ICONS_URL ?>/menu-mobile.svg" alt="menu bar" />

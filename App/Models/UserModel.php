@@ -44,7 +44,7 @@ class UserModel extends Database
 
         $sttm->execute();
 
-        $result = $sttm->affected_rows;
+        $result = $sttm->affected_rows; // giong num_row, tra ve so dong
         if ($result < 1) {
             return false;
         } else {
