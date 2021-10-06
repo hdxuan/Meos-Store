@@ -7,7 +7,7 @@
 
 <!-- wrapper products -->
 <section class="container category">
-    <h3 class="title">Shop cho thú cưng</h3>
+    <h3 class="title">Chăm sóc cho vật nuôi</h3>
     <ul class="category__items noselect">
         <a href="<?= DOCUMENT_ROOT ?>">
             <li class="category__item dog__category">

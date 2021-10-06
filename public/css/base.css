@@ -6,11 +6,14 @@
   --color-second: #ff865e;
   --color-active: #b62f3f;
   --color-title: #534d6c;
+  /* --color-title: #7e4c4f; */
   --color-content: #848484;
   --color-background: #ffffff;
   --color-nav : #bdbaba;
   --font-nunito: "Nunito", sans-serif;
   --font-be: 'Be Vietnam', sans-serif;
+  --font-lo: 'Lobster', cursive;
+  --font-mi: 'Mitr', sans-serif;
 
 }
 
@@ -63,7 +66,8 @@ body {
 }
 
 .title {
-  font-family: var(--font-nunito);
+  /* font-family: var(--font-nunito); */
+  font-family: var(--font-lo);
   color: var(--color-title);
   font-weight: 700;
   font-size: 4rem;

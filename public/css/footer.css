@@ -7,10 +7,14 @@
 .footer__logo {
   width: 350px;
 }
+.footer__logo p {
+  font-family: var(--font-nunito);
+  font-weight: 100;
+}
 
 .footer__lists {
   display: flex;
-  font-family: var(--font-poppins);
+  font-family: var(--font-nunito);
 }
 .footer__list {
   margin-left: 100px;
@@ -22,6 +26,7 @@
   line-height: 3.3rem;
   margin-bottom: 5px;
   color: var(--color-title);
+  font-family: var(--font-lo);
 }
 .footer__list li {
   font-style: normal;

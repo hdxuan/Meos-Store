@@ -119,6 +119,8 @@ color: var(--color-primary);
 }
 .best-seller-background--slider{
   position: absolute;
+  top: 0%;
+  left: 0;
   height: 100%;
 }
 .best-seller{

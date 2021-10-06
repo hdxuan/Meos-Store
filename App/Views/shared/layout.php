@@ -14,6 +14,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@200;400;600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Francois+One&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Mitr:wght@400;500;600&display=swap" rel="stylesheet">
     <?php if (strpos($view, 'login') !== false || strpos($view, 'register') !== false) : ?>
 
         <link rel="stylesheet" href="<?= PUBLIC_URL ?>/css/login.css" />

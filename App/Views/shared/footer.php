@@ -5,10 +5,11 @@
   <footer class="footer container background__footer">
       <div class="footer__logo">
           <img src="<?= IMAGES_URL ?>/logo.png" alt="footer logo" />
+          <p>Khi tôi nhìn vào mắt một con vật, tôi không nhìn thấy một con vật. Tôi nhìn thấy một sinh vật sống. Tôi thấy một người bạn. Tôi cảm thấy một linh hồn. Vì họ không thể nói, hãy để chúng tôi trở thành tiếng nói của họ!</p>
       </div>
       <div class="footer__lists">
           <ul class="footer__list">
-              <h6>Categories</h6>
+              <h6>Dịch vụ</h6>
               <a href="#/">
                   <li>Shop cho cún</li>
               </a>
@@ -23,13 +24,13 @@
               </a>
           </ul>
           <ul class="footer__list">
-              <h6>About</h6>
+              <h6>Thông tin</h6>
               <li>Méo Store</li>
               <li>Hau Diem Xuan</li>
               <li>xuanB1809433@student.ctu.edu.vn</li>
           </ul>
           <ul class="footer__list">
-              <h6>Social</h6>
+              <h6>Liên hệ chúng tôi</h6>
               <div class="footer__list__social">
                   <a href="https://www.facebook.com/xuan.haudiem/"><img src="<?= ICONS_URL ?>/facebook.svg" alt="facebook icon" /></a>
                   <a href="https://github.com/hdxuan"><img src="<?= ICONS_URL ?>/github.svg" alt="github icon" /></a>
