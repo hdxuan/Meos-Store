@@ -32,7 +32,7 @@
 
           <div class="header__info">
               <div class="header__cart noselect">
-                  <img src="<?= ICONS_URL ?>/cart.svg" alt="icon cart">
+                  <a href="<?= DOCUMENT_ROOT ?>/Cart"><img src="<?= ICONS_URL ?>/cart.svg" alt="icon cart"></a>
                   <span class="header__cart__amount">2</span>
               </div>
 
@@ -43,7 +43,7 @@
                           <div class="header__user__dropdown ">
                               <ul>
                                   <li><a href="#">Trang cá nhân</a></li>
-                                  <li><a href="#">Giỏ hàng</a></li>
+                                  <li><a href="<?= DOCUMENT_ROOT ?>/Cart">Giỏ hàng</a></li>
                                   <li><a href="<?= DOCUMENT_ROOT . "/Account/logOut" ?>">Đăng xuất</a></li>
                               </ul>
                           </div>
