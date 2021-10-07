@@ -47,7 +47,7 @@
                             <input class="plus is-form" type="button" value="+">
                         </div>
                     </div>
-                    <button class="btn btn--primary">Vào giỏ hàng +</button>
+                    <button class="btn btn--primary">Thêm vào giỏ +</button>
                 </div>
             </div>
 

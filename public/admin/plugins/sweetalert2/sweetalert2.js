@@ -4,9 +4,10 @@
 */
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
-  typeof define === 'function' && define.amd ? define(factory) :
-  (global = global || self, global.Sweetalert2 = factory());
-}(this, function () { 'use strict';
+    typeof define === 'function' && define.amd ? define(factory) :
+      (global = global || self, global.Sweetalert2 = factory());
+}(this, function () {
+  'use strict';
 
   function _typeof(obj) {
     "@babel/helpers - typeof";
@@ -101,7 +102,7 @@
     if (typeof Proxy === "function") return true;
 
     try {
-      Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {}));
+      Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () { }));
       return true;
     } catch (e) {
       return false;
@@ -146,7 +147,7 @@
 
     return function _createSuperInternal() {
       var Super = _getPrototypeOf(Derived),
-          result;
+        result;
 
       if (hasNativeReflectConstruct) {
         var NewTarget = _getPrototypeOf(this).constructor;
@@ -412,18 +413,18 @@
   var focusable = "\n  a[href],\n  area[href],\n  input:not([disabled]),\n  select:not([disabled]),\n  textarea:not([disabled]),\n  button:not([disabled]),\n  iframe,\n  object,\n  embed,\n  [tabindex=\"0\"],\n  [contenteditable],\n  audio[controls],\n  video[controls],\n  summary\n";
   var getFocusableElements = function getFocusableElements() {
     var focusableElementsWithTabindex = toArray(getPopup().querySelectorAll('[tabindex]:not([tabindex="-1"]):not([tabindex="0"])')) // sort according to tabindex
-    .sort(function (a, b) {
-      a = parseInt(a.getAttribute('tabindex'));
-      b = parseInt(b.getAttribute('tabindex'));
+      .sort(function (a, b) {
+        a = parseInt(a.getAttribute('tabindex'));
+        b = parseInt(b.getAttribute('tabindex'));
 
-      if (a > b) {
-        return 1;
-      } else if (a < b) {
-        return -1;
-      }
+        if (a > b) {
+          return 1;
+        } else if (a < b) {
+          return -1;
+        }
 
-      return 0;
-    });
+        return 0;
+      });
     var otherFocusableElements = toArray(getPopup().querySelectorAll(focusable)).filter(function (el) {
       return el.getAttribute('tabindex') !== '-1';
     });
@@ -2068,8 +2069,8 @@
     }
 
     if (!isScrollable(container) && target.tagName !== 'INPUT' && // #1603
-    !(isScrollable(getContent()) && // #1944
-    getContent().contains(target))) {
+      !(isScrollable(getContent()) && // #1944
+        getContent().contains(target))) {
       return true;
     }
 
@@ -2249,9 +2250,9 @@
 
     var animationIsSupported = animationEndEvent && hasCssAnimation(popup);
     var onClose = innerParams.onClose,
-        onAfterClose = innerParams.onAfterClose,
-        willClose = innerParams.willClose,
-        didClose = innerParams.didClose;
+      onAfterClose = innerParams.onAfterClose,
+      willClose = innerParams.willClose,
+      didClose = innerParams.didClose;
     runDidClose(popup, willClose, onClose);
 
     if (animationIsSupported) {
@@ -2985,7 +2986,7 @@
   };
 
   var handleConfirmOrDenyWithInput = function handleConfirmOrDenyWithInput(instance, innerParams, type
-  /* type is either 'confirm' or 'deny' */
+    /* type is either 'confirm' or 'deny' */
   ) {
     var inputValue = getInputValue(instance, innerParams);
 
@@ -3637,4 +3638,4 @@
   return Swal;
 
 }));
-if (typeof this !== 'undefined' && this.Sweetalert2){  this.swal = this.sweetAlert = this.Swal = this.SweetAlert = this.Sweetalert2}
+if (typeof this !== 'undefined' && this.Sweetalert2) { this.swal = this.sweetAlert = this.Swal = this.SweetAlert = this.Sweetalert2 }

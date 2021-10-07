@@ -5,15 +5,16 @@
   /* --color-second: #c97027; */
   --color-second: #ff865e;
   --color-active: #b62f3f;
-  --color-title: #534d6c;
+  --color-title: #3b3a3f;
   /* --color-title: #7e4c4f; */
   --color-content: #848484;
   --color-background: #ffffff;
   --color-nav : #bdbaba;
   --font-nunito: "Nunito", sans-serif;
   --font-be: 'Be Vietnam', sans-serif;
-  --font-lo: 'Lobster', cursive;
   --font-mi: 'Mitr', sans-serif;
+  --font-var: 'Varela Round', sans-serif;
+  --font-vi: 'Great Vibes', cursive;
 
 }
 
@@ -66,13 +67,13 @@ body {
 }
 
 .title {
-  /* font-family: var(--font-nunito); */
-  font-family: var(--font-lo);
+  /* font-family: var(--font-var); */
+  font-family: var(--font-be);
   color: var(--color-title);
-  font-weight: 700;
+  font-weight: 600;
   font-size: 4rem;
 
-  margin: 60px 0 80px 0;
+  margin: 9px 0 25px 0;
   position: relative;
   -webkit-touch-callout: none; /* iOS Safari */
   -webkit-user-select: none; /* Safari */
@@ -82,20 +83,13 @@ body {
   user-select: none; /* Non-prefixed version, currently
                                   supported by Chrome, Edge, Opera and Firefox */
 }
-.title::after {
-  content: "";
-  height: 2px;
-  position: absolute;
-  left: 36.49%;
-  right: 35.41%;
-  top: 165%;
-  bottom: 0%;
-
-  /* Content 2 */
-
-  background: #848484;
-  border-radius: 44px;
+.title__small{
+  font-family: var(--font-vi);
+  color: var(--color-title);
+  font-weight: 600;
+  font-size: 2.7rem;  
 }
+
 
 .btn {
   padding: 2px 15px;
