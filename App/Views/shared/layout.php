@@ -33,6 +33,7 @@
         <link rel="stylesheet" href="<?= PUBLIC_URL ?>/css/product.css" />
         <link rel="stylesheet" href="<?= PUBLIC_URL ?>/css/detail.css" />
         <link rel="stylesheet" href="<?= PUBLIC_URL ?>/css/cart.css" />
+        <link rel="stylesheet" href="<?= PUBLIC_URL ?>/css/profile.css" />
     <?php endif; ?>
 </head>
 

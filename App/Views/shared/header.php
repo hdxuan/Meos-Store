@@ -42,7 +42,7 @@
                           <img src="<?= IMAGES_URL ?>/user.jpg" alt="user avatar">
                           <div class="header__user__dropdown ">
                               <ul>
-                                  <li><a href="#">Trang cá nhân</a></li>
+                                  <li><a href="<?= DOCUMENT_ROOT ?>/Profile">Trang cá nhân</a></li>
                                   <li><a href="<?= DOCUMENT_ROOT ?>/Cart">Giỏ hàng</a></li>
                                   <li><a href="<?= DOCUMENT_ROOT . "/Account/logOut" ?>">Đăng xuất</a></li>
                               </ul>
