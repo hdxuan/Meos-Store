@@ -21,7 +21,6 @@
 
     <?php else : ?>
         <link rel="stylesheet" href="<?= PUBLIC_URL ?>/bootstrap-5.0.2-dist/css/bootstrap.css">
-        <link rel="stylesheet" href="<?= PUBLIC_URL ?>/bootstrap-5.0.2-dist/css/bootstrap-grid.css">
         <link rel="stylesheet" href="<?= PUBLIC_URL ?>/owlcarousel/assets/owl.carousel.min.css">
         <link rel="stylesheet" href="<?= PUBLIC_URL ?>/owlcarousel/assets/owl.theme.default.min.css">
         <link rel="stylesheet" href="<?= PUBLIC_URL ?>/css/reset.css" />
@@ -51,21 +50,25 @@
 <?php else : ?>
 
     <body>
+        <div id="toast">
+            <div id="img">Icon</div>
+            <div id="desc">A notification message..</div>
+        </div>
 
-
+        <!-- ajac -->
+        <p hidden id="documentRoot"> <?= DOCUMENT_ROOT ?></p>
         <?php require_once(VIEW . '/shared/header.php') ?>
         <?php require_once(VIEW . $view . ".php") ?>
         <?php require_once(VIEW . '/shared/footer.php') ?>
 
 
-        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script src="<?= PUBLIC_URL ?>/owlcarousel/owl.carousel.min.js"></script>
         <script src="<?= PUBLIC_URL ?>/js/slider.js"></script>
         <script src="<?= PUBLIC_URL ?>/js/amount.js"></script>
+        <script src="<?= PUBLIC_URL ?>/js/cart.js"></script>
 
-        <!-- <script type="text/javascript" src="/js/app.js"></script> -->
-        <!-- <script type="text/javascript" src="/js/cart.js"></script> -->
 
     </body>
 <?php endif; ?>

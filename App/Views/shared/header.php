@@ -33,7 +33,7 @@
           <div class="header__info">
               <div class="header__cart noselect">
                   <a href="<?= DOCUMENT_ROOT ?>/Cart"><img src="<?= ICONS_URL ?>/cart.svg" alt="icon cart"></a>
-                  <span class="header__cart__amount">2</span>
+                  <span id="cartAmount" class="header__cart__amount">0</span>
               </div>
 
               <?php if (isset($_SESSION['user'])) : ?>

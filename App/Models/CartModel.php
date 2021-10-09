@@ -6,87 +6,85 @@ class CartModel extends Database
 {
     function addToCart($data)
     {
-        if (!isset($data['iduser']) || !isset($data['idcake'])) {
+        if (!isset($data['idUser']) || !isset($data['idProduct'])) {
             return [
                 'isSuccess' => false,
                 'numInCart' => 0,
                 'error' => "Empty user id or cake id"
             ];
         }
-        $idcake = $data['idcake'];
-        $iduser = $data['iduser'];
+        $id_product = $data['idProduct'];
+        $id_user = $data['idUser'];
         $amount = isset($data['amount']) ? $data['amount'] : 1;
 
+        $checkProductInCart = $this->checkProductInCart($id_user, $id_product);
         $isSuccess = true;
         $error = "";
-        $isInCart = $this->checkCakeInCart($idcake, $iduser);
+        if ($checkProductInCart > 0) { // co trong cart, them tiep vao cart
+            $amount += $checkProductInCart; // neu co thi cong them vao sl sp
+            $stmt = $this->db->prepare("UPDATE cart SET amount = ? where id_user = ? and id_product = ?");
+            $stmt->bind_param("iii", $amount, $id_user, $id_product);
 
-        if ($isInCart > 0) {
-            $amount += $isInCart;
-
-            $sttm = $this->db->prepare("UPDATE CART SET amount = ? WHERE id_cake = ? AND id_user = ?");
-            $sttm->bind_param("iii", $amount, $idcake, $iduser);
-
-            $sttm->execute();
-
-            if ($sttm->error) {
+            $stmt->execute();
+            if ($stmt->error) {
                 $isSuccess = false;
-                $error = $sttm->error;
+                $error = $stmt->error;
             }
         } else {
-            $sttm = $this->db->prepare("INSERT INTO CART (id_cake, id_user, amount)  VALUES (?, ?, ?)");
-            $sttm->bind_param("iii", $idcake, $iduser, $amount);
 
-            $sttm->execute();
-            if ($sttm->error) {
+            $stmt = $this->db->prepare("INSERT INTO cart (id_user, id_product, amount) values (?, ?, ?) ");
+            $stmt->bind_param("iii", $id_user, $id_product, $amount);
+
+            $stmt->execute();
+            if ($stmt->error) {
                 $isSuccess = false;
-                $error = $sttm->error;
+                $error = $stmt->error;
             }
         }
-        $numInCart = $this->amountInCart($iduser);
 
-        return [
-            "isSuccess" =>  $isSuccess,
-            "numInCart" => $numInCart,
+        return [ // return qua ajac
+            "isSuccess" => $isSuccess,
             "error" => $error
         ];
     }
 
-    function amountInCart($iduser)
+    function checkProductInCart($isUser, $idProduct)
     {
-
-        $stmt = $this->db->prepare("SELECT count(*)  FROM cart WHERE id_user =  ?");
-        $stmt->bind_param("i", $iduser);
+        $stmt = $this->db->prepare("SELECT * FROM cart where id_user = ? and id_product = ?");
+        $stmt->bind_param("ii", $isUser, $idProduct);
 
         $stmt->execute();
         $result = $stmt->get_result();
 
-
-        return $result->fetch_row()[0];
-    }
-
-    function checkCakeInCart($idcake, $iduser)
-    {
-
-        $sttm = $this->db->prepare("SELECT amount FROM cart WHERE id_cake = ? AND id_user = ?");
-        $sttm->bind_param("ii", $idcake, $iduser);
-
-        $sttm->execute();
-
-        $result =  $sttm->get_result();
-
         if ($result->num_rows > 0) {
-            $cart = $result->fetch_assoc();
-            return $cart['amount'];
+            return $result->fetch_assoc()['amount']; // co trong cart roi
         } else {
-            return 0;
+            return 0; // k ton tai = 0
         }
     }
 
-    function deleteCart($iduser, $idcake)
+    function amountInCart($idUser)
     {
-        $sttm = $this->db->prepare("DELETE FROM cart WHERE id_cake = ? AND id_user = ?");
-        $sttm->bind_param("ii", $idcake, $iduser);
+        $stmt = $this->db->prepare("SELECT count(*) FROM cart where id_user = ?");
+        $stmt->bind_param("i", $idUser);
+
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_row()[0]; // trả về dạng mảng
+        // fetch_row: trả về dl dạng
+        // arr(
+        //     0 => gtr 1,
+        //     1 => gtr 2,
+        //     2 => gtr 3,
+        // )
+
+    }
+
+    function deleteCart($isUser, $idProduct)
+    {
+        $sttm = $this->db->prepare("DELETE FROM cart WHERE id_user = ? AND id_product = ?");
+        $sttm->bind_param("ii", $isUser, $idProduct);
 
         $sttm->execute();
 
@@ -97,6 +95,7 @@ class CartModel extends Database
         }
         return false;
     }
+
     function store($data)
     {
     }

@@ -43,7 +43,7 @@
                 <div class="item">
                     <div class="best-seller__item">
                         <div class="best-seller_image">
-                            <img src="<?= IMAGES_PRODUCT_URL . DS . $bestSellers["image"] ?>" alt="cake image" class="best-seller__item-image">
+                            <img src="<?= IMAGES_PRODUCT_URL . DS . $bestSellers["image"] ?>" alt=" image" class="best-seller__item-image">
                         </div>
                         <h6 class="best-seller__item-info__name"><?= $bestSellers["name"] ?></h6>
                         <div class="best-seller__item-info__prices">
@@ -51,7 +51,7 @@
                             <div class="best-seller__item-info__price"><?= number_format($bestSellers["price"], 0, '', '.') ?>đ</div>
                             <div class="best-seller__item-info__price"><?= number_format($bestSellers["price"], 0, '', '.') ?>đ</div>
                         </div>
-                        <button class="btn btn--primary">Thêm vào giỏ +</button>
+                        <button onclick="addToCart(<?= isset($_SESSION['user']) ? $_SESSION['user']['id'] : 0 ?>,<?= $bestSellers['id'] ?>)" class="btn btn--primary">Thêm vào giỏ +</button>
 
                     </div>
                 </div>
@@ -82,7 +82,7 @@
 
                     <div class="sweeties__item__original-price">Lượt mua</div>
                 </div>
-                <button class="btn btn--secondary">Thêm vào giỏ +</button>
+                <button onclick="addToCart(<?= isset($_SESSION['user']) ? $_SESSION['user']['id'] : 0 ?>,<?= $productOnlyPage['id'] ?>)" class="btn btn--secondary">Thêm vào giỏ +</button>
 
             </div>
         <?php endforeach; ?>

@@ -1,32 +1,32 @@
-window.addEventListener("load", () => refreshCartNumber());
+window.addEventListener("load", refreshCartNumber);
 
-function addToCart(userId, cakeId) {
+function addToCart(userId, productId) {
     if (userId == 0) {
-        launch_toast("Please login to add cake!");
+        launch_toast("Đăng nhập để thêm sản phẩm!");
         return;
     }
-
+    // lay documentRoot id ben layout
     var documentRoot = document.getElementById('documentRoot').innerText;
 
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
 
         if (this.readyState == 4 && this.status == 200) {
-            var response = JSON.parse(this.response);
+            var response = JSON.parse(this.response);// ??
             if (response.isSuccess == true) {
-                refreshCartNumber(response.numInCart);
-                launch_toast("Added to cart suceess!");
+                refreshCartNumber();
+                launch_toast("Đã thêm vào giỏ hàng!");
             }
             else {
-                launch_toast("Can't Thêm vào giỏ +!");
-
+                launch_toast("Không thể thêm vào giỏ hàng!");
                 console.error(response.error);
 
             }
         }
 
     };
-    xhttp.open("GET", `${documentRoot}//Cart//addToCart?idcake=${cakeId}&iduser=${userId}`, true);
+    // 
+    xhttp.open("GET", `${documentRoot}//Cart//addToCart?idProduct=${productId}&idUser=${userId}`, true); // template string
     xhttp.send();
 }
 
@@ -40,23 +40,18 @@ function launch_toast(message) {
     }, 5000);
 }
 
-function refreshCartNumber(cartNumber = -1) {
-    var cartNumberElement = document.getElementById("numInCartID");
+function refreshCartNumber() {
+    var documentRoot = document.getElementById('documentRoot').innerText;
 
+    var xhttp = new XMLHttpRequest();
 
-    if (cartNumber !== -1) {
-        cartNumberElement.innerText = cartNumber;
-    } else {
-        var documentRoot = document.getElementById('documentRoot').innerText;
-        var xhttp = new XMLHttpRequest();
-
-        xhttp.onreadystatechange = function () {
-            if (this.readyState == 4 && this.status == 200) {
-                cartNumber = this.responseText;
-                cartNumberElement.innerText = cartNumber;
-            }
-        };
-        xhttp.open("GET", `${documentRoot}//Cart//amountInCart`, true);
-        xhttp.send();
+    xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            //Get result = result of function amountIncart() in CartController
+            document.getElementById("cartAmount").innerText = this.responseText;
+        }
     }
+    //Call function amountInCart() in CartController
+    xhttp.open("GET", `${documentRoot}//cart//amountInCart`, true);
+    xhttp.send();
 }
