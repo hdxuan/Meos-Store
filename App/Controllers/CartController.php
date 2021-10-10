@@ -36,5 +36,8 @@ class CartController extends Controller
 
     function removeCart()
     {
+        $idProduct = $_GET['id'];
+        $delProduct = $this->cartModel->deleteCart($_SESSION['user']['id'], $idProduct);
+        header("Location: " . DOCUMENT_ROOT . DS . "Cart");
     }
 }

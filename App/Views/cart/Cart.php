@@ -37,7 +37,7 @@
                             <div class="col">
 
                                 <div class="icon__delete">
-                                    <a href="#/"><i class="far fa-trash-alt icon_trash"></i></a>
+                                    <a href="<?= DOCUMENT_ROOT . DS . "Cart/removeCart?id=" . $productInCart['id'] ?>"><i class="far fa-trash-alt icon_trash"></i></a>
                                 </div>
                             </div>
                         </div>
