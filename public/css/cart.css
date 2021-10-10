@@ -41,7 +41,7 @@
 
 .cart__item--informations form{
     display: grid;
-    grid-template-columns: 0.8fr 1fr;
+    grid-template-columns: 0.6fr 1fr;
     grid-gap: 15px 11px;
     align-items: center;
     
@@ -56,11 +56,12 @@
     outline: none;
 
     width: 100%;
-    padding: 10px 20px;
+    padding: 13px 20px;
 
     background-color: rgba(197, 195, 195, 0.849);
     
 }
+
 .cart__item--informations button{
     padding: 7px 50px;
     justify-self: center;

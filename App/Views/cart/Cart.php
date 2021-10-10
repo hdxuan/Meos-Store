@@ -57,16 +57,16 @@
                         <form action="" method="POST">
 
                             <label for="username">Tên khách hàng: </label>
-                            <input type="text" class="input" name="name">
+                            <input type="text" class="input" name="name" value="<?= $_SESSION['user']['name'] ?>">
 
                             <!-- <label for="email">Email: </label>
                             <input type="text" class="input" name="email"> -->
 
                             <label for="phone">Số điện thoại: </label>
-                            <input type="text" class="input" name="phone">
+                            <input type="text" class="input" name="phone" value="<?= $_SESSION['user']['phone'] ?>">
 
                             <label for="address">Địa chỉ: </label>
-                            <input type="text" class="input" name="address">
+                            <textarea class="input" name="address" id="" cols="1" rows="3"><?= $_SESSION['user']['address'] ?></textarea>
 
                             <!-- <button type="submit" value="order" class="btn btn--primary">Thanh toán</button> -->
                         </form>
