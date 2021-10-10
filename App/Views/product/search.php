@@ -17,7 +17,7 @@
                             <div class="sweeties__item__price"><?= number_format($products['price'], 0, '', ',') ?>đ</div>
                             <div class="sweeties__item__original-price"><?= number_format($products['price'], 0, '', ',') ?>đ</div>
                         </div>
-                        <button class="btn btn--secondary">Thêm vào giỏ +</button>
+                        <button onclick="addToCart(<?= isset($_SESSION['user']) ? $_SESSION['user']['id'] : 0 ?>,<?= $products['id'] ?> class=" btn btn--secondary">Thêm vào giỏ +</button>
                     </div>
                 <?php endforeach; ?>
             <?php else : ?>

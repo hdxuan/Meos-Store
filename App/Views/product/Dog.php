@@ -39,7 +39,7 @@
 
                             <!-- <div class="products__display--original-price">Lượt mua</div> -->
                         </div>
-                        <button class="btn btn--secondary">Thêm vào giỏ +</button>
+                        <button onclick="addToCart(<?= isset($_SESSION['user']) ? $_SESSION['user']['id'] : 0 ?>,<?= $products['id'] ?> class=" btn btn--secondary">Thêm vào giỏ +</button>
 
                     </div>
                 <?php endforeach; ?>

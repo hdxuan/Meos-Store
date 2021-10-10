@@ -1,3 +1,4 @@
+// khi load lại trang lấy lại số trong cart
 window.addEventListener("load", refreshCartNumber);
 
 function addToCart(userId, productId) {
@@ -41,13 +42,12 @@ function launch_toast(message) {
 }
 
 function refreshCartNumber() {
-    var documentRoot = document.getElementById('documentRoot').innerText;
+    var documentRoot = document.getElementById('documentRoot').innerText; // lay bien document
 
     var xhttp = new XMLHttpRequest();
 
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
-            //Get result = result of function amountIncart() in CartController
             document.getElementById("cartAmount").innerText = this.responseText;
         }
     }

@@ -96,6 +96,21 @@ class CartModel extends Database
         return false;
     }
 
+    function getIdProductCart($iduser)
+    {
+        $stmt = $this->db->prepare("SELECT * FROM cart c JOIN products p ON c.id_product = p.id where id_user = ?");
+        $stmt->bind_param("i", $iduser);
+
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        if ($result->num_rows > 0) {
+            return $result->fetch_all(MYSQLI_ASSOC);
+        } else {
+            return false;
+        }
+    }
+
     function store($data)
     {
     }

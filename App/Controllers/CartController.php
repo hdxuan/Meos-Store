@@ -12,7 +12,12 @@ class CartController extends Controller
     }
     function index()
     {
-        $this->view("/cart/Cart");
+        $numProduct = $this->cartModel->getIdProductCart($_SESSION['user']['id']);
+        $data['productInCart'] = $numProduct;
+
+        // die(var_dump($data['numProduct']));
+
+        $this->view("/cart/Cart", $data);
     }
 
     function addToCart()
