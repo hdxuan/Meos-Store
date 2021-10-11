@@ -80,7 +80,7 @@
                         <form action="" method="POST">
 
                             <label for="username">Tổng tiền: </label>
-                            <input type="text" class="input" name="name">
+                            <input type="text" class="input" name="name" value="<?= DOCUMENT_ROOT . DS . "Cart/total" ?>">
 
                             <button type="submit" value="order" class="btn btn--primary">Thanh toán</button>
                         </form>

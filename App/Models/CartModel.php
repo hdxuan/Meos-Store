@@ -111,6 +111,21 @@ class CartModel extends Database
         }
     }
 
+    function total($iduser)
+    {
+        $stmt = $this->db->prepare("SELECT sum(price) FROM cart c JOIN products p ON c.id_product = p.id where id_user = ?");
+        $stmt->bind_param("i", $iduser);
+
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        if ($result->num_rows > 0) {
+            return $result->fetch_row()[0];
+        } else {
+            return false;
+        }
+    }
+
 
     function store($data)
     {

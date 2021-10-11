@@ -40,4 +40,10 @@ class CartController extends Controller
         $delProduct = $this->cartModel->deleteCart($_SESSION['user']['id'], $idProduct);
         header("Location: " . DOCUMENT_ROOT . DS . "Cart");
     }
+
+    function total()
+    {
+        $total = $this->cartModel->total($_SESSION['user']['id']);
+        echo $total;
+    }
 }
