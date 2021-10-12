@@ -13,6 +13,7 @@ class ProfileController extends Controller
 
     function index()
     {
+
         $this->view("/profile/Profile");
     }
 

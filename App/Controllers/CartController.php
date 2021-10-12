@@ -13,6 +13,9 @@ class CartController extends Controller
     function index()
     {
         $numProduct = $this->cartModel->getIdProductCart($_SESSION['user']['id']);
+        if (!$numProduct) {
+            $numProduct = [];
+        }
         $data['productInCart'] = $numProduct;
 
         // die(var_dump($data['numProduct']));
@@ -30,7 +33,12 @@ class CartController extends Controller
     }
     function amountInCart()
     {
-        $result = $this->cartModel->amountInCart($_SESSION['user']['id']);
+        if (!isset($_SESSION['user'])) {
+            $result = 0;
+        } else {
+
+            $result = $this->cartModel->amountInCart($_SESSION['user']['id']);
+        }
         echo $result;
     }
 

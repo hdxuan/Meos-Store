@@ -16,6 +16,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/d50b0eee6e.js" crossorigin="anonymous"></script>
+
+
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+
     <?php if (strpos($view, 'login') !== false || strpos($view, 'register') !== false) : ?>
 
         <link rel="stylesheet" href="<?= PUBLIC_URL ?>/css/login.css" />

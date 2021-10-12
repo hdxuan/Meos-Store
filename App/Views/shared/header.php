@@ -39,7 +39,7 @@
               <?php if (isset($_SESSION['user'])) : ?>
                   <div class="header__user noselect">
                       <div class="header__user__avatar ">
-                          <img src="<?= IMAGES_URL ?>/user.jpg" alt="user avatar">
+                          <img src="<?= PUBLIC_URL . "/uploads/avatar/" .  (empty($_SESSION['user']['avatar']) ? "default_avatar.png" : $_SESSION['user']['avatar']) ?>" alt="user avatar">
                           <div class="header__user__dropdown ">
                               <ul>
                                   <li><a href="<?= DOCUMENT_ROOT ?>/Profile">Trang cá nhân</a></li>
