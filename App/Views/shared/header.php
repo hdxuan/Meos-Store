@@ -2,21 +2,15 @@
   <div class="container">
       <header class="header ">
           <a href="<?= DOCUMENT_ROOT ?>" class="header__logo">
-              <img src="<?= IMAGES_URL ?>/4.svg" alt="logo">
+              <img src="<?= IMAGES_URL ?>/test1.svg" alt="logo">
           </a>
           <nav class="header__menu noselect">
               <a href="<?= DOCUMENT_ROOT ?>" class="header__menu__item">Trang chủ</a>
 
-              <!-- <div class="header__menu--dropdown"> -->
+
               <a href="<?= DOCUMENT_ROOT ?>/Products/Dog" class="header__menu__item">Chó</a>
               <a href="<?= DOCUMENT_ROOT ?>/Products/Cat" class="header__menu__item">Mèo</a>
-              <!-- <div class="dropdown">
-                      <ul>
-                          <li><a href="">Sản phẩm cho chó</a></li>
-                          <li><a href="#">Sản phẩm cho mèo</a></li>
-                      </ul>
-                  </div> -->
-              <!-- </div> -->
+
               <a href="#" class="header__menu__item">Blogs</a>
               <a href="#" class="header__menu__item">Dịch vụ</a>
           </nav>
@@ -39,7 +33,7 @@
               <?php if (isset($_SESSION['user'])) : ?>
                   <div class="header__user noselect">
                       <div class="header__user__avatar ">
-                          <img src="<?= PUBLIC_URL . "/uploads/avatar/" .  (empty($_SESSION['user']['avatar']) ? "default_avatar.png" : $_SESSION['user']['avatar']) ?>" alt="user avatar">
+                          <img src="<?= IMAGES_URL . "/uploads/avatar/" .  (empty($_SESSION['user']['avatar']) ? "default_avatar.png" : $_SESSION['user']['avatar']) ?>" alt="user avatar">
                           <div class="header__user__dropdown ">
                               <ul>
                                   <li><a href="<?= DOCUMENT_ROOT ?>/Profile">Trang cá nhân</a></li>

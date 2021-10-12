@@ -81,10 +81,15 @@ class CartModel extends Database
 
     }
 
-    function deleteCart($isUser, $idProduct)
+    function deleteCart($isUser, $idProduct = "")
     {
-        $sttm = $this->db->prepare("DELETE FROM cart WHERE id_user = ? AND id_product = ?");
-        $sttm->bind_param("ii", $isUser, $idProduct);
+        if ($idProduct !== "") {
+            $sttm = $this->db->prepare("DELETE FROM cart WHERE id_user = ? AND id_product = ?");
+            $sttm->bind_param("ii", $isUser, $idProduct);
+        } else {
+            $sttm = $this->db->prepare("DELETE FROM cart WHERE id_user = ?");
+            $sttm->bind_param("i", $isUser);
+        }
 
         $sttm->execute();
 

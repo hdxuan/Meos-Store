@@ -13,7 +13,7 @@
 </div>
 <div class="wrapper">
     <section class="container">
-        <nav class="cart">
+        <form action="<?= DOCUMENT_ROOT . DS . "Cart/checkout" ?>" method="POST" class="cart">
             <div class="cart__item">
                 <h3>Giỏ hàng</h3>
                 <div class="cart__item--informations">
@@ -29,7 +29,7 @@
                                 <div class="profuct__info--box__set">
                                     <div class="buttons_added">
                                         <input class="minus is-form" type="button" value="-">
-                                        <input aria-label="quantity" class="input-qty" max="20" min="1" name="" type="number" value="1">
+                                        <input aria-label="quantity" class="input-qty" max="20" min="1" name="numOfProduct<?= $productInCart['id'] ?>" type="number" value="1">
                                         <input class="plus is-form" type="button" value="+">
                                     </div>
                                 </div>
@@ -54,22 +54,20 @@
                     <h3>Thông tin nhận hàng</h3>
                     <div class="cart__item--informations">
                         <!-- loof nha  -->
-                        <form action="" method="POST">
 
-                            <label for="username">Tên khách hàng: </label>
-                            <input type="text" class="input" name="name" value="<?= $_SESSION['user']['name'] ?>">
+                        <label for="username">Tên khách hàng: </label>
+                        <input disabled type="text" class="input" name="name" value="<?= $_SESSION['user']['name'] ?>">
 
-                            <!-- <label for="email">Email: </label>
+                        <!-- <label for="email">Email: </label>
                             <input type="text" class="input" name="email"> -->
 
-                            <label for="phone">Số điện thoại: </label>
-                            <input type="text" class="input" name="phone" value="<?= $_SESSION['user']['phone'] ?>">
+                        <label for="phone">Số điện thoại: </label>
+                        <input disabled type="text" class="input" name="phone" value="<?= $_SESSION['user']['phone'] ?>">
 
-                            <label for="address">Địa chỉ: </label>
-                            <textarea class="input" name="address" id="" cols="1" rows="3"><?= $_SESSION['user']['address'] ?></textarea>
+                        <label for="address">Địa chỉ: </label>
+                        <textarea disabled class="input" name="address" id="" cols="1" rows="3"><?= $_SESSION['user']['address'] ?></textarea>
 
-                            <!-- <button type="submit" value="order" class="btn btn--primary">Thanh toán</button> -->
-                        </form>
+                        <!-- <button type="submit" value="order" class="btn btn--primary">Thanh toán</button> -->
                     </div>
                 </div>
 
@@ -77,17 +75,14 @@
                     <h3>Đơn hàng</h3>
                     <div class="cart__item--informations">
                         <!-- loof nha  -->
-                        <form action="" method="POST">
+                        <label for="username">Tổng tiền: </label>
+                        <input type="text" class="input" name="name" value="<?= DOCUMENT_ROOT . DS . "Cart/total" ?>">
 
-                            <label for="username">Tổng tiền: </label>
-                            <input type="text" class="input" name="name" value="<?= DOCUMENT_ROOT . DS . "Cart/total" ?>">
-
-                            <button type="submit" value="order" class="btn btn--primary">Thanh toán</button>
-                        </form>
+                        <button type="submit" value="order" class="btn btn--primary">Thanh toán</button>
                     </div>
                 </div>
             </div>
 
-        </nav>
+        </form>
     </section>
 </div>

@@ -1,5 +1,4 @@
 
-
 .profile-nav, .profile-info{
     margin-top:30px;   
 }
@@ -11,18 +10,28 @@
     -webkit-border-radius: 4px 4px 0 0;
     padding: 30px;
     text-align: center;
+    position: relative;
 }
-
+.icon__edit-avatar{
+    position: absolute;
+    top: 60%;
+    left: 60%;
+    font-size: 20px;
+}
+.icon__edit-avatar:hover{
+    cursor: pointer;
+}
 .profile-nav .user-heading.round a  {
     border-radius: 50%;
     -webkit-border-radius: 50%;
-    border: 10px solid rgba(255,255,255,0.3);
+    border: 6px solid rgba(255,255,255,0.3);
     display: inline-block;
 }
 
-.profile-nav .user-heading a img {
+.profile-nav .user-heading  img {
     width: 112px;
     height: 112px;
+    object-fit: cover;
     border-radius: 50%;
     -webkit-border-radius: 50%;
 }

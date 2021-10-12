@@ -73,6 +73,7 @@
         <script src="<?= PUBLIC_URL ?>/js/slider.js"></script>
         <script src="<?= PUBLIC_URL ?>/js/amount.js"></script>
         <script src="<?= PUBLIC_URL ?>/js/cart.js"></script>
+        <script src="<?= PUBLIC_URL ?>/js/profile.js"></script>
 
 
     </body>

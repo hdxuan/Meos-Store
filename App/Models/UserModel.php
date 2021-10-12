@@ -97,4 +97,19 @@ class UserModel extends Database
             return true;
         }
     }
+
+    function editAvatar($data, $iduser)
+    {
+        $sttm = $this->db->prepare("UPDATE USERS SET avatar = ?  WHERE id = ?");
+        $sttm->bind_param("si", $data['avatar'], $iduser);
+
+        $sttm->execute();
+
+        $result = $sttm->affected_rows;
+        if ($result < 1) {
+            return false;
+        } else {
+            return true;
+        }
+    }
 }

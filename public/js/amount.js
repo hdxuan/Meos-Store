@@ -1,4 +1,4 @@
-$('input.input-qty').each(function () {
+$('input.input-qty').each(function () {//chay vong lap tung thẻ input với class là input-qty
     var $this = $(this),
         qty = $this.parent().find('.is-form'),
         min = Number($this.attr('min')),

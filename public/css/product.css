@@ -2,9 +2,11 @@
 .banner__product{
     position: relative;
     text-align: center;
+    z-index: 40;
 }
 .banner__product img{
     height: 342px;
+    z-index: 40;
 }
 .title__product{
     position: absolute;

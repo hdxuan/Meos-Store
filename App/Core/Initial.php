@@ -1,7 +1,7 @@
 <?php
 
 // Define App Directories
-defined('ROOT') ?: define('ROOT', dirname(dirname(__DIR__)));
+defined('ROOT') ?: define('ROOT', dirname(dirname(__DIR__))); // ổ đĩa 
 
 defined('DS') ?: define('DS', DIRECTORY_SEPARATOR);
 
@@ -11,8 +11,7 @@ defined('CONT') ?: define('CONT', APP . DS . 'Controllers');
 defined('CORE') ?: define('CORE', APP . DS . 'Core');
 defined('MODEL') ?: define('MODEL', APP . DS . 'Models');
 defined('VIEW') ?: define('VIEW', APP . DS . 'Views');
-defined('PUBLIC_DIR_PRODUCT_IMAGES') ?:  define('PUBLIC_DIR_PRODUCT_IMAGES', ROOT . DS . 'public' . DS . 'img' . DS . 'products');
-
+defined('PUBLIC_DIR_IMAGES') ?:  define('PUBLIC_DIR_IMAGES', ROOT . DS . 'public' . DS . 'img'); // lấy hình vào
 
 
 // databases constant-- k thay đổi
@@ -34,7 +33,7 @@ $site = require(CONF . DS . 'site.php');
 defined('SITE') ?: define('SITE', $site);
 
 defined('DOCUMENT_ROOT') ?:  define('DOCUMENT_ROOT', SITE['document Root']);
-defined('PUBLIC_URL') ?: define('PUBLIC_URL', DOCUMENT_ROOT . '/public');
+defined('PUBLIC_URL') ?: define('PUBLIC_URL', DOCUMENT_ROOT . '/public'); // lấy dữ liệu ra
 defined('IMAGES_URL') ?:  define('IMAGES_URL', PUBLIC_URL .  '/img');
 
 // defined('UPLOAD_URL') ?:  define('UPLOAD_URL', PUBLIC_URL .  '/uploads');

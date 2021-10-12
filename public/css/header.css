@@ -5,7 +5,7 @@
   margin: 0 -30px;  
 }
 .header__logo img {
-  width: 250px;
+  width: 215px;
   margin-right: 19px;
 }
 
@@ -160,13 +160,14 @@
 
 .header__user {
   position: relative;
+  z-index: 50;
 }
 
 .header__user__avatar {
-  cursor: pointer;
+  cursor: pointer; 
 }
 
-.header__user__avatar:hover {
+.header__user__avatar:hover img{
   opacity: 0.8;
 }
 
@@ -179,7 +180,7 @@
   height: 52px;
 
   object-fit: cover;
-  border: 1.5px solid #fff;
+  border: 1px solid #fff;
   border-radius: 50%;
   box-shadow: 0 0 0 1px var(--color-primary);
 }
@@ -204,6 +205,7 @@
   transform: translateY(10px);
 
   display: none;
+  z-index: 50;
 }
 
 .header__user__dropdown::before {
