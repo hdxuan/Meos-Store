@@ -20,7 +20,7 @@ class OrderModel extends Database
         }
 
         // lấy id order vừa mới thêm
-        $id_order = $this->db->query("SELECT LAST_INSERT_ID()");
+        $id_order = $this->db->query("SELECT LAST_INSERT_ID()"); // lấy ra id cuối cùng vừa thêm vào
 
         if (!$id_order) {
             return $this->db->error;

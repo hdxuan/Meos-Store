@@ -56,7 +56,8 @@ class CartController extends Controller
         $total = $this->cartModel->total($_SESSION['user']['id']);
         echo $total;
     }
-    function checkout()
+
+    function checkout() // đặt hàng
     {
 
         $data['id_user'] = $_SESSION['user']['id'];
@@ -71,8 +72,9 @@ class CartController extends Controller
         foreach ($productInCart as $key => $product) {
             $id = $product['id'];
             $data['id_product'][] = $id;
-            $data['amount'][] = intval($_POST["numOfProduct$id"]); //lay so nguyen
+            $data['amount'][] = intval($_POST["numOfProduct$id"]); //intval: lay so nguyen/ lấy số lượng từng sp theo id
         }
+
         // echo "<pre>";
         // print_r($data);
         // echo "</pre>";
