@@ -19,17 +19,19 @@
                 <div class="cart__item--informations">
                     <?php foreach ($data['productInCart'] as $index => $productInCart) : ?>
                         <div class="cart__item--information row">
+                            <p id="id--product" hidden><?= $productInCart['id'] ?></p>
                             <div class="col-sm-3">
                                 <img class="cart__item--information__image" src="<?= IMAGES_PRODUCT_URL . DS . $productInCart['image'] ?>" alt="">
 
                             </div>
                             <div class="profuct__info col-sm-8">
                                 <div class="profuct__info--name"> <?= $productInCart['name'] ?> </div>
+                                <input type="number" hidden id="productPrice<?= $index ?>" value="<?= $productInCart['price'] ?>">
                                 <div class="profuct__info--price"><?= number_format($productInCart['price'], 0, " ", ".") ?>đ</div>
                                 <div class="profuct__info--box__set">
                                     <div class="buttons_added">
                                         <input class="minus is-form" type="button" value="-">
-                                        <input aria-label="quantity" class="input-qty" max="20" min="1" name="numOfProduct<?= $productInCart['id'] ?>" type="number" value="1">
+                                        <input onchange="onAmountChange();" id="amount<?= $index ?>" aria-label="quantity" class="input-qty" max="20" min="1" name="numOfProduct<?= $productInCart['id'] ?>" type="number" value="<?= $productInCart['amount'] ?>">
                                         <input class="plus is-form" type="button" value="+">
                                     </div>
                                 </div>
@@ -75,8 +77,10 @@
                     <h3>Đơn hàng</h3>
                     <div class="cart__item--informations">
                         <!-- loof nha  -->
-                        <label for="username">Tổng tiền: </label>
-                        <input type="text" class="input" name="name" value="<?= DOCUMENT_ROOT . DS . "Cart/total" ?>">
+                        <div>
+                            <label for="username">Tổng tiền: </label>
+                            <span id="total"></span>
+                        </div>
 
                         <button type="submit" value="order" class="btn btn--primary">Thanh toán</button>
                     </div>
@@ -85,4 +89,42 @@
 
         </form>
     </section>
+
+    <script>
+        function onAmountChange() {
+            var total = document.getElementById("total");
+            var totalNumber = 0;
+            if (total != undefined) {
+                for (var i = 0; i < <?= count($data['productInCart']) ?>; i++) {
+                    var amount = document.getElementById("amount" + i).value;
+                    var productPrice = document.getElementById("productPrice" + i).value;
+                    totalNumber += parseInt(amount) * parseInt(productPrice);
+                }
+                total.innerText = new Intl.NumberFormat().format(totalNumber) + "đ";
+            }
+            return;
+        }
+        $('input.input-qty').each(function() { //chay vong lap tung thẻ input với class là input-qty
+            var $this = $(this),
+                qty = $this.parent().find('.is-form'),
+                min = Number($this.attr('min')),
+                max = Number($this.attr('max'))
+            if (min == 0) {
+                var d = 0
+            } else d = min
+            $(qty).on('click', function() {
+                if ($(this).hasClass('minus')) {
+                    if (d > min) d += -1
+                } else if ($(this).hasClass('plus')) {
+                    var x = Number($this.val()) + 1
+                    if (x <= max) d += 1
+                }
+                $this.attr('value', d).val(d);
+
+                onAmountChange();
+            })
+        })
+
+        onAmountChange();
+    </script>
 </div>

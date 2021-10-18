@@ -14,13 +14,13 @@ class CartController extends Controller
     }
     function index()
     {
-        $numProduct = $this->cartModel->getIdProductCart($_SESSION['user']['id']);
-        if (!$numProduct) {
-            $numProduct = [];
+        $productInCart = $this->cartModel->getIdProductCart($_SESSION['user']['id']);
+        if (!$productInCart) {
+            $productInCart = [];
         }
-        $data['productInCart'] = $numProduct;
+        $data['productInCart'] = $productInCart;
 
-        // die(var_dump($data['numProduct']));
+
 
         $this->view("/cart/Cart", $data);
     }
@@ -51,12 +51,6 @@ class CartController extends Controller
         header("Location: " . DOCUMENT_ROOT . DS . "Cart");
     }
 
-    function total()
-    {
-        $total = $this->cartModel->total($_SESSION['user']['id']);
-        echo $total;
-    }
-
     function checkout() // đặt hàng
     {
 
@@ -74,6 +68,11 @@ class CartController extends Controller
             $data['id_product'][] = $id;
             $data['amount'][] = intval($_POST["numOfProduct$id"]); //intval: lay so nguyen/ lấy số lượng từng sp theo id
         }
+        // print_r($data['amount']);
+        // echo "<pre>";
+
+        // print_r($data['id_product']);
+        // die();
 
         // echo "<pre>";
         // print_r($data);
@@ -82,9 +81,7 @@ class CartController extends Controller
         if ($result === true) {
             $productInCart = $this->cartModel->deleteCart($_SESSION['user']['id']);
         }
-        echo '<script>';
-        echo 'alert("Đặt hàng thành công!")';
-        echo '</script>';
+
 
         header("Location:" . DOCUMENT_ROOT . "/home");
     }

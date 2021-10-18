@@ -84,10 +84,10 @@ class CartModel extends Database
     function deleteCart($isUser, $idProduct = "")
     {
         if ($idProduct !== "") {
-            $sttm = $this->db->prepare("DELETE FROM cart WHERE id_user = ? AND id_product = ?");
+            $sttm = $this->db->prepare("DELETE FROM cart WHERE id_user = ? AND id_product = ?"); // xóa 1 sp trong cart
             $sttm->bind_param("ii", $isUser, $idProduct);
         } else {
-            $sttm = $this->db->prepare("DELETE FROM cart WHERE id_user = ?");
+            $sttm = $this->db->prepare("DELETE FROM cart WHERE id_user = ?"); // xoa het khi dat hang xong
             $sttm->bind_param("i", $isUser);
         }
 
@@ -116,20 +116,24 @@ class CartModel extends Database
         }
     }
 
-    function total($iduser)
-    {
-        $stmt = $this->db->prepare("SELECT sum(price) FROM cart c JOIN products p ON c.id_product = p.id where id_user = ?");
-        $stmt->bind_param("i", $iduser);
+    // function total($data = [])
+    // {
+    //     for ($i = 0; $i < count($data['id_product']); $i++) {
+    //         $stmt = $this->db->prepare("SELECT * FROM products where id = ?");
 
-        $stmt->execute();
-        $result = $stmt->get_result();
+    //         if ($stmt) {
+    //             $stmt->bind_param("i", $data["id_product"][$i]);
+    //             $stmt->execute();
+    //             $result = $stmt->get_result();
 
-        if ($result->num_rows > 0) {
-            return $result->fetch_row()[0];
-        } else {
-            return false;
-        }
-    }
+    //             if ($result->num_rows > 0) {
+    //                 return $result->fetch_all(MYSQLI_ASSOC);
+    //             } else {
+    //                 return false;
+    //             }
+    //         }
+    //     }
+    // }
 
 
     function store($data)

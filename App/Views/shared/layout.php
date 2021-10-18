@@ -39,6 +39,9 @@
         <link rel="stylesheet" href="<?= PUBLIC_URL ?>/css/cart.css" />
         <link rel="stylesheet" href="<?= PUBLIC_URL ?>/css/profile.css" />
     <?php endif; ?>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 
 <?php if (strpos($view, 'login') !== false || strpos($view, 'register') !== false) : ?>
@@ -66,12 +69,8 @@
         <?php require_once(VIEW . $view . ".php") ?>
         <?php require_once(VIEW . '/shared/footer.php') ?>
 
-
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script src="<?= PUBLIC_URL ?>/owlcarousel/owl.carousel.min.js"></script>
         <script src="<?= PUBLIC_URL ?>/js/slider.js"></script>
-        <script src="<?= PUBLIC_URL ?>/js/amount.js"></script>
         <script src="<?= PUBLIC_URL ?>/js/cart.js"></script>
         <script src="<?= PUBLIC_URL ?>/js/profile.js"></script>
 

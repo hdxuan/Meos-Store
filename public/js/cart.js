@@ -55,3 +55,4 @@ function refreshCartNumber() {
     xhttp.open("GET", `${documentRoot}//cart//amountInCart`, true);
     xhttp.send();
 }
+

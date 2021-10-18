@@ -4,7 +4,7 @@
   </div> -->
   <footer class="footer container background__footer">
       <div class="footer__logo">
-          <img src="<?= IMAGES_URL ?>/logo.png" alt="footer logo" />
+          <img src="<?= IMAGES_URL ?>/test1.svg" alt="footer logo" />
           <p>Khi tôi nhìn vào mắt một con vật, tôi không nhìn thấy một con vật. Tôi nhìn thấy một sinh vật sống. Tôi thấy một người bạn. Tôi cảm thấy một linh hồn. Vì họ không thể nói, hãy để chúng tôi trở thành tiếng nói của họ!</p>
       </div>
       <div class="footer__lists">
