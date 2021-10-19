@@ -31,13 +31,15 @@ class ProductsController extends Controller
 
     function Cat()
     {
-        $productTypeId = 1;
+        $productType = $this->productTypeModel->allCat();
+        $data["productType"] = $productType;
+
+        $productTypeId = 11;
         if (isset($_GET['productTypeId'])) {
             $productTypeId = $_GET['productTypeId'];
         }
         $products = $this->productModel->getByProductType($productTypeId);
-        $productType = $this->productTypeModel->allCat();
-        $data["productType"] = $productType;
+
         $data["products"] = $products;
         $this->view("/product/Cat", $data);
     }
