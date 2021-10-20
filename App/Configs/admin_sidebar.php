@@ -6,17 +6,18 @@ return [
         'icon' => 'fas fa-database',
         'link' => DOCUMENT_ROOT . "/admin/home"
     ],
-    'products dog' => [
-        'title' => 'Manage products dog',
+    'products' => [
+        'title' => 'Manage products',
         'name' => 'products',
         'icon' => 'fas fa-cookie-bite',
         'link' => DOCUMENT_ROOT . "/admin/products"
     ],
+
     // 'products cat' => [
     //     'title' => 'Manage products cat',
-    //     'name' => 'products',
+    //     'name' => 'productscat', // là controller trên thanh địa chỉ
     //     'icon' => 'fas fa-cookie-bite',
-    //     'link' => DOCUMENT_ROOT . "/admin/products/cat.php"
+    //     'link' => DOCUMENT_ROOT . "/admin/products/cat"
     // ],
 
     'categories' => [

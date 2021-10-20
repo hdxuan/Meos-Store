@@ -23,7 +23,7 @@
                     <div class="card-header">
                         <div class="d-flex justify-content-between align-items-center">
                             <h3 class="card-title">Cake list</h3>
-                            <a class="btn btn-primary" href="<?= DOCUMENT_ROOT . "/admin/" ?>cakes/create">Create</a>
+                            <a class="btn btn-primary" href="<?= DOCUMENT_ROOT . DS .  "admin/products/create" ?>">Create</a>
                         </div>
                     </div>
                     <!-- /.card-header -->
@@ -32,11 +32,11 @@
                             <thead>
                                 <tr>
                                     <th>STT</th>
-                                    <th>Name</th>
-                                    <th>Price</th>
-                                    <!-- <th>Size</th> -->
-                                    <th>Image</th>
-                                    <th>Action</th>
+                                    <th>Tên sản phảm</th>
+                                    <th>Loại sản phẩm</th>
+                                    <th>Giá</th>
+                                    <th>Hình ảnh</th>
+                                    <th>Thao tác</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -45,12 +45,13 @@
                                     <tr>
                                         <td><?= $key + 1 ?></td>
                                         <td><?= $products['name'] ?></td>
-                                        <td><?= $products['price'] ?></td>
+                                        <td><?= $products['namept'] ?></td>
+                                        <td><?= number_format($products['price'], 0, "", ".") ?>đ</td>
                                         <!-- <td><?= $products['size'] ?></td> -->
                                         <td> <img style="max-width: 100px;" class="rounded img-thumbnail" src="<?= IMAGES_PRODUCT_URL ?>/<?= $products['image'] ?>" alt="cake image"></td>
                                         <td>
                                             <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                                                <a href="<?= DOCUMENT_ROOT ?> /admin/cakes/edit/<?= $products['id'] ?> " type="button" class="btn btn-success">Edit</a>
+                                                <a href="<?= DOCUMENT_ROOT ?> /admin/products/edit/<?= $products['id'] ?> " type="button" class="btn btn-success">Edit</a>
                                                 <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal<?= $products['id'] ?>">Delete</button>
 
                                                 <!-- Modal -->
@@ -69,7 +70,7 @@
                                                             <div class="modal-footer">
                                                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
 
-                                                                <a href="<?= DOCUMENT_ROOT ?>/admin/cakes/delete/<?= $products['id'] ?>" class="btn btn-danger">Delete</a>
+                                                                <a href="<?= DOCUMENT_ROOT ?>/admin/products/delete/<?= $products['id'] ?>" class="btn btn-danger">Delete</a>
 
                                                             </div>
                                                         </div>

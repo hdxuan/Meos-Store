@@ -2,7 +2,7 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1>Create new cake</h1>
+                <h1>Thêm sản phẩm mới</h1>
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
@@ -19,19 +19,15 @@
     <div class="container-fluid">
         <div class="card card-primary">
             <div class="card-header">
-                <h3 class="card-title">Quick Example</h3>
+                <h3 class="card-title">Thông tin sản phẩm</h3>
             </div>
-            <form action="<?= DOCUMENT_ROOT . "/admin/cakes/store" ?>" method="POST" enctype="multipart/form-data">
+            <form action="<?= DOCUMENT_ROOT . "/admin/products/store" ?>" method="POST" enctype="multipart/form-data">
                 <div class="card-body">
                     <div class="row">
 
                         <div class="form-group col">
-                            <label for="name">Name</label>
-                            <input type="text" class="form-control" name="name" id="name" placeholder="Cake name" required>
-                        </div>
-                        <div class="form-group col">
 
-                            <label for="category">Category</label>
+                            <label for="category">Loại từng sản phẩm</label>
                             <select name="categoryId" class="form-control" id="category" required>
                                 <option value="" disabled selected>Select one</option>
                                 <?php foreach ($data['categories'] as $key => $categories) : ?>
@@ -40,27 +36,32 @@
                             </select>
 
                         </div>
+
                     </div>
                     <div class="row">
 
                         <div class="form-group col">
-                            <label for="size">Size</label>
-                            <input type="number" name="size" class="form-control" id="size" required>
+                            <label for="name">Tên sản phẩm</label>
+                            <input type="text" class="form-control" name="name" id="name" required>
                         </div>
 
                         <div class="form-group col">
-                            <label for="price">Price</label>
-                            <input type="number" name="price" class="form-control" id="price" placeholder="Cake price" required>
+                            <label for="price">Giá</label>
+                            <input type="number" name="price" class="form-control" id="price" required>
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label for="description">Description</label>
+                        <label for="description">Thành phần</label>
+                        <textarea name="description" id="description" class="form-control" cols="2" rows="2"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Công dụng</label>
                         <textarea name="description" id="description" class="form-control" cols="2" rows="2"></textarea>
                     </div>
 
                     <div class="form-group">
-                        <label for="image">Cake Image</label>
+                        <label for="image">Hình ảnh</label>
                         <div class="input-group">
                             <div class="custom-file">
                                 <input type="file" class="custom-file-input" id="image" name="image" required>

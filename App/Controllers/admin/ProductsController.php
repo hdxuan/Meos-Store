@@ -17,7 +17,7 @@ class ProductsController extends Controller
     function index()
     {
         // Show all cakes
-        $products = $this->productModel->allDog();
+        $products = $this->productModel->all();
         if (!$products) {
             $products = [];
         }
@@ -25,23 +25,24 @@ class ProductsController extends Controller
 
         $categories = $this->productTypeModel->all();
         $data['categories'] = $categories;
+        // die(print_r($data['categories']));
 
         $this->view("/admin/product/index", $data);
     }
-    function Cat()
-    {
-        // Show all cakes
-        $products = $this->productModel->allCat();
-        if (!$products) {
-            $products = [];
-        }
-        $data['products'] =  $products;
+    // function Cat()
+    // {
+    //     // Show all cakes
+    //     $products = $this->productModel->allCat();
+    //     if (!$products) {
+    //         $products = [];
+    //     }
+    //     $data['products'] =  $products;
 
-        $categories = $this->productTypeModel->all();
-        $data['categories'] = $categories;
+    //     $categories = $this->productTypeModel->all();
+    //     $data['categories'] = $categories;
 
-        $this->view("/admin/product/cat", $data);
-    }
+    //     $this->view("/admin/product/cat", $data);
+    // }
 
     function create()
     {
@@ -62,7 +63,7 @@ class ProductsController extends Controller
         $data['categoryId'] = $_POST['categoryId'];
         $data['size'] = $_POST['size'];
         $data['price'] = $_POST['price'];
-        $data['description'] = $_POST['description'];
+        $data['ingredients'] = $_POST['ingredients'];
         $data["image"] = "";
 
         // handle image
@@ -91,12 +92,12 @@ class ProductsController extends Controller
 
     function edit($id)
     {
-        $cake = $this->productModel->getById($id);
-        if (!$cake) {
+        $product = $this->productModel->getById($id);
+        if (!$product) {
             header("Location: " . DOCUMENT_ROOT . "/admin");
         }
         $categories = $this->productTypeModel->all();
-        $data['cake'] = $cake;
+        $data['product'] = $product;
         $data['categories'] = $categories;
 
 
@@ -109,14 +110,16 @@ class ProductsController extends Controller
             header("Location: " . DOCUMENT_ROOT . "/admin");
         }
         $data = $_POST;
-
         $data['id'] = $id;
         $data['name'] = $_POST['name'];
         $data['categoryId'] = $_POST['categoryId'];
-        $data['size'] = $_POST['size'];
         $data['price'] = $_POST['price'];
-        $data['description'] = $_POST['description'];
-        $data["image"];
+        $data['ingredients'] = $_POST['ingredients'];
+        $data['benerfits'] = $_POST['benerfits'];
+
+        // echo "<pre>";
+        // print_r($_POST);
+        // die();
 
         //handle image
         if (isset($_FILES["image"])) {
@@ -127,27 +130,28 @@ class ProductsController extends Controller
                 $imageExt = str_replace('.', '', $imageExt);
                 $newImageName = $randomNum . '.' . $imageExt;
 
-                move_uploaded_file($_FILES["image"]["tmp_name"], PUBLIC_DIR_IMAGES . DS . $newImageName);
+                move_uploaded_file($_FILES["image"]["tmp_name"], PUBLIC_DIR_IMAGES . DS . "products" . DS . $newImageName);
                 $data["image"] = $newImageName;
-            } else {
-                $data["image"] = $_POST['image'];
+
+                if ($_POST['oldImage'] != "") {
+                    unlink(PUBLIC_DIR_IMAGES . DS . "products" . DS . $_POST['oldImage']);
+                }
             }
         }
 
-        $result = $this->productModel->update($data);
-        if ($result) {
-            header("Location: " . DOCUMENT_ROOT . "/admin/product"); // neu dung tro lai trang product
-        } else {
-            if (isset($_SERVER["HTTP_REFERER"])) {
-                header("Location: " . $_SERVER["HTTP_REFERER"]); // neu sai quay lai trang truoc do cua no "la trang edit"
-            }
+        $this->productModel->update($data);
+
+        if (isset($_SERVER["HTTP_REFERER"])) {
+            header("Location: " . $_SERVER["HTTP_REFERER"]); // neu sai quay lai trang truoc do cua no "la trang edit"
+            return;
         }
+        header("Location: " . DOCUMENT_ROOT . "/admin/products"); // neu dung tro lai trang product
     }
 
     function delete($id)
     {
 
         $this->productModel->delete($id);
-        header("Location: " . DOCUMENT_ROOT . "/admin/product");
+        header("Location: " . DOCUMENT_ROOT . "/admin/products");
     }
 }

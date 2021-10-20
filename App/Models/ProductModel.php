@@ -5,27 +5,26 @@ use App\Core\Database;
 class ProductModel extends Database
 {
 
-    function allCat()
-    {
-        // $sql = "SELECT * FROM products";
-        $sql = "SELECT p.* 
-        from products p JOIN products_type pt on p.id_products_type = pt.id
-        WHERE pt.id_pet_products_type = 2";
-        $result = $this->db->query($sql);
+    // function allCat()
+    // {
+    //     // $sql = "SELECT * FROM products";
+    //     $sql = "SELECT p.* 
+    //     from products p JOIN products_type pt on p.id_products_type = pt.id
+    //     WHERE pt.id_pet_products_type = 2";
+    //     $result = $this->db->query($sql);
 
-        if ($result->num_rows > 0) {
-            return $result->fetch_all(MYSQLI_ASSOC);
-            // return mysqli_fetch_all($result, MYSQLI_ASSOC);
-        } else {
-            return false;
-        }
-    }
-    function allDog()
+    //     if ($result->num_rows > 0) {
+    //         return $result->fetch_all(MYSQLI_ASSOC);
+    //         // return mysqli_fetch_all($result, MYSQLI_ASSOC);
+    //     } else {
+    //         return false;
+    //     }
+    // }
+    function all()
     {
-        // $sql = "SELECT * FROM products";
-        $sql = "SELECT p.* 
-        from products p JOIN products_type pt on p.id_products_type = pt.id
-        WHERE pt.id_pet_products_type = 1";
+        $sql = "SELECT * FROM products";
+        $sql = "SELECT p.*, pt.name as namept
+        from products p JOIN products_type pt on p.id_products_type = pt.id";
         $result = $this->db->query($sql);
 
         if ($result->num_rows > 0) {
@@ -109,5 +108,96 @@ class ProductModel extends Database
         } else {
             return false;
         }
+    }
+
+    function getById($id)
+    {
+        $sttm = $this->db->prepare("SELECT * FROM products WHERE id = ?");
+        $sttm->bind_param("i", $id);
+
+        $sttm->execute();
+        $result = $sttm->get_result();
+
+        if ($result->num_rows > 0) {
+            return $result->fetch_assoc();
+        } else {
+            return false;
+        }
+    }
+
+
+    // admin
+    function store($data)
+    {
+    }
+
+    function update($data)
+    {
+        $name = $data['name'];
+        $ingredients = $data['ingredients'];
+        $benerfits = $data['benerfits'];
+
+        if (isset($data["image"])) {
+            $image = $data["image"];
+        }
+
+        $price = intval($data['price']);
+        $categoryId = intval($data['categoryId']);
+        $id =  intval($data['id']);
+
+        // var_dump($name);
+        // echo "<pre>";
+        // var_dump($price);
+        // echo "<pre>";
+        // var_dump($ingredients);
+        // echo "<pre>";
+        // var_dump($benerfits);
+        // echo "<pre>";
+        // var_dump($image);
+        // echo "<pre>";
+        // var_dump($categoryId);
+        // echo "<pre>";
+        // var_dump($id);
+        // var_dump($price);
+        // die();
+
+        if (isset($image)) {
+            $sttm = $this->db->prepare("UPDATE products SET name = ?, 
+                                                    ingredients = ?,
+                                                    benerfits = ?,
+                                                    image = ?,
+                                                    id_products_type = ?,
+                                                    price = ?
+                                                    where id = ?");
+            if ($sttm) {
+                $sttm->bind_param("ssssiii", $name, $ingredients, $benerfits, $image, $categoryId, $price, $id);
+                $sttm->execute();
+                $result = $sttm->affected_rows;
+                if ($result < 1) {
+                    return false;
+                } else {
+                    return true;
+                }
+            }
+            return false;
+        } else {
+            $sttm = $this->db->prepare("UPDATE products SET name = ?, 
+                                                            price = ?,
+                                                            ingredients = ?,
+                                                            benerfits = ?,
+                                                            id_products_type = ?
+                                                            where id = ?");
+            $sttm->bind_param("sissii", $name, $price,  $ingredients, $benerfits, $categoryId, $id);
+            $sttm->execute();
+            $result = $sttm->affected_rows;
+            if ($result < 1) {
+                return false;
+            } else {
+                return true;
+            }
+        }
+    }
+    function delete($data)
+    {
     }
 }
