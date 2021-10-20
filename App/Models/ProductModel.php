@@ -5,9 +5,27 @@ use App\Core\Database;
 class ProductModel extends Database
 {
 
-    function all()
+    function allCat()
     {
-        $sql = "SELECT * FROM products";
+        // $sql = "SELECT * FROM products";
+        $sql = "SELECT p.* 
+        from products p JOIN products_type pt on p.id_products_type = pt.id
+        WHERE pt.id_pet_products_type = 2";
+        $result = $this->db->query($sql);
+
+        if ($result->num_rows > 0) {
+            return $result->fetch_all(MYSQLI_ASSOC);
+            // return mysqli_fetch_all($result, MYSQLI_ASSOC);
+        } else {
+            return false;
+        }
+    }
+    function allDog()
+    {
+        // $sql = "SELECT * FROM products";
+        $sql = "SELECT p.* 
+        from products p JOIN products_type pt on p.id_products_type = pt.id
+        WHERE pt.id_pet_products_type = 1";
         $result = $this->db->query($sql);
 
         if ($result->num_rows > 0) {

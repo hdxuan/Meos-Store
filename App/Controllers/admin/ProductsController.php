@@ -17,7 +17,7 @@ class ProductsController extends Controller
     function index()
     {
         // Show all cakes
-        $products = $this->productModel->all();
+        $products = $this->productModel->allDog();
         if (!$products) {
             $products = [];
         }
@@ -27,6 +27,20 @@ class ProductsController extends Controller
         $data['categories'] = $categories;
 
         $this->view("/admin/product/index", $data);
+    }
+    function Cat()
+    {
+        // Show all cakes
+        $products = $this->productModel->allCat();
+        if (!$products) {
+            $products = [];
+        }
+        $data['products'] =  $products;
+
+        $categories = $this->productTypeModel->all();
+        $data['categories'] = $categories;
+
+        $this->view("/admin/product/cat", $data);
     }
 
     function create()

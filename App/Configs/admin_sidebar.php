@@ -12,12 +12,13 @@ return [
         'icon' => 'fas fa-cookie-bite',
         'link' => DOCUMENT_ROOT . "/admin/products"
     ],
-    'products cat' => [
-        'title' => 'Manage products cat',
-        'name' => 'products',
-        'icon' => 'fas fa-cookie-bite',
-        'link' => DOCUMENT_ROOT . "/admin/products"
-    ],
+    // 'products cat' => [
+    //     'title' => 'Manage products cat',
+    //     'name' => 'products',
+    //     'icon' => 'fas fa-cookie-bite',
+    //     'link' => DOCUMENT_ROOT . "/admin/products/cat.php"
+    // ],
+
     'categories' => [
         'title' => 'Manage categories',
         'name' => 'categories',
