@@ -6,11 +6,17 @@ return [
         'icon' => 'fas fa-database',
         'link' => DOCUMENT_ROOT . "/admin/home"
     ],
-    'cakes' => [
-        'title' => 'Manage cakes',
-        'name' => 'cakes',
+    'products dog' => [
+        'title' => 'Manage products dog',
+        'name' => 'products',
         'icon' => 'fas fa-cookie-bite',
-        'link' => DOCUMENT_ROOT . "/admin/cakes"
+        'link' => DOCUMENT_ROOT . "/admin/products"
+    ],
+    'products cat' => [
+        'title' => 'Manage products cat',
+        'name' => 'products',
+        'icon' => 'fas fa-cookie-bite',
+        'link' => DOCUMENT_ROOT . "/admin/products"
     ],
     'categories' => [
         'title' => 'Manage categories',

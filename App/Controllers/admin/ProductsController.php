@@ -2,14 +2,14 @@
 
 use App\Core\Controller;
 
-class CakesController extends Controller
+class ProductsController extends Controller
 {
-    private $cakeModel;
-    private $categoryModel;
+    private $productModel;
+    private $productTypeModel;
     function __construct()
     {
-        $this->cakeModel = $this->model('CakeModel');
-        $this->categoryModel = $this->model('CategoryModel');
+        $this->productModel = $this->model('ProductModel');
+        $this->productTypeModel = $this->model('ProductTypeModel');
     }
 
 
@@ -17,24 +17,24 @@ class CakesController extends Controller
     function index()
     {
         // Show all cakes
-        $cakes = $this->cakeModel->all();
-        if (!$cakes) {
-            $cakes = [];
+        $products = $this->productModel->all();
+        if (!$products) {
+            $products = [];
         }
-        $data['cakes'] =  $cakes;
+        $data['products'] =  $products;
 
-        $categories = $this->categoryModel->all();
+        $categories = $this->productTypeModel->all();
         $data['categories'] = $categories;
 
-        $this->view("/admin/cakes/index", $data);
+        $this->view("/admin/product/index", $data);
     }
 
     function create()
     {
-        $categories = $this->categoryModel->all();
+        $categories = $this->productTypeModel->all();
         $data['categories'] = $categories;
 
-        $this->view("/admin/cakes/create", $data);
+        $this->view("/admin/product/create", $data);
     }
 
     function store()
@@ -60,14 +60,14 @@ class CakesController extends Controller
                 $imageExt = str_replace('.', '', $imageExt);
                 $newImageName = $randomNum . '.' . $imageExt;
 
-                move_uploaded_file($_FILES["image"]["tmp_name"], PUBLIC_DIR_CAKE_IMAGES . DS . $newImageName);
+                move_uploaded_file($_FILES["image"]["tmp_name"], PUBLIC_DIR_IMAGES . DS . $newImageName);
                 $data["image"] = $newImageName;
             }
         }
 
-        $result = $this->cakeModel->store($data);
+        $result = $this->productModel->store($data);
         if ($result) {
-            header("Location: " . DOCUMENT_ROOT . "/admin/cakes"); // neu dung tro lai trang cakes
+            header("Location: " . DOCUMENT_ROOT . "/admin/product"); // neu dung tro lai trang product
         } else {
             if (isset($_SERVER["HTTP_REFERER"])) {
                 header("Location: " . $_SERVER["HTTP_REFERER"]); // neu sai quay lai trang truoc do cua no "la trang create"
@@ -77,16 +77,16 @@ class CakesController extends Controller
 
     function edit($id)
     {
-        $cake = $this->cakeModel->getById($id);
+        $cake = $this->productModel->getById($id);
         if (!$cake) {
             header("Location: " . DOCUMENT_ROOT . "/admin");
         }
-        $categories = $this->categoryModel->all();
+        $categories = $this->productTypeModel->all();
         $data['cake'] = $cake;
         $data['categories'] = $categories;
 
 
-        $this->view("/admin/cakes/edit", $data);
+        $this->view("/admin/product/edit", $data);
     }
 
     function update($id)
@@ -113,16 +113,16 @@ class CakesController extends Controller
                 $imageExt = str_replace('.', '', $imageExt);
                 $newImageName = $randomNum . '.' . $imageExt;
 
-                move_uploaded_file($_FILES["image"]["tmp_name"], PUBLIC_DIR_CAKE_IMAGES . DS . $newImageName);
+                move_uploaded_file($_FILES["image"]["tmp_name"], PUBLIC_DIR_IMAGES . DS . $newImageName);
                 $data["image"] = $newImageName;
             } else {
                 $data["image"] = $_POST['image'];
             }
         }
 
-        $result = $this->cakeModel->update($data);
+        $result = $this->productModel->update($data);
         if ($result) {
-            header("Location: " . DOCUMENT_ROOT . "/admin/cakes"); // neu dung tro lai trang cakes
+            header("Location: " . DOCUMENT_ROOT . "/admin/product"); // neu dung tro lai trang product
         } else {
             if (isset($_SERVER["HTTP_REFERER"])) {
                 header("Location: " . $_SERVER["HTTP_REFERER"]); // neu sai quay lai trang truoc do cua no "la trang edit"
@@ -133,7 +133,7 @@ class CakesController extends Controller
     function delete($id)
     {
 
-        $this->cakeModel->delete($id);
-        header("Location: " . DOCUMENT_ROOT . "/admin/cakes");
+        $this->productModel->delete($id);
+        header("Location: " . DOCUMENT_ROOT . "/admin/product");
     }
 }

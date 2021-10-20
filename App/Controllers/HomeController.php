@@ -34,7 +34,7 @@ class HomeController extends Controller
         $definePage = 8;
         $numProduct = $this->productModel->numProduct();
 
-        $pages = ceil(($numProduct / 2) / $definePage);
+        $pages = ceil(($numProduct / 6) / $definePage);
         $data['pages'] = $pages; // so trang
 
         $currentPage = 1;
