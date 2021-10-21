@@ -191,7 +191,19 @@ class ProductModel extends Database
             }
         }
     }
-    function delete($data)
+    function delete($id)
     {
+        $stmt = $this->db->prepare("DELETE FROM products WHERE id = ? ");
+        if ($stmt) {
+            $stmt->bind_param("i", $id);
+            $stmt->execute();
+            $result = $stmt->affected_rows;
+            if ($result < 1) {
+                return false;
+            } else {
+                return true;
+            }
+        }
+        return false;
     }
 }

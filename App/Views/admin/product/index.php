@@ -65,12 +65,12 @@
                                                                 </button>
                                                             </div>
                                                             <div class="modal-body">
-                                                                Are you sure delete this cake?
+                                                                Bạn chắc chắn muốn xóa sản phầm này?
                                                             </div>
                                                             <div class="modal-footer">
-                                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Thoát</button>
 
-                                                                <a href="<?= DOCUMENT_ROOT ?>/admin/products/delete/<?= $products['id'] ?>" class="btn btn-danger">Delete</a>
+                                                                <a href="<?= DOCUMENT_ROOT ?>/admin/products/delete/<?= $products['id'] ?>" class="btn btn-danger">Xóa</a>
 
                                                             </div>
                                                         </div>
