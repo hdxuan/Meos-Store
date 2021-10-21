@@ -1,9 +1,10 @@
 <!-- Main Sidebar Container -->
 <aside style="position: fixed;" class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="index3.html" class="brand-link">
-        <img src="<?= PUBLIC_URL . "/admin" ?>/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-        <span class="brand-text font-weight-light">AdminLTE 3</span>
+    <a href="index3.html" class="brand-link ">
+        <!-- <img src="<?= PUBLIC_URL . "/admin" ?>/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8"> -->
+        <i class="fas fa-paw ps-5" style="opacity: .8; font-size: 2.9rem"></i>
+        <span class="brand-text font-weight-light">Méo Store</span>
     </a>
 
     <!-- Sidebar -->
@@ -11,10 +12,10 @@
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
-                <img src="<?= PUBLIC_URL . "/admin" ?>/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+                <img src="<?= IMAGES_URL ?>/user.jpg" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
-                <a href="#" class="d-block">Alexander Pierce</a>
+                <a href="#" class="d-block">Hầu Diễm Xuân</a>
             </div>
         </div>
 
