@@ -10,12 +10,12 @@ class UserModel extends Database
         $email = $data['your_email'];
         $password = $data['password'];
 
-        $sttm = $this->db->prepare("SELECT * FROM USERS WHERE email = ?");
-        $sttm->bind_param("s", $email);
+        $stmt = $this->db->prepare("SELECT * FROM USERS WHERE email = ?");
+        $stmt->bind_param("s", $email);
 
-        $sttm->execute();
+        $stmt->execute();
 
-        $result = $sttm->get_result();
+        $result = $stmt->get_result();
 
         if ($result->num_rows > 0) {
             $passwdHash = $result->fetch_assoc()['password'];
@@ -39,12 +39,12 @@ class UserModel extends Database
         $password = password_hash($data['password'], PASSWORD_DEFAULT);
         $role = 1;
 
-        $sttm = $this->db->prepare("INSERT INTO USERS (name, email, password, role)  VALUES (?, ?, ?, ?)");
-        $sttm->bind_param("sssi", $name, $email, $password, $role);
+        $stmt = $this->db->prepare("INSERT INTO USERS (name, email, password, role)  VALUES (?, ?, ?, ?)");
+        $stmt->bind_param("sssi", $name, $email, $password, $role);
 
-        $sttm->execute();
+        $stmt->execute();
 
-        $result = $sttm->affected_rows; // giong num_row, tra ve so dong
+        $result = $stmt->affected_rows; // giong num_row, tra ve so dong
         if ($result < 1) {
             return false;
         } else {
@@ -54,11 +54,11 @@ class UserModel extends Database
 
     function getByEmail($email)
     {
-        $sttm = $this->db->prepare("SELECT id, name, phone,address, email, avatar FROM users WHERE email = ?");
-        $sttm->bind_param("s", $email);
+        $stmt = $this->db->prepare("SELECT id, name, phone,address, email, avatar FROM users WHERE email = ?");
+        $stmt->bind_param("s", $email);
 
-        $sttm->execute();
-        $result = $sttm->get_result();
+        $stmt->execute();
+        $result = $stmt->get_result();
 
         if ($result->num_rows > 0) {
             return $result->fetch_assoc();
@@ -68,11 +68,11 @@ class UserModel extends Database
     }
     function getById($id)
     {
-        $sttm = $this->db->prepare("SELECT id, name, phone,address, email, avatar FROM users WHERE id = ?");
-        $sttm->bind_param("s", $id);
+        $stmt = $this->db->prepare("SELECT id, name, phone,address, email, avatar FROM users WHERE id = ?");
+        $stmt->bind_param("s", $id);
 
-        $sttm->execute();
-        $result = $sttm->get_result();
+        $stmt->execute();
+        $result = $stmt->get_result();
 
         if ($result->num_rows > 0) {
             return $result->fetch_assoc();
@@ -84,13 +84,13 @@ class UserModel extends Database
     function editProfile($data, $id)
     {
 
-        $sttm = $this->db->prepare("UPDATE USERS SET name = ?, phone = ?, address = ?, email = ?  WHERE id = ?");
-        $sttm->bind_param("ssssi", $data['name'], $data['phone'], $data['address'], $data['email'], $id);
+        $stmt = $this->db->prepare("UPDATE USERS SET name = ?, phone = ?, address = ?, email = ?  WHERE id = ?");
+        $stmt->bind_param("ssssi", $data['name'], $data['phone'], $data['address'], $data['email'], $id);
 
-        $sttm->execute();
+        $stmt->execute();
 
 
-        $result = $sttm->affected_rows;
+        $result = $stmt->affected_rows;
         if ($result < 1) {
             return false;
         } else {
@@ -100,12 +100,12 @@ class UserModel extends Database
 
     function editAvatar($data, $iduser)
     {
-        $sttm = $this->db->prepare("UPDATE USERS SET avatar = ?  WHERE id = ?");
-        $sttm->bind_param("si", $data['avatar'], $iduser);
+        $stmt = $this->db->prepare("UPDATE USERS SET avatar = ?  WHERE id = ?");
+        $stmt->bind_param("si", $data['avatar'], $iduser);
 
-        $sttm->execute();
+        $stmt->execute();
 
-        $result = $sttm->affected_rows;
+        $result = $stmt->affected_rows;
         if ($result < 1) {
             return false;
         } else {

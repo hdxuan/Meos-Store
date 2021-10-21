@@ -29,20 +29,6 @@ class ProductsController extends Controller
 
         $this->view("/admin/product/index", $data);
     }
-    // function Cat()
-    // {
-    //     // Show all cakes
-    //     $products = $this->productModel->allCat();
-    //     if (!$products) {
-    //         $products = [];
-    //     }
-    //     $data['products'] =  $products;
-
-    //     $categories = $this->productTypeModel->all();
-    //     $data['categories'] = $categories;
-
-    //     $this->view("/admin/product/cat", $data);
-    // }
 
     function create()
     {
@@ -60,11 +46,12 @@ class ProductsController extends Controller
         $data = $_POST;
 
         $data['name'] = $_POST['name'];
-        $data['categoryId'] = $_POST['categoryId'];
-        $data['size'] = $_POST['size'];
-        $data['price'] = $_POST['price'];
         $data['ingredients'] = $_POST['ingredients'];
-        $data["image"] = "";
+        $data['benerfits'] = $_POST['benerfits'];
+        // $data["image"] = "";
+        $data['price'] = intval($_POST['price']);
+        $data['categoryId'] = intval($_POST['categoryId']);
+        // die(print_r($data["image"]));
 
         // handle image
         if (isset($_FILES["image"])) {
@@ -75,19 +62,20 @@ class ProductsController extends Controller
                 $imageExt = str_replace('.', '', $imageExt);
                 $newImageName = $randomNum . '.' . $imageExt;
 
-                move_uploaded_file($_FILES["image"]["tmp_name"], PUBLIC_DIR_IMAGES . DS . $newImageName);
+                move_uploaded_file($_FILES["image"]["tmp_name"], PUBLIC_DIR_IMAGES . DS . "products" . DS . $newImageName);
                 $data["image"] = $newImageName;
             }
         }
+        // die(print_r($data));
 
         $result = $this->productModel->store($data);
-        if ($result) {
-            header("Location: " . DOCUMENT_ROOT . "/admin/product"); // neu dung tro lai trang product
-        } else {
-            if (isset($_SERVER["HTTP_REFERER"])) {
-                header("Location: " . $_SERVER["HTTP_REFERER"]); // neu sai quay lai trang truoc do cua no "la trang create"
-            }
+        // die(print_r($result));
+
+        if (isset($_SERVER["HTTP_REFERER"])) {
+            header("Location: " . $_SERVER["HTTP_REFERER"]); // neu sai quay lai trang truoc do cua no "la trang create"
+            return;
         }
+        header("Location: " . DOCUMENT_ROOT . "/admin/products"); // neu dung tro lai trang product
     }
 
     function edit($id)

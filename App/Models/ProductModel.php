@@ -4,22 +4,6 @@ use App\Core\Database;
 
 class ProductModel extends Database
 {
-
-    // function allCat()
-    // {
-    //     // $sql = "SELECT * FROM products";
-    //     $sql = "SELECT p.* 
-    //     from products p JOIN products_type pt on p.id_products_type = pt.id
-    //     WHERE pt.id_pet_products_type = 2";
-    //     $result = $this->db->query($sql);
-
-    //     if ($result->num_rows > 0) {
-    //         return $result->fetch_all(MYSQLI_ASSOC);
-    //         // return mysqli_fetch_all($result, MYSQLI_ASSOC);
-    //     } else {
-    //         return false;
-    //     }
-    // }
     function all()
     {
         $sql = "SELECT * FROM products";
@@ -112,11 +96,11 @@ class ProductModel extends Database
 
     function getById($id)
     {
-        $sttm = $this->db->prepare("SELECT * FROM products WHERE id = ?");
-        $sttm->bind_param("i", $id);
+        $stmt = $this->db->prepare("SELECT * FROM products WHERE id = ?");
+        $stmt->bind_param("i", $id);
 
-        $sttm->execute();
-        $result = $sttm->get_result();
+        $stmt->execute();
+        $result = $stmt->get_result();
 
         if ($result->num_rows > 0) {
             return $result->fetch_assoc();
@@ -129,6 +113,31 @@ class ProductModel extends Database
     // admin
     function store($data)
     {
+        $name = $data['name'];
+        $ingredients = $data['ingredients'];
+        $benerfits = $data['benerfits'];
+        $price = $data['price'];
+        $categoryId = $data['categoryId'];
+
+        if (isset($data["image"])) {
+            $image = $data["image"];
+        }
+
+
+        $stmt = $this->db->prepare("INSERT INTO products (name, price, ingredients, benerfits, image, id_products_type) VALUES (?, ?, ?, ?, ?, ?)");
+
+        // var_dump($stmt);
+        // die();
+        if ($stmt) {
+            $stmt->bind_param("sisssi", $name, $price, $ingredients, $benerfits, $image, $categoryId);
+            $stmt->execute();
+            $result = $stmt->affected_rows;
+            if ($result < 1) {
+                return false;
+            } else {
+                return true;
+            }
+        }
     }
 
     function update($data)
@@ -145,34 +154,19 @@ class ProductModel extends Database
         $categoryId = intval($data['categoryId']);
         $id =  intval($data['id']);
 
-        // var_dump($name);
-        // echo "<pre>";
-        // var_dump($price);
-        // echo "<pre>";
-        // var_dump($ingredients);
-        // echo "<pre>";
-        // var_dump($benerfits);
-        // echo "<pre>";
-        // var_dump($image);
-        // echo "<pre>";
-        // var_dump($categoryId);
-        // echo "<pre>";
-        // var_dump($id);
-        // var_dump($price);
-        // die();
-
         if (isset($image)) {
-            $sttm = $this->db->prepare("UPDATE products SET name = ?, 
+            $stmt = $this->db->prepare("UPDATE products SET name = ?, 
                                                     ingredients = ?,
                                                     benerfits = ?,
                                                     image = ?,
                                                     id_products_type = ?,
                                                     price = ?
                                                     where id = ?");
-            if ($sttm) {
-                $sttm->bind_param("ssssiii", $name, $ingredients, $benerfits, $image, $categoryId, $price, $id);
-                $sttm->execute();
-                $result = $sttm->affected_rows;
+
+            if ($stmt) {
+                $stmt->bind_param("ssssiii", $name, $ingredients, $benerfits, $image, $categoryId, $price, $id);
+                $stmt->execute();
+                $result = $stmt->affected_rows;
                 if ($result < 1) {
                     return false;
                 } else {
@@ -181,15 +175,15 @@ class ProductModel extends Database
             }
             return false;
         } else {
-            $sttm = $this->db->prepare("UPDATE products SET name = ?, 
+            $stmt = $this->db->prepare("UPDATE products SET name = ?, 
                                                             price = ?,
                                                             ingredients = ?,
                                                             benerfits = ?,
                                                             id_products_type = ?
                                                             where id = ?");
-            $sttm->bind_param("sissii", $name, $price,  $ingredients, $benerfits, $categoryId, $id);
-            $sttm->execute();
-            $result = $sttm->affected_rows;
+            $stmt->bind_param("sissii", $name, $price,  $ingredients, $benerfits, $categoryId, $id);
+            $stmt->execute();
+            $result = $stmt->affected_rows;
             if ($result < 1) {
                 return false;
             } else {

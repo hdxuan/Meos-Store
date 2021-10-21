@@ -52,25 +52,18 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="description">Thành phần</label>
-                        <textarea name="description" id="description" class="form-control" cols="2" rows="2"></textarea>
+                        <label for="ingredients">Thành phần</label>
+                        <textarea name="ingredients" id="ingredients" class="form-control" cols="2" rows="2"></textarea>
                     </div>
                     <div class="form-group">
-                        <label for="description">Công dụng</label>
-                        <textarea name="description" id="description" class="form-control" cols="2" rows="2"></textarea>
+                        <label for="benerfits">Công dụng</label>
+                        <textarea name="benerfits" id="benerfits" class="form-control" cols="2" rows="2"></textarea>
                     </div>
 
                     <div class="form-group">
                         <label for="image">Hình ảnh</label>
-                        <div class="input-group">
-                            <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="image" name="image" required>
-                                <label class="custom-file-label" for="image">Choose file</label>
-                            </div>
-                            <div class="input-group-append">
-                                <span class="input-group-text">Upload</span>
-                            </div>
-                        </div>
+                        <input type="file" id="image" name="image" required>
+
                     </div>
 
                 </div>

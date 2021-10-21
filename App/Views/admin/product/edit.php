@@ -43,11 +43,7 @@
                     <div class="row">
                         <div class="form-group col">
                             <label for="image">Image</label>
-                            <div class="">
-                                <div class="">
-                                    <input type="file" class="" id="image" name="image">
-                                </div>
-                            </div>
+                            <input type="file" class="" id="image" name="image">
                             <div>
                                 <input type="text" hidden name="oldImage" value="<?= $data['product']['image'] ?>">
                                 <img style="max-width: 200px;" class="rounded img-thumbnail" src="<?= IMAGES_PRODUCT_URL . DS . $data['product']['image'] ?>" alt="image cake">
