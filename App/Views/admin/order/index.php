@@ -2,12 +2,12 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1>Sản phẩm</h1>
+                <h1>Cakes</h1>
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item"><a href="<?= DOCUMENT_ROOT . "/admin" ?>">Trang chủ</a></li>
-                    <li class="breadcrumb-item active">Sản phẩm</li>
+                    <li class="breadcrumb-item"><a href="<?= DOCUMENT_ROOT . "/admin" ?>">Home</a></li>
+                    <li class="breadcrumb-item active">Cakes</li>
                 </ol>
             </div>
         </div>
@@ -22,8 +22,8 @@
                 <div class="card">
                     <div class="card-header">
                         <div class="d-flex justify-content-between align-items-center">
-                            <h3 class="card-title">Tất cả sản phẩm</h3>
-                            <a class="btn btn-primary" href="<?= DOCUMENT_ROOT . DS .  "admin/products/create" ?>">Thêm sản phẩm</a>
+                            <h3 class="card-title">Cake list</h3>
+                            <a class="btn btn-primary" href="<?= DOCUMENT_ROOT . DS .  "admin/products/create" ?>">Create</a>
                         </div>
                     </div>
                     <!-- /.card-header -->
@@ -32,7 +32,7 @@
                             <thead>
                                 <tr>
                                     <th>STT</th>
-                                    <th>Tên sản phẩm</th>
+                                    <th>Tên sản phảm</th>
                                     <th>Loại sản phẩm</th>
                                     <th>Giá</th>
                                     <th>Hình ảnh</th>

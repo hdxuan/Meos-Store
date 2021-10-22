@@ -4,6 +4,16 @@ use App\Core\Database;
 
 class UserModel extends Database
 {
+    function all()
+    {
+        $sql = "SELECT *  FROM users WHERE role = 1 ";
+        $result = $this->db->query($sql);
+        if ($result->num_rows > 0) {
+            return $result->fetch_all(MYSQLI_ASSOC);
+        } else {
+            return false;
+        }
+    }
 
     function authenticate($data) // xac thuc
     {

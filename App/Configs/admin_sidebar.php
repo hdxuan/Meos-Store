@@ -21,11 +21,11 @@ return [
     //     'link' => DOCUMENT_ROOT . "/admin/products/cat"
     // ],
 
-    'user' => [
+    'customer' => [
         'title' => 'Khách hàng',
-        'name' => 'user',
+        'name' => 'customer',
         'icon' => 'fas fa-users',
-        'link' => DOCUMENT_ROOT . "/admin/categories"
+        'link' => DOCUMENT_ROOT . "/admin/customer"
     ],
     'orders' => [
         'title' => 'Đơn hàng',

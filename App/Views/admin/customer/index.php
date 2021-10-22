@@ -31,46 +31,45 @@
                         <table id="myTable" class="table table-bordered table-hover">
                             <thead>
                                 <tr>
-                                    <th>STT</th>
-                                    <th>Tên sản phẩm</th>
-                                    <th>Loại sản phẩm</th>
-                                    <th>Giá</th>
-                                    <th>Hình ảnh</th>
+                                    <th>Mã khách hàng</th>
+                                    <th>Tên khách hàng</th>
+                                    <th>Địa chỉ</th>
+                                    <th>Số điện thoại</th>
+                                    <th>Email</th>
                                     <th>Thao tác</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php foreach ($data['products'] as $key => $products) : ?>
+                                <?php foreach ($data['customer'] as $key => $customer) : ?>
 
                                     <tr>
-                                        <td><?= $key + 1 ?></td>
-                                        <td><?= $products['name'] ?></td>
-                                        <td><?= $products['namept'] ?></td>
-                                        <td><?= number_format($products['price'], 0, "", ".") ?>đ</td>
-                                        <!-- <td><?= $products['size'] ?></td> -->
-                                        <td> <img style="max-width: 100px;" class="rounded img-thumbnail" src="<?= IMAGES_PRODUCT_URL ?>/<?= $products['image'] ?>" alt="cake image"></td>
+                                        <td><?= $customer['id'] ?></td>
+                                        <td><?= $customer['name'] ?></td>
+                                        <td><?= $customer['address'] ?></td>
+                                        <td><?= $customer['phone'] ?></td>
+                                        <td><?= $customer['email'] ?></td>
                                         <td>
                                             <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                                                <a href="<?= DOCUMENT_ROOT ?> /admin/products/edit/<?= $products['id'] ?> " type="button" class="btn btn-success">Edit</a>
-                                                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal<?= $products['id'] ?>">Delete</button>
+                                                <a href="<?= DOCUMENT_ROOT ?> /admin/products/edit/<?= $customer['id'] ?> " type="button" class="btn btn-success">Edit</a>
+                                                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal<?= $customer['id'] ?>">Delete</button>
 
                                                 <!-- Modal -->
-                                                <div class="modal fade" id="deleteModal<?= $products['id'] ?>" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel<?= $products['id'] ?>" aria-hidden="true" style="display: none;">
+                                                <div class="modal fade" id="deleteModal<?= $customer['id'] ?>" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel<?= $customer['id'] ?>" aria-hidden="true" style="display: none;">
                                                     <div class="modal-dialog modal-dialog-centered" role="document">
                                                         <div class="modal-content">
                                                             <div class="modal-header">
-                                                                <h5 class="modal-title" id="deleteModalLabel<?= $products['id'] ?>">Xác nhận xóa</h5>
+                                                                <h5 class="modal-title" id="deleteModalLabel<?= $customer['id'] ?>">Xác nhận xóa</h5>
                                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                                     <span aria-hidden="true">&times;</span>
                                                                 </button>
                                                             </div>
                                                             <div class="modal-body">
-                                                                Bạn chắc chắn muốn xóa sản phầm này?
+                                                                Bạn chắc chắn muốn xóa người này?
                                                             </div>
                                                             <div class="modal-footer">
                                                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Thoát</button>
 
-                                                                <a href="<?= DOCUMENT_ROOT ?>/admin/products/delete/<?= $products['id'] ?>" class="btn btn-danger">Xóa</a>
+                                                                <a href="<?= DOCUMENT_ROOT ?>/admin/products/delete/<?= $customer['id'] ?>" class="btn btn-danger">Xóa</a>
 
                                                             </div>
                                                         </div>
