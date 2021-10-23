@@ -8,7 +8,7 @@ class CustomerController extends Controller
 
     function __construct()
     {
-        $this->customerModel = $this->model('UserModel');
+        $this->customerModel = $this->model('CustomerModel');
     }
 
     function Index()
@@ -20,5 +20,21 @@ class CustomerController extends Controller
         $data['customer'] = $customer;
 
         $this->view("/admin/customer/index", $data);
+    }
+
+
+    function store()
+    {
+    }
+
+    function update($id)
+    {
+    }
+
+    function delete($id)
+    {
+
+        $this->customerModel->delete($id);
+        header("Location: " . DOCUMENT_ROOT . "/admin/customer");
     }
 }

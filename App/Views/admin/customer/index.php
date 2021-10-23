@@ -2,12 +2,12 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1>Sản phẩm</h1>
+                <h1>Quản lý khách hàng</h1>
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
                     <li class="breadcrumb-item"><a href="<?= DOCUMENT_ROOT . "/admin" ?>">Trang chủ</a></li>
-                    <li class="breadcrumb-item active">Sản phẩm</li>
+                    <li class="breadcrumb-item active">Khách hàng</li>
                 </ol>
             </div>
         </div>
@@ -22,8 +22,7 @@
                 <div class="card">
                     <div class="card-header">
                         <div class="d-flex justify-content-between align-items-center">
-                            <h3 class="card-title">Tất cả sản phẩm</h3>
-                            <a class="btn btn-primary" href="<?= DOCUMENT_ROOT . DS .  "admin/products/create" ?>">Thêm sản phẩm</a>
+                            <h3 class="card-title">Tất cả khách hàng</h3>
                         </div>
                     </div>
                     <!-- /.card-header -->
@@ -50,7 +49,6 @@
                                         <td><?= $customer['email'] ?></td>
                                         <td>
                                             <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                                                <a href="<?= DOCUMENT_ROOT ?> /admin/products/edit/<?= $customer['id'] ?> " type="button" class="btn btn-success">Edit</a>
                                                 <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal<?= $customer['id'] ?>">Delete</button>
 
                                                 <!-- Modal -->
@@ -69,7 +67,7 @@
                                                             <div class="modal-footer">
                                                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Thoát</button>
 
-                                                                <a href="<?= DOCUMENT_ROOT ?>/admin/products/delete/<?= $customer['id'] ?>" class="btn btn-danger">Xóa</a>
+                                                                <a href="<?= DOCUMENT_ROOT ?>/admin/customer/delete/<?= $customer['id'] ?>" class="btn btn-danger">Xóa</a>
 
                                                             </div>
                                                         </div>

@@ -4,17 +4,6 @@ use App\Core\Database;
 
 class UserModel extends Database
 {
-    function all()
-    {
-        $sql = "SELECT *  FROM users WHERE role = 1 ";
-        $result = $this->db->query($sql);
-        if ($result->num_rows > 0) {
-            return $result->fetch_all(MYSQLI_ASSOC);
-        } else {
-            return false;
-        }
-    }
-
     function authenticate($data) // xac thuc
     {
         $email = $data['your_email'];
@@ -121,5 +110,102 @@ class UserModel extends Database
         } else {
             return true;
         }
+    }
+
+    // Customer admin
+    function store($data)
+    {
+        $name = $data['name'];
+        $ingredients = $data['ingredients'];
+        $benerfits = $data['benerfits'];
+        $price = $data['price'];
+        $categoryId = $data['categoryId'];
+
+        if (isset($data["image"])) {
+            $image = $data["image"];
+        }
+
+
+        $stmt = $this->db->prepare("INSERT INTO products (name, price, ingredients, benerfits, image, id_products_type) VALUES (?, ?, ?, ?, ?, ?)");
+
+        // var_dump($stmt);
+        // die();
+        if ($stmt) {
+            $stmt->bind_param("sisssi", $name, $price, $ingredients, $benerfits, $image, $categoryId);
+            $stmt->execute();
+            $result = $stmt->affected_rows;
+            if ($result < 1) {
+                return false;
+            } else {
+                return true;
+            }
+        }
+    }
+
+    function update($data)
+    {
+        $name = $data['name'];
+        $ingredients = $data['ingredients'];
+        $benerfits = $data['benerfits'];
+
+        if (isset($data["image"])) {
+            $image = $data["image"];
+        }
+
+        $price = intval($data['price']);
+        $categoryId = intval($data['categoryId']);
+        $id =  intval($data['id']);
+
+        if (isset($image)) {
+            $stmt = $this->db->prepare("UPDATE products SET name = ?, 
+                                                    ingredients = ?,
+                                                    benerfits = ?,
+                                                    image = ?,
+                                                    id_products_type = ?,
+                                                    price = ?
+                                                    where id = ?");
+
+            if ($stmt) {
+                $stmt->bind_param("ssssiii", $name, $ingredients, $benerfits, $image, $categoryId, $price, $id);
+                $stmt->execute();
+                $result = $stmt->affected_rows;
+                if ($result < 1) {
+                    return false;
+                } else {
+                    return true;
+                }
+            }
+            return false;
+        } else {
+            $stmt = $this->db->prepare("UPDATE products SET name = ?, 
+                                                            price = ?,
+                                                            ingredients = ?,
+                                                            benerfits = ?,
+                                                            id_products_type = ?
+                                                            where id = ?");
+            $stmt->bind_param("sissii", $name, $price,  $ingredients, $benerfits, $categoryId, $id);
+            $stmt->execute();
+            $result = $stmt->affected_rows;
+            if ($result < 1) {
+                return false;
+            } else {
+                return true;
+            }
+        }
+    }
+    function delete($id)
+    {
+        $stmt = $this->db->prepare("DELETE FROM products WHERE id = ? ");
+        if ($stmt) {
+            $stmt->bind_param("i", $id);
+            $stmt->execute();
+            $result = $stmt->affected_rows;
+            if ($result < 1) {
+                return false;
+            } else {
+                return true;
+            }
+        }
+        return false;
     }
 }
