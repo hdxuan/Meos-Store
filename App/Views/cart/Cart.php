@@ -26,7 +26,7 @@
                             </div>
                             <div class="profuct__info col-sm-8">
                                 <div class="profuct__info--name"> <?= $productInCart['name'] ?> </div>
-                                <input type="number" hidden id="productPrice<?= $index ?>" value="<?= $productInCart['price'] ?>">
+                                <input type="number" hidden id="productPrice<?= $index ?>" name="price<?= $productInCart['id'] ?>" value="<?= $productInCart['price'] ?>">
                                 <div class="profuct__info--price"><?= number_format($productInCart['price'], 0, " ", ".") ?>đ</div>
                                 <div class="profuct__info--box__set">
                                     <div class="buttons_added">

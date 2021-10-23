@@ -116,26 +116,6 @@ class CartModel extends Database
         }
     }
 
-    // function total($data = [])
-    // {
-    //     for ($i = 0; $i < count($data['id_product']); $i++) {
-    //         $stmt = $this->db->prepare("SELECT * FROM products where id = ?");
-
-    //         if ($stmt) {
-    //             $stmt->bind_param("i", $data["id_product"][$i]);
-    //             $stmt->execute();
-    //             $result = $stmt->get_result();
-
-    //             if ($result->num_rows > 0) {
-    //                 return $result->fetch_all(MYSQLI_ASSOC);
-    //             } else {
-    //                 return false;
-    //             }
-    //         }
-    //     }
-    // }
-
-
     function store($data)
     {
     }

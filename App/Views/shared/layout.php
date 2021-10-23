@@ -63,7 +63,7 @@
             <div id="desc">A notification message..</div>
         </div>
 
-        <!-- ajac -->
+        <!-- ajax -->
         <p hidden id="documentRoot"> <?= DOCUMENT_ROOT ?></p>
         <?php require_once(VIEW . '/shared/header.php') ?>
         <?php require_once(VIEW . $view . ".php") ?>

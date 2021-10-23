@@ -4,10 +4,56 @@ use App\Core\Database;
 
 class OrderModel extends Database
 {
+    function all()
+    {
+        $sql = "SELECT o.id, u.name as customerName, o.order_date, o.delivery_date, s.name as status
+        from orders o JOIN users u on o.id_user = u.id
+                                    JOIN status s on s.id = o.id_status";
+
+        $result = $this->db->query($sql);
+        if ($result->num_rows > 0) {
+            $orderList =  $result->fetch_all(MYSQLI_ASSOC);
+            // return mysqli_fetch_all($result, MYSQLI_ASSOC);
+        } else {
+            return false;
+        }
+        foreach ($orderList as $key => $order) {
+            $idOrder = $order['id'];
+            $total = $this->getTotalById($idOrder);
+            $orderList[$key]['total'] = $total;
+        }
+        return $orderList;
+    }
+    function getTotalById($id)
+    {
+        $stmt = $this->db->prepare("SELECT amount, price_product
+        from orders o JOIN order_details od on o.id = od.id_order WHERE id_order = ?");
+
+        $stmt->bind_param("i", $id);
+
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        if ($result->num_rows > 0) {
+            $amountList =  $result->fetch_all(MYSQLI_ASSOC);
+        } else {
+            return false;
+        }
+        // var_dump($amountList);
+        // die();
+        $total = 0;
+        foreach ($amountList as $key => $amount) {
+            $total += $amount['amount'] * $amount['price_product'];
+        }
+        return $total;
+    }
+
     function store($data = [])
     {
         $data['id_status'] = "CXL";
         $data['order_date'] = date("Y-m-d");
+
+        // die(var_dump($data));
 
         $stmt = $this->db->prepare("INSERT INTO ORDERS ( order_date, id_user, id_status, address, phone) VALUES (?, ?, ?, ?, ?)");
         $stmt->bind_param("sisss", $data["order_date"], $data["id_user"], $data["id_status"], $data['address'], $data["phone"]);
@@ -28,10 +74,10 @@ class OrderModel extends Database
         $id_order = $id_order->fetch_row()[0];
 
         for ($i = 0; $i < count($data['id_product']); $i++) {
-            $stmt = $this->db->prepare("INSERT INTO ORDER_DETAILS ( id_order, id_product, amount) VALUES (?, ?, ?)");
+            $stmt = $this->db->prepare("INSERT INTO ORDER_DETAILS ( id_order, id_product, amount, price_product) VALUES (?, ?, ?, ?)");
 
             if ($stmt) {
-                $stmt->bind_param("iii", $id_order, $data["id_product"][$i], $data["amount"][$i]);
+                $stmt->bind_param("iiis", $id_order, $data["id_product"][$i], $data["amount"][$i], $data['price'][$i]);
                 $isSuccess = $stmt->execute();
 
                 if (!$isSuccess) {

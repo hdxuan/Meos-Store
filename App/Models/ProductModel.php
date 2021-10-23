@@ -6,7 +6,7 @@ class ProductModel extends Database
 {
     function all()
     {
-        $sql = "SELECT * FROM products";
+
         $sql = "SELECT p.*, pt.name as namept
         from products p JOIN products_type pt on p.id_products_type = pt.id";
         $result = $this->db->query($sql);

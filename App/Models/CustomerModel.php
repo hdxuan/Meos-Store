@@ -32,6 +32,7 @@ class CustomerModel extends Database
             $stmt->bind_param("i", $id);
             $stmt->execute();
             $result = $stmt->affected_rows;
+
             if ($result < 1) {
                 return false;
             } else {

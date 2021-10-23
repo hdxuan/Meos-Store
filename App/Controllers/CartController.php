@@ -58,6 +58,7 @@ class CartController extends Controller
         $data['address'] = $_SESSION['user']['address'];
         $data['phone'] = $_SESSION['user']['phone'];
 
+
         $productInCart = $this->cartModel->getIdProductCart($_SESSION['user']['id']);
         if (!$productInCart) {
             $productInCart = [];
@@ -67,8 +68,9 @@ class CartController extends Controller
             $id = $product['id'];
             $data['id_product'][] = $id;
             $data['amount'][] = intval($_POST["numOfProduct$id"]); //intval: lay so nguyen/ lấy số lượng từng sp theo id
+            $data['price'][] = $_POST["price$id"]; // gia trong order k thay đôi
         }
-        // print_r($data['amount']);
+        //print_r($_POST);
         // echo "<pre>";
 
         // print_r($data['id_product']);

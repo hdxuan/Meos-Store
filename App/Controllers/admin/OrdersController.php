@@ -4,22 +4,27 @@ use App\Core\Controller;
 
 class OrdersController extends Controller
 {
-    private $productModel;
-    private $productTypeModel;
+    private $orderModel;
+    // private $productTypeModel;
     function __construct()
     {
-        $this->productModel = $this->model('ProductModel');
-        $this->productTypeModel = $this->model('ProductTypeModel');
+        $this->orderModel = $this->model('orderModel');
+        // $this->productTypeModel = $this->model('ProductTypeModel');
     }
 
 
 
     function index()
     {
+        $data['orders'] = $this->orderModel->all();
 
-
-        $this->view("/admin/product/index");
+        $this->view("/admin/order/index", $data);
     }
+
+    function total($id)
+    {
+    }
+
 
     function create()
     {
@@ -31,6 +36,7 @@ class OrdersController extends Controller
 
     function edit($id)
     {
+        $this->view("/admin/order/edit");
     }
 
     function update($id)

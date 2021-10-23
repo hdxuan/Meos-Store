@@ -2,12 +2,12 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1>Cakes</h1>
+                <h1>Quản lý đơn đặt hàng</h1>
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item"><a href="<?= DOCUMENT_ROOT . "/admin" ?>">Home</a></li>
-                    <li class="breadcrumb-item active">Cakes</li>
+                    <li class="breadcrumb-item"><a href="<?= DOCUMENT_ROOT . "/admin" ?>">Trang chủ</a></li>
+                    <li class="breadcrumb-item active">Quản lý đơn đặt hàng</li>
                 </ol>
             </div>
         </div>
@@ -31,35 +31,36 @@
                         <table id="myTable" class="table table-bordered table-hover">
                             <thead>
                                 <tr>
-                                    <th>STT</th>
-                                    <th>Tên sản phảm</th>
-                                    <th>Loại sản phẩm</th>
-                                    <th>Giá</th>
-                                    <th>Hình ảnh</th>
+                                    <th>Mã đơn hàng</th>
+                                    <th>Tên khách hàng</th>
+                                    <th>Ngày đặt</th>
+                                    <th>Ngày giao</th>
+                                    <th>Trạng thái</th>
+                                    <th>Tổng tiền</th>
                                     <th>Thao tác</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php foreach ($data['products'] as $key => $products) : ?>
+                                <?php foreach ($data['orders'] as $key => $order) : ?>
 
                                     <tr>
-                                        <td><?= $key + 1 ?></td>
-                                        <td><?= $products['name'] ?></td>
-                                        <td><?= $products['namept'] ?></td>
-                                        <td><?= number_format($products['price'], 0, "", ".") ?>đ</td>
-                                        <!-- <td><?= $products['size'] ?></td> -->
-                                        <td> <img style="max-width: 100px;" class="rounded img-thumbnail" src="<?= IMAGES_PRODUCT_URL ?>/<?= $products['image'] ?>" alt="cake image"></td>
+                                        <td><?= $order['id'] ?></td>
+                                        <td><?= $order['customerName'] ?></td>
+                                        <td><?= $order['order_date'] ?></td>
+                                        <td><?= $order['delivery_date'] ?></td>
+                                        <td><?= $order['status'] ?></td>
+                                        <td><?= number_format($order['total'], 0, "", ",") ?>đ</td>
                                         <td>
                                             <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                                                <a href="<?= DOCUMENT_ROOT ?> /admin/products/edit/<?= $products['id'] ?> " type="button" class="btn btn-success">Edit</a>
-                                                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal<?= $products['id'] ?>">Delete</button>
+                                                <a href="<?= DOCUMENT_ROOT ?> /admin/orders/edit/<?= $order['id'] ?> " type="button" class="btn btn-success">Edit</a>
+                                                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal<?= $order['id'] ?>">Delete</button>
 
                                                 <!-- Modal -->
-                                                <div class="modal fade" id="deleteModal<?= $products['id'] ?>" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel<?= $products['id'] ?>" aria-hidden="true" style="display: none;">
+                                                <div class="modal fade" id="deleteModal<?= $order['id'] ?>" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel<?= $order['id'] ?>" aria-hidden="true" style="display: none;">
                                                     <div class="modal-dialog modal-dialog-centered" role="document">
                                                         <div class="modal-content">
                                                             <div class="modal-header">
-                                                                <h5 class="modal-title" id="deleteModalLabel<?= $products['id'] ?>">Xác nhận xóa</h5>
+                                                                <h5 class="modal-title" id="deleteModalLabel<?= $order['id'] ?>">Xác nhận xóa</h5>
                                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                                     <span aria-hidden="true">&times;</span>
                                                                 </button>
@@ -70,7 +71,7 @@
                                                             <div class="modal-footer">
                                                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Thoát</button>
 
-                                                                <a href="<?= DOCUMENT_ROOT ?>/admin/products/delete/<?= $products['id'] ?>" class="btn btn-danger">Xóa</a>
+                                                                <a href="<?= DOCUMENT_ROOT ?>/admin/products/delete/<?= $order['id'] ?>" class="btn btn-danger">Xóa</a>
 
                                                             </div>
                                                         </div>
@@ -85,17 +86,8 @@
 
                         </table>
                     </div>
-                    <!-- /.card-body -->
                 </div>
-                <!-- /.card -->
-
-
-                <!-- /.card -->
             </div>
-            <!-- /.col -->
         </div>
-        <!-- /.row -->
     </div>
-    <!-- /.container-fluid -->
 </section>
-<!-- /.content -->
