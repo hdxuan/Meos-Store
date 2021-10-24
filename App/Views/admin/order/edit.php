@@ -15,71 +15,97 @@
     </div><!-- /.container-fluid -->
 </section>
 
-<section class="content">
+<section class="content ">
     <div class="container-fluid">
         <div class="card card-primary">
+            <?php require_once(VIEW . DS . "admin/shared/notification.php") ?>
+
             <div class="card-header">
                 <h3 class="card-title">Cake Information</h3>
             </div>
-            <form action="<?= DOCUMENT_ROOT . "/admin/products/update/" . $data['product']['id'] ?>" method="POST" enctype="multipart/form-data">
+            <form action="<?= DOCUMENT_ROOT . "/admin/orders/update/" . $data["editOrder"]['id'] ?>" method="POST" enctype="multipart/form-data">
                 <div class="card-body">
 
+                    <div class="form-group">
+                        <label for="idOrder">Mã đơn hàng</label>
+                        <input readonly value="<?= $data["editOrder"]['id'] ?>" type="text" class="form-control" name="idOrder" id="idOrder">
+                    </div>
+                    <div class="form-group">
+                        <!-- <div class="col"> -->
+                        <label for="id_user">Mã khách hàng</label>
+                        <input readonly value="<?= $data["editOrder"]['id_user'] ?>" type="text" class="form-control" name="id_user" id="id_user">
+                        <!-- </div> -->
+                        <div>
 
-                    <div class="form-group ">
-                        <label for="name">Mã đơn hàng</label>
-                        <input value="<?= $data['product']['name'] ?>" type="text" class="form-control" name="name" id="name" placeholder="Cake name">
+                            <p>
+                                <label style=" color: rgb(27 151 101)" for="customerName">Tên khách hàng:</label>
+                                <span><?= $data["editOrder"]['customerName'] ?></span>
+                            </p>
+                            <p>
+                                <label style=" color: rgb(27 151 101)" for="phone">Số điện thoại:</label>
+                                <span><?= $data["editOrder"]['phone'] ?></span>
+                            </p>
+                            <p>
+                                <label style=" color: rgb(27 151 101)" for="email">Email:</label>
+                                <span><?= $data["editOrder"]['email'] ?></span>
+                            </p>
+                        </div>
+
                     </div>
                     <div class="form-group ">
-                        <label for="name">Mã khách hàng</label>
-                        <input value="<?= $data['product']['name'] ?>" type="text" class="form-control" name="name" id="name" placeholder="Cake name">
+                        <label for="order_date">Ngày đặt hàng</label>
+                        <input readonly value="<?= $data["editOrder"]['order_date'] ?>" type="date" class="form-control" name="order_date" id="order_date">
                     </div>
                     <div class="form-group ">
-                        <label for="name">Ngày đặt hàng</label>
-                        <input value="<?= $data['product']['name'] ?>" type="date" class="form-control" name="name" id="name" placeholder="Cake name">
+                        <label for="delivery_date">Ngày giao hàng</label>
+                        <input value="<?= $data["editOrder"]['delivery_date'] ?>" type="date" class="form-control" name="delivery_date" id="delivery_date">
                     </div>
                     <div class="form-group ">
-                        <label for="name">Ngày giao hàng</label>
-                        <input value="<?= $data['product']['name'] ?>" type="date" class="form-control" name="name" id="name" placeholder="Cake name">
-                    </div>
-                    <div class="form-group ">
-                        <label for="category">Trạng thái đơn hàng</label>
-                        <select name="categoryId" class="form-control" id="category">
-                            <?php foreach ($data['categories'] as $key => $categories) : ?>
-                                <option <?= $data['product']['id_products_type'] == $categories['id'] ? "selected" : "" ?> value="<?= $categories['id'] ?> "><?= $categories['name'] ?></option>
+                        <label for="idstatus">Trạng thái đơn hàng</label>
+                        <select name="idstatus" class="form-control" id="idstatus">
+                            <?php foreach ($data["idStatus"] as $key => $idStatus) : ?>
+                                <p><?= $idStatus['id'] ?></p>
+                                <option <?= $data['editOrder']['id_status'] === $idStatus['id'] ? "selected" : "" ?> value="<?= $idStatus['id'] ?> "><?= $idStatus['name'] ?></option>
+
                             <?php endforeach; ?>
                         </select>
 
                     </div>
 
+                    <?php foreach ($data["numProductInOrderDetail"] as $key => $numProduct) : ?>
 
-                    <div class="form-group col">
-                        <label for="image">Image</label>
-                        <input type="file" class="" id="image" name="image">
-                        <div>
-                            <input type="text" hidden name="oldImage" value="<?= $data['product']['image'] ?>">
-                            <img style="max-width: 200px;" class="rounded img-thumbnail" src="<?= IMAGES_PRODUCT_URL . DS . $data['product']['image'] ?>" alt="image cake">
+                        <div class="form-group ">
+                            <label style="font-weight: 600; color: rgb(27 151 101); font-size: 1.4rem" for="idstatus">Sản phẩm <?= $key + 1 ?></label>
+                            <div class="row">
+                                <div class="image__product__order col-4">
+                                    <img style="width: 200px;" class="rounded mx-auto d-block" src="<?= IMAGES_PRODUCT_URL . DS . $numProduct['image'] ?>" alt="">
+                                </div>
+                                <div class="info__product__order col">
+                                    <label for="">Mã sản phẩm: </label>
+                                    <span><?= $numProduct['id_product'] ?></span> <br>
+                                    <label for="">Tên sản phẩm: </label>
+                                    <span><?= $numProduct['name'] ?></span> <br>
+                                    <label for="">Số lượng: </label>
+                                    <span><?= $numProduct['amount'] ?></span> <br>
+                                    <label for="">Đơn giá: </label>
+                                    <span><?= number_format($numProduct['price_product'], 0, "", ",") ?> VND</span> <br>
+
+                                </div>
+                            </div>
                         </div>
-                    </div>
+
+                    <?php endforeach; ?>
+
                     <div class="form-group col">
-                        <label for="price">Price</label>
-                        <input value="<?= $data['product']['price'] ?>" type="number" name="price" class="form-control" id="price" placeholder="Cake price">
+                        <label for="price">Tổng tiền: </label>
+                        <span style="font-weight: 600; color: rgb(27 151 101);"><?= number_format($data["editOrder"]['total'], 0, "", ",") ?>đ </span>
+                        <!-- <input value="<?= number_format($data["editOrder"]['total'], 0, "", ",") ?>đ" type="text" name="price" class="form-control" id="price"> -->
                     </div>
-
-
-                    <div class="form-group">
-                        <label for="ingredients">Thành phần</label>
-                        <textarea name="ingredients" id="ingredients" class="form-control" cols="2" rows="2"><?= $data['product']['ingredients'] ?></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label for="benerfits">Công dụng</label>
-                        <textarea name="benerfits" id="benerfits" class="form-control" cols="2" rows="2"><?= $data['product']['benerfits'] ?></textarea>
-                    </div>
-
-
 
                 </div>
-                <div class="card-footer">
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                <div class="card-footer d-flex justify-content-between">
+                    <a href="<?= DOCUMENT_ROOT . DS . "admin/orders" ?>" style="margin-right: 68rem;" class="btn btn-secondary ">Hủy</a>
+                    <button type="submit" class="btn btn-primary">Lưu</button>
                 </div>
             </form>
         </div>

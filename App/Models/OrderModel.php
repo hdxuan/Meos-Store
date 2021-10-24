@@ -6,7 +6,8 @@ class OrderModel extends Database
 {
     function all()
     {
-        $sql = "SELECT o.id, u.name as customerName, o.order_date, o.delivery_date, s.name as status
+        $sql = "SELECT o.id,o.id_user, u.name as customerName, u.phone, u.address, u.email,  o.order_date, o.delivery_date,
+        s.name as status, id_status
         from orders o JOIN users u on o.id_user = u.id
                                     JOIN status s on s.id = o.id_status";
 
@@ -24,6 +25,7 @@ class OrderModel extends Database
         }
         return $orderList;
     }
+
     function getTotalById($id)
     {
         $stmt = $this->db->prepare("SELECT amount, price_product
@@ -46,6 +48,48 @@ class OrderModel extends Database
             $total += $amount['amount'] * $amount['price_product'];
         }
         return $total;
+    }
+
+    function getIdOrder($id)
+    {
+
+        $result = "";
+        $allOrder = $this->all();
+        foreach ($allOrder as $key => $order) {
+            if ($id == $order['id']) {
+                $result = $order;
+            }
+        }
+        return $result;
+    }
+
+    function getIdStatus()
+    {
+        $sql = "SELECT * FROM status";
+        $result = $this->db->query($sql);
+
+        if ($result->num_rows > 0) {
+            return $result->fetch_all(MYSQLI_ASSOC);
+            // return mysqli_fetch_all($result, MYSQLI_ASSOC);
+        } else {
+            return false;
+        }
+    }
+    function getNumProduct($id)
+    {
+        $stmt = $this->db->prepare("SELECT od.id_product, od.amount, od.price_product, p.name , p.image
+        from order_details od join products p on p.id = od.id_product where od.id_order = ?");
+
+        $stmt->bind_param("i", $id);
+
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        if ($result->num_rows > 0) {
+            return $result->fetch_all(MYSQLI_ASSOC);
+        } else {
+            return false;
+        }
     }
 
     function store($data = [])
@@ -100,8 +144,19 @@ class OrderModel extends Database
         return true;
     }
 
-    function update($data)
+    function update($data = [])
     {
+        // die(var_dump($data['idOrder']));
+
+        $stmt = $this->db->prepare("UPDATE orders SET delivery_date = ?, id_status = ? where id = ?");
+        $stmt->bind_param("ssi", $data["delivery_date"], $data["idstatus"], $data["idOrder"]);
+        $stmt->execute();
+        $result = $stmt->affected_rows;
+        if ($result < 1) {
+            return false;
+        } else {
+            return true;
+        }
     }
     function delete($data)
     {
