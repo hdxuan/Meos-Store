@@ -158,7 +158,19 @@ class OrderModel extends Database
             return true;
         }
     }
-    function delete($data)
+    function delete($id)
     {
+        $stmt = $this->db->prepare("DELETE FROM orders WHERE id = ? ");
+        if ($stmt) {
+            $stmt->bind_param("i", $id);
+            $stmt->execute();
+            $result = $stmt->affected_rows;
+            if ($result < 1) {
+                return false;
+            } else {
+                return true;
+            }
+        }
+        return false;
     }
 }

@@ -76,5 +76,14 @@ class OrdersController extends Controller
 
     function delete($id)
     {
+        $result = $this->orderModel->delete($id);
+        if ($result === true) {
+            $_SESSION['alert']['success'] = true;
+            $_SESSION['alert']['messages'] = "Xóa đơn hàng thành công";
+        } else {
+            $_SESSION['alert']['success'] = false;
+            $_SESSION['alert']['messages'] = $result;
+        }
+        header("Location: " . DOCUMENT_ROOT . "/admin/orders");
     }
 }

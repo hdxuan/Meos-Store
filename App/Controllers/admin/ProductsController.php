@@ -138,7 +138,6 @@ class ProductsController extends Controller
 
     function delete($id)
     {
-
         $this->productModel->delete($id);
         header("Location: " . DOCUMENT_ROOT . "/admin/products");
     }

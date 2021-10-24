@@ -66,12 +66,12 @@
                                                                 </button>
                                                             </div>
                                                             <div class="modal-body">
-                                                                Bạn chắc chắn muốn xóa sản phầm này?
+                                                                Bạn chắc chắn muốn xóa đơn hàng có mã <?= $order['id'] ?> ?
                                                             </div>
                                                             <div class="modal-footer">
                                                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Thoát</button>
 
-                                                                <a href="<?= DOCUMENT_ROOT ?>/admin/products/delete/<?= $order['id'] ?>" class="btn btn-danger">Xóa</a>
+                                                                <a href="<?= DOCUMENT_ROOT ?>/admin/orders/delete/<?= $order['id'] ?>" class="btn btn-danger">Xóa</a>
 
                                                             </div>
                                                         </div>
