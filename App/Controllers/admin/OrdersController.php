@@ -36,6 +36,10 @@ class OrdersController extends Controller
 
     function edit($id)
     {
+        $date = getdate();
+        var_dump($date['year'] . $date['mon'] . $date['mday']);
+        // die(var_dump($date));
+
         $data["editOrder"] = $this->orderModel->getIdOrder($id);
         //die(var_dump($data["editOrder"]));
         $data["idStatus"] = $this->orderModel->getIdStatus();
@@ -52,12 +56,13 @@ class OrdersController extends Controller
     {
         if (isset($_POST)) {
             $data["idOrder"] = $_POST['idOrder'];
+            // if($_POST['delivery_date'] >= )
             $data["delivery_date"] = $_POST['delivery_date'];
             $data["idstatus"] = $_POST['idstatus'];
         } else {
             header("Location: " . DOCUMENT_ROOT . "/admin/order/");
         }
-        // var_dump($data);
+        var_dump($data);
         $result = $this->orderModel->update($data);
         if ($result === true) {
             $_SESSION['alert']['success'] = true;

@@ -15,6 +15,17 @@ class CustomerModel extends Database
         }
     }
 
+    function numOfCustomer()
+    {
+        $sql = "SELECT count(*) as numCustomer  FROM users WHERE role = 1 ";
+        $result = $this->db->query($sql);
+        if ($result->num_rows > 0) {
+            return $result->fetch_assoc()['numCustomer'];
+        } else {
+            return false;
+        }
+    }
+
 
     // Customer admin
     function store($data)

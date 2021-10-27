@@ -92,6 +92,16 @@ class OrderModel extends Database
         }
     }
 
+    function numOfOrders()
+    {
+        $sql = "SELECT COUNT(*) as numOrder FROM orders";
+        $result = $this->db->query($sql);
+
+        if ($result->num_rows > 0) {
+            return  $result->fetch_assoc()['numOrder'];
+        }
+    }
+
     function store($data = [])
     {
         $data['id_status'] = "CXL";
