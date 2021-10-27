@@ -18,17 +18,42 @@
     <link rel="stylesheet" href="<?= PUBLIC_URL . "/admin" ?>/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
     <link rel="stylesheet" href="<?= PUBLIC_URL . "/admin" ?>/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
 
+    <!-- login -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="<?= PUBLIC_URL . "/admin/login/" ?>fonts/icomoon/style.css">
+
+    <link rel="stylesheet" href="<?= PUBLIC_URL . "/admin/login/" ?>css/owl.carousel.min.css">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="<?= PUBLIC_URL . "/admin/login/" ?>css/bootstrap.min.css">
+
+    <!-- Style -->
+    <link rel="stylesheet" href="<?= PUBLIC_URL . "/admin/login/" ?>css/style.css">
+
 </head>
 
 <body>
-    <?php require_once(VIEW . "/admin/shared/sidebar.php") ?>
-    <?php require_once(VIEW . "/admin/shared/header.php") ?>
-    <div class="content-wrapper">
+    <?php if (strpos($view, "login") !== false) :  ?>
+        <?php require_once(VIEW . DS . $view . ".php"); ?>
 
-        <?php require_once(VIEW . $view . ".php") ?>
+        <!-- login -->
+        <script src="js/jquery-3.3.1.min.js"></script>
+        <script src="js/popper.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/main.js"></script>
 
-    </div>
-    <?php require_once(VIEW . "/admin/shared/footer.php") ?>
+    <?php else : ?>
+
+        <?php require_once(VIEW . "/admin/shared/sidebar.php") ?>
+        <?php require_once(VIEW . "/admin/shared/header.php") ?>
+        <div class="content-wrapper">
+
+            <?php require_once(VIEW . $view . ".php") ?>
+
+        </div>
+        <?php require_once(VIEW . "/admin/shared/footer.php") ?>
+    <?php endif; ?>
 
     <!--JQuery-->
     <script src="<?= PUBLIC_URL . "/admin" ?>/plugins/jquery/jquery.min.js"></script>
@@ -54,6 +79,8 @@
     <script src="<?= PUBLIC_URL . "/admin" ?>/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
     <script src="<?= PUBLIC_URL . "/admin" ?>/plugins/datatables-buttons/js/buttons.print.min.js"></script>
     <script src="<?= PUBLIC_URL . "/admin" ?>/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+
+
 
     <script>
         $(function() {

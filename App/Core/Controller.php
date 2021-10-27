@@ -18,6 +18,7 @@ class Controller
     {
         if (file_exists(VIEW . DS . $view . '.php')) {
             if (strpos($view, "admin") !== false) {
+                // die(print_r($view));
                 require_once(VIEW . DS . 'admin/shared/layout.php');
             } else {
                 require_once(VIEW . DS . 'shared/layout.php');

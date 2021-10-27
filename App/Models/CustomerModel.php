@@ -14,6 +14,16 @@ class CustomerModel extends Database
             return false;
         }
     }
+    function admin()
+    {
+        $sql = "SELECT *  FROM users WHERE role = 0 ";
+        $result = $this->db->query($sql);
+        if ($result->num_rows > 0) {
+            return $result->fetch_all(MYSQLI_ASSOC);
+        } else {
+            return false;
+        }
+    }
 
     function numOfCustomer()
     {
