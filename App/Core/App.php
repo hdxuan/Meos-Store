@@ -16,7 +16,8 @@ class App
         //$GLOBALS['currentRoute'] = $array[0];
 
         if (strtolower($array[0])  == "admin") {
-            if (strtolower($array[1]) == "login") {
+
+            if (!isset($_SESSION['admin']) && strtolower($array[1]) !== "login") {
                 $array[1] = "Login";
                 $array[2] = "index";
             }

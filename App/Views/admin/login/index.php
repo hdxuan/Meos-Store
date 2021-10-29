@@ -11,15 +11,22 @@
                             <h3>Quản lý <strong>Méo Store</strong></h3>
                             <p class="mb-4">Đăng nhập bằng tài khoản admin để vào trang quản lý.</p>
                         </div>
-                        <form action="#" method="post">
+                        <form action="<?= DOCUMENT_ROOT ?>/admin/login/checkAdmin" method="POST">
+                            <?php if (isset($_SESSION['error'])) : ?>
+                                <?php foreach ($_SESSION['error'] as $index => $error) : ?>
+                                    <p style="color: red;"> <?= $error ?> </p>
+                                <?php endforeach; ?>
+                            <?php endif; ?>
+
+
                             <div class="form-group first">
                                 <label for="username">Tài khoản email</label><br><br><br>
-                                <input type="text" class="form-control" id="username" placeholder="Email">
+                                <input name="email" type="text" class="form-control" id="username" placeholder="Email">
 
                             </div>
                             <div class="form-group last mb-4">
                                 <label for="password">Mật khẩu</label><br><br><br>
-                                <input type="password" class="form-control" id="password" placeholder="Mật khẩu">
+                                <input name="password" type="password" class="form-control" id="password" placeholder="Mật khẩu">
 
                             </div>
 
