@@ -15,33 +15,6 @@ class CustomerModel extends Database
         }
     }
 
-    function checkAdminnn($data)
-    {
-        $email = $data['email'];
-        $password = $data['password'];
-        $stmt = $this->db->prepare("SELECT *  FROM users WHERE email = ?");
-
-        $stmt->bind_param("s", $email);
-        $stmt->execute();
-        // $result = $stmt->affected_rows;
-        $result = $stmt->get_result();
-
-        // die(var_dump($result));
-        if ($result->num_rows > 0) {
-            // echo "bbbbbbbbb";
-            // die();
-            $passwd = $result->fetch_assoc()['password'];
-            $passwdHash = password_verify($password, $passwd);
-            if ($passwdHash == true) {
-                return true;
-            } else {
-                return "Sai mật khẩu!";
-            }
-        } else {
-            return false;
-        }
-    }
-
     function numOfCustomer()
     {
         $sql = "SELECT count(*) as numCustomer  FROM users WHERE role = 1 ";

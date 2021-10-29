@@ -12,11 +12,7 @@
                             <p class="mb-4">Đăng nhập bằng tài khoản admin để vào trang quản lý.</p>
                         </div>
                         <form action="<?= DOCUMENT_ROOT ?>/admin/login/checkAdmin" method="POST">
-                            <?php if (isset($_SESSION['error'])) : ?>
-                                <?php foreach ($_SESSION['error'] as $index => $error) : ?>
-                                    <p style="color: red;"> <?= $error ?> </p>
-                                <?php endforeach; ?>
-                            <?php endif; ?>
+
 
 
                             <div class="form-group first">

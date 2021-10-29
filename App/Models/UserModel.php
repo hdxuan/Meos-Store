@@ -111,6 +111,43 @@ class UserModel extends Database
             return true;
         }
     }
+    function checkAdminnn($data)
+    {
+        $email = $data['email'];
+        $password = $data['password'];
+        $stmt = $this->db->prepare("SELECT *  FROM users WHERE email = ?");
+
+        $stmt->bind_param("s", $email);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        if ($result->num_rows > 0) {
+            $passwdHash = $result->fetch_assoc()['password'];
+            $validPassword = password_verify($password, $passwdHash);
+            // die(var_dump($validPassword));
+            if ($validPassword == true) {
+                return true;
+            } else {
+                return "Sai mật khẩu!";
+            }
+        } else {
+            return "Không tồn tại email này";
+        }
+
+        if ($result->num_rows > 0) {
+            $passwdHash = $result->fetch_assoc()['password'];
+
+            $validPassword = password_verify($password,  $passwdHash);
+
+            if ($validPassword === true) {
+                return true;
+            } else {
+                return "Password Incorrect!";
+            }
+        } else {
+            return "Don't exists your email ";
+        }
+    }
 
     // Customer admin
     function store($data)

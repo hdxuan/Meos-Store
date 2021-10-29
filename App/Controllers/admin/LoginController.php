@@ -4,11 +4,11 @@ use App\Core\Controller;
 
 class LoginController extends Controller
 {
-    private $customerModel;
+    private $userModel;
 
     function __construct()
     {
-        $this->customerModel = $this->model('CustomerModel');
+        $this->userModel = $this->model('UserModel');
     }
 
     function index()
@@ -18,24 +18,30 @@ class LoginController extends Controller
 
     function checkAdmin()
     {
-
-        // die(var_dump($_POST));
-        var_dump($_POST);
-        echo "<pre>";
         if (isset($_POST)) {
 
-            $admin = $this->customerModel->checkAdminnn($_POST);
-            // die(var_dump($admin));
-            if ($admin === true) {
+            $result = $this->userModel->checkAdminnn($_POST);
+            // die(var_dump($result));
+            if ($result === true) {
+                $admin = $this->userModel->getByEmail($_POST['email']);
+
                 $_SESSION['admin'] = $admin;
+
+                // die(var_dump($_SESSION['admin']));
+
                 header("Location: " . DOCUMENT_ROOT . DS . "admin/home");
             } else {
-                $_SESSION['error'][] = $admin;
+                $_SESSION['error'][] = $result;
             }
         } else {
             $_SESSION['error'][] = "Cần nhập vào Email và mật khẩu";
         }
-        // $this->view("/admin/login/index", $data);
-        header("Location: " . DOCUMENT_ROOT . DS . "admin/login");
+        header("Location: " . DOCUMENT_ROOT . DS . "admin");
+    }
+
+    function checkOut()
+    {
+        unset($_SESSION['admin']);
+        header("Location:" . DOCUMENT_ROOT . DS . "admin");
     }
 }
