@@ -111,7 +111,7 @@ class UserModel extends Database
             return true;
         }
     }
-    function checkAdminnn($data)
+    function checkAdmin($data)
     {
         $email = $data['email'];
         $password = $data['password'];
@@ -132,20 +132,6 @@ class UserModel extends Database
             }
         } else {
             return "Không tồn tại email này";
-        }
-
-        if ($result->num_rows > 0) {
-            $passwdHash = $result->fetch_assoc()['password'];
-
-            $validPassword = password_verify($password,  $passwdHash);
-
-            if ($validPassword === true) {
-                return true;
-            } else {
-                return "Password Incorrect!";
-            }
-        } else {
-            return "Don't exists your email ";
         }
     }
 

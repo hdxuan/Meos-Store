@@ -12,7 +12,10 @@
                             <p class="mb-4">Đăng nhập bằng tài khoản admin để vào trang quản lý.</p>
                         </div>
                         <form action="<?= DOCUMENT_ROOT ?>/admin/login/checkAdmin" method="POST">
-
+                            <span class="font-weight-bold text-danger">
+                                <?php echo isset($_SESSION['errorAdmin']) ? $_SESSION['errorAdmin'] : " ";
+                                unset($_SESSION['errorAdmin']) ?>
+                            </span>
 
 
                             <div class="form-group first">

@@ -18,9 +18,10 @@ class LoginController extends Controller
 
     function checkAdmin()
     {
+
         if (isset($_POST)) {
 
-            $result = $this->userModel->checkAdminnn($_POST);
+            $result = $this->userModel->checkAdmin($_POST);
             // die(var_dump($result));
             if ($result === true) {
                 $admin = $this->userModel->getByEmail($_POST['email']);
@@ -31,10 +32,10 @@ class LoginController extends Controller
 
                 header("Location: " . DOCUMENT_ROOT . DS . "admin/home");
             } else {
-                $_SESSION['error'][] = $result;
+                $_SESSION['errorAdmin'] = $result;
             }
         } else {
-            $_SESSION['error'][] = "Cần nhập vào Email và mật khẩu";
+            $_SESSION['errorAdmin'] = "Cần nhập vào Email và mật khẩu";
         }
         header("Location: " . DOCUMENT_ROOT . DS . "admin");
     }
