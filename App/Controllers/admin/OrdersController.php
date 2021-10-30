@@ -36,8 +36,8 @@ class OrdersController extends Controller
 
     function edit($id)
     {
-        $date = getdate();
-        var_dump($date['year'] . $date['mon'] . $date['mday']);
+        // $date = getdate();
+        // var_dump($date['year'] . $date['mon'] . $date['mday']);
         // die(var_dump($date));
 
         $data["editOrder"] = $this->orderModel->getIdOrder($id);

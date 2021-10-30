@@ -6,9 +6,8 @@
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item"><a href="<?= DOCUMENT_ROOT ?>/admin">Home</a></li>
-                    <li class="breadcrumb-item active"><a href="<?= DOCUMENT_ROOT ?>/admin/cakes">Cakes</a></li>
-                    <li class="breadcrumb-item active">Create</li>
+                    <li class="breadcrumb-item"><a href="<?= DOCUMENT_ROOT ?>/admin">Trang chủ</a></li>
+                    <li class="breadcrumb-item active">Thêm sản phẩm mới</li>
                 </ol>
             </div>
         </div>
@@ -27,7 +26,7 @@
 
                         <div class="form-group col">
 
-                            <label for="category">Loại từng sản phẩm</label>
+                            <label for="category">Loại sản phẩm</label>
                             <select name="categoryId" class="form-control" id="category" required>
                                 <option value="" disabled selected>Select one</option>
                                 <?php foreach ($data['categories'] as $key => $categories) : ?>
@@ -68,7 +67,7 @@
 
                 </div>
                 <div class="card-footer">
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-primary px-3" style="font-size: 1.18rem;">Lưu</button>
                 </div>
             </form>
         </div>

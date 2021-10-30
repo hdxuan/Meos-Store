@@ -2,13 +2,12 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1>Edit cake</h1>
+                <h1>Cập nhật sản phẩm</h1>
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item"><a href="<?= DOCUMENT_ROOT ?>/admin">Home</a></li>
-                    <li class="breadcrumb-item active"><a href="<?= DOCUMENT_ROOT ?>/admin/cakes">Cakes</a></li>
-                    <li class="breadcrumb-item active">Edit</li>
+                    <li class="breadcrumb-item"><a href="<?= DOCUMENT_ROOT ?>/admin">Trang chủ</a></li>
+                    <li class="breadcrumb-item active">Cập nhật sản phẩm</li>
                 </ol>
             </div>
         </div>
@@ -19,19 +18,19 @@
     <div class="container-fluid">
         <div class="card card-primary">
             <div class="card-header">
-                <h3 class="card-title">Cake Information</h3>
+                <h3 class="card-title">Thông tin sản phẩm</h3>
             </div>
             <form action="<?= DOCUMENT_ROOT . "/admin/products/update/" . $data['product']['id'] ?>" method="POST" enctype="multipart/form-data">
                 <div class="card-body">
                     <div class="row">
 
                         <div class="form-group col">
-                            <label for="name">Name</label>
+                            <label for="name">Tên sản phẩm</label>
                             <input value="<?= $data['product']['name'] ?>" type="text" class="form-control" name="name" id="name" placeholder="Cake name">
                         </div>
                         <div class="form-group col">
 
-                            <label for="category">Category</label>
+                            <label for="category">Loại sản phẩm</label>
                             <select name="categoryId" class="form-control" id="category">
                                 <?php foreach ($data['categories'] as $key => $categories) : ?>
                                     <option <?= $data['product']['id_products_type'] == $categories['id'] ? "selected" : "" ?> value="<?= $categories['id'] ?> "><?= $categories['name'] ?></option>
@@ -42,7 +41,7 @@
                     </div>
                     <div class="row">
                         <div class="form-group col">
-                            <label for="image">Image</label>
+                            <label for="image">Hình ảnh</label>
                             <input type="file" class="" id="image" name="image">
                             <div>
                                 <input type="text" hidden name="oldImage" value="<?= $data['product']['image'] ?>">
@@ -50,7 +49,7 @@
                             </div>
                         </div>
                         <div class="form-group col">
-                            <label for="price">Price</label>
+                            <label for="price">Đơn giá</label>
                             <input value="<?= $data['product']['price'] ?>" type="number" name="price" class="form-control" id="price" placeholder="Cake price">
                         </div>
                     </div>
@@ -68,7 +67,8 @@
 
                 </div>
                 <div class="card-footer">
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-primary px-3" style="font-size: 1.18rem;">Lưu</button>
+
                 </div>
             </form>
         </div>

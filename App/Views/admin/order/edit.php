@@ -2,13 +2,12 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1>Edit cake</h1>
+                <h1>Cập nhật đơn hàng</h1>
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item"><a href="<?= DOCUMENT_ROOT ?>/admin">Home</a></li>
-                    <li class="breadcrumb-item active"><a href="<?= DOCUMENT_ROOT ?>/admin/cakes">Cakes</a></li>
-                    <li class="breadcrumb-item active">Edit</li>
+                    <li class="breadcrumb-item"><a href="<?= DOCUMENT_ROOT ?>/admin">Trang chủ</a></li>
+                    <li class="breadcrumb-item active">Cập nhật đơn hàng</li>
                 </ol>
             </div>
         </div>
@@ -21,7 +20,7 @@
             <?php require_once(VIEW . DS . "admin/shared/notification.php") ?>
 
             <div class="card-header">
-                <h3 class="card-title">Cake Information</h3>
+                <h3 class="card-title">Thông tin đơn hàng</h3>
             </div>
             <form action="<?= DOCUMENT_ROOT . "/admin/orders/update/" . $data["editOrder"]['id'] ?>" method="POST" enctype="multipart/form-data">
                 <div class="card-body">

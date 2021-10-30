@@ -31,8 +31,8 @@
                             <thead>
                                 <tr>
                                     <th>Mã khách hàng</th>
-                                    <th>Tên khách hàng</th>
-                                    <th>Địa chỉ</th>
+                                    <th style="width: 140px;">Tên khách hàng</th>
+                                    <th style="width: 380px;">Địa chỉ</th>
                                     <th>Số điện thoại</th>
                                     <th>Email</th>
                                     <th>Thao tác</th>
@@ -48,8 +48,9 @@
                                         <td><?= $customer['phone'] ?></td>
                                         <td><?= $customer['email'] ?></td>
                                         <td>
-                                            <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                                                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal<?= $customer['id'] ?>">Delete</button>
+                                            <div role="group" aria-label="Basic mixed styles example">
+                                                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal<?= $customer['id'] ?>"><i class="fas fa-trash-alt"> Delete</i></button>
+
 
                                                 <!-- Modal -->
                                                 <div class="modal fade" id="deleteModal<?= $customer['id'] ?>" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel<?= $customer['id'] ?>" aria-hidden="true" style="display: none;">

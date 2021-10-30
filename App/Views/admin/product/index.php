@@ -32,7 +32,7 @@
                             <thead>
                                 <tr>
                                     <th>STT</th>
-                                    <th>Tên sản phẩm</th>
+                                    <th style="width: 380px;">Tên sản phẩm</th>
                                     <th>Loại sản phẩm</th>
                                     <th>Giá</th>
                                     <th>Hình ảnh</th>
@@ -50,9 +50,9 @@
                                         <!-- <td><?= $products['size'] ?></td> -->
                                         <td> <img style="max-width: 100px;" class="rounded img-thumbnail" src="<?= IMAGES_PRODUCT_URL ?>/<?= $products['image'] ?>" alt="cake image"></td>
                                         <td>
-                                            <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                                                <a href="<?= DOCUMENT_ROOT ?> /admin/products/edit/<?= $products['id'] ?> " type="button" class="btn btn-success">Edit</a>
-                                                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal<?= $products['id'] ?>">Delete</button>
+                                            <div aria-label="Basic mixed styles example ">
+                                                <a href="<?= DOCUMENT_ROOT ?> /admin/products/edit/<?= $products['id'] ?> " type="button" class="btn btn-info"><i class="fas fa-edit"> Edit</i></a>
+                                                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal<?= $products['id'] ?>"><i class="fas fa-trash-alt"> Delete</i></button>
 
                                                 <!-- Modal -->
                                                 <div class="modal fade" id="deleteModal<?= $products['id'] ?>" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel<?= $products['id'] ?>" aria-hidden="true" style="display: none;">

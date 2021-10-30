@@ -21,8 +21,9 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
+
                         <div class="d-flex justify-content-between align-items-center">
-                            <h3 class="card-title">Cake list</h3>
+                            <h3 class="card-title">Danh sách đặt hàng</h3>
                             <a class="btn btn-primary" href="<?= DOCUMENT_ROOT . DS .  "admin/products/create" ?>">Create</a>
                         </div>
                     </div>
@@ -51,9 +52,9 @@
                                         <td><?= $order['status'] ?></td>
                                         <td><?= number_format($order['total'], 0, "", ",") ?>đ</td>
                                         <td>
-                                            <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                                                <a href="<?= DOCUMENT_ROOT ?> /admin/orders/edit/<?= $order['id'] ?> " type="button" class="btn btn-success">Edit</a>
-                                                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal<?= $order['id'] ?>">Delete</button>
+                                            <div aria-label="Basic mixed styles example">
+                                                <a href="<?= DOCUMENT_ROOT ?> /admin/orders/edit/<?= $order['id'] ?> " type="button" class="btn btn-success"><i class="fas fa-edit"> Edit</i></a>
+                                                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal<?= $order['id'] ?>"><i class="fas fa-trash-alt"> Delete</i></button>
 
                                                 <!-- Modal -->
                                                 <div class="modal fade" id="deleteModal<?= $order['id'] ?>" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel<?= $order['id'] ?>" aria-hidden="true" style="display: none;">
