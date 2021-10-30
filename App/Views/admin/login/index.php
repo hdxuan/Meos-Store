@@ -41,3 +41,9 @@
         </div>
     </div>
 </div>
+
+<!-- login -->
+<script src="<?= PUBLIC_URL . "/admin" ?>/login/js/jquery-3.3.1.min.js"></script>
+<script src="<?= PUBLIC_URL . "/admin" ?>/login/js/popper.min.js"></script>
+<script src="<?= PUBLIC_URL . "/admin" ?>/login/js/bootstrap.min.js"></script>
+<script src="<?= PUBLIC_URL . "/admin" ?>/login/js/main.js"></script>

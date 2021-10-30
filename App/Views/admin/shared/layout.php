@@ -17,6 +17,9 @@
         <link rel="stylesheet" href="<?= PUBLIC_URL . "/admin/login/" ?>css/style.css">
 
     <?php else : ?>
+        <!-- Ionicons -->
+        <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
         <!-- Font Awesome -->
         <link rel="stylesheet" href="<?= PUBLIC_URL . "/admin" ?>/plugins/fontawesome-free/css/all.min.css">
@@ -32,7 +35,7 @@
 
 </head>
 
-<body>
+<body class="hold-transition sidebar-mini">
     <?php if (strpos($view, "login") !== false) :  ?>
         <?php require_once(VIEW . DS . $view . ".php"); ?>
 
@@ -47,11 +50,7 @@
         </div>
         <?php require_once(VIEW . "/admin/shared/footer.php") ?>
     <?php endif; ?>
-    <!-- login -->
-    <script src="<?= PUBLIC_URL . "/admin" ?>/login/js/jquery-3.3.1.min.js"></script>
-    <script src="<?= PUBLIC_URL . "/admin" ?>/login/js/popper.min.js"></script>
-    <script src="<?= PUBLIC_URL . "/admin" ?>/login/js/bootstrap.min.js"></script>
-    <script src="<?= PUBLIC_URL . "/admin" ?>/login/js/main.js"></script>
+
     <!--JQuery-->
     <script src="<?= PUBLIC_URL . "/admin" ?>/plugins/jquery/jquery.min.js"></script>
     <!-- jQuery UI 1.11.4 -->
@@ -77,7 +76,7 @@
     <script src="<?= PUBLIC_URL . "/admin" ?>/plugins/datatables-buttons/js/buttons.print.min.js"></script>
     <script src="<?= PUBLIC_URL . "/admin" ?>/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
 
-
+    <script src="<?= PUBLIC_URL . "/admin" ?>/dist/js/demo.js"></script>
 
 
     <script>

@@ -1,8 +1,7 @@
 <!-- Main Sidebar Container -->
 <aside style="position: fixed;" class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="index3.html" class="brand-link ">
-        <!-- <img src="<?= PUBLIC_URL . "/admin" ?>/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8"> -->
+    <a href="<?= DOCUMENT_ROOT . DS . "admin" ?>" class="brand-link ">
         <i class="fas fa-paw ps-5" style="opacity: .8; font-size: 2.9rem"></i>
         <span class="brand-text font-weight-light">Méo Store</span>
     </a>
@@ -15,7 +14,7 @@
                 <img src="<?= IMAGES_URL ?>/user.jpg" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
-                <a href="#" class="d-block">Hầu Diễm Xuân</a>
+                <a href="<?= DOCUMENT_ROOT . DS . "admin/about" ?>" class="d-block"><?= $_SESSION['admin']['name'] ?></a>
             </div>
         </div>
 

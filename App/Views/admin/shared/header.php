@@ -11,7 +11,7 @@
              <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
          </li>
          <li class="nav-item d-none d-sm-inline-block">
-             <a href="index3.html" class="nav-link">Trang chủ</a>
+             <a href="<?= DOCUMENT_ROOT . DS . "admin" ?>" class="nav-link">Trang chủ</a>
          </li>
          <li class="nav-item d-none d-sm-inline-block">
              <a href="https://github.com/hdxuan" target="_blank" class="nav-link">Về chúng tôi</a>
