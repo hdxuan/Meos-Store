@@ -11,7 +11,6 @@
               <a href="<?= DOCUMENT_ROOT ?>/Products/Dog" class="header__menu__item">Chó</a>
               <a href="<?= DOCUMENT_ROOT ?>/Products/Cat" class="header__menu__item">Mèo</a>
 
-              <a href="#" class="header__menu__item">Blogs</a>
               <a href="#" class="header__menu__item">Dịch vụ</a>
           </nav>
 

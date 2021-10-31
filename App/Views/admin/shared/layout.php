@@ -35,11 +35,15 @@
 
 </head>
 
-<body class="hold-transition sidebar-mini">
-    <?php if (strpos($view, "login") !== false) :  ?>
-        <?php require_once(VIEW . DS . $view . ".php"); ?>
+<?php if (strpos($view, "login") !== false) :  ?>
 
+    <body>
+        <?php require_once(VIEW . DS . $view . ".php"); ?>
+    </body>
+
+    <body class="hold-transition sidebar-mini">
     <?php else : ?>
+
 
         <?php require_once(VIEW . "/admin/shared/sidebar.php") ?>
         <?php require_once(VIEW . "/admin/shared/header.php") ?>
@@ -93,6 +97,6 @@
         });
     </script>
 
-</body>
+    </body>
 
 </html>

@@ -102,6 +102,46 @@ class OrderModel extends Database
         }
     }
 
+    // profile
+    function numOrderByUser($id)
+    {
+        $stmt = $this->db->prepare("SELECT * from orders where id_user = ?");
+
+        $stmt->bind_param("i", $id);
+
+        $stmt->execute();
+        $result = $stmt->get_result();
+        if ($result->num_rows > 0) {
+            return $result->fetch_all(MYSQLI_ASSOC);
+        } else {
+            return false;
+        }
+    }
+    // profile
+    function getOrderByUser($data = [])
+    {
+
+        for ($i = 0; $i < count($data['id_order']); $i++) {
+            $stmt = $this->db->prepare("SELECT o.id , od.amount, od.price_product, p.name , p.image, s.name as nameState
+                                        from order_details od join products p on p.id = od.id_product
+                                                                JOIN orders o on o.id = od.id_order
+                                                                JOIN status s on s.id = o.id_status
+                                                                WHERE o.id = ?");
+
+            $stmt->bind_param("i", $data["id_order"][$i]);
+
+            $stmt->execute();
+            $result = $stmt->get_result();
+            if ($result->num_rows > 0) {
+                return $result->fetch_all(MYSQLI_ASSOC);
+            } else {
+                return false;
+            }
+        }
+        return true;
+    }
+
+
     function store($data = [])
     {
         $data['id_status'] = "CXL";

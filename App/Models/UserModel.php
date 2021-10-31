@@ -97,10 +97,10 @@ class UserModel extends Database
         }
     }
 
-    function editAvatar($data, $iduser)
+    function editAvatar($data = [], $iduser)
     {
         $stmt = $this->db->prepare("UPDATE USERS SET avatar = ?  WHERE id = ?");
-        $stmt->bind_param("si", $data['avatar'], $iduser);
+        $stmt->bind_param("si", $data['profileImage'], $iduser);
 
         $stmt->execute();
 
