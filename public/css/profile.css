@@ -60,8 +60,7 @@
     /* align-items: center; */
 }
 
-.order__lists{
-}
+
 .order__list{
     margin-bottom: 15px;
     background-color: white;
@@ -73,14 +72,25 @@
     grid-gap: 15px 11px;
 }
 .order__list--state{
-    padding-top: 80px;
-    padding-left: 50px;
+    padding-bottom: 10px;
+    margin-left: 395px;
 }
 .order__list--image{
     width: 130px;
     height: 130px;
 }
-
+.edit__avatar{
+    position: absolute;
+    bottom: 21px;
+    right: 215px;
+    border: 2px solid #324258;
+    border-radius: 50px;
+    padding: 4px;
+    font-size: 19px;
+}
+.edit__avatar:hover{
+    cursor: pointer;
+}
 
 
 /* 

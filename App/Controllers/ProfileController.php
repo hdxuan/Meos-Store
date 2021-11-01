@@ -15,23 +15,15 @@ class ProfileController extends Controller
 
     function index()
     {
-        // $id = 15;
-        // die(var_dump($_SESSION['user']['id']));
-
-        // $data['userbyid'] = $this->userModel->getById($_SESSION['user']['id']);
-        $data['total'] = $this->orderModel->all();
 
 
         $data['numOrderByUser'] = $this->orderModel->numOrderByUser($_SESSION['user']['id']);
 
-        foreach ($data['numOrderByUser'] as $key => $numOrder) {
-            $id = $numOrder['id'];
-            $data['id_order'][] = $id;
-        }
+        // echo "<pre>";
 
-
-        $data['getOrderByUser'] = $this->orderModel->getOrderByUser($data);
-        // die(var_dump($data['getOrderByUser']));
+        // print_r($data['numOrderByUser']);
+        // echo "<pre>";
+        // die();
 
         $this->view("/profile/index", $data);
     }
@@ -45,8 +37,6 @@ class ProfileController extends Controller
             $data['user'] = $this->userModel->getById($_SESSION['user']['id']);
 
             $_SESSION['user'] = $data['user'];
-
-
             $this->view("/profile/index", $data);
         } else {
             echo "k the chinh sua";
@@ -55,9 +45,6 @@ class ProfileController extends Controller
 
     function editAvatar()
     {
-        // die(var_dump($_FILES["profileImage"]));
-
-
         if (isset($_FILES["profileImage"])) {
             if ($_FILES["profileImage"]['name'] != "") {
                 $randomNum = time(); // time(): random them so phia truoc file de k bi trum file da ton tai vd :1634031033_16.png

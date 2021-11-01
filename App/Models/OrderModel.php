@@ -102,43 +102,50 @@ class OrderModel extends Database
         }
     }
 
-    // profile
+    // profile 
     function numOrderByUser($id)
     {
-        $stmt = $this->db->prepare("SELECT * from orders where id_user = ?");
+        $stmt = $this->db->prepare("SELECT o.id, o.order_date, o.delivery_date, s.name as status, id_status
+        from orders o JOIN users u on o.id_user = u.id
+                                    JOIN status s on s.id = o.id_status where id_user = ?");
 
         $stmt->bind_param("i", $id);
 
         $stmt->execute();
         $result = $stmt->get_result();
+
         if ($result->num_rows > 0) {
-            return $result->fetch_all(MYSQLI_ASSOC);
+            $orderList =  $result->fetch_all(MYSQLI_ASSOC);
         } else {
             return false;
         }
-    }
-    // profile
-    function getOrderByUser($data = [])
-    {
-
-        for ($i = 0; $i < count($data['id_order']); $i++) {
-            $stmt = $this->db->prepare("SELECT o.id , od.amount, od.price_product, p.name , p.image, s.name as nameState
-                                        from order_details od join products p on p.id = od.id_product
-                                                                JOIN orders o on o.id = od.id_order
-                                                                JOIN status s on s.id = o.id_status
-                                                                WHERE o.id = ?");
-
-            $stmt->bind_param("i", $data["id_order"][$i]);
-
-            $stmt->execute();
-            $result = $stmt->get_result();
-            if ($result->num_rows > 0) {
-                return $result->fetch_all(MYSQLI_ASSOC);
-            } else {
-                return false;
-            }
+        foreach ($orderList as $key => $order) {
+            $idOrder = $order['id'];
+            $total = $this->getTotalById($idOrder);
+            $orderList[$key]['total'] = $total;
+            $listOrderDetail = $this->getOrderDetail($idOrder);
+            $orderList[$key]['products'] = $listOrderDetail;
         }
-        return true;
+        return $orderList;
+    }
+
+    // // profile
+    function getOrderDetail($id)
+    {
+        $stmt = $this->db->prepare("SELECT od.id_product, od.amount, od.price_product, p.name , p.image
+                from order_details od join products p on p.id = od.id_product where od.id_order = ?");
+
+        $stmt->bind_param("i", $id);
+
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        if ($result->num_rows > 0) {
+            $listOrderDetail =   $result->fetch_all(MYSQLI_ASSOC);
+        } else {
+            return false;
+        }
+        return $listOrderDetail;
     }
 
 

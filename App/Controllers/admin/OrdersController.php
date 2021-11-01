@@ -40,8 +40,11 @@ class OrdersController extends Controller
         // var_dump($date['year'] . $date['mon'] . $date['mday']);
         // die(var_dump($date));
 
+
+        // Lay het id trong all ra
         $data["editOrder"] = $this->orderModel->getIdOrder($id);
         //die(var_dump($data["editOrder"]));
+
         $data["idStatus"] = $this->orderModel->getIdStatus();
 
         $data["numProductInOrderDetail"] = $this->orderModel->getNumProduct($id);
