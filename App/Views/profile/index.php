@@ -3,7 +3,7 @@
 </div> -->
 <div class="container bootstrap snippets bootdey mt-5">
 
-    <div class="profile-info col-md-9 mx-auto">
+    <div class="profile-info mx-auto" style="width:90%">
 
         <div class="panel">
 
@@ -25,7 +25,7 @@
                         <input type="file" id="profileImage" name="profileImage">
 
                         <i id="onclick" class="fas fa-camera  edit__avatar"></i>
-                        <button hidden type="submit" class="btn ">Tải ảnh</button>
+                        <button type="submit" class="btn ">Lưu hình</button>
 
                     </div>
 
@@ -57,7 +57,7 @@
                         </form>
                     </div>
                 </div>
-                <div class="bio-graph-info ">
+                <div class="bio-graph-info height_history">
                     <h2>Lịch sử đơn hàng</h2>
                     <div class="order__lists">
                         <?php foreach ($data['numOrderByUser'] as $index => $order) : ?>
@@ -76,21 +76,22 @@
                                             <p>Đơn giá: <?= number_format($orderDetail['price_product'], 0, "", ",")  ?>đ </p>
                                         </div>
                                     </div>
-
+                                    <hr>
                                 <?php endforeach; ?>
 
                                 <div class="order__list--state">
                                     <p>Trạng thái đơn hàng: <?= $order['status'] ?></p>
-                                    <p>Tổng đơn hàng:<?= number_format($order['total'], 0, "", ",")  ?>đ </p>
+                                    <p>Tổng đơn hàng: <?= number_format($order['total'], 0, "", ",")  ?>đ </p>
                                 </div>
 
                             </div>
 
-                        <?php endforeach; ?>
 
+                        <?php endforeach; ?>
                     </div>
                 </div>
 
             </div>
         </div>
     </div>
+</div>

@@ -1,11 +1,15 @@
 .footer {
   margin-top: 30px;
-  margin-bottom: 20px;
+
   display: flex;
   justify-content: space-between;
+  padding: 25px 0;
+}
+.background__footer{
+  background-color: #e4efec;
 }
 .footer__logo {
-  width: 350px;
+  width: 310px;
 }
 .footer__logo p {
   font-family: var(--font-nunito);
@@ -41,6 +45,7 @@
 }
 .footer__list__social {
   margin-top: 15px;
+  color: var(--color-primary);
 }
 .footer__list__social > *:not(:first-child) {
   margin-left: 15px;
@@ -53,7 +58,7 @@
   opacity: 0.8;
 }
 .footer__copyright {
-  background: var(--color-background);
+  background: #517a6f5c;
   display: flex;
   justify-content: center;
   padding: 15px 0;
@@ -61,9 +66,10 @@
 .footer__copyright p {
   font-family: var(--font-poppins);
   font-style: normal;
-  font-weight: normal;
-  font-size: 1.4rem;
+  font-weight: 500;
+  font-size: 1.5rem;
   line-height: 2.6rem;
+
   color: var(--color-content);
 }
 @media only screen and (max-width: 768px) {

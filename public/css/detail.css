@@ -3,16 +3,25 @@
 }
 
 .detail__item-image{
- display: flex;
- justify-content: center;
-overflow: hidden;
-/* padding: 15px 0; */
+    display: flex;
+    justify-content: center;
+    /* overflow: hidden; */
+    position: relative;
+
 }
 .detail__item-image img{
-    width: 70%;
-    /* border: 1px solid #846163; */
-    /* box-shadow: 1px 2px 5px #846163; */
+    width: 60%;
     border-radius: 10px;
+}
+.detail__item-image__circle{
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background-color: #8eb4a5;
+    border-radius: 50%;
+    top: -6%;
+    left: 11%;
+    z-index: -10;
 }
 
 .detail__item-info__name{
@@ -23,8 +32,8 @@ overflow: hidden;
     line-height: 5rem;
 }
 .detail__item-stars__items{
-display: flex;
-width: 50px;
+    display: flex;
+    width: 50px;
 
 }
 .detail__item-stars__items img{
@@ -33,60 +42,13 @@ width: 50px;
 .detail__item-summary{
     width: 555px;
     line-height: 23px;
-    height: 71px;
+    height: 44px;
 
-    overflow: hidden;
-    text-overflow: ellipsis;
-    -webkit-line-clamp: 3;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;   /* dau ... */
 }
-
-/* amount */
-.buttons_added {
-    opacity:1;
-    display:inline-block;
-    display:-ms-inline-flexbox;
-    display:inline-flex;
-    white-space:nowrap;
-    vertical-align:top;
-}
-.is-form {
-    overflow:hidden;
-    position:relative;
-    background-color:#f9f9f9;
-    height:2.2rem;
-    width:1.9rem;
-    padding:0;
-    text-shadow:1px 1px 1px #fff;
-    border:1px solid #ddd;
-}
-.is-form:focus,.input-text:focus {
-    outline:none;
-}
-.is-form.minus {
-    border-radius:4px 0 0 4px;
-}
-.is-form.plus {
-    border-radius:0 4px 4px 0;
-}
-.input-qty {
-    background-color:#fff;
-    height:2.2rem;
-    text-align:center;
-    font-size:1rem;
-    display:inline-block;
-    vertical-align:top;
-    margin:0;
-    border-top:1px solid #ddd;
-    border-bottom:1px solid #ddd;
-    border-left:0;
-    border-right:0;
-    padding:0;
-}
-.input-qty::-webkit-outer-spin-button,.input-qty::-webkit-inner-spin-button {
-    -webkit-appearance:none;
-    margin:0;
+.detail__item__price{
+    font-size: 28px;
+    font-weight: 500;
+    margin-top: 7rem;
 }
 
 /* info product */
@@ -117,15 +79,7 @@ width: 50px;
     cursor: pointer;
 
 }
-/* @keyframes changeColor {
-    from{
-    background-color: var(--color-primary);
-    }
-    to{
-    background-color:#7e4c4f;
 
-    }
-} */
 .info__button p{
     padding: 10px 25px ;
 }

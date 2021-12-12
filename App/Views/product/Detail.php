@@ -17,13 +17,15 @@
         <?php foreach ($data['detailProduct'] as $index => $detail) : ?>
             <div class="detail__items row">
                 <div class="detail__item-image col">
-                    <img src="<?= IMAGES_PRODUCT_URL ?>/<?= $detail['image'] ?>" alt="cake image">
+                    <img src="<?= IMAGES_PRODUCT_URL ?>/<?= $detail['image'] ?>" alt="image">
+                    <p class="detail__item-image__circle"></p>
+
                 </div>
+
                 <div class="detail__item-info col">
                     <div>
                         <h6 class="detail__item-info__name"><?= $detail['name'] ?></h6>
-                        <p class="detail__item-info__description line-clamp-5">
-                        </p>
+
                     </div>
                     <div class="detail__item-stars__items">
                         <img src="<?= ICONS_URL . DS ?>/star-solid.svg" alt="" class="star__item">
@@ -33,42 +35,38 @@
                         <img src="<?= ICONS_URL . DS ?>/star-half-alt-solid.svg" alt="" class="star__item">
                     </div>
                     <div>
-                        <div class="detail__item-summary mt-5"> <?= $detail['benerfits'] ?> </div>
+                        <h2 class="mt-5">Thành phần</h2>
+                        <div class="detail__item-summary mt-1"> <?= $detail['ingredients'] ?> </div>
+
+                        <h2 class="mt-1">Công dụng</h2>
+                        <div class="detail__item-summary mt-1"> <?= $detail['benerfits'] ?> </div>
+
                     </div>
-                    <div class="row mt-4">
-                        <p class="detail__title col-sm-2">Giá</p>
-                        <div class="detail__item__price col-sm-10">Giá <?= number_format($detail['price'], 0, '', '.') ?>đ</div>
+                    <div class="row mb-4">
+                        <p class="detail__item__price"><?= number_format($detail['price'], 0, '', '.') ?>đ</p>
                     </div>
-                    <div class="row my-4">
-                        <p class="detail__title col-sm-2">Số lượng</p>
-                        <div class="buttons_added col-sm-10">
-                            <input class="minus is-form" type="button" value="-">
-                            <input aria-label="quantity" class="input-qty" max="20" min="1" name="" type="number" value="1">
-                            <input class="plus is-form" type="button" value="+">
-                        </div>
-                    </div>
-                    <button class="btn btn--primary">Thêm vào giỏ +</button>
+
+                    <button onclick="addToCart(<?= isset($_SESSION['user']) ? $_SESSION['user']['id'] : 0 ?>,<?= $detail['id'] ?>)" class="btn btn--primary">Thêm vào giỏ +</button>
+
                 </div>
             </div>
 
             <div class="info__product_items row">
                 <div class="info__product_item--button col ">
-                    <div class="info__button">
-                        <p>Thông tin sản phẩm</p>
-                    </div>
+
                     <div class="info__button">
                         <p>Đánh giá sản phẩm</p>
                     </div>
                 </div>
                 <div class="info__product_item--content">
-                    <div class="content__ingredients ">
-                        <h3>Thành phần</h3>
-                        <p> <?= $detail['ingredients'] ?> </p>
-                    </div>
-                    <div class="content__benerfits">
-                        <p> <?= $detail['benerfits'] ?> </p>
+                    <form action="" method="POST">
 
-                    </div>
+                        <div class="fomr__comment">
+                            <textarea name="" id="" cols="30" rows="10"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn--primary">Gửi đánh giá</button>
+                    </form>
+
                 </div>
             </div>
         <?php endforeach; ?>

@@ -23,15 +23,15 @@ class HomeController extends Controller
         $data['products'] = $products;
         $data['bestSellers'][] = $products[0]; // mảng chạy từ 0
         $data['bestSellers'][] = $products[4];
-        $data['bestSellers'][] = $products[8];
-        $data['bestSellers'][] = $products[1];
+        $data['bestSellers'][] = $products[80];
+        $data['bestSellers'][] = $products[64];
         $data['bestSellers'][] = $products[33];
         $data['bestSellers'][] = $products[43];
 
         $data['categories'] = $this->productTypeModel->all();
 
         // paging
-        $definePage = 8;
+        $definePage = 9;
         $numProduct = $this->productModel->numProduct();
 
         $pages = ceil(($numProduct / 6) / $definePage);

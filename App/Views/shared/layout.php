@@ -59,7 +59,7 @@
 
     <body>
         <div id="toast">
-            <div id="img">Icon</div>
+            <div id="img"><i class="fas fa-paw icon_toast"></i></div>
             <div id="desc">A notification message..</div>
         </div>
 

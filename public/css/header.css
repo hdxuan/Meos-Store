@@ -1,11 +1,14 @@
+.box__shadow{
+  box-shadow: 0px 2px 6px  gray;
+}
 .header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin: 0 -30px;  
+  margin: 0 26px ;  
 }
 .header__logo img {
-  width: 215px;
+  width: 190px;
   margin-right: 19px;
 }
 
@@ -14,64 +17,45 @@
   font-size: 2rem;
   color: var(--color-title);
   display: flex;
+
 }
 
 .header__menu__item {
-  margin-right: 45px;
+  
   transition: all 0.2s;
+  position: relative;
+  margin-right: 50px;
+  text-align: center;
 }
-.header__menu__item:last-child {
+/* .header__menu__item:last-child {
   margin-right: -36px;
   transition: all 0.2s;
-}
+} */
+/* 
+.header__menu__item:hover::after {
+  content: "";
+  position: absolute;
+  width: 53px;
+  height: 5px;
+  
+  background-color: var(--color-primary);
+  top: 86%;
+  left: -5%;
+  transition: all 0.3s ease-in;
+
+
+} */
 
 .header__menu__item:hover {
-  color: var(--color-primary);
-  transition: all 0.2s;
+  color: #8cc4b1;
+  transition: all 0.3s;
+
 }
 
 .header__menu__item:active {
   color: var(--color-primary);
-  transition: all 0.2s;
+  transition: all 0.3s;
 }
-
-/* .header__menu--dropdown{
-  position: relative;
-}
-.dropdown{
-  display: none;
-  position: absolute;
-  top: 136%;
-  right: -40%;
-  width: 26rem;
-  
-  background-color: #ffffffdc;
-  border-radius: 10px;
-  box-shadow: 1px 1.6px 4.8px rgb(71, 71, 71);
-}
-.dropdown::after{
-  content: "";
-  position: absolute;
-  top: -11%;
-  width: 33rem;
-  height: 20px;
-}
-
-.dropdown li{
-  padding: 15px 41px ;
-  
-}
-.dropdown a{
-  color: var(--color-title);
-}
-.dropdown a:hover{
-  color : var(--color-primary);
-  transition: all 0.2s;
-}
-.header__menu--dropdown:hover .dropdown{
-  display: block;
-  
-} */
 
 .header__search {
   position: relative;
@@ -106,12 +90,12 @@
   border-radius: 26px;
   padding: 15px 57px 18px 21px;
   /* border: 2px solid transparent; */
-  border: 2px solid #ff9966;
+  border: 2px solid #76918a;
 }
 
 .header__search input[type="text"]:focus {
-  box-shadow: 0 0 4px 1px #ff9966;
-  border: 2px solid #fd5d706c;
+  box-shadow: 0 0 4px 1px #76918a;
+  border: 2px solid #37574c;
   transition: all 0.2s;
 }
 

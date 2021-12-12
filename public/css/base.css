@@ -1,12 +1,10 @@
 :root {
-  --color-primary: #ff6b41;
-  /* --color-primary: #fd4848; */
-  /* --color-primary: #c1773a; */
-  /* --color-second: #c97027; */
-  --color-second: #ff865e;
+  --color-primary: #37574c  ;
+
+  --color-second: #76918a;
   --color-active: #b62f3f;
   --color-title: #3b3a3f;
-  /* --color-title: #7e4c4f; */
+
   --color-content: #848484;
   --color-background: #ffffff;
   --color-nav : #bdbaba;
@@ -27,6 +25,7 @@ a {
   text-decoration: none;
   color: inherit;
 }
+
 svg * {
   width: 100%;
   height: 100%;
@@ -92,7 +91,7 @@ body {
 
 
 .btn {
-  padding: 2px 15px;
+  padding: 4px 14px;
   border-radius: 10px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.171);
   transition: all 0.2s;
@@ -107,6 +106,9 @@ body {
   user-select: none; /* Non-prefixed version, currently
                                   supported by Chrome, Edge, Opera and Firefox */
 }
+.custom_cart{
+  font-size: 23px;
+}
 /* btn primary */
 .btn--primary {
   background-color: var(--color-primary);
@@ -115,15 +117,16 @@ body {
   transition: all 0.2s ease-out;
 }
 .btn--primary:hover {
-  background-color: #d6374a;
+  background-color: #37574ce8;
   transition: all 0.2s ease-out;
+  color: #ffffff !important;
 }
 .btn--primary:active {
-  background-color: #c5394a;
+  background-color: #37574c;
   transition: all 0.2s ease-out;
 }
 .btn--primary:focus {
-  box-shadow: 0 0 1px 4px #fd5d707a;
+  box-shadow: 0 0 3px 4 px #37574c94;
   transition: all 0.2s ease-out;
 }
 
@@ -135,15 +138,15 @@ body {
 }
 .btn--secondary:hover {
   color: #fff;
-  background-color: #d6374a;
+  background-color: #37574ce8;
   transition: all 0.2s ease;
 }
 .btn--secondary:active {
-  background-color: #c5394a;
+  background-color: #37574c;
   transition: all 0.2s ease-out;
 }
 .btn--secondary:focus {
-  box-shadow: 0 0 1px 4px #fd5d707a;
+  box-shadow: 0 0 3px 4px #37574c94;
   transition: all 0.2s ease-out;
 }
 
@@ -330,7 +333,8 @@ body {
   max-width: 50px;
   height: 50px;
   /*margin-left: -125px;*/
-  margin: auto;
+  margin: auto; 
+ 
   background-color: var(--color-second);
   color: #fff;
   text-align: center;
@@ -357,6 +361,9 @@ body {
 
   
   background-color: var(--color-primary);
+}
+.icon_toast{
+  font-size: 30px;
 }
 #toast #desc{ 
   padding: 13px;
