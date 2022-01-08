@@ -64,4 +64,19 @@ class ProductsController extends Controller
 
         $this->view("/product/Detail", $data);
     }
+
+    // comment
+    function Comment()
+    {
+
+        if (isset($_POST)) {
+            $data['content'] = $_POST['comments'];
+            if (isset($_SESSION['user'])) {
+                $data['created'] = date("d/m/Y H:i:s");
+                $data['idUser'] = $_SESSION['user']['id'];
+                $data['idProduct'] = 1;
+            }
+            var_dump($data);
+        }
+    }
 }

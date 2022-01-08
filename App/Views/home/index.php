@@ -1,6 +1,6 @@
 <!-- wrapper banner -->
 <div class="container-fluid banner">
-    <img src="<?= IMAGES_URL ?>/1.jpg" alt="banner">
+    <img class="img_banner" src="<?= IMAGES_URL ?>/1.jpg" alt="banner">
 
 </div>
 <!-- end wrapper banner -->
@@ -8,6 +8,7 @@
 <!-- wrapper products -->
 <section class="container category">
     <div class="category__items noselect">
+
         <div class="category__item">
             <img src="<?= IMAGES_URL ?>/dog.jpg" alt="category image" class="category__item-image">
             <a href="<?= DOCUMENT_ROOT ?>/Products/Dog">
@@ -88,7 +89,6 @@
                 <div class="sweeties__item-prices">
                     <div class="sweeties__item__price"><?= number_format($productOnlyPage['price'], 0, '', '.') ?>đ</div>
 
-                    <!-- <div class="sweeties__item__original-price">Lượt mua</div> -->
                     <button onclick="addToCart(<?= isset($_SESSION['user']) ? $_SESSION['user']['id'] : 0 ?>,<?= $productOnlyPage['id'] ?>)" class="btn btn--secondary"><i class="fas fa-shopping-bag custom_cart"></i></button>
                 </div>
 

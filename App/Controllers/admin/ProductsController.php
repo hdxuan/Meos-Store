@@ -70,7 +70,13 @@ class ProductsController extends Controller
 
         $result = $this->productModel->store($data);
         // die(print_r($result));
-
+        if ($result === true) {
+            $_SESSION['alert']['success'] = true;
+            $_SESSION['alert']['messages'] = "Thêm sản phẩmthành công";
+        } else {
+            $_SESSION['alert']['success'] = false;
+            $_SESSION['alert']['messages'] = $result;
+        }
         if (isset($_SERVER["HTTP_REFERER"])) {
             header("Location: " . $_SERVER["HTTP_REFERER"]); // neu sai quay lai trang truoc do cua no "la trang create"
             return;
@@ -127,8 +133,14 @@ class ProductsController extends Controller
             }
         }
 
-        $this->productModel->update($data);
-
+        $result = $this->productModel->update($data);
+        if ($result === true) {
+            $_SESSION['alert']['success'] = true;
+            $_SESSION['alert']['messages'] = "Cập nhật đơn hàng thành công";
+        } else {
+            $_SESSION['alert']['success'] = false;
+            $_SESSION['alert']['messages'] = $result;
+        }
         if (isset($_SERVER["HTTP_REFERER"])) {
             header("Location: " . $_SERVER["HTTP_REFERER"]); // neu sai quay lai trang truoc do cua no "la trang edit"
             return;

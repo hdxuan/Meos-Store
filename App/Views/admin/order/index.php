@@ -24,7 +24,6 @@
 
                         <div class="d-flex justify-content-between align-items-center">
                             <h3 class="card-title">Danh sách đặt hàng</h3>
-                            <a class="btn btn-primary" href="<?= DOCUMENT_ROOT . DS .  "admin/products/create" ?>">Create</a>
                         </div>
                     </div>
                     <!-- /.card-header -->

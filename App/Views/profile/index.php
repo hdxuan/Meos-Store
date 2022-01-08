@@ -8,7 +8,7 @@
         <div class="panel">
 
             <div class="background">
-                <img style="height: 418px;" src="<?= IMAGES_URL  ?>/various-animal-feed-white-surface.jpg" alt="">
+                <img style="height: 425px;" src="<?= IMAGES_URL  ?>/profile.jpg" alt="">
                 <form action="<?= DOCUMENT_ROOT . DS . "profile/editAvatar"  ?>" method="POST" enctype="multipart/form-data">
 
                     <div class="avatar__user">
@@ -16,16 +16,16 @@
                             <div class="avatar__user--image ">
                                 <input type="text" hidden name="oldImage" value="<?= $_SESSION['user']['avatar'] ?>">
 
-                                <img src="<?= IMAGES_URL . DS . "uploads/avatar/" . $_SESSION['user']['avatar'] ?>" alt="">
+                                <img src="<?= IMAGES_URL . "/uploads/avatar/" .  (empty($_SESSION['user']['avatar']) ? "default_avatar.png" : $_SESSION['user']['avatar']) ?>" alt="">
 
                             </div>
                             <div class="avatar__user--name"><?= $_SESSION['user']['name']  ?></div>
                         </div>
                         <!-- <a href="#">Chỉnh sửa thông tin</a> -->
-                        <input type="file" id="profileImage" name="profileImage">
+                        <input hidden type="file" id="profileImage" name="profileImage">
 
-                        <i id="onclick" class="fas fa-camera  edit__avatar"></i>
-                        <button type="submit" class="btn ">Lưu hình</button>
+                        <i onclick="triggerClick()" id="onclick" class="fas fa-camera  edit__avatar"></i>
+                        <button style="margin-left: 9%;" type="submit" class="btn btn--primary ">Lưu hình</button>
 
                     </div>
 
@@ -46,13 +46,13 @@
                                 <input type="text" name="phone" value="<?= $_SESSION['user']['phone']  ?>">
 
                                 <label for="address">Địa chỉ giao hàng : </label>
-                                <textarea name="address" id="address" cols="35" rows="2"><?= $_SESSION['user']['address']  ?></textarea>
+                                <textarea name="address" id="address" cols="35" rows="2"><?= $_SESSION['user']['address']  ?></textarea><br>
 
                                 <label for="email">Email : </label><br>
                                 <input type="text" name="email" value="<?= $_SESSION['user']['email']  ?>">
 
                             </div>
-                            <button type="submit" class="btn ">lưu</button>
+                            <button type="submit" class="btn btn--primary ">lưu</button>
                             <!-- </div> -->
                         </form>
                     </div>
@@ -63,7 +63,7 @@
                         <?php foreach ($data['numOrderByUser'] as $index => $order) : ?>
 
                             <div class="order__list">
-                                <p>Đơn hàng: <?= $order['id']  ?> </p>
+                                <p><i class="fas fa-paw"></i> Đơn hàng: <?= $order['id']  ?> </p>
 
                                 <?php foreach ($order['products'] as $index => $orderDetail) : ?>
 
@@ -76,14 +76,14 @@
                                             <p>Đơn giá: <?= number_format($orderDetail['price_product'], 0, "", ",")  ?>đ </p>
                                         </div>
                                     </div>
-                                    <hr>
+
                                 <?php endforeach; ?>
 
                                 <div class="order__list--state">
                                     <p>Trạng thái đơn hàng: <?= $order['status'] ?></p>
                                     <p>Tổng đơn hàng: <?= number_format($order['total'], 0, "", ",")  ?>đ </p>
                                 </div>
-
+                                <hr>
                             </div>
 
 
@@ -95,3 +95,9 @@
         </div>
     </div>
 </div>
+
+<script>
+    function triggerClick() {
+        document.querySelector("#profileImage").click();
+    }
+</script>

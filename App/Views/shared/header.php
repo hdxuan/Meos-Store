@@ -8,8 +8,8 @@
               </a>
               <nav class="header__menu noselect">
                   <a href="<?= DOCUMENT_ROOT ?>" class="header__menu__item">Trang chủ</a>
-                  <a href="<?= DOCUMENT_ROOT ?>/Products/Dog" class="header__menu__item">Chó</a>
-                  <a href="<?= DOCUMENT_ROOT ?>/Products/Cat" class="header__menu__item">Mèo</a>
+                  <a href="<?= DOCUMENT_ROOT ?>/Products/Dog" class="header__menu__item">Shop cho Chó</a>
+                  <a href="<?= DOCUMENT_ROOT ?>/Products/Cat" class="header__menu__item">Shop cho Mèo</a>
               </nav>
 
               <div class="header__search">
@@ -23,7 +23,7 @@
 
               <div class="header__info">
                   <div class="header__cart noselect">
-                      <a href="<?= DOCUMENT_ROOT ?>/Cart"><img src="<?= ICONS_URL ?>/cart.svg" alt="icon cart"></a>
+                      <a href="<?= isset($_SESSION['user']['id'])  ? DOCUMENT_ROOT . "/Cart" : "#" ?>"><img src="<?= ICONS_URL ?>/cart.svg" alt="icon cart"></a>
                       <span id="cartAmount" class="header__cart__amount">0</span>
                   </div>
 

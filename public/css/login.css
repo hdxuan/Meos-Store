@@ -133,9 +133,9 @@ body {
     font-family: 'Open Sans', sans-serif;
     font-weight: 700;
 }
-.form-v7-content .form-detail .form-row label.error::after {
+/* .form-v7-content .form-detail .form-row label.error::after {
     content: "\f343";
-    font-family: "LineAwesome";
+    font-family: "Line Awesome Free";
     position: absolute;
     transform: translate(-50%, -50%);
     -webkit-transform: translate(-50%, -50%);
@@ -147,7 +147,7 @@ body {
     color: red;
     font-size: 18px;
     font-weight: 900;
-}
+} */
 .form-v7-content .form-detail .input-text {
 	margin-bottom: 28px;
 }

@@ -17,6 +17,7 @@
 <section class="content">
     <div class="container-fluid">
         <div class="card card-primary">
+            <?php require_once(VIEW . DS . "admin/shared/notification.php") ?>
             <div class="card-header">
                 <h3 class="card-title">Thông tin sản phẩm</h3>
             </div>

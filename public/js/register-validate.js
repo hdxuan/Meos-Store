@@ -21,7 +21,7 @@ $("#myform").validate({
         password: {
             required: true,
             // "required",
-            // pattern: /^(?=.*[a-z])(?=.*[0-9])(?=.{8,})/
+            //pattern: /^(?=.*[a-z])(?=.*[0-9])(?=.{8,})/
         },
         confirm_password: {
             required: true,
@@ -30,17 +30,17 @@ $("#myform").validate({
     },
     messages: {
         username: {
-            required: "Please enter an username"
+            required: "Hãy nhập tên của bạn!"
         },
         your_email: {
-            required: "Please provide an email"
+            required: "Hãy nhập email của bạn!"
         },
         password: {
-            required: "Please provide a password"
+            required: "Hãy nhập mật khẩu của bạn!"
         },
         confirm_password: {
-            required: "Please provide a password",
-            equalTo: "Wrong Password"
+            required: "Xác nhận lại mật khẩu!",
+            equalTo: "Mật khẩu sai"
         }
     }
 });

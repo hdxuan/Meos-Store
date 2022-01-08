@@ -65,7 +65,7 @@ class OrdersController extends Controller
         } else {
             header("Location: " . DOCUMENT_ROOT . "/admin/order/");
         }
-        var_dump($data);
+        // var_dump($data);
         $result = $this->orderModel->update($data);
         if ($result === true) {
             $_SESSION['alert']['success'] = true;

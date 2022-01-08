@@ -15,6 +15,9 @@
     <!-- <h3 class="title">Detail cake</h3> -->
     <div class="detail">
         <?php foreach ($data['detailProduct'] as $index => $detail) : ?>
+
+
+
             <div class="detail__items row">
                 <div class="detail__item-image col">
                     <img src="<?= IMAGES_PRODUCT_URL ?>/<?= $detail['image'] ?>" alt="image">
@@ -38,7 +41,7 @@
                         <h2 class="mt-5">Thành phần</h2>
                         <div class="detail__item-summary mt-1"> <?= $detail['ingredients'] ?> </div>
 
-                        <h2 class="mt-1">Công dụng</h2>
+                        <h2 class="mt-5">Công dụng</h2>
                         <div class="detail__item-summary mt-1"> <?= $detail['benerfits'] ?> </div>
 
                     </div>
@@ -51,7 +54,7 @@
                 </div>
             </div>
 
-            <div class="info__product_items row">
+            <!-- <div class="info__product_items row">
                 <div class="info__product_item--button col ">
 
                     <div class="info__button">
@@ -59,24 +62,24 @@
                     </div>
                 </div>
                 <div class="info__product_item--content">
-                    <form action="" method="POST">
-
+                    <form action="<?= DOCUMENT_ROOT . DS . "Products/Comment"  ?>" method="POST">
+                        <p name="idproduct" id="id_detail"><?= $_GET['productId'] ?></p>
                         <div class="fomr__comment">
-                            <textarea name="" id="" cols="30" rows="10"></textarea>
+                            <textarea name="comments" id="" cols="15" rows="5"></textarea>
                         </div>
                         <button type="submit" class="btn btn--primary">Gửi đánh giá</button>
                     </form>
 
                 </div>
-            </div>
+            </div> -->
         <?php endforeach; ?>
 
     </div>
 
-    <div class="related__products">
+    <!-- <div class="related__products">
         <h3 class="title">Sản phẩm liên quan</h3>
         <div class="related__products_item">
 
         </div>
-    </div>
+    </div> -->
 </section>
