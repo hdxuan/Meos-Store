@@ -100,3 +100,7 @@
     position: absolute;
     right: 7%;
 }
+
+.address--text{
+    margin-left: 10px;
+}

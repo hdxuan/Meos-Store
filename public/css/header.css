@@ -5,7 +5,8 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin: 0 26px ;  
+  margin: 0 26px;
+  padding: 20px 0 15px 0;  
 }
 .header__logo img {
   width: 190px;
@@ -30,7 +31,7 @@
 
 
 .header__menu__item:hover {
-  color: #8cc4b1;
+  color: var(--color-primary);
   transition: all 0.3s;
 
 }
@@ -71,14 +72,13 @@
 
   line-height: 1.8rem;
   border-radius: 26px;
-  padding: 15px 57px 18px 21px;
+  padding: 12px 57px 12px 21px;
   /* border: 2px solid transparent; */
-  border: 2px solid #76918a;
+  transition: all 0.2s;
 }
 
 .header__search input[type="text"]:focus {
-  box-shadow: 0 0 4px 1px #76918a;
-  border: 2px solid #37574c;
+  box-shadow: 0 0 2px 1px #76918a70;
   transition: all 0.2s;
 }
 

@@ -61,6 +61,14 @@ class ProductsController extends Controller
         $detailProduct = $this->productModel->detail($productId);
         $data['detailProduct'] = $detailProduct;
 
+        $idProductType = $this->productModel->getByIdProductType($productId);
+        $data['RelatedProducts'] = $this->productModel->Related_products($idProductType);
+        $data['comments'] = $this->productModel->getComment($productId);
+        if ($data['comments'] == false) {
+            $data['comments'] = [];
+        }
+        // print_r($data['comments']);
+        // die();
 
         $this->view("/product/Detail", $data);
     }
@@ -71,12 +79,20 @@ class ProductsController extends Controller
 
         if (isset($_POST)) {
             $data['content'] = $_POST['comments'];
+            $data['created_at'] = date("d/m/Y");
+            $data['idProduct'] = $_POST['idProduct'];
+            $data['rank'] = $_POST['rank'];
             if (isset($_SESSION['user'])) {
-                $data['created'] = date("d/m/Y H:i:s");
                 $data['idUser'] = $_SESSION['user']['id'];
-                $data['idProduct'] = 1;
+            } else {
+                $data['error'] = "Vui lòng đăng nhập để bình luận sản phẩm";
             }
-            var_dump($data);
+            // var_dump($data);
+            // die();
         }
+        $data['comment'] = $this->productModel->Comment($data);
+        // print_r($data);
+        // die();
+        header("Location:" . DOCUMENT_ROOT . "/products/Detail?productId=" . $data['idProduct'] . "#comment");
     }
 }

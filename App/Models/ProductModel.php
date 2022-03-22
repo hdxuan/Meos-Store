@@ -108,8 +108,65 @@ class ProductModel extends Database
             return false;
         }
     }
+    function getByIdProductType($id)
+    {
+        $stmt = $this->db->prepare("SELECT * FROM products WHERE id = ? ");
+        $stmt->bind_param("i", $id);
 
+        $stmt->execute();
+        $result = $stmt->get_result();
 
+        if ($result->num_rows > 0) {
+            return $result->fetch_assoc()['id_products_type'];
+        } else {
+            return false;
+        }
+    }
+    function Related_products($id)
+    {
+
+        $stmt = $this->db->prepare("SELECT * FROM products 
+                                    WHERE id_products_type = ? ");
+        $stmt->bind_param("i", $id);
+
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        if ($result->num_rows > 0) {
+            return $result->fetch_all(MYSQLI_ASSOC);
+        } else {
+            return false;
+        }
+    }
+    function Comment($data)
+    {
+        $stmt = $this->db->prepare("INSERT INTO comments (id_product, id_user, content, rank, created_at) VALUES (?, ?, ?, ?, ?) ");
+        $stmt->bind_param("iisis", $data['idProduct'],  $data['idUser'], $data['content'], $data['rank'], $data['created_at']);
+        $stmt->execute();
+        $result = $stmt->affected_rows;
+
+        if ($result < 1) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    function getComment($id)
+    {
+        $stmt = $this->db->prepare("SELECT * from comments c JOIN users u on c.id_user = u.id
+        WHERE id_product = ? ");
+        $stmt->bind_param("i", $id);
+
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        if ($result->num_rows > 0) {
+            return $result->fetch_all(MYSQLI_ASSOC);
+        } else {
+            return false;
+        }
+    }
     // admin
     function store($data)
     {

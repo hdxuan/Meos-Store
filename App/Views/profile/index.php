@@ -2,54 +2,66 @@
 
 </div> -->
 <div class="container bootstrap snippets bootdey mt-5">
-
     <div class="profile-info mx-auto" style="width:90%">
 
-        <div class="panel">
+        <div class="layout">
+            <div class="layout1">
+                <div>
+                    <div class="bio-graph-info ">
+                        <div class="bio-info">
 
-            <div class="background">
-                <img style="height: 425px;" src="<?= IMAGES_URL  ?>/profile.jpg" alt="">
-                <form action="<?= DOCUMENT_ROOT . DS . "profile/editAvatar"  ?>" method="POST" enctype="multipart/form-data">
+                            <form action="<?= DOCUMENT_ROOT . DS . "profile/update"  ?>" method="POST">
+                                <h2>Thông tin cá nhân</h2>
+                                <div class="bio-info_list">
+                                    <label class="d-flex justify-content-between" for="name">Họ tên: </label>
+                                    <input type="text" name="name" value="<?= $_SESSION['user']['name']  ?>">
 
-                    <div class="avatar__user">
-                        <div class="avatar__user--info ">
-                            <div class="avatar__user--image ">
-                                <input type="text" hidden name="oldImage" value="<?= $_SESSION['user']['avatar'] ?>">
+                                    <label for="email">Email: </label>
+                                    <input type="text" name="email" value="<?= $_SESSION['user']['email']  ?>">
 
-                                <img src="<?= IMAGES_URL . "/uploads/avatar/" .  (empty($_SESSION['user']['avatar']) ? "default_avatar.png" : $_SESSION['user']['avatar']) ?>" alt="">
+                                    <label for="phone">Số điện thoại: </label>
+                                    <input type="text" name="phone" value="<?= $_SESSION['user']['phone']  ?>">
 
-                            </div>
-                            <div class="avatar__user--name"><?= $_SESSION['user']['name']  ?></div>
+
+                                </div>
+                                <button type="submit" class="btn btn--primary profile--btn">lưu</button>
+                                <!-- </div> -->
+                            </form>
+
+                            <form action="<?= DOCUMENT_ROOT . DS . "profile/editAvatar"  ?>" method="POST" enctype="multipart/form-data">
+
+                                <div class="avatar__user">
+                                    <div class="avatar__user--info ">
+                                        <div class="avatar__user--image ">
+                                            <input type="text" hidden name="oldImage" value="<?= $_SESSION['user']['avatar'] ?>">
+
+                                            <img onclick="triggerClick()" src="<?= IMAGES_URL . "/uploads/avatar/" .  (empty($_SESSION['user']['avatar']) ? "default_avatar.png" : $_SESSION['user']['avatar']) ?>" alt="">
+
+                                        </div>
+                                    </div>
+                                    <input hidden type="file" id="profileImage" name="profileImage">
+
+                                    <!-- <i onclick="triggerClick()" id="onclick" class="fas fa-camera  edit__avatar"></i> -->
+                                    <button style="margin-left: 9%;" type="submit" class="btn btn--primary ">Lưu hình</button>
+
+                                </div>
+
+                            </form>
                         </div>
-                        <!-- <a href="#">Chỉnh sửa thông tin</a> -->
-                        <input hidden type="file" id="profileImage" name="profileImage">
-
-                        <i onclick="triggerClick()" id="onclick" class="fas fa-camera  edit__avatar"></i>
-                        <button style="margin-left: 9%;" type="submit" class="btn btn--primary ">Lưu hình</button>
 
                     </div>
-
-                </form>
-
-            </div>
-
-            <div class="layout">
+                </div>
                 <div>
                     <div class="bio-graph-info ">
                         <form action="<?= DOCUMENT_ROOT . DS . "profile/update"  ?>" method="POST">
-                            <h2>Thông tin cá nhân</h2>
+                            <h2>Địa chỉ giao hàng</h2>
                             <div>
-                                <label class="d-flex justify-content-between" for="name">Tên khách hàng : </label>
-                                <input type="text" name="name" value="<?= $_SESSION['user']['name']  ?>"> <br>
 
-                                <label for="phone">Số điện thoại : </label><br>
-                                <input type="text" name="phone" value="<?= $_SESSION['user']['phone']  ?>">
 
                                 <label for="address">Địa chỉ giao hàng : </label>
                                 <textarea name="address" id="address" cols="35" rows="2"><?= $_SESSION['user']['address']  ?></textarea><br>
 
-                                <label for="email">Email : </label><br>
-                                <input type="text" name="email" value="<?= $_SESSION['user']['email']  ?>">
+
 
                             </div>
                             <button type="submit" class="btn btn--primary ">lưu</button>
@@ -57,6 +69,10 @@
                         </form>
                     </div>
                 </div>
+            </div>
+
+            <div class="layout2">
+
                 <div class="bio-graph-info height_history">
                     <h2>Lịch sử đơn hàng</h2>
                     <div class="order__lists">
@@ -90,11 +106,12 @@
                         <?php endforeach; ?>
                     </div>
                 </div>
-
             </div>
+
         </div>
     </div>
 </div>
+
 
 <script>
     function triggerClick() {

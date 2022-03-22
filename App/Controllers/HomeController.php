@@ -29,6 +29,7 @@ class HomeController extends Controller
         $data['bestSellers'][] = $products[43];
 
         $data['categories'] = $this->productTypeModel->all();
+        $data['categoriesDog'] = $this->productTypeModel->allDog();
 
         // paging
         $definePage = 9;

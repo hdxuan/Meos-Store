@@ -27,7 +27,7 @@
                     <li class="nav-item">
                         <a href="<?= $sidebar['link'] ?>" class="nav-link <?= strcasecmp($GLOBALS['currentRoute'], $sidebar['name']) === 0 ? "active" : ""  ?> ">
                             <i class="<?= $sidebar['icon'] ?>"></i>
-                            <p><?= $sidebar['title'] ?></p>
+                            <p style="margin-left: 12px"><?= $sidebar['title'] ?></p>
                         </a>
                     </li>
                 <?php endforeach; ?>

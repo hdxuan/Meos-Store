@@ -6,11 +6,13 @@ class CartController extends Controller
 {
     private $cartModel;
     private $orderModel;
+    private $userModel;
 
     function __construct()
     {
         $this->cartModel = $this->model('CartModel');
         $this->orderModel = $this->model('OrderModel');
+        $this->userModel = $this->model('UserModel');
     }
     function index()
     {
@@ -19,6 +21,7 @@ class CartController extends Controller
             $productInCart = [];
         }
         $data['productInCart'] = $productInCart;
+        $data['addresses'] = $this->userModel->getByAddress($_SESSION['user']['id']);
 
 
 
@@ -53,9 +56,8 @@ class CartController extends Controller
 
     function checkout() // đặt hàng
     {
-
         $data['id_user'] = $_SESSION['user']['id'];
-        $data['address'] = $_SESSION['user']['address'];
+        $data['address'] = $_POST['address'];
         $data['phone'] = $_SESSION['user']['phone'];
 
 

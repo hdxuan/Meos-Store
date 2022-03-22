@@ -1,5 +1,5 @@
 :root {
-  --color-primary: #37574c  ;
+  /* --color-primary: #37574c  ;
 
   --color-second: #76918a;
   --color-active: #b62f3f;
@@ -12,7 +12,14 @@
   --font-be: 'Be Vietnam', sans-serif;
   --font-mi: 'Mitr', sans-serif;
   --font-var: 'Varela Round', sans-serif;
-  --font-vi: 'Great Vibes', cursive;
+  --font-vi: 'Great Vibes', cursive; */
+  /* --color-primary: #F34505; */
+  --color-primary: #f55872;
+  /* --color-second: */
+  --color-active: #AA3004;
+  --color-hover: #f98427;
+  --color-title: #3b3a3f;
+  --color-content: #848484;
 
 }
 
@@ -106,6 +113,22 @@ body {
   user-select: none; /* Non-prefixed version, currently
                                   supported by Chrome, Edge, Opera and Firefox */
 }
+.btn--cart{
+  padding: 4px 14px;
+  border-radius: 10px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.171);
+  transition: all 0.2s;
+  font-family: var(--font-nunito);
+  font-weight: 500;
+  font-size: 1.6rem;
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+}
 .custom_cart{
   font-size: 23px;
 }
@@ -126,7 +149,7 @@ body {
   transition: all 0.2s ease-out;
 }
 .btn--primary:focus {
-  box-shadow: 0 0 3px 4 px #37574c94;
+  box-shadow: 0 0 3px 4px #37574c94;
   transition: all 0.2s ease-out;
 }
 
@@ -138,15 +161,15 @@ body {
 }
 .btn--secondary:hover {
   color: #fff;
-  background-color: #37574ce8;
+  background-color: var(--color-primary);
   transition: all 0.2s ease;
 }
 .btn--secondary:active {
-  background-color: #37574c;
+  background-color: var(--color-primary);
   transition: all 0.2s ease-out;
 }
 .btn--secondary:focus {
-  box-shadow: 0 0 3px 4px #37574c94;
+  box-shadow: 0 0 3px 2px #f5587279;
   transition: all 0.2s ease-out;
 }
 
@@ -376,6 +399,13 @@ body {
   visibility: visible;
   -webkit-animation: fadein 0.5s, expand 0.5s 0.5s,stay 3s 1s, shrink 0.5s 2s, fadeout 0.5s 2.5s;
   animation: fadein 0.5s, expand 0.5s 0.5s,stay 3s 1s, shrink 0.5s 4s, fadeout 0.5s 4.5s;
+}
+#toast.show #desc{
+  background: white;
+  color: #333;
+  border-top-right-radius: 7px;
+  border-bottom-right-radius: 7px;
+  box-shadow: 0 0 5px rgba(51, 51, 51, 0.2);
 }
 
 @-webkit-keyframes fadein {

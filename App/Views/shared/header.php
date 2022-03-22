@@ -1,5 +1,5 @@
   <!-- wrapper header -->
-  <div class="container-fluid box__shadow">
+  <div class="container-fluid ">
 
       <div class="container">
           <header class="header ">
@@ -41,7 +41,7 @@
                           </div>
                       </div>
                   <?php else : ?>
-                      <a href="<?= DOCUMENT_ROOT ?>/account"><button class="btn btn--primary">Login</button></a>
+                      <a href="<?= DOCUMENT_ROOT ?>/account"><button class="btn btn--primary">Đăng nhập</button></a>
 
                   <?php endif; ?>
 

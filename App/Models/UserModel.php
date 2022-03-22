@@ -53,7 +53,7 @@ class UserModel extends Database
 
     function getByEmail($email)
     {
-        $stmt = $this->db->prepare("SELECT id, name, phone,address, email, avatar FROM users WHERE email = ?");
+        $stmt = $this->db->prepare("SELECT id, name, phone, email, avatar FROM users WHERE email = ?");
         $stmt->bind_param("s", $email);
 
         $stmt->execute();
@@ -67,7 +67,7 @@ class UserModel extends Database
     }
     function getById($id)
     {
-        $stmt = $this->db->prepare("SELECT id, name, phone,address, email, avatar FROM users WHERE id = ?");
+        $stmt = $this->db->prepare("SELECT id, name, phone, email, avatar FROM users WHERE id = ?");
         $stmt->bind_param("s", $id);
 
         $stmt->execute();
@@ -75,6 +75,21 @@ class UserModel extends Database
 
         if ($result->num_rows > 0) {
             return $result->fetch_assoc();
+        } else {
+            return false;
+        }
+    }
+
+    function getByAddress($id)
+    {
+        $stmt = $this->db->prepare("SELECT * from addresses WHERE id_user = ?");
+        $stmt->bind_param("i", $id);
+
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        if ($result->num_rows > 0) {
+            return $result->fetch_all(MYSQLI_ASSOC);
         } else {
             return false;
         }

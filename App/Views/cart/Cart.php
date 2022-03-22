@@ -67,9 +67,15 @@
                         <input disabled type="text" class="input" name="phone" value="<?= $_SESSION['user']['phone'] ?>">
 
                         <label for="address">Địa chỉ: </label>
-                        <textarea disabled class="input" name="address" id="" cols="1" rows="3"><?= $_SESSION['user']['address'] ?></textarea>
+                        <?php foreach ($data['addresses'] as $index => $address) : ?>
+                            <div class="address__user">
+                                <input checked="checked" name="address" type="radio" value="<?= $address['address'] ?>" />
+                                <span class="address--text">
+                                    <?= $address['address'] ?>
+                                </span>
+                            </div>
+                        <?php endforeach; ?>
 
-                        <!-- <button type="submit" value="order" class="btn btn--primary">Thanh toán</button> -->
                     </div>
                 </div>
 

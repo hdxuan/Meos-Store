@@ -1,12 +1,7 @@
-.background{
-    position: relative;
-    margin-bottom: 100px;
-}
+
 
 .avatar__user{
-    position: absolute;
-    bottom: -70px;
-    left: 69px;
+  position: relative;
 }
 .avatar__user--info{
     display: flex;
@@ -14,12 +9,19 @@
 }
 .avatar__user--image{
     border-radius: 5px;
-    border: 7px solid white;
+    position: relative;
+    /* border: 7px solid white; */
 }
 .avatar__user--image img{
     width: 150px; 
     height: 150px; 
+
     object-fit: cover;
+    border-radius: 50%;
+
+    margin-top: 40px;
+
+
 }
 .avatar__user--name{
     margin-left: 25px ;
@@ -28,6 +30,8 @@
 }
 
 .bio-graph-info {
+    
+
     color: var(--color-primary);
     font-weight: 600;
 
@@ -38,13 +42,12 @@
 }
 
 .bio-graph-info input, textarea{
-    margin-bottom: 15px ;
-    border-radius: 10px;
+    margin-bottom: 13px;
+    border-radius: 22px;
     border: none;
     outline: none;
-
-    width: 84%;
-    padding: 18px 22px;
+    width: 76%;
+    padding: 11px 19px;
 
     background-color: rgba(197, 195, 195, 0.849);
 }
@@ -54,9 +57,30 @@
     font-size: 23px;
     margin: 0 0 35px;
 }
+
+.bio-info{
+    display: grid;
+    grid-template-columns: 1fr 0.1fr;
+    align-items: center;
+}
+
+.bio-info_list{
+    display: grid;
+    grid-template-columns: 0.5fr 1fr;
+    grid-auto-flow: row;
+    gap: 7px 10px;
+    align-items: center;
+}
+
 .layout{
     display: grid;
-    grid-template-columns: 0.4fr 1fr;
+    grid-template-row: 0.4fr 1fr;
+    grid-gap: 15px 20px;
+    /* align-items: center; */
+}
+.layout1{
+    display: grid;
+    grid-template-columns: 0.5fr 0.5fr;
     grid-gap: 15px 20px;
     /* align-items: center; */
 }
@@ -84,7 +108,7 @@
 .edit__avatar{
     position: absolute;
     bottom: 16%;
-    right: 49%;
+    right: 0%;
     border: 2px solid #324258;
     border-radius: 50px;
     padding: 4px;

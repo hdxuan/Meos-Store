@@ -40,7 +40,7 @@
                         <div class="products__display--prices">
                             <div class="products__display--price"><?= number_format($products['price'], 0, '', '.')  ?>đ</div>
 
-                            <button onclick="addToCart(<?= isset($_SESSION['user']) ? $_SESSION['user']['id'] : 0 ?>,<?= $products['id'] ?>)" class=" btn btn--secondary"><i class="fas fa-shopping-bag custom_cart"></i></button>
+                            <button onclick="addToCart(<?= isset($_SESSION['user']) ? $_SESSION['user']['id'] : 0 ?>,<?= $products['id'] ?>)" class=" btn--cart btn--secondary">THÊM VÀO GIỎ</button>
 
                         </div>
 
