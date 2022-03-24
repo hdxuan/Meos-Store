@@ -66,8 +66,12 @@ class ProductsController extends Controller
         $data['comments'] = $this->productModel->getComment($productId);
         if ($data['comments'] == false) {
             $data['comments'] = [];
+            $_SESSION['comments']['error'] = "Chưa có bình luận nào về sản phẩm này.";
         }
-        // print_r($data['comments']);
+
+
+        $data['sumRate'] = $this->productModel->getRate($productId);
+        // print_r($data['sumRate']);
         // die();
 
         $this->view("/product/Detail", $data);
@@ -84,12 +88,14 @@ class ProductsController extends Controller
             $data['rank'] = $_POST['rank'];
             if (isset($_SESSION['user'])) {
                 $data['idUser'] = $_SESSION['user']['id'];
+                $data['error'] = "";
             } else {
                 $data['error'] = "Vui lòng đăng nhập để bình luận sản phẩm";
             }
-            // var_dump($data);
-            // die();
+
+            $_SESSION['error']['comment'] = $data['error'];
         }
+
         $data['comment'] = $this->productModel->Comment($data);
         // print_r($data);
         // die();

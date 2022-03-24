@@ -66,9 +66,9 @@
 
 .bio-info_list{
     display: grid;
-    grid-template-columns: 0.5fr 1fr;
+    grid-template-columns: 1fr 0.5fr;
     grid-auto-flow: row;
-    gap: 7px 10px;
+    gap: 7px 0px;
     align-items: center;
 }
 
@@ -80,7 +80,7 @@
 }
 .layout1{
     display: grid;
-    grid-template-columns: 0.5fr 0.5fr;
+    grid-template-columns: 0.7fr 0.5fr;
     grid-gap: 15px 20px;
     /* align-items: center; */
 }
@@ -93,12 +93,17 @@
 }
 .order__list--info{
     display: grid;
-    grid-template-columns: 0.4fr 0.5fr 0fr;
+    grid-template-columns: 0.2fr 0.5fr;
     grid-gap: 15px 11px;
+}
+.order__list--info div{
+    color: #324258;
 }
 .order__list--state{
     padding-bottom: 10px;
-    margin-left: 516px;
+    margin-left: 68%;
+    color: #324258;
+
 }
 .order__list--image{
     width: 130px;
@@ -120,5 +125,9 @@
 .order__lists{
     height: 440px;
     overflow: scroll;
+}
+
+.order__list-name{
+    font-size: 20px;
 }
 

@@ -44,9 +44,15 @@ class HomeController extends Controller
         }
 
         $index = ($currentPage - 1) * $definePage;
-        $productOnlyPage = $this->productModel->paging($index, $definePage);
-        $data['productOnlyPage'] = $productOnlyPage;
+        $productOnlyPageDog = $this->productModel->pagingDog($index, $definePage);
+        $data['productOnlyPageDog'] = $productOnlyPageDog;
 
+        $productOnlyPageCat = $this->productModel->pagingCat($index, $definePage);
+        $data['productOnlyPageCat'] = $productOnlyPageCat;
+
+        // print_r($data['productOnlyPageDog']);
+
+        // die();
         $data['currentPage'] = $currentPage;
 
         $this->view("/home/index", $data);

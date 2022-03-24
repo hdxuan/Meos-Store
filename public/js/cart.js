@@ -6,6 +6,7 @@ function addToCart(userId, productId) {
         launch_toast("Đăng nhập để thêm sản phẩm!");
         return;
     }
+
     // lay documentRoot id ben layout
     var documentRoot = document.getElementById('documentRoot').innerText;
 

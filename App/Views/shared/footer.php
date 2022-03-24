@@ -11,24 +11,30 @@
           </div>
           <div class="footer__lists">
               <ul class="footer__list">
-                  <h6>Dịch vụ</h6>
-                  <a href="#/">
-                      <li>Shop cho cún</li>
+                  <h6>Danh mục mua sắm</h6>
+                  <a href="<?= DOCUMENT_ROOT ?>#category">
+                      <li>Các loại thức ăn</li>
                   </a>
-                  <a href="#/">
-                      <li>Shop cho mèo</li>
+                  <a href="<?= DOCUMENT_ROOT ?>#category">
+                      <li>Phụ kiển, quần áo</li>
                   </a>
-                  <a href="#/">
-                      <li>Dịch vụ</li>
+                  <a href="<?= DOCUMENT_ROOT ?>#category">
+                      <li>Thực phẩm chức năng</li>
                   </a>
-                  <a href="#/">
-                      <li>Blog</li>
+                  <a href="<?= DOCUMENT_ROOT ?>#category">
+                      <li>Vật dụng ăn uống</li>
+                  </a>
+                  <a href="<?= DOCUMENT_ROOT ?>#category">
+                      <li>Balo, chuồng nệm cho thú cưng</li>
+                  </a>
+                  <a href="<?= DOCUMENT_ROOT ?>#category">
+                      <li>Đồ chơi cho thú cưng</li>
                   </a>
               </ul>
               <ul class="footer__list">
                   <h6>Thông tin</h6>
                   <li>Méo Store</li>
-                  <li>Hau Diem Xuan</li>
+                  <li>Hầu Diễm Xuân</li>
                   <li>xuanB1809433@student.ctu.edu.vn</li>
               </ul>
               <ul class="footer__list">
@@ -43,6 +49,6 @@
       </div>
   </footer>
   <div class="container-fluid footer__copyright">
-      <p>Copyright © 2021 Hau Diem Xuan - B1809433</p>
+      <p>Hau Diem Xuan - B1809433</p>
   </div>
   <!-- end wrapper footer -->

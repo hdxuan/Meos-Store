@@ -204,6 +204,11 @@
   color: var(--color-primary) !important;
 }
 
+.header__user__dropdown li:hover a {
+  color: var(--color-primary) !important;
+}
+
+
 .header__user__dropdown li:active {
   background-color: #c9c5c5;
   color: var(--color-primary) !important;

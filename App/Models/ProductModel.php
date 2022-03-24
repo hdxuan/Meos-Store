@@ -37,9 +37,10 @@ class ProductModel extends Database
         return $numProduct['numProduct'];
     }
 
-    function paging($limit, $num)
+    function pagingDog($limit, $num)
     {
-        $sql = "SELECT * FROM products LIMIT $limit, $num";
+        $sql = "SELECT p.id, p.name, p.price, p.benerfits, p.ingredients, p.image FROM products p JOIN products_type pt on p.id_products_type = pt.id 
+        WHERE id_pet_products_type = 1 LIMIT $limit, $num";
         $result = $this->db->query($sql);
 
         if ($result->num_rows > 0) {
@@ -48,6 +49,21 @@ class ProductModel extends Database
             return false;
         }
     }
+
+    function pagingCat($limit, $num)
+    {
+        $sql = "SELECT p.id, p.name, p.price, p.benerfits, p.ingredients, p.image FROM products p JOIN products_type pt on p.id_products_type = pt.id 
+        WHERE id_pet_products_type = 2 LIMIT $limit, $num";
+        $result = $this->db->query($sql);
+
+        if ($result->num_rows > 0) {
+            return $result->fetch_all(MYSQLI_ASSOC);
+        } else {
+            return false;
+        }
+    }
+
+
     function getByProductType($productTypeId)
     {
         $stmt = $this->db->prepare("SELECT * FROM products where id_products_type = ?");
@@ -167,6 +183,22 @@ class ProductModel extends Database
             return false;
         }
     }
+
+    function getRate($id)
+    {
+        $stmt = $this->db->prepare("SELECT ROUND(AVG(rank),1) as sumrate, COUNT(rank) as numrate FROM comments WHERE id_product = ? ");
+        $stmt->bind_param("i", $id);
+
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        if ($result->num_rows > 0) {
+            return $result->fetch_all(MYSQLI_ASSOC)[0];
+        } else {
+            return false;
+        }
+    }
+
     // admin
     function store($data)
     {

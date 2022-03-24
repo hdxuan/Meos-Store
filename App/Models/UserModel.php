@@ -24,10 +24,10 @@ class UserModel extends Database
             if ($validPassword === true) {
                 return true;
             } else {
-                return "Password Incorrect!";
+                return "Sai mật khẩu!";
             }
         } else {
-            return "Don't exists your email ";
+            return "Email không tồn tại ";
         }
     }
 
@@ -98,8 +98,8 @@ class UserModel extends Database
     function editProfile($data, $id)
     {
 
-        $stmt = $this->db->prepare("UPDATE USERS SET name = ?, phone = ?, address = ?, email = ?  WHERE id = ?");
-        $stmt->bind_param("ssssi", $data['name'], $data['phone'], $data['address'], $data['email'], $id);
+        $stmt = $this->db->prepare("UPDATE USERS SET name = ?, phone = ?, email = ?  WHERE id = ?");
+        $stmt->bind_param("sssi", $data['name'], $data['phone'], $data['email'], $id);
 
         $stmt->execute();
 
@@ -126,6 +126,22 @@ class UserModel extends Database
             return true;
         }
     }
+    function editAddress($data, $iduser)
+    {
+        $stmt = $this->db->prepare("UPDATE addresses SET address = ?  WHERE id_user = ?");
+        $stmt->bind_param("si", $data['address'], $iduser);
+
+        $stmt->execute();
+
+        $result = $stmt->affected_rows;
+        if ($result < 1) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+
     function checkAdmin($data)
     {
         $email = $data['email'];

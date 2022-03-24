@@ -17,9 +17,10 @@
         <div class="menu__products">
             <h2 class="menu__products__title" id="top">Danh mục sản phẩm</h2>
             <div class="menu__products__items">
+
                 <?php foreach ($data["productType"] as $index => $productType) : ?>
                     <a href="<?= DOCUMENT_ROOT . DS . "Products/Dog?productTypeId=" . $productType['id'] ?>#top">
-                        <p class="menu__products__item "> <?= $productType['name'] ?> </p>
+                        <p class="menu__products__item <?= $productType['id'] == $_GET['productTypeId'] ? "menu__products__item--active" : "" ?>"> <?= $productType['name'] ?> </p>
                     </a>
                 <?php endforeach; ?>
             </div>
@@ -48,6 +49,8 @@
                     </div>
                 <?php endforeach; ?>
             </div>
+
         </div>
+
     </div>
 </div>

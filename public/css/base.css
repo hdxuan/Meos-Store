@@ -7,15 +7,14 @@
 
   --color-content: #848484;
   --color-background: #ffffff;
-  --color-nav : #bdbaba;
+  --color-nav : #bdbaba; */
   --font-nunito: "Nunito", sans-serif;
   --font-be: 'Be Vietnam', sans-serif;
   --font-mi: 'Mitr', sans-serif;
   --font-var: 'Varela Round', sans-serif;
-  --font-vi: 'Great Vibes', cursive; */
+  --font-vi: 'Great Vibes', cursive;
   /* --color-primary: #F34505; */
   --color-primary: #f55872;
-  /* --color-second: */
   --color-active: #AA3004;
   --color-hover: #f98427;
   --color-title: #3b3a3f;
@@ -73,10 +72,10 @@ body {
 }
 
 .title {
-  /* font-family: var(--font-var); */
+ 
   font-family: var(--font-be);
   color: var(--color-title);
-  font-weight: 600;
+  font-weight: 500;
   font-size: 4rem;
 
   margin: 9px 0 25px 0;
@@ -89,6 +88,7 @@ body {
   user-select: none; /* Non-prefixed version, currently
                                   supported by Chrome, Edge, Opera and Firefox */
 }
+
 .title__small{
   font-family: var(--font-vi);
   color: var(--color-title);
@@ -136,21 +136,31 @@ body {
 .btn--primary {
   background-color: var(--color-primary);
   color: #fff;
-  border: 4px solid transparent;
+  border: 2px solid transparent;
   transition: all 0.2s ease-out;
 }
 .btn--primary:hover {
-  background-color: #37574ce8;
+  background-color: #fff;
   transition: all 0.2s ease-out;
-  color: #ffffff !important;
+  color: var(--color-primary) !important;
+  border: 2px solid var(--color-primary);
 }
 .btn--primary:active {
-  background-color: #37574c;
+
+  box-shadow: 0 0 3px 2px #f5587279;
+  background-color: #fff;
+  color: var(--color-primary);
+
   transition: all 0.2s ease-out;
 }
 .btn--primary:focus {
-  box-shadow: 0 0 3px 4px #37574c94;
+  box-shadow: 0 0 3px 2px #f5587279;
+  border: 2px solid var(--color-primary);
+
+  background-color: #fff;
+  color: var(--color-primary);
   transition: all 0.2s ease-out;
+
 }
 
 /* btn secondary */

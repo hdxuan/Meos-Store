@@ -12,7 +12,6 @@
     </div>
 </div>
 <section class="container noselect">
-    <!-- <h3 class="title">Detail cake</h3> -->
     <div class="detail">
         <?php foreach ($data['detailProduct'] as $index => $detail) : ?>
 
@@ -58,10 +57,9 @@
 
                 </div>
             </div>
-            <!-- đánh giá sản phẩm -->
-            <div class="product_evaluation">
 
-            </div>
+
+
 
             <!-- bình luận sản phẩm -->
             <div id="comment" class="info__product_items row">
@@ -69,70 +67,95 @@
                     <div class="info__button">
                         <p>Bình luận sản phẩm</p>
                     </div>
-
                 </div>
+
                 <div class="info__product_item--content">
-                    <!-- show comment -->
-                    <?php foreach ($data['comments'] as $index => $comment) : ?>
-                        <div class="comment--item">
-                            <img class="comment--item-image" src="<?= IMAGES_URL . "/uploads/avatar/" .  (empty($comment['avatar']) ? "default_avatar.png" : $comment['avatar']) ?> ">
-                            <div class="comment--items-info">
-                                <div class="comment--items-info_flex">
 
-                                    <div class="comment--item-name">
-                                        <?= $comment['name'] ?>
-                                    </div>
-                                    <div class="comment--item-date">
-                                        <?= $comment['created_at'] ?>
-                                    </div>
-                                    <?php for ($i = 1; $i <= intval($comment['rank']); $i++) : ?>
-                                        <div class="star-lists-items">
-                                            <i class=" fa fa-star text-warning"></i>
-                                        </div>
-                                    <?php endfor; ?>
-                                </div>
-
-                                <div class="comment--item-content">
-                                    <?= $comment['content'] ?>
-                                </div>
-                            </div>
+                    <!-- đánh giá sản phẩm -->
+                    <div class="product_evaluation">
+                        <div class="result-rate--left">
+                            <?php for ($i = 1; $i <= intval($data['sumRate']['sumrate']); $i++) : ?>
+                                <i class=" fa fa-star text-warning"></i>
+                            <?php endfor; ?>
+                            <p>Đánh giá trung bình</p>
+                            <p class="result-rate--sum">(<?= $data['sumRate']['numrate'] ?> đánh giá)</p>
+                            <p class="result-rate--star"><?= $data['sumRate']['sumrate'] ?></p>
                         </div>
-                    <?php endforeach; ?>
+                    </div>
 
-                    <!-- Phân trang -->
-                    <!-- <nav aria-label="...">
-                        <ul class="pagination pagination-lg justify-content-end">
-                            <li class="page-item active" aria-current="page">
-                                <span class="page-link">1</span>
-                            </li>
-                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        </ul>
-                    </nav> -->
+                    <div>
+                        <!-- show comment -->
+                        <?php if ($data['comments']) : ?>
 
-                    <form action="<?= DOCUMENT_ROOT . DS . "Products/comment" ?>" method="POST">
-                        <input type="hidden" name="idProduct" value="<?= $detail['id'] ?>">
+                            <?php foreach ($data['comments'] as $index => $comment) : ?>
+                                <div class="comment--item">
+                                    <img class="comment--item-image" src="<?= IMAGES_URL . "/uploads/avatar/" .  (empty($comment['avatar']) ? "default_avatar.png" : $comment['avatar']) ?> ">
+                                    <div class="comment--items-info">
+                                        <div class="comment--items-info_flex">
 
-                        <div class="form__comments">
-                            <div class="form__comments-comment">
-                                <img class="form__comment-image" src="<?= IMAGES_URL . "/uploads/avatar/" .  (empty($comment['avatar']) ? "default_avatar.png" : $comment['avatar']) ?>" alt="">
-                                <textarea name="comments" id="" cols="15" rows="2" placeholder="Viết bình luận..."></textarea>
-                            </div>
-
-                            <div class="form__comments-ranking">
-                                <p>Bạn cảm thấy sản phẩm này như thế nào?</p>
-                                <div class="star-lists">
-                                    <?php for ($i = 1; $i <= 5; $i++) : ?>
-                                        <div class="star-lists-items">
-                                            <label onClick="rank(<?= $i ?>)" for="<?= "Rank" . $i ?>"><i id="Star<?= $i ?>" class=" fa fa-star-o star-list__item text-warning"></i></label>
-                                            <input hidden id="<?= "Rank" . $i ?>" type="radio" name="rank" value="<?= $i ?>" />
+                                            <div class="comment--item-name">
+                                                <?= $comment['name'] ?>
+                                            </div>
+                                            <div class="comment--item-date">
+                                                <?= $comment['created_at'] ?>
+                                            </div>
+                                            <?php for ($i = 1; $i <= intval($comment['rank']); $i++) : ?>
+                                                <div class="star-lists-items">
+                                                    <i class=" fa fa-star text-warning"></i>
+                                                </div>
+                                            <?php endfor; ?>
                                         </div>
-                                    <?php endfor; ?>
+
+                                        <div class="comment--item-content">
+                                            <?= $comment['content'] ?>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                        <button type="submit" class="btn btn--primary">Gửi đánh giá</button>
-                    </form>
+                            <?php endforeach; ?>
+                        <?php else : ?>
+
+                            <?= $_SESSION['comments']['error'] ?>
+
+                        <?php endif; ?>
+
+                        <form action="<?= DOCUMENT_ROOT . DS . "Products/comment" ?>" method="POST">
+                            <input type="hidden" name="idProduct" value="<?= $detail['id'] ?>">
+
+                            <?php if (isset($_SESSION['user'])) : ?>
+                                <div class="form__comments">
+                                    <div class="form__comments-comment">
+                                        <img class="form__comment-image" src="<?= IMAGES_URL . "/uploads/avatar/" .  (empty($comment['avatar']) ? "default_avatar.png" : $comment['avatar']) ?>" alt="">
+                                        <textarea name="comments" id="" cols="15" rows="2" placeholder="Viết bình luận..."></textarea>
+                                    </div>
+
+                                    <div class="form__comments-ranking">
+                                        <p>Bạn cảm thấy sản phẩm này như thế nào?</p>
+                                        <div class="star-lists">
+                                            <?php for ($i = 1; $i <= 5; $i++) : ?>
+                                                <div class="star-lists-items">
+                                                    <label onClick="rank(<?= $i ?>)" for="<?= "Rank" . $i ?>"><i id="Star<?= $i ?>" class=" fa fa-star-o star-list__item text-warning"></i></label>
+                                                    <input hidden id="<?= "Rank" . $i ?>" type="radio" name="rank" value="<?= $i ?>" />
+                                                </div>
+                                            <?php endfor; ?>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <button type="submit" class="btn btn--primary">Gửi đánh giá</button>
+
+                            <?php else : ?>
+
+                                <div class="alert alert-primary d-flex align-items-center" role="alert">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img" aria-label="Warning:">
+                                        <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                                    </svg>
+                                    <div> <?= $_SESSION['error']['comment'] ?> </div>
+                                </div>
+
+                            <?php endif; ?>
+
+                        </form>
+                    </div>
 
                 </div>
             </div>
@@ -143,7 +166,7 @@
     <div class="related__products">
         <h3 class="title">Sản phẩm liên quan</h3>
         <div class="related__products_item">
-            <div class="owl-carousel owl-theme">
+            <div id="carousel-related__products" class="owl-carousel owl-theme">
                 <?php foreach ($data['RelatedProducts'] as $key => $RelatedProducts) : ?>
                     <div class="item">
                         <div class="best-seller__item">

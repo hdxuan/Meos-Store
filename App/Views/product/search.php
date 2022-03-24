@@ -3,7 +3,7 @@
     <section class="container sweeties">
         <h3 class="title">Các sản phẩm</h3>
 
-        <p style="margin-bottom: 20px;">Search for keyword: <b><?= $data['key'] ?></b></p>
+        <p style="margin-bottom: 20px;">Từ khóa đang tìm kiếm: <b><?= $data['key'] ?></b></p>
 
         <div class="sweeties__items">
             <?php if (!empty($data['products'])) : ?>
@@ -24,7 +24,7 @@
                     </div>
                 <?php endforeach; ?>
             <?php else : ?>
-                <p>Not found any cakes</p>
+                <p>Không tìm thấy sản phẩm</p>
             <?php endif; ?>
         </div>
 

@@ -42,6 +42,7 @@ defined('IMAGES_URL') ?:  define('IMAGES_URL', PUBLIC_URL .  '/img');
 
 defined('IMAGES_PRODUCT_URL') ?:  define('IMAGES_PRODUCT_URL', PUBLIC_URL . '/img/products');
 defined('IMAGES_BLOG_URL') ?:  define('IMAGES_BLOG_URL', PUBLIC_URL . '/img/blogs');
+defined('IMAGES_MENU_URL') ?:  define('IMAGES_MENU_URL', PUBLIC_URL . '/img/menu');
 
 defined('ICONS_URL') ?:  define('ICONS_URL', PUBLIC_URL . '/img/icons');
 defined('IMAGES_CATEGORY_URL') ?:  define('IMAGES_CATEGORY_URL', PUBLIC_URL . '/img/categories');

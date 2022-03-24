@@ -18,10 +18,11 @@ class ProfileController extends Controller
 
 
         $data['numOrderByUser'] = $this->orderModel->numOrderByUser($_SESSION['user']['id']);
+        // $data['address'] = $this->userModel->getByAddress($_SESSION['user']['id']);
+        // $_SESSION['user']['address'] = $data['address'];
 
         // echo "<pre>";
-
-        // print_r($data['numOrderByUser']);
+        // print_r($_SESSION['user']['address']);
         // echo "<pre>";
         // die();
 
@@ -30,8 +31,6 @@ class ProfileController extends Controller
 
     function update()
     {
-        // die(var_dump($_POST));
-
         if (isset($_POST)) {
             $result =  $this->userModel->editProfile($_POST, $_SESSION['user']['id']);
             $data['user'] = $this->userModel->getById($_SESSION['user']['id']);
@@ -39,9 +38,23 @@ class ProfileController extends Controller
             $_SESSION['user'] = $data['user'];
             $this->view("/profile/index", $data);
         } else {
-            echo "k the chinh sua";
+            echo "Không thể chỉnh sửa";
         }
     }
+
+    // function updateAddress()
+    // {
+    //     if (isset($_POST)) {
+    //         $result =  $this->userModel->editAddress($_POST, $_SESSION['user']['id']);
+
+
+
+    //         $_SESSION['address'] = $data['address'];
+    //         $this->view("/profile/index", $data);
+    //     } else {
+    //         echo "Không thể chỉnh sửa";
+    //     }
+    // }
 
     function editAvatar()
     {

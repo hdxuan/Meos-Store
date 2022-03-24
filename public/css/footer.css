@@ -1,15 +1,18 @@
 .footer {
-  margin-top: 30px;
+  margin-top: 20px;
 
   display: flex;
   justify-content: space-between;
-  padding: 25px 0;
+  padding: 50px 0;
 }
 .background__footer{
-  background-color: #e4efec;
+  background-color: #8cc4b130;
 }
 .footer__logo {
-  width: 310px;
+  width: 330px;
+}
+.footer__logo img{
+  width: 82%;
 }
 .footer__logo p {
   font-family: var(--font-nunito);
@@ -21,7 +24,7 @@
   font-family: var(--font-nunito);
 }
 .footer__list {
-  margin-left: 100px;
+  margin-left: 68px;
 }
 .footer__list > h6 {
   font-style: normal;
@@ -38,10 +41,11 @@
   font-size: 1.8rem;
   line-height: 3rem;
   margin: 2px 0;
-  color: var(--color-content);
+  color: #202e41b5;
 }
 .footer__list li:hover{
   color: var(--color-primary);
+  cursor: pointer;
 }
 .footer__list__social {
   margin-top: 15px;

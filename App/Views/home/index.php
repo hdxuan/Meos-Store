@@ -4,13 +4,14 @@
     <img class="img_banner" src="<?= IMAGES_URL ?>/banner/banner2.png" alt="banner">
     <img class="img_banner" src="<?= IMAGES_URL ?>/banner/banner3.png" alt="banner">
     <img class="img_banner" src="<?= IMAGES_URL ?>/banner/banner4.png" alt="banner">
-
 </div>
 <!-- end wrapper banner -->
 
 <!-- wrapper products -->
 <section class="container category">
-    <h3 class="title">Doanh mục thú cưng</h3>
+    <h3 id="category" class="title">Doanh mục thú cưng</h3>
+    <img src="<?= IMAGES_URL ?>/icons/sleigh-bell.svg" class="img_category">
+
     <div class="category__items noselect">
         <?php foreach ($data['categoriesDog'] as $key => $categoriesDog) : ?>
 
@@ -66,26 +67,25 @@
 <div class="container sweeties noselect">
     <!-- <h3 class="title__small">Mới nhất</h3> -->
     <div class="name_category_product">
-
         <img src="<?= IMAGES_URL ?>/menu/happy.png" alt="" class="image_category_product">
-        <h3 class="title" id="SP">Sản phẩm dành cho chó</h3>
+        <h3 class="title" id="dog">Sản phẩm dành cho chó</h3>
     </div>
 
     <div class="sweeties__items">
-        <?php foreach ($data["productOnlyPage"] as $key => $productOnlyPage) : ?>
+        <?php foreach ($data["productOnlyPageDog"] as $key => $productOnlyPageDog) : ?>
             <div class="sweeties__item">
                 <div class="sweeties__item--over-image">
 
-                    <img src="<?= IMAGES_PRODUCT_URL . DS . $productOnlyPage['image'] ?>" alt="sweeties image" class="sweeties__item-image">
+                    <img src="<?= IMAGES_PRODUCT_URL . DS . $productOnlyPageDog['image'] ?>" alt="sweeties image" class="sweeties__item-image">
                     <p class="product_circle"></p>
                 </div>
                 <div class="sweeties__item-name">
-                    <a href=" <?= DOCUMENT_ROOT . DS . "Products/Detail?productId=" . $productOnlyPage['id'] ?> "><?= $productOnlyPage['name'] ?></a>
+                    <a href=" <?= DOCUMENT_ROOT . DS . "Products/Detail?productId=" . $productOnlyPageDog['id'] ?> "><?= $productOnlyPageDog['name'] ?></a>
                 </div>
                 <div class="sweeties__item-prices">
-                    <div class="sweeties__item__price"><?= number_format($productOnlyPage['price'], 0, '', '.') ?>đ</div>
+                    <div class="sweeties__item__price"><?= number_format($productOnlyPageDog['price'], 0, '', '.') ?>đ</div>
 
-                    <button onclick="addToCart(<?= isset($_SESSION['user']) ? $_SESSION['user']['id'] : 0 ?>,<?= $productOnlyPage['id'] ?>)" class="btn btn--secondary"><i class="fas fa-shopping-bag custom_cart"></i></button>
+                    <button onclick="addToCart(<?= isset($_SESSION['user']) ? $_SESSION['user']['id'] : 0 ?>,<?= $productOnlyPageDog['id'] ?>)" class="btn btn--secondary"><i class="fas fa-shopping-bag custom_cart"></i></button>
                 </div>
 
             </div>
@@ -103,7 +103,7 @@
 
         <?php for ($i = 1; $i <= $data['pages']; $i++) : ?>
 
-            <a <?= $i == $data['currentPage'] ? 'onclick="event.preventDefault()"' : "" ?> href="<?= DOCUMENT_ROOT . "/Home" ?>?page=<?= $i ?>#SP">
+            <a <?= $i == $data['currentPage'] ? 'onclick="event.preventDefault()"' : "" ?> href="<?= DOCUMENT_ROOT . "/Home" ?>?page=<?= $i ?>#dog">
                 <div class="paging-number <?= $i == $data['currentPage'] ? "paging-number--active" : "" ?>">
                     <?= $i ?>
                 </div>
@@ -122,29 +122,37 @@
 
     </div>
 </div>
+
+
+<div class="container-fluid banner ">
+
+    <img class="img_banner" src="<?= IMAGES_URL ?>/banner/banner3.png" alt="banner">
+</div>
+
+
 <div class="container sweeties noselect">
     <!-- <h3 class="title__small">Mới nhất</h3> -->
     <div class="name_category_product">
 
         <img src="<?= IMAGES_URL ?>/menu/munchkin-cat.png" alt="" class="image_category_product">
-        <h3 class="title" id="SP">Sản phẩm dành cho mèo</h3>
+        <h3 class="title" id="cat">Sản phẩm dành cho mèo</h3>
     </div>
 
     <div class="sweeties__items">
-        <?php foreach ($data["productOnlyPage"] as $key => $productOnlyPage) : ?>
+        <?php foreach ($data["productOnlyPageCat"] as $key => $productOnlyPageCat) : ?>
             <div class="sweeties__item">
                 <div class="sweeties__item--over-image">
 
-                    <img src="<?= IMAGES_PRODUCT_URL . DS . $productOnlyPage['image'] ?>" alt="sweeties image" class="sweeties__item-image">
+                    <img src="<?= IMAGES_PRODUCT_URL . DS . $productOnlyPageCat['image'] ?>" alt="sweeties image" class="sweeties__item-image">
                     <p class="product_circle"></p>
                 </div>
                 <div class="sweeties__item-name">
-                    <a href=" <?= DOCUMENT_ROOT . DS . "Products/Detail?productId=" . $productOnlyPage['id'] ?> "><?= $productOnlyPage['name'] ?></a>
+                    <a href=" <?= DOCUMENT_ROOT . DS . "Products/Detail?productId=" . $productOnlyPageCat['id'] ?> "><?= $productOnlyPageCat['name'] ?></a>
                 </div>
                 <div class="sweeties__item-prices">
-                    <div class="sweeties__item__price"><?= number_format($productOnlyPage['price'], 0, '', '.') ?>đ</div>
+                    <div class="sweeties__item__price"><?= number_format($productOnlyPageCat['price'], 0, '', '.') ?>đ</div>
 
-                    <button onclick="addToCart(<?= isset($_SESSION['user']) ? $_SESSION['user']['id'] : 0 ?>,<?= $productOnlyPage['id'] ?>)" class="btn btn--secondary"><i class="fas fa-shopping-bag custom_cart"></i></button>
+                    <button onclick="addToCart(<?= isset($_SESSION['user']) ? $_SESSION['user']['id'] : 0 ?>,<?= $productOnlyPageCat['id'] ?>)" class="btn btn--secondary"><i class="fas fa-shopping-bag custom_cart"></i></button>
                 </div>
 
             </div>
@@ -162,7 +170,7 @@
 
         <?php for ($i = 1; $i <= $data['pages']; $i++) : ?>
 
-            <a <?= $i == $data['currentPage'] ? 'onclick="event.preventDefault()"' : "" ?> href="<?= DOCUMENT_ROOT . "/Home" ?>?page=<?= $i ?>#SP">
+            <a <?= $i == $data['currentPage'] ? 'onclick="event.preventDefault()"' : "" ?> href="<?= DOCUMENT_ROOT . "/Home" ?>?page=<?= $i ?>#cat">
                 <div class="paging-number <?= $i == $data['currentPage'] ? "paging-number--active" : "" ?>">
                     <?= $i ?>
                 </div>

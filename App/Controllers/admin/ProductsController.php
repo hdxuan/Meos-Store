@@ -16,7 +16,6 @@ class ProductsController extends Controller
 
     function index()
     {
-        // Show all cakes
         $products = $this->productModel->all();
         if (!$products) {
             $products = [];

@@ -15,11 +15,11 @@
 <div class="container ">
     <div class="products__type ">
         <div class="menu__products">
-            <h2 class="menu__products__title">Danh mục sản phẩm</h2>
+            <h2 class="menu__products__title" id="top">Danh mục sản phẩm</h2>
             <div class="menu__products__items">
                 <?php foreach ($data["productType"] as $index => $productType) : ?>
-                    <a href="<?= DOCUMENT_ROOT . DS . "Products/Cat?productTypeId=" . $productType['id'] ?>" class="">
-                        <p class="menu__products__item "> <?= $productType['name'] ?> </p>
+                    <a href="<?= DOCUMENT_ROOT . DS . "Products/Cat?productTypeId=" . $productType['id'] ?>#top" class="">
+                        <p class="menu__products__item <?= $productType['id'] == $_GET['productTypeId'] ? "menu__products__item--active" : "" ?>"> <?= $productType['name'] ?> </p>
                     </a>
                 <?php endforeach; ?>
             </div>
@@ -37,12 +37,13 @@
                         <div class="products__display--name">
                             <a href="<?= DOCUMENT_ROOT . DS . "Products/Detail?productId=" . $products['id'] ?>"> <?= $products['name'] ?> </a>
                         </div>
+
                         <div class="products__display--prices">
                             <div class="products__display--price"><?= number_format($products['price'], 0, '', '.')  ?>đ</div>
-
-                            <button onclick="addToCart(<?= isset($_SESSION['user']) ? $_SESSION['user']['id'] : 0 ?>,<?= $products['id'] ?>)" class=" btn--cart btn--secondary">THÊM VÀO GIỎ</button>
+                            <div class="products__display--price"><?= number_format($products['price'], 0, '', '.')  ?>đ</div>
 
                         </div>
+                        <button onclick="addToCart(<?= isset($_SESSION['user']) ? $_SESSION['user']['id'] : 0 ?>,<?= $products['id'] ?>)" class=" btn--cart btn--secondary">THÊM VÀO GIỎ</button>
 
                     </div>
                 <?php endforeach; ?>
