@@ -58,18 +58,18 @@
                         <!-- loof nha  -->
 
                         <label for="username">Tên khách hàng: </label>
-                        <input disabled type="text" class="input" name="name" value="<?= $_SESSION['user']['name'] ?>">
+                        <input disabled type="text" class="input" name="name" id="username" value="<?= $_SESSION['user']['name'] ?>">
 
                         <!-- <label for="email">Email: </label>
                             <input type="text" class="input" name="email"> -->
 
                         <label for="phone">Số điện thoại: </label>
-                        <input disabled type="text" class="input" name="phone" value="<?= $_SESSION['user']['phone'] ?>">
+                        <input disabled type="text" class="input" name="phone" id="phone" value="<?= $_SESSION['user']['phone'] ?>">
 
-                        <label for="address">Địa chỉ: </label>
+                        <label>Địa chỉ: </label>
                         <?php foreach ($data['addresses'] as $index => $address) : ?>
                             <div class="address__user">
-                                <input checked="checked" name="address" type="radio" value="<?= $address['address'] ?>" />
+                                <input class="cursor-pointer" checked="checked" name="address" type="radio" value="<?= $address['address'] ?>" />
                                 <span class="address--text">
                                     <?= $address['address'] ?>
                                 </span>

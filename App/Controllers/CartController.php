@@ -89,4 +89,11 @@ class CartController extends Controller
 
         header("Location:" . DOCUMENT_ROOT . "/home");
     }
+
+    function deleteProduct()
+    {
+        $idOrder = $_GET['id'];
+        $delOrder = $this->orderModel->deleteOrder($_SESSION['user']['id'], $idOrder);
+        header("Location: " . DOCUMENT_ROOT . DS . "Profile");
+    }
 }

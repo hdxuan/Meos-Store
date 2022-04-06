@@ -1,20 +1,21 @@
-
-
-.avatar__user{
-  position: relative;
+.avatar__user {
+    position: relative;
 }
-.avatar__user--info{
+
+.avatar__user--info {
     display: flex;
     align-items: center;
 }
-.avatar__user--image{
+
+.avatar__user--image {
     border-radius: 5px;
     position: relative;
     /* border: 7px solid white; */
 }
-.avatar__user--image img{
-    width: 150px; 
-    height: 150px; 
+
+.avatar__user--image img {
+    width: 150px;
+    height: 150px;
 
     object-fit: cover;
     border-radius: 50%;
@@ -23,25 +24,27 @@
 
 
 }
-.avatar__user--name{
-    margin-left: 25px ;
+
+.avatar__user--name {
+    margin-left: 25px;
     font-weight: 600;
     font-size: 2.7rem;
 }
 
 .bio-graph-info {
-    
+
 
     color: var(--color-primary);
     font-weight: 600;
 
-    padding: 30px 30px; 
+    padding: 30px 30px;
 
     border-radius: 20px;
-    box-shadow:0 0 5px rgb(44 44 44 / 50%) ;
+    box-shadow: 0 0 5px rgb(44 44 44 / 50%);
 }
 
-.bio-graph-info input, textarea{
+.bio-graph-info input,
+textarea {
     margin-bottom: 13px;
     border-radius: 22px;
     border: none;
@@ -58,13 +61,13 @@
     margin: 0 0 35px;
 }
 
-.bio-info{
+.bio-info {
     display: grid;
     grid-template-columns: 1fr 0.1fr;
     align-items: center;
 }
 
-.bio-info_list{
+.bio-info_list {
     display: grid;
     grid-template-columns: 1fr 0.5fr;
     grid-auto-flow: row;
@@ -72,45 +75,72 @@
     align-items: center;
 }
 
-.layout{
+.layout {
     display: grid;
     grid-template-row: 0.4fr 1fr;
     grid-gap: 15px 20px;
     /* align-items: center; */
 }
-.layout1{
+
+.layout1 {
     display: grid;
     grid-template-columns: 0.7fr 0.5fr;
     grid-gap: 15px 20px;
     /* align-items: center; */
 }
 
+#addressWrapper {
+    max-height: 215px;
+    overflow-y: auto;
+}
 
-.order__list{
+.order__list {
     margin-bottom: 15px;
     background-color: white;
 
 }
-.order__list--info{
+
+.order__list--info {
     display: grid;
     grid-template-columns: 0.2fr 0.5fr;
     grid-gap: 15px 11px;
 }
-.order__list--info div{
+
+.order__list--info div {
     color: #324258;
 }
-.order__list--state{
+
+.order__list--state {
     padding-bottom: 10px;
     margin-left: 68%;
     color: #324258;
 
 }
-.order__list--image{
+
+.order__list--image {
     width: 130px;
     height: 130px;
-    margin-left: 50px;
+    margin-left: 28px;
 }
-.edit__avatar{
+
+.order__list--title {
+    display: grid;
+    grid-template-columns: 0.2fr 0.3fr 0.3fr 0.2fr;
+    grid-gap: 15px 11px;
+    align-items: center;
+    text-align: center;
+
+}
+
+.color-text {
+    color: #324258;
+}
+
+
+
+
+
+.edit__avatar {
     position: absolute;
     bottom: 16%;
     right: 0%;
@@ -119,15 +149,13 @@
     padding: 4px;
     font-size: 19px;
 }
-.edit__avatar:hover{
+
+.edit__avatar:hover {
     cursor: pointer;
 }
-.order__lists{
-    height: 440px;
-    overflow: scroll;
-}
 
-.order__list-name{
+.order__lists {}
+
+.order__list-name {
     font-size: 20px;
 }
-

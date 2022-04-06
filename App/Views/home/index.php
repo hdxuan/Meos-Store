@@ -38,7 +38,7 @@
                     <div class="best-seller__item">
                         <div class="best-seller_image">
                             <img src="<?= IMAGES_PRODUCT_URL . DS . $bestSellers["image"] ?>" alt=" image" class="best-seller__item-image">
-                            <p class="best-seller_circle"></p>
+                            <!-- <p class="best-seller_circle"></p> -->
 
                         </div>
 

@@ -34,7 +34,15 @@ class CustomerController extends Controller
     function delete($id)
     {
 
-        $this->customerModel->delete($id);
+        $result = $this->customerModel->delete($id);
+
+        if ($result === true) {
+            $_SESSION['alert']['success'] = true;
+            $_SESSION['alert']['messages'] = "Xóa khách hàng thành công";
+        } else {
+            $_SESSION['alert']['success'] = false;
+            $_SESSION['alert']['messages'] = $result;
+        }
         header("Location: " . DOCUMENT_ROOT . "/admin/customer");
     }
 }

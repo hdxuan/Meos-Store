@@ -230,4 +230,21 @@ class OrderModel extends Database
         }
         return false;
     }
+
+    function deleteOrder($isUser, $idOrder = "")
+    {
+
+        $stmt = $this->db->prepare("DELETE FROM ORDERS WHERE id_user = ? AND id = ?"); // xóa 1 sp trong ORDERS
+        $stmt->bind_param("ii", $isUser, $idOrder);
+
+
+        $stmt->execute();
+
+        $result =  $stmt->get_result();
+
+        if ($stmt->affected_rows > 0) {
+            return true;
+        }
+        return false;
+    }
 }

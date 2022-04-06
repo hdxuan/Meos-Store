@@ -24,6 +24,8 @@
                 <div class="card">
 
                     <div class="card-header">
+                        <?php require_once(VIEW . DS . "admin/shared/notification.php") ?>
+
                         <div class="d-flex justify-content-between align-items-center">
                             <h3 class="card-title">Tất cả sản phẩm</h3>
                             <a class="btn btn-primary" href="<?= DOCUMENT_ROOT . DS .  "admin/products/create" ?>">Thêm sản phẩm</a>
@@ -37,6 +39,7 @@
                                     <th>STT</th>
                                     <th style="width: 380px;">Tên sản phẩm</th>
                                     <th>Loại sản phẩm</th>
+                                    <th>Tồn kho</th>
                                     <th>Giá</th>
                                     <th>Hình ảnh</th>
                                     <th>Thao tác</th>
@@ -49,13 +52,13 @@
                                         <td><?= $key + 1 ?></td>
                                         <td><?= $products['name'] ?></td>
                                         <td><?= $products['namept'] ?></td>
+                                        <td><?= $products['quantity'] ?></td>
                                         <td><?= number_format($products['price'], 0, "", ".") ?>đ</td>
-                                        <!-- <td><?= $products['size'] ?></td> -->
                                         <td> <img style="max-width: 100px;" class="rounded img-thumbnail" src="<?= IMAGES_PRODUCT_URL ?>/<?= $products['image'] ?>" alt="cake image"></td>
                                         <td>
                                             <div aria-label="Basic mixed styles example ">
-                                                <a href="<?= DOCUMENT_ROOT ?> /admin/products/edit/<?= $products['id'] ?> " type="button" class="btn btn-info"><i class="fas fa-edit"> Edit</i></a>
-                                                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal<?= $products['id'] ?>"><i class="fas fa-trash-alt"> Delete</i></button>
+                                                <a href="<?= DOCUMENT_ROOT ?> /admin/products/edit/<?= $products['id'] ?> " type="button" class="btn btn-info"><i class="fas fa-edit"> Sửa</i></a>
+                                                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal<?= $products['id'] ?>"><i class="fas fa-trash-alt"> Xóa</i></button>
 
                                                 <!-- Modal -->
                                                 <div class="modal fade" id="deleteModal<?= $products['id'] ?>" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel<?= $products['id'] ?>" aria-hidden="true" style="display: none;">
@@ -68,7 +71,7 @@
                                                                 </button>
                                                             </div>
                                                             <div class="modal-body">
-                                                                Bạn chắc chắn muốn xóa sản phầm này?
+                                                                Bạn chắc chắn muốn xóa sản phầm <?= $key + 1 ?> này?
                                                             </div>
                                                             <div class="modal-footer">
                                                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Thoát</button>

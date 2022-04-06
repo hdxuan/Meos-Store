@@ -198,13 +198,27 @@ class ProductModel extends Database
             return false;
         }
     }
+    function getProductType($id)
+    {
+        $stmt = $this->db->prepare("SELECT * from products_type WHERE id = ? ");
+        $stmt->bind_param("i", $id);
 
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        if ($result->num_rows > 0) {
+            return $result->fetch_all(MYSQLI_ASSOC);
+        } else {
+            return false;
+        }
+    }
     // admin
     function store($data)
     {
         $name = $data['name'];
         $ingredients = $data['ingredients'];
         $benerfits = $data['benerfits'];
+        $quantity =  $data['quantity'];
         $price = $data['price'];
         $categoryId = $data['categoryId'];
 
@@ -213,12 +227,12 @@ class ProductModel extends Database
         }
 
 
-        $stmt = $this->db->prepare("INSERT INTO products (name, price, ingredients, benerfits, image, id_products_type) VALUES (?, ?, ?, ?, ?, ?)");
+        $stmt = $this->db->prepare("INSERT INTO products (name, price, ingredients, benerfits, quantity, image, id_products_type) VALUES (?, ?, ?, ?, ?, ?, ?)");
 
         // var_dump($stmt);
         // die();
         if ($stmt) {
-            $stmt->bind_param("sisssi", $name, $price, $ingredients, $benerfits, $image, $categoryId);
+            $stmt->bind_param("sissisi", $name, $price, $ingredients, $benerfits, $quantity, $image, $categoryId);
             $stmt->execute();
             $result = $stmt->affected_rows;
             if ($result < 1) {
@@ -234,6 +248,7 @@ class ProductModel extends Database
         $name = $data['name'];
         $ingredients = $data['ingredients'];
         $benerfits = $data['benerfits'];
+        $quantity =  $data['quantity'];
 
         if (isset($data["image"])) {
             $image = $data["image"];
@@ -247,13 +262,14 @@ class ProductModel extends Database
             $stmt = $this->db->prepare("UPDATE products SET name = ?, 
                                                     ingredients = ?,
                                                     benerfits = ?,
+                                                    quantity = ?,
                                                     image = ?,
                                                     id_products_type = ?,
                                                     price = ?
                                                     where id = ?");
 
             if ($stmt) {
-                $stmt->bind_param("ssssiii", $name, $ingredients, $benerfits, $image, $categoryId, $price, $id);
+                $stmt->bind_param("sssisiii", $name, $ingredients, $benerfits, $quantity, $image, $categoryId, $price, $id);
                 $stmt->execute();
                 $result = $stmt->affected_rows;
                 if ($result < 1) {
@@ -268,9 +284,10 @@ class ProductModel extends Database
                                                             price = ?,
                                                             ingredients = ?,
                                                             benerfits = ?,
+                                                            quantity = ?,
                                                             id_products_type = ?
                                                             where id = ?");
-            $stmt->bind_param("sissii", $name, $price,  $ingredients, $benerfits, $categoryId, $id);
+            $stmt->bind_param("sissiii", $name, $price,  $ingredients, $benerfits, $quantity, $categoryId, $id);
             $stmt->execute();
             $result = $stmt->affected_rows;
             if ($result < 1) {

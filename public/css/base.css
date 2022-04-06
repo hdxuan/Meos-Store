@@ -60,6 +60,19 @@ body {
   font-size: 1.6rem;
 }
  
+.cursor-pointer{
+  cursor: pointer;
+}
+
+input[type=number].hide-arrow {
+  -moz-appearance:textfield; /* Firefox */
+}
+input.hide-arrow::-webkit-outer-spin-button,
+input.hide-arrow::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
 
 .noselect {
   -webkit-touch-callout: none; /* iOS Safari */

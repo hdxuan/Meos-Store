@@ -1,4 +1,4 @@
-<div class="banner__product">
+<div class="banner__product banner">
     <img src="<?= IMAGES_URL ?>/product.jpg" alt="">
     <div class="title__product">
         <h2 class="title__category__product"> Các sản phẩm </h2>

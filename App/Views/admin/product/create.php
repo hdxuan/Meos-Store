@@ -36,6 +36,10 @@
                             </select>
 
                         </div>
+                        <div class="form-group col">
+                            <label for="quantity">Tồn kho</label>
+                            <input type="number" name="quantity" class="form-control" id="quantity" required>
+                        </div>
 
                     </div>
                     <div class="row">

@@ -21,6 +21,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
+                        <?php require_once(VIEW . DS . "admin/shared/notification.php") ?>
 
                         <div class="d-flex justify-content-between align-items-center">
                             <h3 class="card-title">Danh sách đặt hàng</h3>

@@ -1,10 +1,10 @@
-<div class="banner__product">
+<div class="banner__product banner">
     <img src="<?= IMAGES_URL ?>/product.jpg" alt="">
     <div class="title__product">
-        <h2 class="title__category__product"> Các sản phẩm</h2>
+        <h2 class="title__category__product">Chi tiết sản phẩm</h2>
         <div class="address__product">
             <a href="<?= DOCUMENT_ROOT ?>">
-                <p class="address__home">Home</p>
+                <p class="address__home">Trang chủ</p>
             </a>
             <span> > </span>
             <p class="address__category__product">Chi tiết sản phẩm</p>
@@ -30,31 +30,41 @@
                         <h6 class="detail__item-info__name"><?= $detail['name'] ?></h6>
 
                     </div>
-                    <div class="detail__item-stars__items">
-                        <img src="<?= ICONS_URL . DS ?>/star-solid.svg" alt="" class="star__item">
-                        <img src="<?= ICONS_URL . DS ?>/star-solid.svg" alt="" class="star__item">
-                        <img src="<?= ICONS_URL . DS ?>/star-solid.svg" alt="" class="star__item">
-                        <img src="<?= ICONS_URL . DS ?>/star-solid.svg" alt="" class="star__item">
-                        <img src="<?= ICONS_URL . DS ?>/star-half-alt-solid.svg" alt="" class="star__item">
+                    <div>
+
+                        <?php for ($i = 1; $i <= intval($data['sumRate']['sumrate']); $i++) : ?>
+                            <i style="font-size: 23px; " class="fa fa-star text-warning me-4 mt-3"></i>
+                        <?php endfor; ?>
                     </div>
+
+                    <p class="detail__item__price"><?= number_format($detail['price'], 0, '', '.') ?>đ</p>
+
                     <div class="detail__item-content">
-                        <h2>Thành phần</h2>
+                        <!-- <h2>Thành phần</h2> -->
                         <div class="detail__item-summary"> <?= $detail['ingredients'] ?> </div>
                     </div>
 
                     <div class="detail__item-content">
-                        <h2>Công dụng</h2>
+                        <!-- <h2>Công dụng</h2> -->
                         <div class="detail__item-summary"> <?= $detail['benerfits'] ?> </div>
 
                     </div>
-                    <div class="row mb-4">
-                        <p class="detail__item__price"><?= number_format($detail['price'], 0, '', '.') ?>đ</p>
+                    <?php foreach ($data['ProductType'] as $index => $ProductType) : ?>
+
+                        <div class="detail__item-content border-top">
+                            <span style="font-weight: bold;">Danh mục: </span>
+                            <span st class="detail__item-summary "> <?= $ProductType['name'] ?> </span>
+                        </div>
+                    <?php endforeach; ?>
+
+                    <div class="detail__item-content mb-4">
+                        <span style="font-weight: bold;">Kho: </span>
+                        <span class="detail__item-summary"> <?= $detail['quantity'] ?> </span>
+
                     </div>
 
                     <button onclick="addToCart(<?= isset($_SESSION['user']) ? $_SESSION['user']['id'] : 0 ?>,<?= $detail['id'] ?>)" class="btn btn--primary">Thêm vào giỏ +</button>
-                    <a href="<?= DOCUMENT_ROOT ?>/Products/Dog" class="btn btn--primary">Tiếp tục mua sắm</a>
-
-
+                    <a href="<?= DOCUMENT_ROOT ?>/Products/Dog" class="btn btn--secondary ">Tiếp tục mua sắm</a>
                 </div>
             </div>
 
@@ -83,27 +93,31 @@
                         </div>
                     </div>
 
+                    <!-- show comment -->
                     <div>
-                        <!-- show comment -->
                         <?php if ($data['comments']) : ?>
-
                             <?php foreach ($data['comments'] as $index => $comment) : ?>
                                 <div class="comment--item">
                                     <img class="comment--item-image" src="<?= IMAGES_URL . "/uploads/avatar/" .  (empty($comment['avatar']) ? "default_avatar.png" : $comment['avatar']) ?> ">
                                     <div class="comment--items-info">
                                         <div class="comment--items-info_flex">
-
                                             <div class="comment--item-name">
                                                 <?= $comment['name'] ?>
                                             </div>
+
                                             <div class="comment--item-date">
                                                 <?= $comment['created_at'] ?>
                                             </div>
+
+                                        </div>
+
+                                        <div class="comment--items-rate  mb-2">
                                             <?php for ($i = 1; $i <= intval($comment['rank']); $i++) : ?>
-                                                <div class="star-lists-items">
-                                                    <i class=" fa fa-star text-warning"></i>
-                                                </div>
+
+                                                <i class=" fa fa-star text-warning"></i>
+
                                             <?php endfor; ?>
+
                                         </div>
 
                                         <div class="comment--item-content">
@@ -163,6 +177,7 @@
 
     </div>
 
+    <!-- Sản phẩm liên quan -->
     <div class="related__products">
         <h3 class="title">Sản phẩm liên quan</h3>
         <div class="related__products_item">

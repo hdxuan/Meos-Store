@@ -99,7 +99,7 @@ class UserModel extends Database
     {
 
         $stmt = $this->db->prepare("UPDATE USERS SET name = ?, phone = ?, email = ?  WHERE id = ?");
-        $stmt->bind_param("sssi", $data['name'], $data['phone'], $data['email'], $id);
+        $stmt->bind_param("sssi", $data['name'], substr(strval($data['phone']), 0, 10), $data['email'], $id);
 
         $stmt->execute();
 
@@ -126,10 +126,11 @@ class UserModel extends Database
             return true;
         }
     }
-    function editAddress($data, $iduser)
+
+    function deleteAddress($iduser)
     {
-        $stmt = $this->db->prepare("UPDATE addresses SET address = ?  WHERE id_user = ?");
-        $stmt->bind_param("si", $data['address'], $iduser);
+        $stmt = $this->db->prepare("DELETE FROM addresses WHERE id_user = ?");
+        $stmt->bind_param("i", $iduser);
 
         $stmt->execute();
 
@@ -138,6 +139,30 @@ class UserModel extends Database
             return false;
         } else {
             return true;
+        }
+    }
+
+    function updateAddress($data, $iduser)
+    {
+        if (count($data) < 1) {
+            return false;
+        }
+        $this->deleteAddress($iduser);
+
+        foreach ($data as $address) {
+            if ($address != "") {
+                $stmt = $this->db->prepare("INSERT INTO addresses(address, id_user) values(?, ?)");
+                $stmt->bind_param("si", $address, $iduser);
+                $stmt->execute();
+            }
+        }
+
+        $result = $stmt->affected_rows;
+        if ($result < 1) {
+            return false;
+        } else {
+            $addresses = $this->getByAddress($iduser);
+            return $addresses;
         }
     }
 

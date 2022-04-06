@@ -47,6 +47,8 @@ class ProductsController extends Controller
         $data['name'] = $_POST['name'];
         $data['ingredients'] = $_POST['ingredients'];
         $data['benerfits'] = $_POST['benerfits'];
+        $data['quantity'] = $_POST['quantity'];
+
         // $data["image"] = "";
         $data['price'] = intval($_POST['price']);
         $data['categoryId'] = intval($_POST['categoryId']);
@@ -106,6 +108,7 @@ class ProductsController extends Controller
         $data['id'] = $id;
         $data['name'] = $_POST['name'];
         $data['categoryId'] = $_POST['categoryId'];
+        $data['quantity'] = $_POST['quantity'];
         $data['price'] = $_POST['price'];
         $data['ingredients'] = $_POST['ingredients'];
         $data['benerfits'] = $_POST['benerfits'];
@@ -149,7 +152,14 @@ class ProductsController extends Controller
 
     function delete($id)
     {
-        $this->productModel->delete($id);
+        $result = $this->productModel->delete($id);
+        if ($result === true) {
+            $_SESSION['alert']['success'] = true;
+            $_SESSION['alert']['messages'] = "Xóa sản phẩm thành công";
+        } else {
+            $_SESSION['alert']['success'] = false;
+            $_SESSION['alert']['messages'] = $result;
+        }
         header("Location: " . DOCUMENT_ROOT . "/admin/products");
     }
 }

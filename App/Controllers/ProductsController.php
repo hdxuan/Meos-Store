@@ -68,10 +68,12 @@ class ProductsController extends Controller
             $data['comments'] = [];
             $_SESSION['comments']['error'] = "Chưa có bình luận nào về sản phẩm này.";
         }
+        $data['ProductType'] = $this->productModel->getProductType($idProductType);
+
 
 
         $data['sumRate'] = $this->productModel->getRate($productId);
-        // print_r($data['sumRate']);
+        // print_r($ProductType);
         // die();
 
         $this->view("/product/Detail", $data);

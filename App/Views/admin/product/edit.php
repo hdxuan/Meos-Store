@@ -41,18 +41,17 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="form-group col">
-                            <label for="image">Hình ảnh</label>
-                            <input type="file" class="" id="image" name="image">
-                            <div>
-                                <input type="text" hidden name="oldImage" value="<?= $data['product']['image'] ?>">
-                                <img style="max-width: 200px;" class="rounded img-thumbnail" src="<?= IMAGES_PRODUCT_URL . DS . $data['product']['image'] ?>" alt="image cake">
-                            </div>
-                        </div>
+
                         <div class="form-group col">
                             <label for="price">Đơn giá</label>
                             <input value="<?= $data['product']['price'] ?>" type="number" name="price" class="form-control" id="price" placeholder="Cake price">
                         </div>
+
+                        <div class="form-group col">
+                            <label for="quantity">Tồn kho</label>
+                            <input value="<?= $data['product']['quantity'] ?>" type="number" name="quantity" class="form-control" id="quantity" required>
+                        </div>
+
                     </div>
 
                     <div class="form-group">
@@ -63,7 +62,14 @@
                         <label for="benerfits">Công dụng</label>
                         <textarea name="benerfits" id="benerfits" class="form-control" cols="2" rows="2"><?= $data['product']['benerfits'] ?></textarea>
                     </div>
-
+                    <div class="form-group">
+                        <label for="image">Hình ảnh</label>
+                        <input type="file" class="" id="image" name="image">
+                        <div>
+                            <input type="text" hidden name="oldImage" value="<?= $data['product']['image'] ?>">
+                            <img style="max-width: 200px;" class="rounded img-thumbnail" src="<?= IMAGES_PRODUCT_URL . DS . $data['product']['image'] ?>" alt="image cake">
+                        </div>
+                    </div>
 
 
                 </div>

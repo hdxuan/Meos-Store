@@ -15,14 +15,13 @@ class ProfileController extends Controller
 
     function index()
     {
-
-
         $data['numOrderByUser'] = $this->orderModel->numOrderByUser($_SESSION['user']['id']);
-        // $data['address'] = $this->userModel->getByAddress($_SESSION['user']['id']);
-        // $_SESSION['user']['address'] = $data['address'];
+        $data['address'] = $this->userModel->getByAddress($_SESSION['user']['id']);
+        $data['addressJSON'] = json_encode($data['address']);
+        $_SESSION['user']['address'] = $data['address'];
 
         // echo "<pre>";
-        // print_r($_SESSION['user']['address']);
+        // print_r($_SESSION['user']['address'][0]['address']);
         // echo "<pre>";
         // die();
 
@@ -36,25 +35,22 @@ class ProfileController extends Controller
             $data['user'] = $this->userModel->getById($_SESSION['user']['id']);
 
             $_SESSION['user'] = $data['user'];
-            $this->view("/profile/index", $data);
+            header("Location: " . DOCUMENT_ROOT . "/profile");
         } else {
             echo "Không thể chỉnh sửa";
         }
     }
 
-    // function updateAddress()
-    // {
-    //     if (isset($_POST)) {
-    //         $result =  $this->userModel->editAddress($_POST, $_SESSION['user']['id']);
-
-
-
-    //         $_SESSION['address'] = $data['address'];
-    //         $this->view("/profile/index", $data);
-    //     } else {
-    //         echo "Không thể chỉnh sửa";
-    //     }
-    // }
+    function updateAddress()
+    {
+        if (isset($_POST) && count($_POST['addresses']) > 0) {
+            $data['addresses'] =  $this->userModel->updateAddress($_POST['addresses'], $_SESSION['user']['id']);
+            $_SESSION['user']['address'] = $data['addresses'];
+            header("Location: " . DOCUMENT_ROOT . "/profile");
+        } else {
+            echo "Không thể chỉnh sửa";
+        }
+    }
 
     function editAvatar()
     {
