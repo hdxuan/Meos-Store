@@ -17,7 +17,7 @@ class OrdersController extends Controller
     function index()
     {
         $data['orders'] = $this->orderModel->all();
-
+        // die(var_dump($data['orders']));
         $this->view("/admin/order/index", $data);
     }
 

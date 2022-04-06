@@ -6,7 +6,7 @@ class OrderModel extends Database
 {
     function all()
     {
-        $sql = "SELECT o.id,o.id_user, u.name as customerName, u.phone, u.address, u.email,  o.order_date, o.delivery_date,
+        $sql = "SELECT o.id, o.id_user, o.address, u.name as customerName, u.phone, u.email,  o.order_date, o.delivery_date,
         s.name as status, id_status
         from orders o JOIN users u on o.id_user = u.id
                                     JOIN status s on s.id = o.id_status";

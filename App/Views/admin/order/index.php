@@ -24,7 +24,7 @@
                         <?php require_once(VIEW . DS . "admin/shared/notification.php") ?>
 
                         <div class="d-flex justify-content-between align-items-center">
-                            <h3 class="card-title">Danh sách đặt hàng</h3>
+                            <h3 class="card-title">Danh sách đơn đặt hàng</h3>
                         </div>
                     </div>
                     <!-- /.card-header -->
@@ -50,11 +50,12 @@
                                         <td><?= $order['order_date'] ?></td>
                                         <td><?= $order['delivery_date'] ?></td>
                                         <td><?= $order['status'] ?></td>
+
                                         <td><?= number_format($order['total'], 0, "", ",") ?>đ</td>
                                         <td>
                                             <div aria-label="Basic mixed styles example">
-                                                <a href="<?= DOCUMENT_ROOT ?> /admin/orders/edit/<?= $order['id'] ?> " type="button" class="btn btn-success"><i class="fas fa-edit"> Edit</i></a>
-                                                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal<?= $order['id'] ?>"><i class="fas fa-trash-alt"> Delete</i></button>
+                                                <a href="<?= DOCUMENT_ROOT ?> /admin/orders/edit/<?= $order['id'] ?> " type="button" class="btn btn-success"><i class="fas fa-edit"> Sửa</i></a>
+                                                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal<?= $order['id'] ?>"><i class="fas fa-trash-alt"> Xóa</i></button>
 
                                                 <!-- Modal -->
                                                 <div class="modal fade" id="deleteModal<?= $order['id'] ?>" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel<?= $order['id'] ?>" aria-hidden="true" style="display: none;">
