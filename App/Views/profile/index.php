@@ -124,7 +124,7 @@
                                     <?php if (mb_strtoupper($order['status'], 'utf8') === "CHƯA XỬ LÝ") : ?>
 
                                         <a href="<?= DOCUMENT_ROOT . DS . "Cart/deleteProduct?id=" . $order['id'] ?>">
-                                            <button class="btn btn--secondary">Hủy đơn hàng</button>
+                                            <button onclick="onclickDeleteOrder(<?= $order['id'] ?>)" class="btn btn--secondary">Hủy đơn hàng</button>
                                         </a>
                                     <?php endif; ?>
                                 </div>
@@ -187,4 +187,9 @@
     $(document).ready(() => {
         fetchAddress();
     })
+
+    function onclickDeleteOrder(num) {
+        alert("Bạn đã xóa thành công đơn hàng" + num + "thành công")
+
+    }
 </script>
