@@ -11,7 +11,7 @@
           <div class="card card-primary card-outline ">
             <div class="card-body box-profile">
               <div class="text-center">
-                <img class="profile-user-img img-fluid img-circle" style="height: 100px;object-fit: cover;" src="<?= IMAGES_URL . DS . "uploads/avatar/" . $_SESSION['admin']['avatar'] ?>" alt="User profile picture">
+                <img class="profile-user-img img-fluid img-circle" style="height: 100px;object-fit: cover;" src="<?= IMAGES_URL . "/uploads/avatar/" .  (empty($_SESSION['admin']['avatar']) ? "default_avatar.png" : $_SESSION['admin']['avatar']) ?>" alt="User profile picture">
               </div>
 
               <h3 class="profile-username text-center"><?= $_SESSION['admin']['name'] ?></h3>

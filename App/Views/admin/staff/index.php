@@ -56,30 +56,32 @@
                                         <td>
                                             <div aria-label="Basic mixed styles example">
                                                 <a href="<?= DOCUMENT_ROOT ?> /admin/categories/edit/<?= $categories['id'] ?> " type="button" class="btn btn-info"><i class="fas fa-edit"> Sửa</i></a>
-                                                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal<?= $staff['id'] ?>"><i class="fas fa-trash-alt"> Xóa</i></button>
+                                                <?php if ($_SESSION['admin']['email'] == "admin") : ?>
+                                                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal<?= $staff['id'] ?>"><i class="fas fa-trash-alt"> Xóa</i></button>
 
-                                                <!-- Modal -->
-                                                <div class="modal fade" id="deleteModal<?= $staff['id'] ?>" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel<?= $staff['id'] ?>" aria-hidden="true" style="display: none;">
-                                                    <div class="modal-dialog modal-dialog-centered" role="document">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <h5 class="modal-title" id="deleteModalLabel<?= $staff['id'] ?>">Xác nhận xóa</h5>
-                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                    <span aria-hidden="true">&times;</span>
-                                                                </button>
-                                                            </div>
-                                                            <div class="modal-body">
-                                                                Bạn chắc chắn muốn xóa người này?
-                                                            </div>
-                                                            <div class="modal-footer">
-                                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Thoát</button>
+                                                    <!-- Modal -->
+                                                    <div class="modal fade" id="deleteModal<?= $staff['id'] ?>" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel<?= $staff['id'] ?>" aria-hidden="true" style="display: none;">
+                                                        <div class="modal-dialog modal-dialog-centered" role="document">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h5 class="modal-title" id="deleteModalLabel<?= $staff['id'] ?>">Xác nhận xóa</h5>
+                                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                        <span aria-hidden="true">&times;</span>
+                                                                    </button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    Bạn chắc chắn muốn xóa người này?
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Thoát</button>
 
-                                                                <a href="<?= DOCUMENT_ROOT ?>/admin/customer/delete/<?= $staff['id'] ?>" class="btn btn-danger">Xóa</a>
+                                                                    <a href="<?= DOCUMENT_ROOT ?>/admin/customer/delete/<?= $staff['id'] ?>" class="btn btn-danger">Xóa</a>
 
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div>
+                                                <?php endif; ?>
                                             </div>
                                         </td>
                                     </tr>

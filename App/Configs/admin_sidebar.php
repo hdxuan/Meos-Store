@@ -14,6 +14,26 @@ return [
         'link' => DOCUMENT_ROOT . "/admin/products"
     ],
 
+    'orders' => [
+        'title' => 'Đơn hàng',
+        'name' => 'orders',
+        'icon' => 'fas fa-file-invoice-dollar',
+        'link' => DOCUMENT_ROOT . "/admin/orders"
+    ],
+
+    'discount' => [
+        'title' => 'Khuyến mãi',
+        'name' => 'discount',
+        'icon' => 'fa fa-percent',
+        'link' => DOCUMENT_ROOT . "/admin/discount"
+    ],
+
+    'comments' => [
+        'title' => 'Bình luận',
+        'name' => 'comments',
+        'icon' => 'fas fa-comments',
+        'link' => DOCUMENT_ROOT . "/admin/comments"
+    ],
     'customer' => [
         'title' => 'Khách hàng',
         'name' => 'customer',
@@ -26,16 +46,6 @@ return [
         'icon' => 'fas fa-user-plus',
         'link' => DOCUMENT_ROOT . "/admin/staff"
     ],
-    'discount' => [
-        'title' => 'Khuyến mãi',
-        'name' => 'discount',
-        'icon' => 'fa fa-percent',
-        'link' => DOCUMENT_ROOT . "/admin/discount"
-    ],
-    'orders' => [
-        'title' => 'Đơn hàng',
-        'name' => 'orders',
-        'icon' => 'fas fa-file-invoice-dollar',
-        'link' => DOCUMENT_ROOT . "/admin/orders"
-    ],
+
+
 ];

@@ -53,7 +53,7 @@ class UserModel extends Database
 
     function getByEmail($email)
     {
-        $stmt = $this->db->prepare("SELECT id, name, phone, email, avatar FROM users WHERE email = ?");
+        $stmt = $this->db->prepare("SELECT id, name, phone, email, avatar FROM users WHERE email = ? and role = 0");
         $stmt->bind_param("s", $email);
 
         $stmt->execute();
@@ -171,7 +171,7 @@ class UserModel extends Database
     {
         $email = $data['email'];
         $password = $data['password'];
-        $stmt = $this->db->prepare("SELECT *  FROM users WHERE email = ?");
+        $stmt = $this->db->prepare("SELECT *  FROM users WHERE email = ? and role = 0");
 
         $stmt->bind_param("s", $email);
         $stmt->execute();

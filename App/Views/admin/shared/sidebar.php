@@ -4,6 +4,7 @@
     <a href="<?= DOCUMENT_ROOT . DS . "admin" ?>" class="brand-link ">
         <i class="fas fa-paw ps-5" style="opacity: .8; font-size: 2.9rem"></i>
         <span class="brand-text font-weight-light">Méo Store</span>
+        <p></p>
     </a>
 
     <!-- Sidebar -->
@@ -11,7 +12,7 @@
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
-                <img src="<?= IMAGES_URL ?>/user.jpg" class="img-circle elevation-2" alt="User Image">
+                <img src="<?= IMAGES_URL . "/uploads/avatar/" .  (empty($_SESSION['admin']['avatar']) ? "default_avatar.png" : $_SESSION['admin']['avatar']) ?>" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
                 <a href="<?= DOCUMENT_ROOT . DS . "admin/about" ?>" class="d-block"><?= $_SESSION['admin']['name'] ?></a>
