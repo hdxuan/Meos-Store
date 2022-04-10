@@ -58,7 +58,7 @@
 
                                         <td>
                                             <div aria-label="Basic mixed styles example ">
-                                                <a href="<?= DOCUMENT_ROOT ?> /admin/products/edit/<?= $discount['id'] ?> " type="button" class="btn btn-info"><i class="fas fa-edit"> Sửa</i></a>
+                                                <a href="<?= DOCUMENT_ROOT ?> /admin/discounts/edit/<?= $discount['id'] ?> " type="button" class="btn btn-info"><i class="fas fa-edit"> Sửa</i></a>
                                                 <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal<?= $discount['id'] ?>"><i class="fas fa-trash-alt"> Xóa</i></button>
 
                                                 <!-- Modal -->
@@ -72,12 +72,12 @@
                                                                 </button>
                                                             </div>
                                                             <div class="modal-body">
-                                                                Bạn chắc chắn muốn xóa sản phầm <?= $key + 1 ?> này?
+                                                                Bạn chắc chắn muốn xóa khuyến mãi <?= $key + 1 ?> này?
                                                             </div>
                                                             <div class="modal-footer">
                                                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Thoát</button>
 
-                                                                <a href="<?= DOCUMENT_ROOT ?>/admin/products/delete/<?= $products['id'] ?>" class="btn btn-danger">Xóa</a>
+                                                                <a href="<?= DOCUMENT_ROOT ?>/admin/discounts/delete/<?= $discount['id'] ?>" class="btn btn-danger">Xóa</a>
 
                                                             </div>
                                                         </div>
