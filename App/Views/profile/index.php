@@ -74,6 +74,7 @@
                 <div class="bio-graph-info height_history">
                     <h2>Lịch sử đơn hàng</h2>
                     <div class="order__lists">
+                        <?= count($data['numOrderByUser']) == 0 ? "<div style=\"color: black\">Chưa có đơn hàng nào</div>" : "" ?>
                         <?php foreach ($data['numOrderByUser'] as $index => $order) : ?>
 
                             <div class="order__list">
@@ -123,9 +124,7 @@
 
                                     <?php if (mb_strtoupper($order['status'], 'utf8') === "CHƯA XỬ LÝ") : ?>
 
-                                        <a href="<?= DOCUMENT_ROOT . DS . "Cart/deleteProduct?id=" . $order['id'] ?>">
-                                            <button onclick="onclickDeleteOrder(<?= $order['id'] ?>)" class="btn btn--secondary">Hủy đơn hàng</button>
-                                        </a>
+                                        <button onclick="onclickDeleteOrder(<?= $order['id'] ?>)" class="btn btn--secondary">Hủy đơn hàng</button>
                                     <?php endif; ?>
                                 </div>
 
@@ -189,7 +188,9 @@
     })
 
     function onclickDeleteOrder(num) {
-        alert("Bạn đã xóa thành công đơn hàng" + num + "thành công")
-
+        if (confirm(`Bạn có chắc chắn hủy đơn hàng ${num}`)) {
+            alert("Bạn đã hủy thành công đơn hàng " + num + " thành công")
+            window.location.href = "<?= DOCUMENT_ROOT ?>/Cart/deleteProduct?id=" + num;
+        }
     }
 </script>

@@ -16,12 +16,15 @@ class ProfileController extends Controller
     function index()
     {
         $data['numOrderByUser'] = $this->orderModel->numOrderByUser($_SESSION['user']['id']);
+        if (!$data['numOrderByUser']) {
+            $data['numOrderByUser'] = [];
+        }
         $data['address'] = $this->userModel->getByAddress($_SESSION['user']['id']);
         $data['addressJSON'] = json_encode($data['address']);
         $_SESSION['user']['address'] = $data['address'];
 
         // echo "<pre>";
-        // print_r($_SESSION['user']['address'][0]['address']);
+        // print_r($data);
         // echo "<pre>";
         // die();
 

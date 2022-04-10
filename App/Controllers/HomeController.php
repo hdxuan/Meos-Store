@@ -55,6 +55,10 @@ class HomeController extends Controller
         // die();
         $data['currentPage'] = $currentPage;
 
+
+        // discount
+        //$data['discounts'] = $this->productModel->getProductDiscount();
+
         $this->view("/home/index", $data);
     }
 }

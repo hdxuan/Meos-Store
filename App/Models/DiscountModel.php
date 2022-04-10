@@ -2,13 +2,12 @@
 
 use App\Core\Database;
 
-class ProductModel extends Database
+class DiscountModel extends Database
 {
     function all()
     {
 
-        $sql = "SELECT p.*, pt.name as namept
-        from products p JOIN products_type pt on p.id_products_type = pt.id";
+        $sql = "SELECT * from discounts";
         $result = $this->db->query($sql);
 
         if ($result->num_rows > 0) {
@@ -35,32 +34,6 @@ class ProductModel extends Database
             // )
         }
         return $numProduct['numProduct'];
-    }
-
-    function pagingDog($limit, $num)
-    {
-        $sql = "SELECT p.id, p.name, p.price, p.benerfits, p.ingredients, p.image FROM products p JOIN products_type pt on p.id_products_type = pt.id 
-        WHERE id_pet_products_type = 1 LIMIT $limit, $num";
-        $result = $this->db->query($sql);
-
-        if ($result->num_rows > 0) {
-            return $result->fetch_all(MYSQLI_ASSOC);
-        } else {
-            return false;
-        }
-    }
-
-    function pagingCat($limit, $num)
-    {
-        $sql = "SELECT p.id, p.name, p.price, p.benerfits, p.ingredients, p.image FROM products p JOIN products_type pt on p.id_products_type = pt.id 
-        WHERE id_pet_products_type = 2 LIMIT $limit, $num";
-        $result = $this->db->query($sql);
-
-        if ($result->num_rows > 0) {
-            return $result->fetch_all(MYSQLI_ASSOC);
-        } else {
-            return false;
-        }
     }
 
 
@@ -227,32 +200,25 @@ class ProductModel extends Database
         }
     }
 
-    // discount
-
-
 
 
     // admin
     function store($data)
     {
-        $name = $data['name'];
-        $ingredients = $data['ingredients'];
-        $benerfits = $data['benerfits'];
-        $quantity =  $data['quantity'];
-        $price = $data['price'];
-        $categoryId = $data['categoryId'];
+        $name = $data['nameDiscount'];
+        $priceDiscount = $data['priceDiscount'];
+        $code = substr(md5(time()), 0, 7);
+        $start_time = $data['start_time'];
+        $end_time =  $data['end_time'];
 
-        if (isset($data["image"])) {
-            $image = $data["image"];
-        }
-
-
-        $stmt = $this->db->prepare("INSERT INTO products (name, price, ingredients, benerfits, quantity, image, id_products_type) VALUES (?, ?, ?, ?, ?, ?, ?)");
+        // var_dump($code);
+        // die();
+        $stmt = $this->db->prepare("INSERT INTO discounts (name, code, discount, start_time, end_time) VALUES (?, ?, ?, ?, ?)");
 
         // var_dump($stmt);
         // die();
         if ($stmt) {
-            $stmt->bind_param("sissisi", $name, $price, $ingredients, $benerfits, $quantity, $image, $categoryId);
+            $stmt->bind_param("ssiss", $name, $code, $priceDiscount, $start_time, $end_time);
             $stmt->execute();
             $result = $stmt->affected_rows;
             if ($result < 1) {

@@ -21,11 +21,11 @@ return [
         'link' => DOCUMENT_ROOT . "/admin/orders"
     ],
 
-    'discount' => [
+    'discounts' => [
         'title' => 'Khuyến mãi',
-        'name' => 'discount',
+        'name' => 'discounts',
         'icon' => 'fa fa-percent',
-        'link' => DOCUMENT_ROOT . "/admin/discount"
+        'link' => DOCUMENT_ROOT . "/admin/discounts"
     ],
 
     'comments' => [

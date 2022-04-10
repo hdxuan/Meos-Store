@@ -113,7 +113,8 @@ class OrderModel extends Database
 
         $stmt->execute();
         $result = $stmt->get_result();
-
+        // var_dump($id);
+        // die();
         if ($result->num_rows > 0) {
             $orderList =  $result->fetch_all(MYSQLI_ASSOC);
         } else {

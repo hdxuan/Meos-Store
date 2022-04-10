@@ -87,13 +87,14 @@ class CartController extends Controller
         }
 
 
-        header("Location:" . DOCUMENT_ROOT . "/home");
+        header("Location:" . DOCUMENT_ROOT . "/profile");
     }
 
     function deleteProduct()
     {
         $idOrder = $_GET['id'];
         $delOrder = $this->orderModel->deleteOrder($_SESSION['user']['id'], $idOrder);
+        $_SESSION['flashMessage'] = "Hủy đơn hàng $idOrder thành công";
         header("Location: " . DOCUMENT_ROOT . DS . "Profile");
     }
 }
