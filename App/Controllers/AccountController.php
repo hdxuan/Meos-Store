@@ -43,6 +43,7 @@ class AccountController extends Controller
             if ($result === true) {
                 $user = $this->userModel->getByEmail($_POST['your_email']);
                 $_SESSION['user'] = $user;
+
                 header("Location: " . DOCUMENT_ROOT);
             } else {
                 $data['error'][] = $result;

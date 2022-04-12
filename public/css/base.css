@@ -40,6 +40,7 @@ svg * {
 img {
   width: 100%;
 }
+
 ul,
 h3,
 h6,
@@ -48,6 +49,7 @@ p {
   margin: 0;
   padding: 0;
 }
+
 html {
   font-size: 62.5%;
   line-height: 1.8rem;
@@ -59,33 +61,46 @@ html {
 body {
   font-size: 1.6rem;
 }
- 
-.cursor-pointer{
+
+.cursor-pointer {
   cursor: pointer;
 }
 
-input[type=number].hide-arrow {
-  -moz-appearance:textfield; /* Firefox */
+.font-bold {
+  font-weight: bold;
 }
+
+input[type=number].hide-arrow {
+  -moz-appearance: textfield;
+  /* Firefox */
+}
+
 input.hide-arrow::-webkit-outer-spin-button,
 input.hide-arrow::-webkit-inner-spin-button {
-    /* display: none; <- Crashes Chrome on hover */
-    -webkit-appearance: none;
-    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+  /* display: none; <- Crashes Chrome on hover */
+  -webkit-appearance: none;
+  margin: 0;
+  /* <-- Apparently some margin are still there even though it's hidden */
 }
 
 .noselect {
-  -webkit-touch-callout: none; /* iOS Safari */
-  -webkit-user-select: none; /* Safari */
-  -khtml-user-select: none; /* Konqueror HTML */
-  -moz-user-select: none; /* Old versions of Firefox */
-  -ms-user-select: none; /* Internet Explorer/Edge */
-  user-select: none; /* Non-prefixed version, currently
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Safari */
+  -khtml-user-select: none;
+  /* Konqueror HTML */
+  -moz-user-select: none;
+  /* Old versions of Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently
                                   supported by Chrome, Edge, Opera and Firefox */
 }
 
 .title {
- 
+
   font-family: var(--font-be);
   color: var(--color-title);
   font-weight: 500;
@@ -93,20 +108,26 @@ input.hide-arrow::-webkit-inner-spin-button {
 
   margin: 9px 0 25px 0;
   position: relative;
-  -webkit-touch-callout: none; /* iOS Safari */
-  -webkit-user-select: none; /* Safari */
-  -khtml-user-select: none; /* Konqueror HTML */
-  -moz-user-select: none; /* Old versions of Firefox */
-  -ms-user-select: none; /* Internet Explorer/Edge */
-  user-select: none; /* Non-prefixed version, currently
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Safari */
+  -khtml-user-select: none;
+  /* Konqueror HTML */
+  -moz-user-select: none;
+  /* Old versions of Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently
                                   supported by Chrome, Edge, Opera and Firefox */
 }
 
-.title__small{
+.title__small {
   font-family: var(--font-vi);
   color: var(--color-title);
   font-weight: 600;
-  font-size: 2.7rem;  
+  font-size: 2.7rem;
 }
 
 
@@ -118,15 +139,22 @@ input.hide-arrow::-webkit-inner-spin-button {
   font-family: var(--font-nunito);
   font-weight: bold;
   font-size: 1.8rem;
-  -webkit-touch-callout: none; /* iOS Safari */
-  -webkit-user-select: none; /* Safari */
-  -khtml-user-select: none; /* Konqueror HTML */
-  -moz-user-select: none; /* Old versions of Firefox */
-  -ms-user-select: none; /* Internet Explorer/Edge */
-  user-select: none; /* Non-prefixed version, currently
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Safari */
+  -khtml-user-select: none;
+  /* Konqueror HTML */
+  -moz-user-select: none;
+  /* Old versions of Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently
                                   supported by Chrome, Edge, Opera and Firefox */
 }
-.btn--cart{
+
+.btn--cart {
   padding: 4px 14px;
   border-radius: 10px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.171);
@@ -134,17 +162,25 @@ input.hide-arrow::-webkit-inner-spin-button {
   font-family: var(--font-nunito);
   font-weight: 500;
   font-size: 1.6rem;
-  -webkit-touch-callout: none; /* iOS Safari */
-  -webkit-user-select: none; /* Safari */
-  -khtml-user-select: none; /* Konqueror HTML */
-  -moz-user-select: none; /* Old versions of Firefox */
-  -ms-user-select: none; /* Internet Explorer/Edge */
-  user-select: none; /* Non-prefixed version, currently
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Safari */
+  -khtml-user-select: none;
+  /* Konqueror HTML */
+  -moz-user-select: none;
+  /* Old versions of Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently
                                   supported by Chrome, Edge, Opera and Firefox */
 }
-.custom_cart{
+
+.custom_cart {
   font-size: 23px;
 }
+
 /* btn primary */
 .btn--primary {
   background-color: var(--color-primary);
@@ -152,12 +188,14 @@ input.hide-arrow::-webkit-inner-spin-button {
   border: 2px solid transparent;
   transition: all 0.2s ease-out;
 }
+
 .btn--primary:hover {
   background-color: #fff;
   transition: all 0.2s ease-out;
   color: var(--color-primary) !important;
   border: 2px solid var(--color-primary);
 }
+
 .btn--primary:active {
 
   box-shadow: 0 0 3px 2px #f5587279;
@@ -166,6 +204,7 @@ input.hide-arrow::-webkit-inner-spin-button {
 
   transition: all 0.2s ease-out;
 }
+
 .btn--primary:focus {
   box-shadow: 0 0 3px 2px #f5587279;
   border: 2px solid var(--color-primary);
@@ -182,15 +221,18 @@ input.hide-arrow::-webkit-inner-spin-button {
   border: 2px solid var(--color-primary);
   transition: all 0.2s ease-out;
 }
+
 .btn--secondary:hover {
   color: #fff;
   background-color: var(--color-primary);
   transition: all 0.2s ease;
 }
+
 .btn--secondary:active {
   background-color: var(--color-primary);
   transition: all 0.2s ease-out;
 }
+
 .btn--secondary:focus {
   box-shadow: 0 0 3px 2px #f5587279;
   transition: all 0.2s ease-out;
@@ -204,9 +246,11 @@ input.hide-arrow::-webkit-inner-spin-button {
 
   margin: 30px 0 20px 0;
 }
+
 .paging .paging-item {
   margin-left: 5px;
 }
+
 .paging-item {
   width: 8px;
   height: 8px;
@@ -215,6 +259,7 @@ input.hide-arrow::-webkit-inner-spin-button {
   background: #c4c4c4;
   cursor: pointer;
 }
+
 .paging-item--active {
   width: 23px;
   height: 8px;
@@ -231,6 +276,7 @@ input.hide-arrow::-webkit-inner-spin-button {
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
 .line-clamp-3 {
   display: -webkit-box;
   -webkit-line-clamp: 3;
@@ -238,6 +284,7 @@ input.hide-arrow::-webkit-inner-spin-button {
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
 .line-clamp-4 {
   display: -webkit-box;
   -webkit-line-clamp: 4;
@@ -245,6 +292,7 @@ input.hide-arrow::-webkit-inner-spin-button {
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
 .line-clamp-5 {
   display: -webkit-box;
   -webkit-line-clamp: 5;
@@ -252,6 +300,7 @@ input.hide-arrow::-webkit-inner-spin-button {
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
 .line-clamp-6 {
   display: -webkit-box;
   -webkit-line-clamp: 6;
@@ -281,9 +330,11 @@ input.hide-arrow::-webkit-inner-spin-button {
 
   margin: 30px 0 20px 0;
 }
+
 .paging .paging-item {
   margin-left: 5px;
 }
+
 .paging-item {
   width: 8px;
   height: 8px;
@@ -295,6 +346,7 @@ input.hide-arrow::-webkit-inner-spin-button {
   transform-origin: top left;
   transition: all 0.3s ease;
 }
+
 .paging-item--active {
   width: 23px;
   height: 8px;
@@ -310,28 +362,30 @@ input.hide-arrow::-webkit-inner-spin-button {
   transition: all 0.2s ease-in;
   z-index: 10;
 }
-.paging-arrow > circle {
+
+.paging-arrow>circle {
   fill: rgba(255, 255, 255, 0);
   transition: all 0.2s ease-in;
 }
+
 .paging-arrow:hover path {
   fill: #fff;
   transition: all 0.2s ease-out;
 }
 
-.paging-arrow:hover > circle {
+.paging-arrow:hover>circle {
   stroke: var(--color-primary);
   fill: var(--color-primary);
   transition: all 0.2s ease-out;
 }
 
-.paging-arrow:active > circle {
+.paging-arrow:active>circle {
   stroke: var(--color-active);
   fill: var(--color-active);
   transition: all 0.2s ease-out;
 }
 
-.cursor-default{
+.cursor-default {
   cursor: default;
 }
 
@@ -341,9 +395,11 @@ input.hide-arrow::-webkit-inner-spin-button {
   align-items: center;
   margin: 20px 0;
 }
-.paging-numbers > *:not(:first-child) {
+
+.paging-numbers>*:not(:first-child) {
   margin-left: 8px;
 }
+
 .paging-number {
   padding: 5px;
   border-radius: 50%;
@@ -358,16 +414,19 @@ input.hide-arrow::-webkit-inner-spin-button {
   transition: all 0.2s ease-out;
   cursor: pointer;
 }
+
 .paging-number:hover {
   background-color: var(--color-primary);
   color: #fff;
   transition: all 0.2s ease-out;
 }
+
 .paging-number:active {
   background-color: var(--color-active);
   color: #fff;
   transition: all 50 ease-out;
 }
+
 .paging-number--active {
   background-color: var(--color-primary);
   color: #fff;
@@ -379,8 +438,8 @@ input.hide-arrow::-webkit-inner-spin-button {
   max-width: 50px;
   height: 50px;
   /*margin-left: -125px;*/
-  margin: auto; 
- 
+  margin: auto;
+
   background-color: var(--color-second);
   color: #fff;
   text-align: center;
@@ -388,42 +447,47 @@ input.hide-arrow::-webkit-inner-spin-button {
 
   position: fixed;
   z-index: 1;
-  left: 0;right:0;
+  left: 0;
+  right: 0;
   bottom: 30px;
   font-size: 17px;
   white-space: nowrap;
 }
-#toast #img{
+
+#toast #img {
   width: 50px;
   height: 50px;
-  
+
   float: left;
-  
+
   padding-top: 13px;
   padding-bottom: 16px;
-  
+
   box-sizing: border-box;
   border-radius: 5px 0 0 5px;
 
-  
+
   background-color: var(--color-primary);
 }
-.icon_toast{
+
+.icon_toast {
   font-size: 30px;
 }
-#toast #desc{ 
+
+#toast #desc {
   padding: 13px;
-  
+
   overflow: hidden;
   white-space: nowrap;
 }
 
 #toast.show {
   visibility: visible;
-  -webkit-animation: fadein 0.5s, expand 0.5s 0.5s,stay 3s 1s, shrink 0.5s 2s, fadeout 0.5s 2.5s;
-  animation: fadein 0.5s, expand 0.5s 0.5s,stay 3s 1s, shrink 0.5s 4s, fadeout 0.5s 4.5s;
+  -webkit-animation: fadein 0.5s, expand 0.5s 0.5s, stay 3s 1s, shrink 0.5s 2s, fadeout 0.5s 2.5s;
+  animation: fadein 0.5s, expand 0.5s 0.5s, stay 3s 1s, shrink 0.5s 4s, fadeout 0.5s 4.5s;
 }
-#toast.show #desc{
+
+#toast.show #desc {
   background: white;
   color: #333;
   border-top-right-radius: 7px;
@@ -432,61 +496,124 @@ input.hide-arrow::-webkit-inner-spin-button {
 }
 
 @-webkit-keyframes fadein {
-  from {bottom: 0; opacity: 0;} 
-  to {bottom: 30px; opacity: 1;}
+  from {
+    bottom: 0;
+    opacity: 0;
+  }
+
+  to {
+    bottom: 30px;
+    opacity: 1;
+  }
 }
 
 @keyframes fadein {
-  from {bottom: 0; opacity: 0;}
-  to {bottom: 30px; opacity: 1;}
+  from {
+    bottom: 0;
+    opacity: 0;
+  }
+
+  to {
+    bottom: 30px;
+    opacity: 1;
+  }
 }
 
 @-webkit-keyframes expand {
-  from {min-width: 50px} 
-  to {min-width: 350px}
+  from {
+    min-width: 50px
+  }
+
+  to {
+    min-width: 350px
+  }
 }
 
 @keyframes expand {
-  from {min-width: 50px}
-  to {min-width: 350px}
+  from {
+    min-width: 50px
+  }
+
+  to {
+    min-width: 350px
+  }
 }
+
 @-webkit-keyframes stay {
-  from {min-width: 350px} 
-  to {min-width: 350px}
+  from {
+    min-width: 350px
+  }
+
+  to {
+    min-width: 350px
+  }
 }
 
 @keyframes stay {
-  from {min-width: 350px}
-  to {min-width: 350px}
+  from {
+    min-width: 350px
+  }
+
+  to {
+    min-width: 350px
+  }
 }
+
 @-webkit-keyframes shrink {
-  from {min-width: 350px;} 
-  to {min-width: 50px;}
+  from {
+    min-width: 350px;
+  }
+
+  to {
+    min-width: 50px;
+  }
 }
 
 @keyframes shrink {
-  from {min-width: 350px;} 
-  to {min-width: 50px;}
+  from {
+    min-width: 350px;
+  }
+
+  to {
+    min-width: 50px;
+  }
 }
 
 @-webkit-keyframes fadeout {
-  from {bottom: 30px; opacity: 1;} 
-  to {bottom: 60px; opacity: 0;}
+  from {
+    bottom: 30px;
+    opacity: 1;
+  }
+
+  to {
+    bottom: 60px;
+    opacity: 0;
+  }
 }
 
 @keyframes fadeout {
-  from {bottom: 30px; opacity: 1;}
-  to {bottom: 60px; opacity: 0;}
+  from {
+    bottom: 30px;
+    opacity: 1;
+  }
+
+  to {
+    bottom: 60px;
+    opacity: 0;
+  }
 }
+
 /* end  message add to cart */
 @media only screen and (max-width: 768px) {
   .title {
     font-size: 2.5rem;
     margin: 10px 0 40px 0;
   }
+
   .title::after {
     top: 140%;
   }
+
   /* slider */
   .slider {
     transition: all 0.5s ease-in-out;

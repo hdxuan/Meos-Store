@@ -96,9 +96,12 @@
                     <?php endforeach; ?>
 
                     <div class="form-group col">
-                        <label for="price">Tổng tiền: </label>
-                        <span style="font-weight: 600; color: rgb(27 151 101);"><?= number_format($data["editOrder"]['total'], 0, "", ",") ?>đ </span>
-                        <!-- <input value="<?= number_format($data["editOrder"]['total'], 0, "", ",") ?>đ" type="text" name="price" class="form-control" id="price"> -->
+                        <span for="price">Tổng tiền: </span>
+                        <span style=" <?= $data["editOrder"]['discount_percent'] == 0 ? "font-weight: 600; color: rgb(27 151 101);" : "black" ?>"><?= number_format($data["editOrder"]['total'], 0, "", ",") ?>đ </span>
+                        <?php if ($data["editOrder"]['discount_percent'] != 0) : ?>
+                            <div style="font-weight: 400; color: black; font-size: 16px;" class="ms-2">Giảm giá: <?= $data["editOrder"]['discount_percent'] ?>%</div>
+                            <div style="<?= $data["editOrder"]['discount_percent'] != 0 ? "font-weight: 600; color: rgb(27 151 101);" : "black" ?> font-size: 16px;" class="ms-2">Thành tiền: <span class="font-bold"><?= number_format($data["editOrder"]['total'] - ($data["editOrder"]['total'] * ($data["editOrder"]['discount_percent'] / 100)), 0, "", ",")  ?>đ </span></div>
+                        <?php endif; ?>
                     </div>
 
                 </div>

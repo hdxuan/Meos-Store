@@ -122,42 +122,11 @@
 
     </div>
 </div>
+<div class="container-fluid banner">
+    <img class="img_banner" src="<?= IMAGES_URL ?>/banner/banner3.png" alt="banner">
+</div>
 
 
-<section class="container-fluid best-seller-background">
-    <section class="container best-seller noselect">
-        <h3 class="title__small">Nổi bật</h3>
-        <h3 class="title">Sản phẩm Khuyến mãi</h3>
-        <div id="carousel-discount__products" class="owl-carousel owl-theme">
-            <?php foreach ($data['discounts'] as $key => $discount) : ?>
-                <div class="item">
-                    <div class="best-seller__item">
-                        <div class="best-seller_image">
-                            <img src="<?= IMAGES_PRODUCT_URL . DS . $discount["image"] ?>" alt=" image" class="best-seller__item-image">
-                            <!-- <p class="best-seller_circle"></p> -->
-
-                        </div>
-
-                        <h6 class="best-seller__item-info__name">
-                            <a href=" <?= DOCUMENT_ROOT . DS . "Products/Detail?productId=" . $discount['id'] ?> "><?= $discount["name"] ?></a>
-                        </h6>
-                        <div class="best-seller__item-info__prices" style="align-self: stretch; align-items: center;">
-                            <div>
-                                <div class="best-seller__item-info__original-price"><?= number_format($discount["price_discount"], 0, '', '.') ?>đ</div>
-                                <div class="best-seller__item-info__price"><?= number_format($discount["price"], 0, '', '.') ?>đ</div>
-
-                            </div>
-
-                            <button onclick="addToCart(<?= isset($_SESSION['user']) ? $_SESSION['user']['id'] : 0 ?>,<?= $discount['id'] ?>)" class="btn btn--primary"><i class="fas fa-shopping-bag custom_cart"></i></button>
-                        </div>
-
-                    </div>
-                </div>
-
-            <?php endforeach; ?>
-        </div>
-    </section>
-</section>
 
 
 <div class="container sweeties noselect">

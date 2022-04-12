@@ -116,6 +116,19 @@ class CartModel extends Database
         }
     }
 
+    // discount
+    function getDiscountCode($discountCode)
+    {
+        $sql = "SELECT * FROM  discounts WHERE code='$discountCode'";
+        $result = $this->db->query($sql);
+
+        if ($result->num_rows > 0) {
+            return $result->fetch_all(MYSQLI_ASSOC)[0];
+        } else {
+            return false;
+        }
+    }
+
     function store($data)
     {
     }

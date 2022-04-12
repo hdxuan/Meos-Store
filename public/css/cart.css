@@ -1,6 +1,5 @@
-
 /* Edit profile */
-.separation{
+.separation {
     width: 90%;
     height: 1px;
     margin: 30px auto;
@@ -23,34 +22,32 @@
     font-size: 25px;
     line-height: 5.5rem;
     font-weight: 500;
-    color:var(--color-primary);
-    
+    color: var(--color-primary);
+
     border: none;
     border-radius: 5px;
-    
+
 
 }
 
 .cart__item--informations {
-    padding: 30px 30px; 
+    padding: 30px 30px;
 
     border-radius: 20px;
-    box-shadow:0 0 5px rgb(44 44 44 / 50%) ;
-    
+    box-shadow: 0 0 5px rgb(44 44 44 / 50%);
+
 }
 
-.cart__item--informations form{
+.cart__item--informations form {
     display: grid;
     grid-template-columns: 0.6fr 1fr;
     grid-gap: 15px 11px;
     align-items: center;
-    
+
 }
-.cart__item--informations label{
-    font-weight: bold;
-    
-}
-.cart__item--informations .input{
+
+
+.cart__item--informations .input {
     border-radius: 15px;
     border: 2px solid #fff;
     outline: none;
@@ -59,48 +56,54 @@
     padding: 13px 20px;
 
     background-color: rgba(197, 195, 195, 0.849);
-    
+
 }
 
-.cart__item--informations button{
+.cart__item--informations .checkout-btn {
     padding: 7px 50px;
     justify-self: center;
     grid-column: 1 / span 2;
 }
+
 /* cart__item--information */
-.cart__item--information{
+.cart__item--information {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    
+
 }
-.cart__item--information__image{
+
+.cart__item--information__image {
     width: 120px;
-    margin-left: 10px; 
+    margin-left: 10px;
 }
-.profuct__info{}
-.profuct__info--name{
+
+.profuct__info {}
+
+.profuct__info--name {
     color: var(--color-primary);
     font-weight: 600;
     font-family: var(--font-mi);
 }
-.profuct__info--price{
+
+.profuct__info--price {
     color: var(--color-title);
     font-weight: 600;
 
 }
 
 
-.icon__delete{
+.icon__delete {
     position: relative;
 }
-.icon_trash{
+
+.icon_trash {
     font-size: 23px;
     color: var(--color-title);
     position: absolute;
     right: 7%;
 }
 
-.address--text{
+.address--text {
     margin-left: 10px;
 }

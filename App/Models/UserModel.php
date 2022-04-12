@@ -53,6 +53,20 @@ class UserModel extends Database
 
     function getByEmail($email)
     {
+        $stmt = $this->db->prepare("SELECT id, name, phone, email, avatar FROM users WHERE email = ? and role = 1");
+        $stmt->bind_param("s", $email);
+
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        if ($result->num_rows > 0) {
+            return $result->fetch_assoc();
+        } else {
+            return false;
+        }
+    }
+    function getByEmailAdmin($email)
+    {
         $stmt = $this->db->prepare("SELECT id, name, phone, email, avatar FROM users WHERE email = ? and role = 0");
         $stmt->bind_param("s", $email);
 

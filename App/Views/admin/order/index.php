@@ -36,8 +36,10 @@
                                     <th>Tên khách hàng</th>
                                     <th>Ngày đặt</th>
                                     <th>Ngày giao</th>
-                                    <th>Trạng thái</th>
+                                    <th style="width: 87px;">Trạng thái</th>
                                     <th>Tổng tiền</th>
+                                    <th>Khuyến mãi</th>
+                                    <th>Thành tiền</th>
                                     <th>Thao tác</th>
                                 </tr>
                             </thead>
@@ -52,6 +54,9 @@
                                         <td><?= $order['status'] ?></td>
 
                                         <td><?= number_format($order['total'], 0, "", ",") ?>đ</td>
+                                        <td><?= $order['discount_percent'] != null ? $order['discount_percent'] : 0  ?>%</td>
+                                        <td><?= number_format($order['total'] - ($order['total'] * ($order['discount_percent'] / 100)), 0, "", ",")  ?>đ</td>
+
                                         <td>
                                             <div aria-label="Basic mixed styles example">
                                                 <a href="<?= DOCUMENT_ROOT ?> /admin/orders/edit/<?= $order['id'] ?> " type="button" class="btn btn-success"><i class="fas fa-edit"> Sửa</i></a>

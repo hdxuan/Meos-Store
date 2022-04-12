@@ -6,10 +6,11 @@ class OrderModel extends Database
 {
     function all()
     {
-        $sql = "SELECT o.id, o.id_user, o.address, u.name as customerName, u.phone, u.email,  o.order_date, o.delivery_date,
+        $sql = "SELECT o.id, o.id_user, o.address, o.discount_percent, u.name as customerName, u.phone, u.email,  o.order_date, o.delivery_date,
         s.name as status, id_status
         from orders o JOIN users u on o.id_user = u.id
-                                    JOIN status s on s.id = o.id_status";
+                                    JOIN status s on s.id = o.id_status
+        order by o.id desc";
 
         $result = $this->db->query($sql);
         if ($result->num_rows > 0) {
@@ -105,11 +106,11 @@ class OrderModel extends Database
     // profile 
     function numOrderByUser($id)
     {
-        $stmt = $this->db->prepare("SELECT o.id, o.order_date, o.delivery_date, s.name as status, id_status
+        $stmt = $this->db->prepare("SELECT o.id, o.order_date, o.delivery_date, s.name as status, id_status, discount_percent 
         from orders o JOIN users u on o.id_user = u.id
-                                    JOIN status s on s.id = o.id_status where id_user = ?");
+                                    JOIN status s on s.id = o.id_status where id_user = ? ORDER BY o.id DESC");
 
-        $stmt->bind_param("i", $id);
+        $stmt->bind_param("i", intval($id));
 
         $stmt->execute();
         $result = $stmt->get_result();
@@ -157,8 +158,8 @@ class OrderModel extends Database
 
         // die(var_dump($data));
 
-        $stmt = $this->db->prepare("INSERT INTO ORDERS ( order_date, id_user, id_status, address, phone) VALUES (?, ?, ?, ?, ?)");
-        $stmt->bind_param("sisss", $data["order_date"], $data["id_user"], $data["id_status"], $data['address'], $data["phone"]);
+        $stmt = $this->db->prepare("INSERT INTO ORDERS ( order_date, id_user, id_status, address, phone, discount_percent) VALUES (?, ?, ?, ?, ?, ?)");
+        $stmt->bind_param("sisssi", $data["order_date"], $data["id_user"], $data["id_status"], $data['address'], $data["phone"], $data["discount"]);
 
         $isSuccess = $stmt->execute();
         if (!$isSuccess) {

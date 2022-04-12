@@ -24,7 +24,7 @@ class LoginController extends Controller
             $result = $this->userModel->checkAdmin($_POST);
             // die(var_dump($result));
             if ($result === true) {
-                $admin = $this->userModel->getByEmail($_POST['email']);
+                $admin = $this->userModel->getByEmailAdmin($_POST['email']);
 
                 $_SESSION['admin'] = $admin;
 

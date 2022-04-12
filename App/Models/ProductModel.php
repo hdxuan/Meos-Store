@@ -213,24 +213,6 @@ class ProductModel extends Database
         }
     }
 
-    function getProductDiscount()
-    {
-        $sql = "SELECT p.*, d.id as idDiscount, d.name as nameDiscount, d.discount, d.start_time, d.end_time
-                FROM products p join discounts d on p.id_discount = d.id
-                WHERE id_discount > 0 ";
-        $result = $this->db->query($sql);
-
-        if ($result->num_rows > 0) {
-            return $result->fetch_all(MYSQLI_ASSOC);
-        } else {
-            return false;
-        }
-    }
-
-    // discount
-
-
-
 
     // admin
     function store($data)

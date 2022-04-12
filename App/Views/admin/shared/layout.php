@@ -90,6 +90,9 @@
                 "lengthChange": true,
                 "searching": true,
                 "ordering": true,
+                "order": [
+                    [0, "desc"]
+                ],
                 "autoWidth": true,
                 "responsive": true,
                 "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]

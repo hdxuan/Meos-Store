@@ -16,6 +16,7 @@ class CartController extends Controller
     }
     function index()
     {
+        date_default_timezone_set('Asia/Ho_Chi_Minh');
         $productInCart = $this->cartModel->getIdProductCart($_SESSION['user']['id']);
         if (!$productInCart) {
             $productInCart = [];
@@ -23,7 +24,24 @@ class CartController extends Controller
         $data['productInCart'] = $productInCart;
         $data['addresses'] = $this->userModel->getByAddress($_SESSION['user']['id']);
 
+        if (isset($_GET['discountCode'])) {
+            $data['discountCode'] = $this->cartModel->getDiscountCode($_GET['discountCode']);
+            if ($data['discountCode'] == false) {
+                $data['discountCode']['message'] = "Không tìm thấy mã giảm giá này";
+            } else {
+                $today = date("Y-m-d H:i:s");
+                $startTime = date("Y-m-d H:i:s", strtotime($data['discountCode']['start_time']));
+                $endTime = date("Y-m-d H:i:s", strtotime($data['discountCode']['end_time']));
 
+                if ($today < $startTime) {
+                    $data['discountCode']['message'] = "Chưa đến thời gian của chương trình khuyến mãi này";
+                } else if ($today > $endTime) {
+                    $data['discountCode']['message'] = "Chương trình khuyến mãi này đã kết thúc";
+                } else {
+                    $data['discountCode']['message'] = "";
+                }
+            }
+        }
 
         $this->view("/cart/Cart", $data);
     }
@@ -59,7 +77,7 @@ class CartController extends Controller
         $data['id_user'] = $_SESSION['user']['id'];
         $data['address'] = $_POST['address'];
         $data['phone'] = $_SESSION['user']['phone'];
-
+        $data['discount'] = isset($_POST['discount']) ? $_POST['discount'] : 0;
 
         $productInCart = $this->cartModel->getIdProductCart($_SESSION['user']['id']);
         if (!$productInCart) {
@@ -70,10 +88,12 @@ class CartController extends Controller
             $id = $product['id'];
             $data['id_product'][] = $id;
             $data['amount'][] = intval($_POST["numOfProduct$id"]); //intval: lay so nguyen/ lấy số lượng từng sp theo id
-            $data['price'][] = $_POST["price$id"]; // gia trong order k thay đôi
+            $data['price'][] = intval($_POST["price$id"]); // gia trong order k thay đôi
         }
-        //print_r($_POST);
+
         // echo "<pre>";
+        // print_r($data);
+        // die();
 
         // print_r($data['id_product']);
         // die();

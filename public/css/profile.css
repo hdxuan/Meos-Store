@@ -124,6 +124,7 @@ textarea {
 }
 
 .order__list--title {
+    color: black;
     display: grid;
     grid-template-columns: 0.2fr 0.3fr 0.3fr 0.2fr;
     grid-gap: 15px 11px;

@@ -24,7 +24,7 @@ class ProfileController extends Controller
         $_SESSION['user']['address'] = $data['address'];
 
         // echo "<pre>";
-        // print_r($data);
+        // print_r($_SESSION['user']['id']);
         // echo "<pre>";
         // die();
 

@@ -40,10 +40,9 @@
 
                         <div class="products__display--prices">
                             <div class="products__display--price"><?= number_format($products['price'], 0, '', '.')  ?>đ</div>
-                            <div class="products__display--price"><?= number_format($products['price'], 0, '', '.')  ?>đ</div>
 
                         </div>
-                        <button onclick="addToCart(<?= isset($_SESSION['user']) ? $_SESSION['user']['id'] : 0 ?>,<?= $products['id'] ?>)" class=" btn--cart btn--secondary">THÊM VÀO GIỎ</button>
+                        <button onclick="addToCart(<?= isset($_SESSION['user']) ? $_SESSION['user']['id'] : 0 ?>,<?= $products['id'] ?>)" class=" btn--cart btn--secondary">THÊM VÀO GIỎ+</button>
 
                     </div>
                 <?php endforeach; ?>
