@@ -35,24 +35,26 @@
         <div id="carousel-best-seller" class="owl-carousel owl-theme">
             <?php foreach ($data['bestSellers'] as $key => $bestSellers) : ?>
                 <div class="item">
-                    <div class="best-seller__item">
-                        <div class="best-seller_image">
-                            <img src="<?= IMAGES_PRODUCT_URL . DS . $bestSellers["image"] ?>" alt=" image" class="best-seller__item-image">
-                            <!-- <p class="best-seller_circle"></p> -->
+                    <a href=" <?= DOCUMENT_ROOT . DS . "Products/Detail?productId=" . $bestSellers['id'] ?> ">
+                        <div class="best-seller__item">
+                            <div class="best-seller_image">
+                                <img src="<?= IMAGES_PRODUCT_URL . DS . $bestSellers["image"] ?>" alt=" image" class="best-seller__item-image">
+                                <!-- <p class="best-seller_circle"></p> -->
+
+                            </div>
+
+                            <h6 class="best-seller__item-info__name">
+                                <a href=" <?= DOCUMENT_ROOT . DS . "Products/Detail?productId=" . $bestSellers['id'] ?> "><?= $bestSellers["name"] ?></a>
+                            </h6>
+                            <div class="best-seller__item-info__prices">
+
+                                <div class="best-seller__item-info__price"><?= number_format($bestSellers["price"], 0, '', '.') ?>đ</div>
+
+                                <button onclick="addToCart(<?= isset($_SESSION['user']) ? $_SESSION['user']['id'] : 0 ?>,<?= $bestSellers['id'] ?>)" class="btn btn--primary"><i class="fas fa-shopping-bag custom_cart"></i></button>
+                            </div>
 
                         </div>
-
-                        <h6 class="best-seller__item-info__name">
-                            <a href=" <?= DOCUMENT_ROOT . DS . "Products/Detail?productId=" . $bestSellers['id'] ?> "><?= $bestSellers["name"] ?></a>
-                        </h6>
-                        <div class="best-seller__item-info__prices">
-
-                            <div class="best-seller__item-info__price"><?= number_format($bestSellers["price"], 0, '', '.') ?>đ</div>
-
-                            <button onclick="addToCart(<?= isset($_SESSION['user']) ? $_SESSION['user']['id'] : 0 ?>,<?= $bestSellers['id'] ?>)" class="btn btn--primary"><i class="fas fa-shopping-bag custom_cart"></i></button>
-                        </div>
-
-                    </div>
+                    </a>
                 </div>
 
             <?php endforeach; ?>
@@ -74,19 +76,22 @@
     <div class="sweeties__items">
         <?php foreach ($data["productOnlyPageDog"] as $key => $productOnlyPageDog) : ?>
             <div class="sweeties__item">
-                <div class="sweeties__item--over-image">
+                <a href=" <?= DOCUMENT_ROOT . DS . "Products/Detail?productId=" . $productOnlyPageDog['id'] ?> ">
+                    <div class="sweeties__item--over-image">
 
-                    <img src="<?= IMAGES_PRODUCT_URL . DS . $productOnlyPageDog['image'] ?>" alt="sweeties image" class="sweeties__item-image">
-                    <p class="product_circle"></p>
-                </div>
-                <div class="sweeties__item-name">
-                    <a href=" <?= DOCUMENT_ROOT . DS . "Products/Detail?productId=" . $productOnlyPageDog['id'] ?> "><?= $productOnlyPageDog['name'] ?></a>
-                </div>
-                <div class="sweeties__item-prices">
-                    <div class="sweeties__item__price"><?= number_format($productOnlyPageDog['price'], 0, '', '.') ?>đ</div>
 
-                    <button onclick="addToCart(<?= isset($_SESSION['user']) ? $_SESSION['user']['id'] : 0 ?>,<?= $productOnlyPageDog['id'] ?>)" class="btn btn--secondary"><i class="fas fa-shopping-bag custom_cart"></i></button>
-                </div>
+                        <img src="<?= IMAGES_PRODUCT_URL . DS . $productOnlyPageDog['image'] ?>" alt="sweeties image" class="sweeties__item-image">
+                        <p class="product_circle"></p>
+                    </div>
+                    <div class="sweeties__item-name">
+                        <a href=" <?= DOCUMENT_ROOT . DS . "Products/Detail?productId=" . $productOnlyPageDog['id'] ?> "><?= $productOnlyPageDog['name'] ?></a>
+                    </div>
+                    <div class="sweeties__item-prices">
+                        <div class="sweeties__item__price"><?= number_format($productOnlyPageDog['price'], 0, '', '.') ?>đ</div>
+
+                        <button onclick="addToCart(<?= isset($_SESSION['user']) ? $_SESSION['user']['id'] : 0 ?>,<?= $productOnlyPageDog['id'] ?>)" class="btn btn--secondary"><i class="fas fa-shopping-bag custom_cart"></i></button>
+                    </div>
+                </a>
 
             </div>
         <?php endforeach; ?>
@@ -139,20 +144,21 @@
     <div class="sweeties__items">
         <?php foreach ($data["productOnlyPageCat"] as $key => $productOnlyPageCat) : ?>
             <div class="sweeties__item">
-                <div class="sweeties__item--over-image">
+                <a href=" <?= DOCUMENT_ROOT . DS . "Products/Detail?productId=" . $productOnlyPageCat['id'] ?> ">
+                    <div class="sweeties__item--over-image">
+                        <img src="<?= IMAGES_PRODUCT_URL . DS . $productOnlyPageCat['image'] ?>" alt="sweeties image" class="sweeties__item-image">
+                        <p class="product_circle"></p>
+                    </div>
+                    <div class="sweeties__item-name">
+                        <a href=" <?= DOCUMENT_ROOT . DS . "Products/Detail?productId=" . $productOnlyPageCat['id'] ?> "><?= $productOnlyPageCat['name'] ?></a>
+                    </div>
+                    <div class="sweeties__item-prices">
+                        <div class="sweeties__item__price"><?= number_format($productOnlyPageCat['price'], 0, '', '.') ?>đ</div>
 
-                    <img src="<?= IMAGES_PRODUCT_URL . DS . $productOnlyPageCat['image'] ?>" alt="sweeties image" class="sweeties__item-image">
-                    <p class="product_circle"></p>
-                </div>
-                <div class="sweeties__item-name">
-                    <a href=" <?= DOCUMENT_ROOT . DS . "Products/Detail?productId=" . $productOnlyPageCat['id'] ?> "><?= $productOnlyPageCat['name'] ?></a>
-                </div>
-                <div class="sweeties__item-prices">
-                    <div class="sweeties__item__price"><?= number_format($productOnlyPageCat['price'], 0, '', '.') ?>đ</div>
+                        <button onclick="addToCart(<?= isset($_SESSION['user']) ? $_SESSION['user']['id'] : 0 ?>,<?= $productOnlyPageCat['id'] ?>)" class="btn btn--secondary"><i class="fas fa-shopping-bag custom_cart"></i></button>
+                    </div>
 
-                    <button onclick="addToCart(<?= isset($_SESSION['user']) ? $_SESSION['user']['id'] : 0 ?>,<?= $productOnlyPageCat['id'] ?>)" class="btn btn--secondary"><i class="fas fa-shopping-bag custom_cart"></i></button>
-                </div>
-
+                </a>
             </div>
         <?php endforeach; ?>
     </div>

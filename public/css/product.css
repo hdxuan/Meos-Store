@@ -142,8 +142,8 @@
     align-items: center;
     justify-content: space-between;
     text-align: center; */
-    border: 2px solid #f8f8f8;
-    background-color: #f8f8f8e1;
+    /* border: 2px solid #f8f8f8;
+    background-color: #f8f8f8e1; */
 
     border-radius: 15px;
     overflow: hidden;
@@ -195,7 +195,10 @@
 .products__display--item:hover {
     /* box-shadow: 0 0 22px rgba(37, 37, 37, 0.267); */
     /* box-shadow: 0 0 4px 1px #aaaaaa; */
+    box-shadow: 2px 2px 6px rgb(0 0 0 / 5%);
+    background-color: #ffe7ec;
     transition: all 0.3s linear;
+    cursor: pointer;
 }
 
 .products__display--item:hover .products__display--image {

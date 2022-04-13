@@ -29,6 +29,7 @@
             <div class="products__display--items">
                 <?php foreach ($data["products"] as $index => $products) : ?>
 
+
                     <div class="products__display--item">
                         <div class="sweeties__item--over-image">
                             <img src="<?= IMAGES_PRODUCT_URL . DS .  $products['image'] ?>" alt="sweeties image" class="products__display--image">
@@ -43,8 +44,8 @@
 
                         </div>
                         <button onclick="addToCart(<?= isset($_SESSION['user']) ? $_SESSION['user']['id'] : 0 ?>,<?= $products['id'] ?>)" class=" btn--cart btn--secondary">THÊM VÀO GIỎ+</button>
-
                     </div>
+
                 <?php endforeach; ?>
 
             </div>

@@ -36,7 +36,7 @@
                                     <div class="profuct__info--box__set">
                                         <div class="buttons_added">
                                             <input class="minus is-form" type="button" value="-">
-                                            <input onchange="onAmountChange();" id="amount<?= $index ?>" aria-label="quantity" class="input-qty" max="20" min="1" name="numOfProduct<?= $productInCart['id'] ?>" type="number" value="<?= $productInCart['amount'] ?>">
+                                            <input onchange="onAmountChange();" id="amount<?= $index ?>" aria-label="quantity" class="input-qty" max="<?= $productInCart['quantity'] ?>" min="1" name="numOfProduct<?= $productInCart['id'] ?>" type="number" value="<?= $productInCart['amount'] ?>">
                                             <input class="plus is-form" type="button" value="+">
                                         </div>
                                     </div>
@@ -130,6 +130,20 @@
                                 <div class="col ml-2">
                                     <button type="button" onclick="submitDiscount();" style="font-size:14px;" class="btn btn--primary">Áp dụng</button>
                                 </div>
+                            </div>
+                            <div>
+                                <p>Hình thức thanh toán:</p>
+                                <div>
+                                    <input class="cursor-pointer" id="paymentOff" type="radio">
+                                    <label class="cursor-pointer" for="paymentOff">Thanh toán khi nhận hàng</label>
+
+                                </div>
+                                <div>
+                                    <input class="cursor-pointer" id=" paymentVNPAY" type="radio">
+                                    <label class="cursor-pointer" for="paymentVNPAY">Thanh toán qua VNPAY</label>
+
+                                </div>
+
                             </div>
 
 

@@ -22,6 +22,10 @@ class CartController extends Controller
             $productInCart = [];
         }
         $data['productInCart'] = $productInCart;
+
+        // echo "<pre>";
+        // print_r($data['productInCart']);
+        // die();
         $data['addresses'] = $this->userModel->getByAddress($_SESSION['user']['id']);
 
         if (isset($_GET['discountCode'])) {
@@ -92,7 +96,7 @@ class CartController extends Controller
         }
 
         // echo "<pre>";
-        // print_r($data);
+        // print_r($productInCart);
         // die();
 
         // print_r($data['id_product']);
