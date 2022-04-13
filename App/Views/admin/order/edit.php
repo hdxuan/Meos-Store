@@ -57,7 +57,7 @@
                     </div>
                     <div class="form-group ">
                         <label for="delivery_date">Ngày giao hàng</label>
-                        <input value="<?= $data["editOrder"]['delivery_date'] ?>" type="date" class="form-control" name="delivery_date" id="delivery_date">
+                        <input value="<?= $data["editOrder"]['delivery_date'] ?>" min="<?= $data["editOrder"]['order_date'] ?>" type="date" class="form-control" name="delivery_date" id="delivery_date">
                     </div>
                     <div class="form-group ">
                         <label for="idstatus">Trạng thái đơn hàng</label>
