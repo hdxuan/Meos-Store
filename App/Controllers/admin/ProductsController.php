@@ -73,7 +73,7 @@ class ProductsController extends Controller
         // die(print_r($result));
         if ($result === true) {
             $_SESSION['alert']['success'] = true;
-            $_SESSION['alert']['messages'] = "Thêm sản phẩmthành công";
+            $_SESSION['alert']['messages'] = "Thêm sản phẩm thành công";
         } else {
             $_SESSION['alert']['success'] = false;
             $_SESSION['alert']['messages'] = $result;

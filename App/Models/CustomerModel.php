@@ -36,10 +36,55 @@ class CustomerModel extends Database
         }
     }
 
+    function addAdressAdmin($data, $id)
+    {
+        $address = $data['address'];
+
+        $stmt = $this->db->prepare("INSERT INTO addresses (address, id_user) VALUES (?, ?)");
+
+        $stmt->bind_param("si", $address, $id);
+        $stmt->execute();
+        $result = $stmt->affected_rows;
+        if ($result < 1) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+    function getAdminByID()
+    {
+        $sql = "SELECT * FROM users WHERE role = 0 ORDER BY id DESC LIMIT 1  ";
+        $result = $this->db->query($sql);
+        if ($result->num_rows > 0) {
+            return $result->fetch_assoc()['id'];
+        } else {
+            return false;
+        }
+    }
 
     // Customer admin
     function store($data)
     {
+        $name = $data['name'];
+        // $address = $data['address'];
+        $phone = $data['phone'];
+        $email = $data['email'];
+        $passwd = $data['passwd'];
+        $role = 0;
+
+        $stmt = $this->db->prepare("INSERT INTO users (name, phone, password, email, role) VALUES (?, ?, ?, ?, ?)");
+        // var_dump($stmt);
+        // die();
+        if ($stmt) {
+            $stmt->bind_param("ssssi", $name, $phone, $passwd, $email, $role);
+            $stmt->execute();
+            $result = $stmt->affected_rows;
+            if ($result < 1) {
+                return false;
+            } else {
+                return true;
+            }
+        }
     }
 
     function update($data)
