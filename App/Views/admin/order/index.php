@@ -32,15 +32,16 @@
                         <table id="myTable" class="table table-bordered table-hover">
                             <thead>
                                 <tr>
-                                    <th>Mã đơn hàng</th>
+                                    <th style="width: 51px;">Mã đơn hàng</th>
                                     <th>Tên khách hàng</th>
                                     <th>Ngày đặt</th>
                                     <th>Ngày giao</th>
                                     <th style="width: 87px;">Trạng thái</th>
                                     <th>Tổng tiền</th>
-                                    <th>Khuyến mãi</th>
+                                    <th style="width: 40px;">Khuyến mãi</th>
                                     <th>Thành tiền</th>
-                                    <th>Thao tác</th>
+                                    <th>Thanh toán</th>
+                                    <th style="width: 141px;">Thao tác</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -56,7 +57,7 @@
                                         <td><?= number_format($order['total'], 0, "", ",") ?>đ</td>
                                         <td><?= $order['discount_percent'] != null ? $order['discount_percent'] : 0  ?>%</td>
                                         <td><?= number_format($order['total'] - ($order['total'] * ($order['discount_percent'] / 100)), 0, "", ",")  ?>đ</td>
-
+                                        <td> <?= (isset($order['payment_code']) ? "Đã thanh toán" : "Chưa thanh toán") ?> </td>
                                         <td>
                                             <div aria-label="Basic mixed styles example">
                                                 <a href="<?= DOCUMENT_ROOT ?> /admin/orders/edit/<?= $order['id'] ?> " type="button" class="btn btn-success"><i class="fas fa-edit"> Sửa</i></a>

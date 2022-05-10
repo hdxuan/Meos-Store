@@ -82,9 +82,6 @@
     <!-- ChartJS -->
     <script src="<?= PUBLIC_URL . "/admin" ?>/plugins/chart.js/Chart.min.js"></script>
 
-    <script src="<?= PUBLIC_URL . "/admin" ?>/dist/js/demo.js"></script>
-
-
     <script>
         $(function() {
             $('#myTable ').DataTable({

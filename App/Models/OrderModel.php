@@ -6,7 +6,7 @@ class OrderModel extends Database
 {
     function all()
     {
-        $sql = "SELECT o.id, o.id_user, o.address, o.discount_percent, u.name as customerName, u.phone, u.email,  o.order_date, o.delivery_date,
+        $sql = "SELECT o.id, o.id_user, o.address, o.discount_percent, o.payment_code, u.name as customerName, u.phone, u.email,  o.order_date, o.delivery_date,
         s.name as status, id_status
         from orders o JOIN users u on o.id_user = u.id
                                     JOIN status s on s.id = o.id_status
@@ -95,7 +95,7 @@ class OrderModel extends Database
 
     function numOfOrders()
     {
-        $sql = "SELECT COUNT(*) as numOrder FROM orders";
+        $sql = "SELECT COUNT(*) as numOrder FROM orders where id_status like 'CXL' ";
         $result = $this->db->query($sql);
 
         if ($result->num_rows > 0) {
@@ -106,9 +106,9 @@ class OrderModel extends Database
     // profile 
     function numOrderByUser($id)
     {
-        $stmt = $this->db->prepare("SELECT o.id, o.order_date, o.delivery_date, s.name as status, id_status, discount_percent 
+        $stmt = $this->db->prepare("SELECT o.id, o.order_date, o.delivery_date, s.name as status, id_status, discount_percent, payment_code 
         from orders o JOIN users u on o.id_user = u.id
-                                    JOIN status s on s.id = o.id_status where id_user = ? ORDER BY o.id DESC");
+        JOIN status s on s.id = o.id_status where id_user = ? ORDER BY o.id DESC");
 
         $stmt->bind_param("i", intval($id));
 
@@ -128,6 +128,9 @@ class OrderModel extends Database
             $listOrderDetail = $this->getOrderDetail($idOrder);
             $orderList[$key]['products'] = $listOrderDetail;
         }
+        // echo '<pre>';
+        // print_r($orderList);
+        // die();
         return $orderList;
     }
 
@@ -200,7 +203,7 @@ class OrderModel extends Database
                 return $stmt;
             }
         }
-        return true;
+        return $id_order;
     }
 
     function update($data = [])
@@ -233,11 +236,27 @@ class OrderModel extends Database
         return false;
     }
 
-    function deleteOrder($isUser, $idOrder = "")
+    function deleteOrder($idUser, $idOrder = "")
     {
 
         $stmt = $this->db->prepare("DELETE FROM ORDERS WHERE id_user = ? AND id = ?"); // xóa 1 sp trong ORDERS
-        $stmt->bind_param("ii", $isUser, $idOrder);
+        $stmt->bind_param("ii", $idUser, $idOrder);
+
+
+        $stmt->execute();
+
+        $result =  $stmt->get_result();
+
+        if ($stmt->affected_rows > 0) {
+            return true;
+        }
+        return false;
+    }
+
+    function updatePayment($orderId, $paymentCode = "")
+    {
+        $stmt = $this->db->prepare("UPDATE ORDERS SET payment_code = ? WHERE id = ?");
+        $stmt->bind_param("ii", $paymentCode, $orderId);
 
 
         $stmt->execute();

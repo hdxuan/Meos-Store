@@ -64,7 +64,7 @@
                 </div>
             </div>
 
-            <div class="layout2">
+            <div class="layout2" id="order">
                 <div class="bio-graph-info height_history">
                     <h2>Lịch sử đơn hàng</h2>
                     <div class="order__lists">
@@ -108,13 +108,17 @@
                                     <!-- fs-2 py-5 -->
 
 
-                                    <div class="d-flex flex-column mb-4">
+                                    <div class="d-flex flex-column align-items-end mb-4">
                                         <div style="font-weight: 400; color: black; font-size: 16px;" class="ms-2">Tổng tiền: <span class="<?= $order['discount_percent'] == 0 ? "font-bold" : "" ?>"> <?= number_format($order['total'], 0, "", ",")  ?>đ</span> </div>
                                         <?php if ($order['discount_percent'] != 0) : ?>
                                             <div style="font-weight: 400; color: black; font-size: 16px;" class="ms-2">Giảm giá: <?= $order['discount_percent'] ?>%</div>
                                             <div style="font-weight: 400; color: black; font-size: 16px;" class="ms-2">Thành tiền: <span class="font-bold"><?= number_format($order['total'] - ($order['total'] * ($order['discount_percent'] / 100)), 0, "", ",")  ?>đ </span></div>
                                         <?php endif; ?>
+                                        <?php if (isset($order['payment_code'])) : ?>
+                                            <div style="font-weight: 400; color: green; font-size: 16px;" class="ms-2">Đã thanh toán qua VNPAY - Mã thanh toán: <?= $order['payment_code'] ?></div>
+                                        <?php endif; ?>
                                     </div>
+
                                 </div>
 
                                 <div class="d-flex justify-content-end mt-1">

@@ -57,6 +57,9 @@ class ProductsController extends Controller
 
     function detail()
     {
+        if (!isset($_GET['productId'])) {
+            header("Location:" . DOCUMENT_ROOT . "/");
+        }
         $productId = $_GET['productId'];
         $detailProduct = $this->productModel->detail($productId);
         $data['detailProduct'] = $detailProduct;
@@ -68,6 +71,13 @@ class ProductsController extends Controller
             $data['comments'] = [];
             $_SESSION['comments']['error'] = "Chưa có bình luận nào về sản phẩm này.";
         }
+        if (isset($_SESSION['user'])) {
+            $data['idUser'] = $_SESSION['user']['id'];
+            $data['error'] = "";
+        } else {
+            $data['error'] = "Vui lòng đăng nhập để bình luận sản phẩm";
+        }
+
         $data['ProductType'] = $this->productModel->getProductType($idProductType);
 
 

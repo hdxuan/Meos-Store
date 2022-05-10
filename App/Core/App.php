@@ -51,6 +51,9 @@ class App
 
             //  tham so 1: ten lop, ham tham so t2 :params
             call_user_func_array([$this->controller, $this->action], $this->params);
+        } else if (strtolower($array[0])  == "vnpay_php") {
+            unset($array[0]);
+            require_once(VIEW . DS . "vnpay_php" . DS . (count($array) > 0 ? join("\\", $array) : "index.php"));
         } else {
 
             // xua ly Controller

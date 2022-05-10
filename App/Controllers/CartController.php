@@ -88,13 +88,27 @@ class CartController extends Controller
             $productInCart = [];
         }
 
+        $data['total'] = 0;
         foreach ($productInCart as $key => $product) {
             $id = $product['id'];
             $data['id_product'][] = $id;
             $data['amount'][] = intval($_POST["numOfProduct$id"]); //intval: lay so nguyen/ lấy số lượng từng sp theo id
             $data['price'][] = intval($_POST["price$id"]); // gia trong order k thay đôi
+            $discountPrice = intval($_POST["price$id"]) * (1 - ($data['discount'] / 100));
+            $data['total'] += $discountPrice;
         }
 
+        $orderId = $this->orderModel->store($data);
+
+        if (isset($_POST['paymentMethod']) &&  $_POST['paymentMethod'] == "VNPAY") {
+            $phone = $data['phone'];
+            $address = $data['address'];
+            $email = $_SESSION['user']['email'];
+            $fullname = $_SESSION['user']['name'];
+            $total = $data['total'];
+            header("Location:" . DOCUMENT_ROOT . "/vnpay_php/vnpay_create_payment.php?order_id=$orderId&amount=$total&phone=$phone&email=$email&fullname=$fullname&address=$address");
+            return;
+        }
         // echo "<pre>";
         // print_r($productInCart);
         // die();
@@ -105,11 +119,7 @@ class CartController extends Controller
         // echo "<pre>";
         // print_r($data);
         // echo "</pre>";
-        $result = $this->orderModel->store($data);
-        if ($result === true) {
-            $productInCart = $this->cartModel->deleteCart($_SESSION['user']['id']);
-        }
-
+        $productInCart = $this->cartModel->deleteCart($_SESSION['user']['id']);
 
         header("Location:" . DOCUMENT_ROOT . "/profile");
     }
@@ -120,5 +130,11 @@ class CartController extends Controller
         $delOrder = $this->orderModel->deleteOrder($_SESSION['user']['id'], $idOrder);
         $_SESSION['flashMessage'] = "Hủy đơn hàng $idOrder thành công";
         header("Location: " . DOCUMENT_ROOT . DS . "Profile");
+    }
+
+    function updatePayment($orderId, $paymentCode)
+    {
+        $result = $this->orderModel->updatePayment($orderId, $paymentCode);
+        echo $result;
     }
 }

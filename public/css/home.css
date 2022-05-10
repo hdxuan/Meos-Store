@@ -2,6 +2,10 @@
   padding: 0 100px;
 }
 
+#carousel-banner {
+  margin-top: 110px;
+}
+
 .bottom_wave {
   position: absolute;
 }

@@ -132,16 +132,15 @@
                                 </div>
                             </div>
                             <div>
-                                <p>Hình thức thanh toán:</p>
-                                <div>
-                                    <input class="cursor-pointer" id="paymentOff" type="radio">
+                                <p class="mb-2">Hình thức thanh toán:</p>
+                                <div class="mb-1">
+                                    <input class="cursor-pointer" checked id="paymentOff" value="cash" name="paymentMethod" type="radio">
                                     <label class="cursor-pointer" for="paymentOff">Thanh toán khi nhận hàng</label>
 
                                 </div>
-                                <div>
-                                    <input class="cursor-pointer" id=" paymentVNPAY" type="radio">
+                                <div class="mb-2">
+                                    <input class="cursor-pointer" id="paymentVNPAY" value="VNPAY" name="paymentMethod" type="radio">
                                     <label class="cursor-pointer" for="paymentVNPAY">Thanh toán qua VNPAY</label>
-
                                 </div>
 
                             </div>

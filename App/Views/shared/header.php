@@ -9,7 +9,7 @@
     <button id="stop-btn" style="margin-left: 20px" class="mr-5 btn btn--secondary">Stop</button>
 </div>
 <!-- wrapper header -->
-<div class="container-fluid ">
+<div class="container-fluid fixed">
     <div class="container">
         <header class="header ">
             <a href="<?= DOCUMENT_ROOT ?>" class="header__logo">
