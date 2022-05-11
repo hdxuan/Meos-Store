@@ -92,14 +92,30 @@ class OrderModel extends Database
             return false;
         }
     }
-
+    // thong ke
     function numOfOrders()
     {
-        $sql = "SELECT COUNT(*) as numOrder FROM orders where id_status like 'CXL' ";
+        $sql = "SELECT COUNT(id_status) amount , id_status, name 
+                FROM orders o JOIN status s on o.id_status = s.id
+                GROUP BY id_status";
         $result = $this->db->query($sql);
 
         if ($result->num_rows > 0) {
-            return  $result->fetch_assoc()['numOrder'];
+            return  $result->fetch_all(MYSQLI_ASSOC);
+        } else {
+            return false;
+        }
+    }
+    // thong ke
+    function countOrders()
+    {
+        $sql = "SELECT COUNT(*) amount  FROM orders ";
+        $result = $this->db->query($sql);
+
+        if ($result->num_rows > 0) {
+            return  $result->fetch_assoc()['amount'];
+        } else {
+            return false;
         }
     }
 

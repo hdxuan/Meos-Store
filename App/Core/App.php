@@ -46,6 +46,7 @@ class App
             }
 
             //xu ly Params
+
             // kiem tra xem $array co ton tai thi gan gtri mang do array_values: nguoc lai rong
             $this->params = $array ? array_values($array) : [];
 
@@ -62,7 +63,7 @@ class App
                 //xu ly xong thi xoa $array[0] la Home ra khoi mang
                 unset($array[0]);
             }
-
+            $GLOBALS['pageCurrentHome'] = $this->controller;
             $this->controller = $this->controller . "Controller";
 
             // mac dinh luon luon la trang Home
@@ -79,9 +80,12 @@ class App
                 }
                 unset($array[1]);
             }
+            $GLOBALS['pageCurrent'] = $this->action;
+
 
             //xu ly Params
             // kiem tra xem $array co ton tai thi gan gtri mang do array_values: nguoc lai rong
+            // $GLOBALS['pageCurrent'] = $this->controller;
             $this->params = $array ? array_values($array) : [];
 
             //  tham so 1: ten lop, ham tham so t2 :params

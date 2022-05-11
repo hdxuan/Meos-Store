@@ -32,6 +32,18 @@ class DiscountModel extends Database
             return false;
         }
     }
+    // thong ke
+    function countDiscounts()
+    {
+        $sql = "SELECT COUNT(*) amount  FROM discounts ";
+        $result = $this->db->query($sql);
+
+        if ($result->num_rows > 0) {
+            return  $result->fetch_assoc()['amount'];
+        } else {
+            return false;
+        }
+    }
 
 
     // admin

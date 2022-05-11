@@ -9,16 +9,16 @@
     <button id="stop-btn" style="margin-left: 20px" class="mr-5 btn btn--secondary">Stop</button>
 </div>
 <!-- wrapper header -->
-<div class="container-fluid fixed">
+<header class="container-fluid">
     <div class="container">
-        <header class="header ">
+        <div class="header ">
             <a href="<?= DOCUMENT_ROOT ?>" class="header__logo">
                 <img src="<?= IMAGES_URL ?>/logo.png" alt="logo">
             </a>
             <nav class="header__menu noselect">
-                <a href="<?= DOCUMENT_ROOT ?>" class="header__menu__item">Trang chủ</a>
-                <a href="<?= DOCUMENT_ROOT ?>/Products/Dog" class="header__menu__item">Shop cho Chó</a>
-                <a href="<?= DOCUMENT_ROOT ?>/Products/Cat" class="header__menu__item">Shop cho Mèo</a>
+                <a href="<?= DOCUMENT_ROOT ?>" class="header__menu__item  <?= $GLOBALS['pageCurrentHome'] == "Home" ? "header__menu__item--active" : "" ?>">Trang chủ</a>
+                <a href="<?= DOCUMENT_ROOT ?>/Products/Dog" class="header__menu__item <?= $GLOBALS['pageCurrent'] == "Dog" ? "header__menu__item--active" : "" ?>">Shop cho Chó</a>
+                <a href="<?= DOCUMENT_ROOT ?>/Products/Cat" class="header__menu__item <?= $GLOBALS['pageCurrent'] == "Cat" ? "header__menu__item--active" : "" ?>">Shop cho Mèo</a>
             </nav>
 
             <div class="header__search">
@@ -68,7 +68,7 @@
                 </label>
 
             </div>
-        </header>
+        </div>
 
         <input hidden type="checkbox" name="nav" class="nav-mobile__button" id="nav-mobile__button" />
 
@@ -116,7 +116,7 @@
         </nav>
 
     </div>
-</div>
+</header>
 <!-- end wrapper header -->
 
 <script>
@@ -163,4 +163,16 @@
         })
 
     }
+
+    $(document).ready(function() {
+        $(window).scroll(function() {
+            if ($(this).scrollTop()) {
+                $('header').addClass('fixed');
+                $('header').removeClass('no_fixed');
+            } else {
+                $('header').removeClass('fixed');
+                $('header').addClass('no_fixed');
+            }
+        })
+    });
 </script>

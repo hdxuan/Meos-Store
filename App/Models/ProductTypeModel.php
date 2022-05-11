@@ -77,6 +77,18 @@ class ProductTypeModel extends Database
             return false;
         }
     }
+    // thong ke
+    function countproducts_type()
+    {
+        $sql = "SELECT COUNT(*) amount  FROM products_type ";
+        $result = $this->db->query($sql);
+
+        if ($result->num_rows > 0) {
+            return  $result->fetch_assoc()['amount'];
+        } else {
+            return false;
+        }
+    }
 
     // admin
     function store($data)

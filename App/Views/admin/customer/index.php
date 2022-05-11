@@ -35,7 +35,7 @@
                                     <th>STT</th>
                                     <th>Mã khách hàng</th>
                                     <th style="width: 140px;">Tên khách hàng</th>
-                                    <th style="width: 380px;">Địa chỉ</th>
+                                    <th style="width: 360px;">Địa chỉ</th>
                                     <th>Số điện thoại</th>
                                     <th>Email</th>
                                     <th>Thao tác</th>

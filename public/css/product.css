@@ -3,6 +3,7 @@
     position: relative;
     text-align: center;
     z-index: 40;
+    margin-top: 160px;
 }
 
 .banner__product img {

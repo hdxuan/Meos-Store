@@ -18,6 +18,18 @@ class CommentModel extends Database
             return false;
         }
     }
+    // thong ke
+    function countComment()
+    {
+        $sql = "SELECT COUNT(*) amount  FROM comments ";
+        $result = $this->db->query($sql);
+
+        if ($result->num_rows > 0) {
+            return  $result->fetch_assoc()['amount'];
+        } else {
+            return false;
+        }
+    }
 
     // Customer admin
     function delete($id)

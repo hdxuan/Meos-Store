@@ -64,7 +64,7 @@ class DiscountsController extends Controller
         }
         $data['discounts'] = $discounts;
         // echo "<pre>";
-        // print_r($data['discount']);
+        // print_r($data['discounts']);
         // die();
 
         $this->view("/admin/discount/edit", $data);

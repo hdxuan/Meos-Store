@@ -79,6 +79,18 @@ class UserModel extends Database
             return false;
         }
     }
+    // thong ke
+    function countStaff()
+    {
+        $sql = "SELECT COUNT(*) amount  FROM users where role = 0  ";
+        $result = $this->db->query($sql);
+
+        if ($result->num_rows > 0) {
+            return  $result->fetch_assoc()['amount'];
+        } else {
+            return false;
+        }
+    }
     function getById($id)
     {
         $stmt = $this->db->prepare("SELECT id, name, phone, email, avatar FROM users WHERE id = ?");

@@ -26,6 +26,7 @@ class StaffController extends Controller
         $this->view("/admin/staff/index", $data);
     }
 
+
     function create()
     {
         $this->view("/admin/staff/create");

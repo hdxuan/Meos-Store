@@ -38,15 +38,16 @@
 
                         <div class="form-group col">
                             <label for="start_time">Ngày bắt đầu </label>
-                            <input value="<?= $data['discounts']['start_time'] ?>" type="datetime-local" name="start_time" class="form-control" id="start_time">
+                            <input value="<?= $data['discounts']['start_time'] ?>" type="date" name="start_time" class="form-control" id="start_time">
                         </div>
 
                         <div class="form-group col">
                             <label for="end_time">Ngày kết thúc</label>
-                            <input value="<?= $data['discounts']['end_time'] ?>" type="datetime-local" name="end_time" class="form-control" id="end_time">
+                            <input value="<?= $data['discounts']['end_time'] ?>" min="<?= $data['discounts']['start_time'] ?>" type="date" name="end_time" class="form-control" id="end_time">
                         </div>
 
                     </div>
+
 
 
                 </div>

@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Méo Store Admin</title>
+    <link rel="icon" href="<?= ICONS_URL ?>/logo.png" />
+
     <?php if (strpos($view, 'login') !== false) : ?>
         <!-- login -->
         <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
