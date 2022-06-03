@@ -139,7 +139,7 @@
                                 <div class="form__comments">
                                     <div class="form__comments-comment">
                                         <img class="form__comment-image" src="<?= IMAGES_URL . "/uploads/avatar/" .  (empty($comment['avatar']) ? "default_avatar.png" : $comment['avatar']) ?>" alt="">
-                                        <textarea name="comments" id="" cols="15" rows="2" placeholder="Viết bình luận..."></textarea>
+                                        <textarea style="resize:none" name="comments" id="" cols="15" rows="2" placeholder="Viết bình luận..."></textarea>
                                     </div>
 
                                     <div class="form__comments-ranking">

@@ -157,7 +157,7 @@
             addresses.forEach((address, index) => {
                 let addressInput =
                     `<div class="d-flex w-100 align-items-center">
-                    <textarea class="w-100" name="addresses[]" id="address${index}" cols="35" rows="2">${address.address}</textarea>
+                    <textarea style="resize:none" class="w-100" name="addresses[]" id="address${index}" cols="35" rows="2">${address.address}</textarea>
                     <i style="margin-left: 10px" class="cursor-pointer fas fa-minus-circle" onclick="removeAddress(${address.id})"></i>
                 </div>`
                 $("#addressWrapper").append(addressInput)

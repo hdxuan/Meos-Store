@@ -29,7 +29,8 @@ class HomeController extends Controller
         $data['countComment'] = $this->commentModel->countComment();
         $data['countDiscounts'] = $this->discountModel->countDiscounts();
         $data['countStaff'] = $this->userModel->countStaff();
-        // die(var_dump($data['numOrder']));
+
+        // die(print_r($data['numOrder'][0]));
         $this->view("/admin/home/index", $data);
     }
 }

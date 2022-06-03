@@ -11,6 +11,7 @@ class HomeController extends Controller
     {
         $this->productModel = $this->model('ProductModel');
         $this->productTypeModel = $this->model('ProductTypeModel');
+        $this->commentModel = $this->model('CommentModel');
     }
 
     function Index()
@@ -21,15 +22,20 @@ class HomeController extends Controller
         }
 
         $data['products'] = $products;
-        $data['bestSellers'][] = $products[0]; // mảng chạy từ 0
-        $data['bestSellers'][] = $products[4];
-        $data['bestSellers'][] = $products[80];
-        $data['bestSellers'][] = $products[64];
-        $data['bestSellers'][] = $products[33];
-        $data['bestSellers'][] = $products[43];
+        // $data['bestSellers'][] = $products[0]; // mảng chạy từ 0
+        // $data['bestSellers'][] = $products[4];
+        // $data['bestSellers'][] = $products[80];
+        // $data['bestSellers'][] = $products[64];
+        // $data['bestSellers'][] = $products[33];
+        // $data['bestSellers'][] = $products[43];
 
         $data['categories'] = $this->productTypeModel->all();
         $data['categoriesDog'] = $this->productTypeModel->allDog();
+        $data['bestSellers'] = $this->commentModel->bestSellers();
+        // echo "<pre>";
+        // print_r($data['bestSellers']);
+        // echo "<pre>";
+        // die();
 
         // paging
         $definePage = 9;

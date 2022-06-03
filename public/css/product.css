@@ -100,6 +100,7 @@
 .menu__products__items {
     font-size: 1.8rem;
     border: 1.1px solid #cc2b46;
+    border-radius: 0 0 26px 26px;
 
 }
 

@@ -18,6 +18,26 @@ class CommentModel extends Database
             return false;
         }
     }
+
+    function bestSellers()
+    {
+        $sql = 'SELECT DISTINCT p.id, name, price, image, rank
+        FROM comments c JOIN products p on c.id_product = p.id
+        GROUP BY p.id';
+        $result = $this->db->query($sql);
+
+        if ($result->num_rows > 0) {
+            return $result->fetch_all(MYSQLI_ASSOC);
+        } else {
+            return false;
+        }
+    }
+
+
+
+
+
+
     // thong ke
     function countComment()
     {
